@@ -1,0 +1,56 @@
+{
+  "items": [
+    {
+      "title": "Inschrijven",
+      "url": "/aanmelden"
+    },
+    {
+      "title": "Vacatures",
+      "url": "/vacatures"
+    },
+    {
+      "title": "Statuten",
+      "url": "/statuten"
+    },
+    {
+      "title": "Over Indicium",
+      "url": "/over-indicium"
+    },
+    {
+      "title": "Activiteiten",
+      "url": "/activiteiten"
+    },
+    {
+      "title": "Sponsoren en partners",
+      "url": "/partners"
+    },
+    {
+      "title": "Privacyreglement",
+      "url": "/privacyreglement"
+    }
+  ],
+  "contactItems": {
+    "address": "Heidelberglaan 15",
+    "postcode": "3584 CS Utrecht",
+    "lokaal": "HL15-4.092",
+    "email": "bestuur@indicium.hu"
+  },
+  "socialMediaItems": [
+    {
+      "title": "Facebook",
+      "url": "https://www.facebook.com/SVIndicium"
+    },
+    {
+      "title": "Instagram",
+      "url": "https://instagram.com/svindicium"
+    },
+    {
+      "title": "Github",
+      "url": "https://github.com/svIndicium"
+    },
+    {
+      "title": "LinkedIn",
+      "url": "https://www.linkedin.com/company/s.v.indicium"
+    }
+  ]
+}
