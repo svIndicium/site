@@ -1,14 +1,45 @@
+Welcome to VUE, you'll love it here.
 
+Vue is easy and forgiving (unlike your exams),
+Take a look at the [Vue documentation](https://vuejs.org/guide/introduction.html) it's actually good. (You'll most likely look at the composition api variant, but don't worry. Everything will work together if you need to use options!)
 
+# Install Guide
 
+Download and install [Node.js](https://nodejs.org/en/) LTS version is fine.
+You do not need chocolaty to work on this project.
+After install restart your pc
+
+## Install the vue extention:
+
+This will help you a lot.
+[Devtools for Chrome](https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
+[Devtools for Firefox](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
+
+## Install and run with VS Code
+
+Download [VS Code](https://code.visualstudio.com/download) (if you haven't already)
+
+### VS Code plugins
+
+-   EditorConfig (EditorConfig)
+-   ESlint (Dirk Baeumer)
+-   Volar (Vue)
+-   Task runner (Sana Ajani) (optional, but very good)
+
+### Run file
+
+1st run: Run the install task from the Task Runner
+
+![image](https://user-images.githubusercontent.com/22635990/109289352-60059100-7826-11eb-88ff-d38828a57a57.png)
+
+Or use `Ctrl+Shift+P` to open tasks and select npm install
+
+To run the program, Run the task dev.
+At first run you can select no on the data collection prompt in the terminal.
 
 # Vue 3 + TypeScript + Vite
 
 This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
-
-## Recommended IDE Setup
-
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar)
 
 ## Type Support For `.vue` Imports in TS
 
