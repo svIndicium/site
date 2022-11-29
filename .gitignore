@@ -23,3 +23,6 @@ dist-ssr
 *.sln
 *.sw?
 tsconfig.node.tsbuildinfo
+
+# Firebase
+.firebase/
