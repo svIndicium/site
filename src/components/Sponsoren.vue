@@ -4,9 +4,7 @@
 			Sponsoren
 		</h5>
 		<!-- <n-link to="/partners"> -->
-		<SlickSlider
-			:options="slickOptions"
-		>
+		<SlickSlider :options="slickOptions">
 			<img v-for="(s, idx) in sponsoren" :key="idx" :src="s.path" alt="sponsor logo title" />
 		</SlickSlider>
 		<!-- </n-link> -->
@@ -45,7 +43,7 @@ export default {
 	created() {
 		content.partners.forEach(partner => {
 			if (partner.show) {
-				this.sponsoren.push({path: partner.logo})
+				this.sponsoren.push({ path: partner.logo })
 			}
 		})
 	}
@@ -53,62 +51,63 @@ export default {
 </script>
 
 <style lang="scss">
-	@import '../assets/scss/variables.scss';
+@import '../assets/scss/variables.scss';
 
-	.sponsoren {
-		background: var(--secondary-background-color);
-		box-shadow: inset 0 -1px 0 0 var(--root-background-color), inset 0 1px 0 0 var(--root-background-color);
-		padding: 8px 0 32px;
-		overflow: hidden;
+.sponsoren {
+	background: var(--secondary-background-color);
+	box-shadow: inset 0 -1px 0 0 var(--root-background-color), inset 0 1px 0 0 var(--root-background-color);
+	padding: 8px 0 32px;
+	overflow: hidden;
 
-		@media screen and (max-width: $bp-tablet-sm) {
-			padding: 8px 0 12px;
+	@media screen and (max-width: var(--bp-tablet-sm)) {
+		padding: 8px 0 12px;
+	}
+
+	h5 {
+		margin-bottom: 16px;
+	}
+
+	.slick-slider {
+		// width: 90%;
+		margin: 0 auto;
+		box-sizing: border-box;
+		position: relative;
+
+		@media screen and (max-width: var(--bp-tablet-sm)) {
+			width: 100%;
 		}
 
-		h5 {
-			margin-bottom: 16px;
+		.slick-arrow {
+			display: none;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			color: var(--text-color);
+
+			&.slick-next {
+				left: auto;
+				right: 0
+			}
+
 		}
 
-		.slick-slider {
-			// width: 90%;
-			margin: 0 auto;
-			box-sizing: border-box;
-			position: relative;
-
-			@media screen and (max-width: $bp-tablet-sm) {
-				width: 100%;
-			}
-
-			.slick-arrow {
-				display: none;
-				position: absolute;
-				bottom: 0;
-				left: 0;
-				color: var(--text-color);
-
-				&.slick-next {
-					left: auto;
-					right: 0
-				}
-
-			}
-
-			.slick-track {
-				display: flex;
-				align-items: center;
+		.slick-track {
+			display: flex;
+			align-items: center;
 
 
-				.slick-slide {
-					width: 250px;
-					padding: 0 32px;
-					display: inline-flex;
-					justify-content: center;
-					img {
-						height: auto;
-						width: 128px;
-					}
+			.slick-slide {
+				width: 250px;
+				padding: 0 32px;
+				display: inline-flex;
+				justify-content: center;
+
+				img {
+					height: auto;
+					width: 128px;
 				}
 			}
 		}
 	}
+}
 </style>

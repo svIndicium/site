@@ -67,7 +67,7 @@ export default class AnimatedLine extends Vue {
 	z-index: -1;
 
 	&.not-on-mobile {
-		@media screen and (max-width: $bp-tablet-sm) {
+		@media screen and (max-width: var(--bp-tablet-sm)) {
 			display: none;
 		}
 	}
@@ -75,7 +75,7 @@ export default class AnimatedLine extends Vue {
 	&.not-on-desktop {
 		display: block;
 
-		@media screen and (min-width: $bp-tablet-sm) {
+		@media screen and (min-width: var(--bp-tablet-sm)) {
 			display: none;
 		}
 	}

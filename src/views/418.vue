@@ -4,22 +4,25 @@
 
 // this reference line is needed for TS and svg loader. Copy and past where needed
 /// <reference types="vite-svg-loader" />
+import theeSVG from "@/assets/icons/indicium_418.svg?component"
 
-import HelloWorld from '@/components/HelloWorld.vue'
-
-import constuctionsSVG from "@/assets/icons/underconstruction.svg?component"
 </script>
 
 <template>
-    <constuctionsSVG />
-    <h1>Sorry this page isn't ready yet</h1>
-    <h2>Impatient? join devcom!</h2>
+    <theeSVG class="icon"></theeSVG>
+    <h1>Rustig aan, neem wat thee</h1>
+    <h2>418 - ODZ: "Het is altijd thee tijd"</h2>
+    <p>Als je denkt dat dit niet klopt. Ben je meer dan welkom om ons te helpen bij de DEVCOM!</p>
 </template>
 
 <style scoped lang="scss">
 svg {
     width: 300px;
     height: 300px;
+}
+
+.icon {
+    font-size: 150px;
 }
 
 .logo {

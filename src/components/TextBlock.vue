@@ -125,7 +125,7 @@ export default {
 .text-block {
   margin: 0 auto 48px;
 
-  @media screen and (max-width: $bp-tablet-sm) {
+  @media screen and (max-width: var(--bp-tablet-sm)) {
     margin: 0 auto 48px;
   }
 
@@ -135,7 +135,8 @@ export default {
 
   &.text-center {
     text-align: center;
-    @media screen and (max-width: $bp-tablet-sm) {
+
+    @media screen and (max-width: var(--bp-tablet-sm)) {
       margin: 0;
       text-align: left;
     }
@@ -146,9 +147,10 @@ export default {
   }
 
   &.card {
-    @media screen and (max-width: $bp-tablet-sm) {
+    @media screen and (max-width: var(--bp-tablet-sm)) {
       padding: 24px;
     }
+
     padding: 48px;
     box-shadow: 0 0 20px 0 rgba(124, 124, 124, 0.1);
     transition: box-shadow 300ms;

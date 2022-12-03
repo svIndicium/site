@@ -1,31 +1,50 @@
 <script setup lang="ts">
+import Nav from "@/layouts/Nav.vue"
+import NavMobile from "@/layouts/NavMobile.vue"
+import Footer from "@/layouts/Footer.vue"
 
+import { stateStore } from "@/stores/state";
+
+const state = stateStore();
+
+state.refreshTheme()
 </script>
 
 <template>
-  <div class="header">
-    <h1> (</h1>
-    <h2>//</h2>
-    <h1> O W O </h1>
-    <h2>//</h2>
-    <h1>)</h1>
+  <!-- <Nav /> -->
+  <NavMobile />
+  <div class="page-content">
+    <router-view></router-view>
   </div>
-  <router-view></router-view>
+  <Footer />
 </template>
 
-<style scoped lang="scss">
-.header {
-  display: flex;
-  justify-content: center;
+<style lang="scss">
+body {
+  margin: 0;
 
-  h1 {
-    font-size: 50px;
+  &::-webkit-scrollbar {
+    width: 1em;
+    background-color: gray;
   }
 
-  h2 {
-    margin: 50px 20px 0 20px;
-    font-size: 50px;
-    color: pink;
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--indi-blue-green-2);
+    outline: 0px solid slategrey;
   }
+}
+
+#app {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  font-family: var(--font-family);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.page-content {
+
+  width: 100vw;
 }
 </style>

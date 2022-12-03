@@ -1,103 +1,77 @@
+<script setup lang="ts">
+/// <reference types="vite-svg-loader" />
+import { ref } from 'vue'
+import { stateStore } from "@/stores/state";
+import content from '@/content/menu.json'
+import logo from '@/assets/logo/indicium-logo-left.svg?component'
+import logoDark from '@/assets/logo/indicium-logo-left-dark.svg?component'
+
+const state = stateStore();
+const items = content.items
+</script>
+
+
 <template>
   <nav :class="'nav'">
-    <div class="container flex" @click="$eventBus.$emit('nav-toggle', false)">
-      <div v-show="!isHome" class="logo">
-        <n-link to="/">
-          <img :src="logoUrl" alt="Indicium Logo" />
-        </n-link>
-      </div>
-
-      <div v-show="isHome" class="logo">
-        <img :src="logoUrl" alt="Indicium Logo" />
+    <div class="container flex">
+      <div class="logo">
+        <!-- <logo v-if="!state.darkModeActive" alt="Indicium Logo" />
+        <logoDark v-if="state.darkModeActive" alt="Indicium Logo Dark" /> -->
+        <p class="logo-text">INDICIUM</p>
+        <p class="logo-text small">ICT STUDIEVERENIGING</p>
       </div>
 
       <ul>
-        <li v-for="item in items" :key="item.title + item.url + item.childs">
-          <a
-            v-if="item.url.startsWith('http')"
-            :href="item.url"
-            target="_blank"
-          >
+        <li v-for="item in items" :key="item.title + item.url + item.children">
+          <a v-if="item.url.startsWith('http')" :href="item.url" target="_blank">
             {{ item.title }}
           </a>
 
-          <n-link v-else :to="item.url">
+          <a v-else :href="item.url">
             {{ item.title }}
-          </n-link>
+          </a>
 
-          <span v-if="item.childs" prefetch class="drop-icon-desktop-header"
-            >▾</span
-          >
+          <span v-if="item.children" prefetch class="drop-icon-desktop-header">▾</span>
 
           <ul class="sub-menu">
-            <li
-              class="sub-menu-li"
-              v-for="child in item.childs"
-              :key="child.title + child.url + child.childs + child.childs_side"
-            >
-              <label
-                v-if="child.childs && child.childs_left"
-                title="Toggle Drop-down"
-                class="drop-icon"
-                >◂</label
-              >
+            <li class="sub-menu-li" v-for="child in item.children" :key="child.title + child.url + child.grandchildren">
+              <label v-if="(child.grandchildren && child.grandchildren.place == 'left')" title="Toggle Drop-down"
+                class="drop-icon">◂</label>
 
-              <a
-                v-if="child.url.startsWith('http')"
-                :href="child.url"
-                target="_blank"
-              >
+              <a v-if="child.url.startsWith('http')" :href="child.url" target="_blank">
                 {{ child.title }}
               </a>
 
-              <n-link v-else :to="item.url">
+              <a v-else :href="child.url">
                 {{ child.title }}
-              </n-link>
+              </a>
 
-              <label
-                v-if="child.childs && !child.childs_left"
-                title="Toggle Drop-down"
-                class="drop-icon"
-                >▸</label
-              >
+              <label v-if="(child.grandchildren && child.grandchildren.place == 'right')" title="Toggle Drop-down"
+                class="drop-icon">▸</label>
 
-              <ul v-if="!child.childs_left" class="sub-sub-menu">
-                <li
-                  class="sub-sub-menu-li"
-                  v-for="grand_child in child.childs"
-                  :key="grand_child.title + grand_child.url"
-                >
-                  <a
-                    v-if="grand_child.url.startsWith('http')"
-                    :href="grand_child.url"
-                    target="_blank"
-                  >
-                    {{ grand_child.title }}
+              <ul v-if="child.grandchildren && child.grandchildren.place == 'right'" class="sub-sub-menu">
+                <li class="sub-sub-menu-li" v-for="grandchild in child.grandchildren.items"
+                  :key="grandchild.title + grandchild.url">
+                  <a v-if="grandchild.url.startsWith('http')" :href="grandchild.url" target="_blank">
+                    {{ grandchild.title }}
                   </a>
 
-                  <n-link v-else :to="item.url">
-                    {{ grand_child.title }}
-                  </n-link>
+                  <a v-else :href="grandchild.url">
+                    {{ grandchild.title }}
+                  </a>
                 </li>
               </ul>
 
-              <ul v-if="child.childs_left" class="sub-sub-menu-left">
-                <li
-                  class="sub-sub-menu-li"
-                  v-for="grand_child in child.childs"
-                  :key="grand_child.title + grand_child.url"
-                >
-                  <a
-                    v-if="grand_child.url.startsWith('http')"
-                    :href="grand_child.url"
-                    target="_blank"
-                  >
-                    {{ grand_child.title }}
+              <ul v-if="child.grandchildren && child.grandchildren.place == 'left'" class="sub-sub-menu-left">
+                <li class="sub-sub-menu-li" v-for="grandchild in child.grandchildren.items"
+                  :key="grandchild.title + grandchild.url">
+                  <a v-if="grandchild.url.startsWith('http')" :href="grandchild.url" target="_blank">
+                    {{ grandchild.title }}
                   </a>
 
-                  <n-link v-else :to="item.url">
-                    {{ grand_child.title }}
-                  </n-link>
+                  <a v-else :href="grandchild.url">
+                    {{ grandchild.title }}
+                  </a>
                 </li>
               </ul>
             </li>
@@ -108,37 +82,7 @@
   </nav>
 </template>
 
-<script>
-/* eslint-disable */
-import menu from "../content/menu.json";
-export default {
-  name: "Nav",
-  computed: {
-    isHome() {
-      return this.$route.path === "/";
-    },
-    isMobile() {
-      return process.browser ? window.innerWidth < 700 : false;
-    },
-  },
-  mounted() {
-    this.$eventBus.$on("dark-mode", (payload) => {
-      const isDarkmode = payload;
-      this.$set(
-        this,
-        "logoUrl",
-        isDarkmode
-          ? "/logo/indicium-logo-left-dark.svg"
-          : "/logo/indicium-logo-left.svg"
-      );
-    });
-    const items = menu.items;
-  },
-  data() {
-    return menu;
-  },
-};
-</script>
+
 
 <style lang="scss" scoped>
 @import "../assets/scss/variables.scss";
@@ -154,10 +98,24 @@ export default {
   width: 100%;
 
   .logo {
-    img {
-      max-width: 204px;
-      padding-left: 10px;
-      padding-right: 10px;
+    width: 256px;
+    padding-left: 10px;
+    padding-right: 10px;
+
+    .logo-text {
+      font-family: 'constantina';
+      margin: 0px;
+      font-size: 34px;
+
+      &.small {
+        color: #878787;
+        font-size: 13px;
+      }
+    }
+
+    svg {
+      width: "100%";
+      height: "auto";
     }
   }
 
@@ -196,6 +154,7 @@ export default {
       width: 150px;
       padding-top: 15px;
       padding-bottom: 15px;
+
       a {
         top: 50%;
         display: flex;
@@ -218,6 +177,7 @@ export default {
         .sub-menu-li {
           width: 100%;
           height: auto;
+
           .a {
             text-decoration: none;
             width: 100%;
@@ -235,7 +195,8 @@ export default {
       top: 100%;
       box-shadow: inset 0 0 0 2px var(--indi-blue-green-1);
       opacity: 1;
-      visibility: hidden; /*hidden   inset 0 -2px 0 var(--indi-blue-1);*/
+      visibility: hidden;
+      /*hidden   inset 0 -2px 0 var(--indi-blue-1);*/
       z-index: 1;
       overflow: visible;
 
@@ -254,12 +215,14 @@ export default {
           .sub-sub-menu-li {
             width: 100%;
             height: auto;
+
             .a {
               text-decoration: none;
               width: 100%;
             }
           }
         }
+
         .sub-sub-menu-left {
           opacity: 1;
           visibility: visible;
@@ -268,6 +231,7 @@ export default {
           .sub-sub-menu-li {
             width: 100%;
             height: auto;
+
             .a {
               text-decoration: none;
               width: 100%;
@@ -287,7 +251,8 @@ export default {
       /* // todo put it better nex to eachther*/
       box-shadow: inset 0 0 0 2px var(--indi-green-1);
       opacity: 1;
-      visibility: hidden; /*hidden   inset 0 -2px 0 var(--indi-blue-1);*/
+      visibility: hidden;
+      /*hidden   inset 0 -2px 0 var(--indi-blue-1);*/
       z-index: 2;
 
       a {
@@ -310,7 +275,8 @@ export default {
       /* // todo put it better nex to eachther*/
       box-shadow: inset 0 0 0 2px var(--indi-green-1);
       opacity: 1;
-      visibility: hidden; /*hidden   inset 0 -2px 0 var(--indi-blue-1);*/
+      visibility: hidden;
+      /*hidden   inset 0 -2px 0 var(--indi-blue-1);*/
       z-index: 2;
 
       a {
@@ -329,7 +295,7 @@ export default {
     display: none;
   }
 
-  @media screen and (max-width: $bp-tablet-md) {
+  @media screen and (max-width: var(--bp-tablet-md)) {
     display: block;
     visibility: hidden;
   }

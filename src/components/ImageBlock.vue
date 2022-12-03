@@ -89,7 +89,8 @@ export default {
     }
   }
 
-  &.image-right, &.image-left {
+  &.image-right,
+  &.image-left {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -109,12 +110,13 @@ export default {
         max-width: 100%;
       }
     }
+
     .text {
       flex-grow: 1;
       flex-basis: calc(50% - 32px);
       padding: 0 16px;
 
-      @media screen and (max-width: $bp-tablet-sm) {
+      @media screen and (max-width: var(--bp-tablet-sm)) {
         padding: 0;
       }
     }

@@ -79,7 +79,7 @@ export default {
       margin-bottom: 24px;
     }
 
-    @media screen and (max-width: $bp-tablet-sm) {
+    @media screen and (max-width: var(--bp-tablet-sm)) {
       .logo {
         margin-bottom: 24px;
       }

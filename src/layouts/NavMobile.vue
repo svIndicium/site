@@ -1,84 +1,120 @@
+<script setup lang="ts">
+/// <reference types="vite-svg-loader" />
+import { ref } from 'vue'
+import { stateStore } from "@/stores/state";
+import content from '@/content/menu.json'
+import logo from '@/assets/logo/indicium-logo-left.svg?component'
+import logoDark from '@/assets/logo/indicium-logo-left-dark.svg?component'
+
+const currentLevel2 = ref("")
+const currentLevel3 = ref("")
+
+const state = stateStore();
+const items = content.items
+
+
+function toggleNavLevel() {
+  if (state.state.navLevel) {
+    state.state.navLevel = 0;
+  } else {
+    state.state.navLevel = 1;
+  }
+}
+
+
+function setCurrentLevel(level: 0 | 1 | 2 | 3, name?: string) {
+  if (name)
+    if (level == 2)
+      currentLevel2.value = name;
+
+  if (level == 3)
+    currentLevel3.value = name;
+  if (level < 3) {
+    currentLevel3.value = "";
+  }
+  if (level < 2) {
+    currentLevel2.value = "";
+  }
+  state.state.navLevel = level;
+}
+
+</script>
+
+
 <template>
   <nav class="mobile-nav">
     <div class="mobile-container flex">
-      <div v-show="!isHome" class="logo" @click="setNavLevel(0)">
-        <n-link to="/">
-          <img :src="logoUrl" alt="Indicium Logo" />
-        </n-link>
+      <div class="logo">
+        <!-- <logo v-if="!state.darkModeActive" alt="Indicium Logo" />
+        <logoDark v-if="state.darkModeActive" alt="Indicium Logo Dark" /> -->
+        <p class="logo-text">INDICIUM</p>
+        <p class="logo-text small">ICT STUDIEVERENIGING</p>
       </div>
 
-      <div v-show="isHome" class="logo" @click="setNavLevel(0)">
-        <img :src="logoUrl" alt="Indicium Logo" />
-      </div>
-
-      <div class="nav-toggle" v-bind:class="{ rotated: navLevel }" @click="setNavLevel(Number(!navLevel))">
+      <div class="nav-toggle" v-bind:class="{ rotated: state.state.navLevel }" @click="toggleNavLevel">
         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none" stroke-width="2"
-          stroke-linecap="square" stroke-linejoin="arcs">
-          <line v-bind:class="{ green: navLevel > 2 }" x1="7.5" y1="10" x2="22.5" y2="10"></line>
-          <line v-bind:class="{ bluegreen: navLevel > 1 }" x1="7.5" y1="15" x2="22.5" y2="15"></line>
-          <line v-bind:class="{ blue: navLevel > 0 }" x1="7.5" y1="20" x2="22.5" y2="20"></line>
+          stroke-linecap="square">
+          <line v-bind:class="{ green: state.state.navLevel > 2 }" x1="7.5" y1="10" x2="22.5" y2="10"></line>
+          <line v-bind:class="{ bluegreen: state.state.navLevel > 1 }" x1="7.5" y1="15" x2="22.5" y2="15"></line>
+          <line v-bind:class="{ blue: state.state.navLevel > 0 }" x1="7.5" y1="20" x2="22.5" y2="20"></line>
         </svg>
       </div>
     </div>
 
-    <div class="mobile-menu" v-bind:class="{ visible: navLevel }">
-      <div class="menubar blue" v-bind:class="{ visible: navLevel > 0 }" @click.self="setNavLevel(1)">
-        <div class="menu level-1" v-bind:class="{ visible: navLevel > 0 }">
+    <div class="mobile-menu" v-bind:class="{ visible: state.state.navLevel }">
+      <div class="menubar blue" v-bind:class="{ visible: state.state.navLevel > 0 }" @click.self="setCurrentLevel(1)">
+        <div class="menu level-1" v-bind:class="{ visible: state.state.navLevel > 0 }">
           <ul>
-            <li v-show="isMobile">
-              <n-link to="/" prefetch @click="setNavLevel(0)">Home</n-link>
-            </li>
-            <li v-for="item in items" :key="item.title + item.url + item.childs" @click.self="setNavLevel(0)">
-              <a v-if="item.url.startsWith('http')" :href="item.url" target="_blank" @click="setNavLevel(0)">
+            <li v-for="item in items" :key="(item.title + item.url + item.children)" @click.self="setCurrentLevel(0)">
+              <a v-if="item.url.startsWith('http')" :href="item.url" target="_blank" @click="setCurrentLevel(0)">
                 {{ item.title }}
               </a>
 
-              <n-link v-else :to="item.url" prefetch @click="setNavLevel(0)">
+              <a v-else :href="item.url" @click="setCurrentLevel(0)">
                 {{ item.title }}
-              </n-link>
+              </a>
 
-              <label v-if="item.childs" title="Toggle Drop-down" class="sub-menu-toggle"
-                @click="setCurrentLevel2(item.title)">‌‌ ‌‌ ‌‌▸‌‌ ‌‌ ‌‌‌‌ ‌‌‌
-              </label>
+              <a v-if="item.children" title="Goto submenu" class="sub-menu-toggle"
+                @click="setCurrentLevel(2, item.title)">‌‌ ‌‌ ‌‌▸‌‌ ‌‌ ‌‌‌‌ ‌‌‌
+              </a>
 
               <div class="menubar bluegreen" v-bind:class="{ visible: item.title == currentLevel2 }"
-                @click.self="setNavLevel(2)">
+                @click.self="setCurrentLevel(2)">
                 <div class="menu level-2" v-bind:class="{ visible: item.title == currentLevel2 }">
                   <ul class="sub-menu">
-                    <li class="sub-menu-li" v-for="child in item.childs" :key="
+                    <li class="sub-menu-li" v-for="child in item.children" :key="
                       child.title +
                       child.url +
-                      child.childs +
-                      child.childs_side
+                      child.grandchildren
                     ">
-                      <a v-if="child.url.startsWith('http')" :href="child.url" target="_blank" @click="setNavLevel(0)">
+                      <a v-if="child.url.startsWith('http')" :href="child.url" target="_blank"
+                        @click="setCurrentLevel(0)">
                         {{ child.title }}
                       </a>
 
-                      <n-link v-else :to="item.url" prefetch @click="setNavLevel(0)">
+                      <a v-else :href="child.url" @click="setCurrentLevel(0)">
                         {{ child.title }}
-                      </n-link>
+                      </a>
 
-                      <label v-if="child.childs" title="Toggle Drop-down" class="sub-menu-toggle"
-                        @click="setCurrentLevel3(child.title)">‌‌ ‌‌ ‌‌▸‌‌ ‌‌ ‌‌‌‌ ‌‌‌
-                      </label>
+                      <a v-if="child.grandchildren" title="Goto sub-submenu" class="sub-menu-toggle"
+                        @click="setCurrentLevel(3, child.title)">‌‌ ‌‌ ‌‌▸‌‌ ‌‌ ‌‌‌‌ ‌‌‌
+                      </a>
 
                       <div class="menubar green" v-bind:class="{ visible: child.title == currentLevel3 }"
-                        @click.self="setNavLevel(3)">
+                        @click.self="(state.state.navLevel = 3)">
                         <div class="menu level-3" v-bind:class="{
                           visible: child.title == currentLevel3,
                         }">
                           <ul class="sub-sub-menu">
-                            <li class="sub-sub-menu-li" v-for="grand_child in child.childs"
-                              :key="grand_child.title + grand_child.url">
-                              <a v-if="grand_child.url.startsWith('http')" :href="grand_child.url" target="_blank"
-                                @click="setNavLevel(0)">
-                                {{ grand_child.title }}
+                            <li class="sub-sub-menu-li" v-for="grandchild in child.grandchildren?.items"
+                              :key="grandchild.title + grandchild.url">
+                              <a v-if="grandchild.url.startsWith('http')" :href="grandchild.url" target="_blank"
+                                @click="setCurrentLevel(0)">
+                                {{ grandchild.title }}
                               </a>
-
-                              <n-link v-else :to="item.url" prefetch @click="setNavLevel(0)">
-                                {{ grand_child.title }}
-                              </n-link>
+                              <a v-else :href="grandchild.url" @click="setCurrentLevel(0)">
+                                {{ grandchild.title }}
+                              </a>
                             </li>
                           </ul>
                         </div>
@@ -91,83 +127,52 @@
           </ul>
         </div>
       </div>
-      <div class="mobile-menu-shadow" v-bind:class="{ hidden: !navLevel }" @click="setNavLevel(0)"></div>
+      <div class="mobile-menu-shadow" v-bind:class="{ hidden: !state.state.navLevel }" @click="setCurrentLevel(0)">
+      </div>
     </div>
   </nav>
 </template>
 
-<script>
-import menu from "../content/menu.json";
-export default {
-  name: "NavMobile",
-  computed: {
-    isHome() {
-      return this.$route.path === "/";
-    },
-    isMobile() {
-      return process.browser ? window.innerWidth < 700 : false;
-    },
-  },
-  methods: {
-    setNavLevel(value) {
-      if (value !== this.$navLevel) {
-        console.log("NavLevel: " + value);
-        if (value < 3) {
-          this.$currentLevel3 = "-";
-          this.$set(this, "currentLevel3", "-");
-        }
-        if (value < 2) {
-          this.$currentLevel2 = "-";
-          this.$set(this, "currentLevel2", "-");
-        }
-
-        this.$set(this, "navLevel", value);
-        this.$nNavLevel = value;
-      }
-    },
-    setCurrentLevel2(name) {
-      console.log("currentLevel2: " + name);
-      this.$set(this, "currentLevel2", name);
-      this.$currentLevel2 = name;
-      this.setNavLevel(2);
-    },
-    setCurrentLevel3(name) {
-      console.log("currentLevel3: " + name);
-      this.$set(this, "currentLevel3", name);
-      this.$currentLevel3 = name;
-      this.setNavLevel(3);
-    },
-  },
-  mounted() {
-    this.$eventBus.$on("dark-mode", (payload) => {
-      const isDarkmode = payload;
-      this.$set(
-        this,
-        "logoUrl",
-        isDarkmode
-          ? "/logo/indicium-logo-left-dark.svg"
-          : "/logo/indicium-logo-left.svg"
-      );
-    });
-    const items = menu.items;
-  },
-  data() {
-    return menu;
-  },
-};
-</script>
 
 <style lang="scss" scoped>
 @import "../assets/scss/variables.scss";
 
-$navbar-height: 16vw;
-$navbar-max-height: 68px;
-$transition-time: 0.2s;
-$linespace: 5vw;
-$shadowspace: 10vw;
+
 
 .mobile-nav {
+  --navbar-height: 16vw;
+  --navbar-max-height: 68px;
+  --transition-time: 0.2s;
+  --linespace: 5vw;
+  --shadowspace: 10vw;
   padding-top: 68px;
+
+  li {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .logo {
+    width: 256px;
+    padding-left: 10px;
+    padding-right: 10px;
+
+    .logo-text {
+      font-family: 'constantina';
+      margin: 0px;
+      font-size: 34px;
+
+      &.small {
+        color: #878787;
+        font-size: 13px;
+      }
+    }
+
+    svg {
+      width: "100%";
+      height: "auto";
+    }
+  }
 
   .mobile-container.flex {
     background-color: var(--root-background-color);
@@ -207,7 +212,7 @@ $shadowspace: 10vw;
       margin-left: auto;
       width: auto;
       height: auto;
-      transition-delay: $transition-time;
+      transition-delay: var(--transition-time);
       transition-property: transform;
 
       svg {
@@ -216,23 +221,23 @@ $shadowspace: 10vw;
         max-width: 68px;
         height: 16vw;
         max-height: 68px;
-        transition: $transition-time ease-in-out;
+        transition: var(--transition-time) ease-in-out;
 
         line {
           transition-property: stroke;
 
           &.blue {
-            transition-delay: $transition-time;
+            transition-delay: var(--transition-time);
             stroke: var(--indi-blue-1);
           }
 
           &.bluegreen {
-            transition-delay: $transition-time;
+            transition-delay: var(--transition-time);
             stroke: var(--indi-blue-green-1);
           }
 
           &.green {
-            transition-delay: $transition-time;
+            transition-delay: var(--transition-time);
             stroke: var(--indi-green-1);
           }
         }
@@ -269,15 +274,15 @@ $shadowspace: 10vw;
       top: 0;
       left: 100%;
       height: 100%;
-      width: 100vw - $shadowspace; // 100%
-      transition: $transition-time ease-in-out;
-      transition-delay: $transition-time;
+      width: 100vw - var(--shadowspace); // 100%
+      transition: var(--transition-time) ease-in-out;
+      transition-delay: var(--transition-time);
 
       &.blue {
         background-color: var(--indi-blue-1);
 
         &.visible {
-          left: ($shadowspace);
+          left: (var(--shadowspace));
           transition-delay: 0s;
         }
       }
@@ -286,7 +291,7 @@ $shadowspace: 10vw;
         background-color: var(--indi-blue-green-1);
         position: absolute;
         top: 0;
-        width: 100vw - $shadowspace - $shadowspace;
+        width: calc(calc(100vw - var(--shadowspace)) - var(--shadowspace));
 
         &.visible {
           left: 0;
@@ -313,7 +318,7 @@ $shadowspace: 10vw;
         left: 100%;
         background-color: var(--root-background-color);
         transition-delay: 0s;
-        transition: $transition-time ease-in-out;
+        transition: var(--transition-time) ease-in-out;
 
         ul {
           margin: 0;
@@ -325,7 +330,6 @@ $shadowspace: 10vw;
             }
 
             .sub-menu-toggle {
-              padding: 1em;
               padding: auto;
               float: right;
             }
@@ -333,7 +337,7 @@ $shadowspace: 10vw;
         }
 
         &.level-1 {
-          width: 100vw - $shadowspace - $linespace;
+          width: calc(calc(100vw - var(--shadowspace)) - var(--linespace));
 
           ul {
             li {
@@ -348,7 +352,7 @@ $shadowspace: 10vw;
 
         &.level-2 {
           position: absolute;
-          width: 100vw - $shadowspace - $linespace * 2;
+          width: calc(calc(100vw - var(--shadowspace)) - calc(var(--linespace) * 2));
 
           ul {
             li {
@@ -363,7 +367,8 @@ $shadowspace: 10vw;
 
         &.level-3 {
           position: absolute;
-          width: 100vw - $shadowspace - $linespace * 3;
+          width: calc(calc(100vw - var(--shadowspace)) - calc(var(--linespace) * 3));
+          ;
 
           ul {
             li {
@@ -377,11 +382,11 @@ $shadowspace: 10vw;
         }
 
         &.visible {
-          left: $linespace;
-          transition-delay: $transition-time;
+          left: var(--linespace);
+          transition-delay: var(--transition-time);
         }
 
-        @media screen and (min-width: $bp-tablet-md) {
+        @media screen and (min-width: var(--bp-tablet-md)) {
           display: block;
           visibility: hidden;
           width: 0;
@@ -398,16 +403,16 @@ $shadowspace: 10vw;
       left: 0;
       height: 100%;
       width: 100%;
-      transition: $transition-time ease-in-out;
+      transition: var(--transition-time) ease-in-out;
       opacity: 1;
 
       &.hidden {
-        transition-delay: $transition-time;
+        transition-delay: var(--transition-time);
         opacity: 0;
       }
     }
 
-    @media screen and (min-width: $bp-tablet-md) {
+    @media screen and (min-width: var(--bp-tablet-md)) {
       display: block;
       visibility: hidden;
       width: 0;
@@ -415,7 +420,7 @@ $shadowspace: 10vw;
     }
   }
 
-  @media screen and (min-width: $bp-tablet-md) {
+  @media screen and (min-width: var(--bp-tablet-md)) {
     display: block;
     visibility: hidden;
     width: 0;

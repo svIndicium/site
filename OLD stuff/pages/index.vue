@@ -65,7 +65,7 @@ export default class Index extends Vue {
 .image-block {
 	padding: 80px 0;
 
-	@media screen and (max-width: $bp-tablet-sm) {
+	@media screen and (max-width: var(--bp-tablet-sm)) {
 		padding: 12px 0;
 	}
 }

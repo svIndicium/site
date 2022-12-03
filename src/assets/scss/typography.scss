@@ -1,6 +1,7 @@
 // @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap');
 
 h1 {
+  font-family: "constantina";
   font-size: 48px;
   font-weight: 700;
   line-height: 140%;
@@ -8,26 +9,27 @@ h1 {
   color: var(--text-color);
   margin-bottom: 0;
 
-  @media screen and (max-width: $bp-tablet-md) {
+  @media screen and (max-width: var(--bp-tablet-md)) {
     font-size: 44px;
   }
 
-  @media screen and (max-width: $bp-mobile-lg) {
+  @media screen and (max-width: var(--bp-mobile-lg)) {
     font-size: 24px;
   }
 }
 
 h2 {
+  font-family: "constantina";
   font-size: 40px;
   font-weight: 500;
   line-height: 140%;
   color: var(--text-color);
 
-  @media screen and (max-width: $bp-tablet-md) {
+  @media screen and (max-width: var(--bp-tablet-md)) {
     font-size: 36px;
   }
 
-  @media screen and (max-width: $bp-mobile-lg) {
+  @media screen and (max-width: var(--bp-mobile-lg)) {
     font-size: 32px;
   }
 }
@@ -38,11 +40,11 @@ h3 {
   color: var(--text-color);
   font-weight: 500;
 
-  @media screen and (max-width: $bp-tablet-md) {
+  @media screen and (max-width: var(--bp-tablet-md)) {
     font-size: 28px;
   }
 
-  @media screen and (max-width: $bp-mobile-lg) {
+  @media screen and (max-width: var(--bp-mobile-lg)) {
     font-size: 24px;
   }
 }
@@ -65,7 +67,7 @@ h5 {
 
 p {
   font-size: 18px;
-  line-height: 140%;
+  line-height: 100%;
   color: var(--text-color);
 
   &.small {
@@ -86,13 +88,13 @@ a {
     text-decoration: none;
     font-size: 16px;
     color: var(--blue-500);
-    letter-spacing: -.2px;
+    letter-spacing: -0.2px;
     line-height: 24px;
     position: relative;
     font-weight: 500;
 
     &::after {
-      content: '';
+      content: "";
       position: absolute;
       width: 100%;
       height: 1px;
@@ -107,7 +109,6 @@ a {
     }
   }
 }
-
 
 span {
   &.extra-bold {

@@ -20,91 +20,95 @@
 </template>
 
 <script lang="ts">
-	import Component from "vue-class-component"
-	import Vue from "vue"
+import Component from "vue-class-component"
+import Vue from "vue"
 
-	import content from "../../content/content.json"
-	import Button from "~/components/interactions/button.vue"
+import content from "../../content/content.json"
+import Button from "~/components/interactions/button.vue"
 
-	@Component({
-		components: {
-			Button
-		}
-	})
-	export default class Index extends Vue {
-		partners = content.partners
-
-		getDescription(description: string) {
-			const text = description.slice(0, 140).trim()
-			if (description.length > 140) {
-				return `${text}...`
-			}
-			return text
-		}
+@Component({
+	components: {
+		Button
 	}
+})
+export default class Index extends Vue {
+	partners = content.partners
+
+	getDescription(description: string) {
+		const text = description.slice(0, 140).trim()
+		if (description.length > 140) {
+			return `${text}...`
+		}
+		return text
+	}
+}
 </script>
 
 <style lang="scss" scoped>
-	@import '../../assets/scss/variables.scss';
+@import '../../assets/scss/variables.scss';
 
-	.partner-container {
-		display: grid;
-		@media screen and (max-width: $bp-desktop-sm) {
-			grid-template-columns: 50% 50%;
+.partner-container {
+	display: grid;
+
+	@media screen and (max-width: var(--bp-desktop-sm)) {
+		grid-template-columns: 50% 50%;
+	}
+
+	@media screen and (max-width: var(--bp-tablet-sm)) {
+		grid-template-columns: 100%;
+	}
+
+	grid-template-columns: 33% 33% 33%;
+
+	.partner {
+		position: relative;
+		margin: 8px;
+		padding: 48px;
+		border-radius: 8px;
+		box-shadow: 0 0 20px 0 rgba(124, 124, 124, 0.3);
+		transition: box-shadow 300ms;
+		height: 300px;
+		max-width: 360px;
+
+		.text,
+		.logo {
+			position: absolute;
+			left: 0;
+			padding: 0 48px;
+			transition: opacity 300ms;
 		}
-		@media screen and (max-width: $bp-tablet-sm) {
-			grid-template-columns: 100%;
+
+		.logo {
+			display: block;
+			width: 100%;
+			height: calc(100% - 96px);
+
+			.logo-container {
+				display: flex;
+				height: 100%;
+				justify-content: center;
+				align-items: center;
+			}
 		}
-		grid-template-columns: 33% 33% 33%;
 
-		.partner {
-			position: relative;
-			margin: 8px;
-			padding: 48px;
-			border-radius: 8px;
-			box-shadow: 0 0 20px 0 rgba(124, 124, 124, 0.3);
-			transition: box-shadow 300ms;
-			height: 300px;
-			max-width: 360px;
+		.text {
+			opacity: 0;
 
-			.text, .logo {
-				position: absolute;
-				left: 0;
-				padding: 0 48px;
-				transition: opacity 300ms;
+			p {
+				color: var(--text-color);
+				font-size: 14px;
+			}
+		}
+
+		&:hover {
+			.text {
+				opacity: 1;
 			}
 
 			.logo {
-				display: block;
-				width: 100%;
-				height: calc(100% - 96px);
-
-				.logo-container {
-					display: flex;
-					height: 100%;
-					justify-content: center;
-					align-items: center;
-				}
-			}
-
-			.text {
 				opacity: 0;
-
-				p {
-					color: var(--text-color);
-					font-size: 14px;
-				}
-			}
-
-			&:hover {
-				.text {
-					opacity: 1;
-				}
-
-				.logo {
-					opacity: 0;
-				}
 			}
 		}
 	}
+}
 </style>

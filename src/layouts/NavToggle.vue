@@ -34,7 +34,7 @@ export default {
   top: 24px;
   right: 24px;
 
-  // @media screen and (max-width: $bp-tablet-md) {
+  // @media screen and (max-width: var(--bp-tablet-md)) {
   // display: block;
   // }
 }
