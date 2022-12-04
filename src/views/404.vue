@@ -7,6 +7,7 @@
 
 import HelloWorld from '@/components/HelloWorld.vue'
 
+import ContentContainer from '@/layouts/ContentContainer.vue';
 import constuctionsSVG from "@/assets/icons/underconstruction.svg?component"
 const excuses = ["Sorry. Het was dit of een tentamen en het is het allebei niet geworden", "Zit de wifi-kabel er goed in?", "Deze error is zo standaard, probeer eens error 418",
     "Herstart je device anders even...", "Je houdt hem verkeerd vast", "Aan deze pagina zijn we nog niet toegekomen", "(╯°□°)╯︵ ┻━┻", "(┛ಠ_ಠ)┛彡┻━┻",
@@ -18,10 +19,12 @@ const sadface = faces[Math.floor(Math.random() * faces.length)]
 </script>
 
 <template>
-    <h1 class="face">{{ sadface }}</h1>
-    <h1>Sorry, deze pagina bestaat niet</h1>
-    <h2>404 - ODZ: "{{ excuus }}"</h2>
-    <p>Als je denkt dat dit niet klopt. Ben je meer dan welkom om ons te helpen bij de DEVCOM!</p>
+    <ContentContainer>
+        <h1 class="face">{{ sadface }}</h1>
+        <h1>Sorry, deze pagina bestaat niet</h1>
+        <h2>404 - ODZ: "{{ excuus }}"</h2>
+        <p>Als je denkt dat dit niet klopt. Ben je meer dan welkom om ons te helpen bij de DEVCOM!</p>
+    </ContentContainer>
 </template>
 
 <style scoped lang="scss">

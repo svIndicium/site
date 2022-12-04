@@ -1,9 +1,12 @@
 <script setup lang="ts">
 
+import ContentContainer from '@/layouts/ContentContainer.vue';
 </script>
 
 <template>
-    <h1>About</h1>
+    <ContentContainer>
+        <h1>Agenda</h1>
+    </ContentContainer>
 </template>
 
 <style scoped>
