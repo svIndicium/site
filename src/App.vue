@@ -56,6 +56,8 @@ body {
 }
 
 #app {
+  width: 100%;
+  width: -webkit-fill-available;
   text-align: center;
   display: table;
   margin: 0;
