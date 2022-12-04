@@ -31,8 +31,7 @@ function becomeMember() {
       <NavLogo />
       <ul>
         <li v-for="item in items" :key="item.title + item.url + item.children">
-          <a v-if="(item.url == 'https://leden.conscribo.nl/svIndicium/aanmeldenlidmaatschap')" :href="item.url"
-            target="_blank" class="wordt-lid" @mouseenter="becomeMember">
+          <a v-if="(item.url == '/lid-worden')" :href="item.url" class="wordt-lid" @mouseenter="becomeMember">
             {{ item.title }}
           </a>
           <a v-else-if="item.url.startsWith('http')" :href="item.url" target="_blank">
