@@ -10,20 +10,20 @@
       "children": [
         {
           "title": "Over Indicium",
-          "url": "/over-indicium",
+          "url": "/over-indicium"
+        },
+        {
+          "title": "Commissies",
+          "url": "/commissies",
           "grandchildren": {
             "place": "right",
             "items": [
               {
                 "title": "Commissies",
-                "url": "/over-indicium"
+                "url": "/commissies"
               }
             ]
           }
-        },
-        {
-          "title": "Commissies",
-          "url": "/over-indicium"
         }
       ]
     },

@@ -3,9 +3,7 @@
 import { ref } from 'vue'
 import { stateStore } from "@/stores/state";
 import content from '@/content/menu.json'
-import logo from '@/assets/logo/indicium-logo-left.svg?component'
-import logoDark from '@/assets/logo/indicium-logo-left-dark.svg?component'
-
+import NavLogo from "@/components/NavLogo.vue"
 const currentLevel2 = ref("")
 const currentLevel3 = ref("")
 
@@ -44,12 +42,7 @@ function setCurrentLevel(level: 0 | 1 | 2 | 3, name?: string) {
 <template>
   <nav class="mobile-nav">
     <div class="mobile-container flex">
-      <div class="logo">
-        <!-- <logo v-if="!state.darkModeActive" alt="Indicium Logo" />
-        <logoDark v-if="state.darkModeActive" alt="Indicium Logo Dark" /> -->
-        <p class="logo-text">INDICIUM</p>
-        <p class="logo-text small">ICT STUDIEVERENIGING</p>
-      </div>
+      <NavLogo />
 
       <div class="nav-toggle" v-bind:class="{ rotated: state.state.navLevel }" @click="toggleNavLevel">
         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none" stroke-width="2"
@@ -149,31 +142,6 @@ function setCurrentLevel(level: 0 | 1 | 2 | 3, name?: string) {
   li {
     display: flex;
     justify-content: space-between;
-  }
-
-  .logo {
-    width: 256px;
-    padding-left: 10px;
-    padding-right: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    .logo-text {
-      font-family: 'constantina';
-      margin: 0px;
-      font-size: 34px;
-
-      &.small {
-        color: #878787;
-        font-size: 13px;
-      }
-    }
-
-    svg {
-      width: "100%";
-      height: "auto";
-    }
   }
 
   .mobile-container.flex {

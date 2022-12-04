@@ -3,8 +3,7 @@
 import { ref } from 'vue'
 import { stateStore } from "@/stores/state";
 import content from '@/content/menu.json'
-import logo from '@/assets/logo/indicium-logo-left.svg?component'
-import logoDark from '@/assets/logo/indicium-logo-left-dark.svg?component'
+import NavLogo from "@/components/NavLogo.vue"
 import { useRouter } from 'vue-router'
 import confetti from 'canvas-confetti';
 
@@ -29,13 +28,7 @@ function becomeMember() {
 <template>
   <nav :class="'nav'">
     <div class="container flex">
-      <div class="logo" @click="router.push('/')">
-        <!-- <logo v-if="!state.darkModeActive" alt="Indicium Logo" />
-        <logoDark v-if="state.darkModeActive" alt="Indicium Logo Dark" /> -->
-        <p class="logo-text">INDICIUM</p>
-        <p class="logo-text small">ICT STUDIEVERENIGING</p>
-      </div>
-
+      <NavLogo />
       <ul>
         <li v-for="item in items" :key="item.title + item.url + item.children">
           <a v-if="(item.url == 'https://leden.conscribo.nl/svIndicium/aanmeldenlidmaatschap')" :href="item.url"
@@ -115,28 +108,6 @@ function becomeMember() {
   top: 0;
   left: 0;
   width: 100%;
-
-  .logo {
-    width: 256px;
-    padding-left: 10px;
-    padding-right: 10px;
-
-    .logo-text {
-      font-family: 'constantina';
-      margin: 0px;
-      font-size: 34px;
-
-      &.small {
-        color: #878787;
-        font-size: 13px;
-      }
-    }
-
-    svg {
-      width: "100%";
-      height: "auto";
-    }
-  }
 
   .container.flex {
     position: relative;

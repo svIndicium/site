@@ -4,14 +4,15 @@
 
 // this reference line is needed for TS and svg loader. Copy and past where needed
 /// <reference types="vite-svg-loader" />
-
+import Hero from "@/components/Hero.vue"
+import TextBlock from "@/components/TextBlock.vue"
 import HelloWorld from '@/components/HelloWorld.vue'
 
 import constuctionsSVG from "@/assets/icons/underconstruction.svg?component"
 </script>
 
 <template>
-    <constuctionsSVG />
+    <Hero />
     <h1>Sorry this page isn't ready yet</h1>
     <h2>Impatient? join devcom!</h2>
 </template>
