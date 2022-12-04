@@ -145,7 +145,6 @@ function setCurrentLevel(level: 0 | 1 | 2 | 3, name?: string) {
   --transition-time: 0.2s;
   --linespace: 5vw;
   --shadowspace: 10vw;
-  padding-top: 68px;
 
   li {
     display: flex;
@@ -156,6 +155,9 @@ function setCurrentLevel(level: 0 | 1 | 2 | 3, name?: string) {
     width: 256px;
     padding-left: 10px;
     padding-right: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
     .logo-text {
       font-family: 'constantina';

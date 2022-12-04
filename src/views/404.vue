@@ -8,7 +8,7 @@
 import HelloWorld from '@/components/HelloWorld.vue'
 
 import constuctionsSVG from "@/assets/icons/underconstruction.svg?component"
-const excuses = ["Sorry. Het was dit of een tentamen en het is het allebei niet geworden", "Zit de wifi-kabel er goed in?",
+const excuses = ["Sorry. Het was dit of een tentamen en het is het allebei niet geworden", "Zit de wifi-kabel er goed in?", "Deze error is zo standaard, probeer eens error 418",
     "Herstart je device anders even...", "Je houdt hem verkeerd vast", "Aan deze pagina zijn we nog niet toegekomen", "(╯°□°)╯︵ ┻━┻", "(┛ಠ_ಠ)┛彡┻━┻",
     "Dit was niet onderdeel van mijn stage opdracht", "Het werkte op mijn PC nog wel", "Is er toevallig iemand met verstand van computers die dit kan fixen?", "Deze pagina is op vakantie, dat moet soms ook even",
 ]

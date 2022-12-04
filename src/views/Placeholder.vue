@@ -12,8 +12,8 @@ import constuctionsSVG from "@/assets/icons/underconstruction.svg?component"
 
 <template>
     <constuctionsSVG />
-    <h1>Sorry this page isn't ready yet</h1>
-    <h2>Impatient? join devcom!</h2>
+    <h1>Sorry. Deze pagina is nog effe niet af</h1>
+    <h2>Duurt lang? kom bij devcom!</h2>
 </template>
 
 <style scoped lang="scss">

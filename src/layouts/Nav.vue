@@ -5,16 +5,31 @@ import { stateStore } from "@/stores/state";
 import content from '@/content/menu.json'
 import logo from '@/assets/logo/indicium-logo-left.svg?component'
 import logoDark from '@/assets/logo/indicium-logo-left-dark.svg?component'
+import { useRouter } from 'vue-router'
+import confetti from 'canvas-confetti';
 
+const router = useRouter()
 const state = stateStore();
 const items = content.items
+
+function becomeMember() {
+  confetti({
+    angle: 200,
+    particleCount: 150,
+    spread: 110,
+    origin: { y: 0.0, x: 1 },
+    startVelocity: 100
+  });
+}
+
+
 </script>
 
 
 <template>
   <nav :class="'nav'">
     <div class="container flex">
-      <div class="logo">
+      <div class="logo" @click="router.push('/')">
         <!-- <logo v-if="!state.darkModeActive" alt="Indicium Logo" />
         <logoDark v-if="state.darkModeActive" alt="Indicium Logo Dark" /> -->
         <p class="logo-text">INDICIUM</p>
@@ -23,7 +38,11 @@ const items = content.items
 
       <ul>
         <li v-for="item in items" :key="item.title + item.url + item.children">
-          <a v-if="item.url.startsWith('http')" :href="item.url" target="_blank">
+          <a v-if="(item.url == 'https://leden.conscribo.nl/svIndicium/aanmeldenlidmaatschap')" :href="item.url"
+            target="_blank" class="wordt-lid" @mouseenter="becomeMember">
+            {{ item.title }}
+          </a>
+          <a v-else-if="item.url.startsWith('http')" :href="item.url" target="_blank">
             {{ item.title }}
           </a>
 
@@ -136,15 +155,21 @@ const items = content.items
     align-items: center;
     overflow: auto;
 
-    a:hover {
-      text-decoration: underline;
-      cursor: pointer;
+    a {
+
+
+      &:hover {
+        text-decoration: underline;
+        cursor: pointer;
+      }
+
+      &:focus-within {
+        outline: none;
+        text-decoration: underline overline;
+      }
     }
 
-    a:focus-within {
-      outline: none;
-      text-decoration: underline overline;
-    }
+
 
     li {
       display: flex;
@@ -156,13 +181,18 @@ const items = content.items
       padding-bottom: 15px;
 
       a {
-        top: 50%;
         display: flex;
         font-size: 1rem;
         font-weight: 500;
         color: var(--text-color);
         text-align: center;
         text-decoration: none;
+
+        &.wordt-lid {
+          background-color: var(--indi-blue-1);
+          padding: 8px;
+          border-radius: 8px
+        }
       }
     }
 

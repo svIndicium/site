@@ -5,7 +5,9 @@ import piniaPluginPersistedstate from "pinia-plugin-persistedstate";
 import "./style.css";
 import App from "./App.vue";
 import Home from "@/views/Home.vue";
-import About from "@/views/About.vue";
+import Activiteiten from "@/views/Activiteiten.vue";
+import OverIndicium from "@/views/OverIndicium.vue";
+import Placeholder from "@/views/Placeholder.vue";
 import fourOFour from "@/views/404.vue";
 import fourEighteen from "@/views/418.vue";
 
@@ -17,7 +19,13 @@ const router = createRouter({
   history: createWebHistory(),
   routes: [
     { name: "Home", path: "/", component: Home },
-    { name: "About", path: "/about", component: About },
+    { name: "Activiteiten", path: "/activiteiten", component: Activiteiten },
+    { name: "Over Indicium", path: "/over-indicium", component: OverIndicium },
+    { name: "Partners", path: "/partners", component: Placeholder },
+    { name: "Vacatures", path: "/vacatures", component: Placeholder },
+    { name: "Contact", path: "/contact", component: Placeholder },
+    { name: "Statuten", path: "/statuten", component: Placeholder },
+    { name: "Privacy reglement", path: "/privacy", component: Placeholder },
     { name: "I'm a tea pot", path: "/418", component: fourEighteen },
     // and finally the default route, when none of the above matches:
     { path: "/:pathMatch(.*)*", component: fourOFour },
