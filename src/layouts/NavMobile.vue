@@ -4,8 +4,8 @@ import { ref } from 'vue'
 import { stateStore } from "@/stores/state";
 import content from '@/content/menu.json'
 import NavLogo from "@/components/NavLogo.vue"
-const currentLevel2 = ref("")
-const currentLevel3 = ref("")
+const currentLevel2 = ref<string>("")
+const currentLevel3 = ref<string>("")
 
 const state = stateStore();
 const items = content.items
@@ -21,12 +21,14 @@ function toggleNavLevel() {
 
 
 function setCurrentLevel(level: 0 | 1 | 2 | 3, name?: string) {
-  if (name)
-    if (level == 2)
+  if (name) {
+    if (level == 2) {
       currentLevel2.value = name;
-
-  if (level == 3)
-    currentLevel3.value = name;
+    }
+    if (level == 3) {
+      currentLevel3.value = name;
+    }
+  }
   if (level < 3) {
     currentLevel3.value = "";
   }
@@ -300,6 +302,7 @@ function setCurrentLevel(level: 0 | 1 | 2 | 3, name?: string) {
             }
 
             .sub-menu-toggle {
+              cursor: pointer;
               padding: auto;
               float: right;
             }
