@@ -52,6 +52,12 @@ Since TypeScript cannot handle type information for `.vue` imports, they are shi
 
 You can learn more about Take Over mode [here](https://github.com/johnsoncodehk/volar/discussions/471).
 
+##pagina nodig?
+
+1. Maak een copy van `Template.vue` in views en noem hem iets met een hoofdletter zoals de rest.
+2. Ga naar `main.ts` en voeg een regel toe zoals de rest voor de router.
+3. profit?
+
 ## You need to know this.
 
 Const x = ref()
