@@ -65,8 +65,5 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.page-content {
-  margin-top: 100px;
-  width: 100vw;
-}
+.page-content {}
 </style>

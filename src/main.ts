@@ -7,6 +7,8 @@ import App from "./App.vue";
 import Home from "@/views/Home.vue";
 import Activiteiten from "@/views/Activiteiten.vue";
 import OverIndicium from "@/views/OverIndicium.vue";
+import Bestuur from "@/views/Bestuur.vue";
+import Contact from "@/views/Contact.vue";
 import Placeholder from "@/views/Placeholder.vue";
 import fourOFour from "@/views/404.vue";
 import fourEighteen from "@/views/418.vue";
@@ -21,9 +23,10 @@ const router = createRouter({
     { name: "Home", path: "/", component: Home },
     { name: "Activiteiten", path: "/activiteiten", component: Activiteiten },
     { name: "Over Indicium", path: "/over-indicium", component: OverIndicium },
+    { name: "Bestuur", path: "/bestuur", component: Bestuur },
     { name: "Partners", path: "/partners", component: Placeholder },
     { name: "Vacatures", path: "/vacatures", component: Placeholder },
-    { name: "Contact", path: "/contact", component: Placeholder },
+    { name: "Contact", path: "/contact", component: Contact },
     { name: "Statuten", path: "/statuten", component: Placeholder },
     { name: "Privacy reglement", path: "/privacy", component: Placeholder },
     { name: "I'm a tea pot", path: "/418", component: fourEighteen },

@@ -67,7 +67,6 @@ function changeTheme(theme: string) {
 
 <style lang="scss" scoped>
 footer {
-  width: inherit;
   background: var(--indi-green-3);
   padding: 30px 0;
   color: var(--text-color);

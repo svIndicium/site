@@ -9,7 +9,7 @@ const router = useRouter()
 </script>
 
 <template>
-    <div class="logo-container" @click="router.push('/')">
+    <div class="logo-container">
         <logo class="logo-icon" />
         <div class="logo">
             <p class="logo-text">INDICIUM</p>
@@ -20,26 +20,26 @@ const router = useRouter()
 
 <style scoped lang="scss">
 .logo-container {
-    cursor: pointer;
     display: flex;
     align-items: center;
     width: 256px;
     padding-left: 10px;
     padding-right: 10px;
+    flex-direction: column;
 
     .logo-icon {
-        height: 48px;
+        height: 111px;
         margin-right: 5px;
     }
 
     .logo-text {
         font-family: 'constantina';
         margin: 0px;
-        font-size: 34px;
+        font-size: 89px;
 
         &.small {
             color: #878787;
-            font-size: 13px;
+            font-size: 34px;
         }
     }
 

@@ -1,3 +1,8 @@
+<script setup lang="ts">
+
+</script>
+
+
 <template>
 	<div class="map">
 		<iframe
@@ -6,15 +11,6 @@
 	</div>
 </template>
 
-<script lang="ts">
-import Vue from "vue"
-import Component from "vue-class-component"
-
-@Component
-export default class Map extends Vue {
-
-}
-</script>
 
 <style lang="scss" scoped>
 @import '../assets/scss/variables.scss';

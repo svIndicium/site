@@ -24,6 +24,18 @@
               }
             ]
           }
+        },
+        {
+          "title": "Dispuut",
+          "url": "/Dispuut"
+        },
+        {
+          "title": "Huidig bestuur",
+          "url": "/bestuur"
+        },
+        {
+          "title": "Oud Besturen",
+          "url": "/oud-besturen"
         }
       ]
     },
@@ -37,8 +49,7 @@
     },
     {
       "title": "Contact",
-      "url": "/contact",
-      "children": [{ "title": "Contact", "url": "/contact" }]
+      "url": "/contact"
     },
     {
       "title": "Lid worden",

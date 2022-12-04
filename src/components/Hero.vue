@@ -1,7 +1,7 @@
 
 <script setup lang="ts">
 /// <reference types="vite-svg-loader" />
-import logo from '@/assets/logo/indicium-logo-icon.svg?component'
+import logo from '@/components/LogoElement.vue'
 import HeroBackground from './HeroBackground.vue';
 
 
@@ -22,10 +22,10 @@ import HeroBackground from './HeroBackground.vue';
           Hogeschool Utrecht
         </h1>
 
-        <div class="buttons fadeInUp">
+        <!-- <div class="buttons fadeInUp">
           <a size="l" url="https://leden.conscribo.nl/svIndicium/aanmeldenlidmaatschap">Word lid</a>
           <a url="/activiteiten">Bekijk agenda</a>
-        </div>
+        </div> -->
       </div>
     </HeroBackground>
   </div>
@@ -34,7 +34,7 @@ import HeroBackground from './HeroBackground.vue';
 
 <style lang="scss" scoped>
 .hero {
-  top: -30px;
+  top: 20px;
   display: flex;
   justify-content: center;
   position: relative;

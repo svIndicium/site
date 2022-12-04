@@ -31,15 +31,15 @@ height: 800px;
 
         .HeroCircuit {
             path {
-                stroke: #161616;
+                stroke: #333;
             }
 
             rect {
-                stroke: #161616;
+                stroke: #333;
             }
 
             circle {
-                stroke: #161616;
+                stroke: #333;
             }
         }
     }
