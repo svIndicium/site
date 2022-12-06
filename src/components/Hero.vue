@@ -42,7 +42,7 @@ import HeroBackground from './HeroBackground.vue';
   overflow: hidden;
 
   .background-view {
-    width: inherit;
+    width: 100vw;
   }
 }
 
