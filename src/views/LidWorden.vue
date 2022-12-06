@@ -5,6 +5,9 @@
 // this reference line is needed for TS and svg loader. Copy and past where needed
 /// <reference types="vite-svg-loader" />
 import ContentContainer from '@/layouts/ContentContainer.vue';
+
+
+
 </script>
 
 <template>
@@ -19,5 +22,6 @@ iframe {
     border: 0px;
     width: 100%;
     height: 1000px;
+    background-color: var(--signup-background);
 }
 </style>
