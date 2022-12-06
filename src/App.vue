@@ -20,6 +20,15 @@ state.refreshTheme()
 </template>
 
 <style lang="scss">
+@font-face {
+  font-family: "Indicium-font";
+  font-weight: 400;
+  font-style: normal;
+  font-display: auto;
+  unicode-range: U+000-5FF;
+  src: local("Constantia"), url("/fonts/constan.woff2") format("woff2");
+}
+
 body {
   margin: 0;
 
@@ -56,6 +65,8 @@ body {
 }
 
 #app {
+
+
   width: 100%;
   width: -webkit-fill-available;
   text-align: center;
