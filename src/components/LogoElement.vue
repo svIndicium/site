@@ -33,7 +33,7 @@ const router = useRouter()
     }
 
     .logo-text {
-        font-family: 'constantina';
+        font-family: var(--indicium-font);
         margin: 0px;
         font-size: 89px;
 
