@@ -1,25 +1,21 @@
 <script setup lang="ts">
+
 /// <reference types="vite-svg-loader" />
 
 // https://codepen.io/jenniesyip/pen/GWqJyR
 import HeroCircuit from "@/assets/icons/hero.svg?component"
 
 
-var backgroundStyle = `
-scale: 2.5;
-position: absolute;
-top: 0%;
-left: 0%;
-width: 100vw;
-height: 800px;
-` + " transform: translate(" + (-10 + Math.floor(Math.random() * 20)) + "%, " + (-10 + Math.floor(Math.random() * 20)) + "%) rotate(" + (Math.floor(Math.random() * 8) * 45) + "deg);"
+var backgroundStyle = " transform: translate(" + (-10 + Math.floor(Math.random() * 20)) + "%, " + (-10 + Math.floor(Math.random() * 20)) + "%) rotate(" + (Math.floor(Math.random() * 8) * 45) + "deg);"
 
 
 </script>
 
 <template>
     <div class="background-view">
-        <HeroCircuit class="HeroCircuit" :style="backgroundStyle" />
+        <HeroCircuit class="HeroCircuit"
+            style="scale: 2.5;overflow: hidden;position:absolute;top: 0%;left:0%;width: 100%;height: 800px;"
+            :style="backgroundStyle" />
         <slot class="overlay"></slot>
     </div>
 </template>
@@ -49,6 +45,7 @@ height: 800px;
     background-color: var(--secondary-background-color);
 
     .HeroCircuit {
+
         .path {
             animation: draw 40s infinite;
             animation-timing-function: linear;

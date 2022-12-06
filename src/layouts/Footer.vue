@@ -83,12 +83,14 @@ footer {
     padding: 0 24px;
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
 
     @media screen and (max-width: var(--bp-tablet-sm)) {
       display: block;
     }
 
     .footer-menu {
+
       &.pages {
         columns: 2;
       }

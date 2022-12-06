@@ -11,7 +11,7 @@ const router = useRouter()
 <template>
     <div class="logo-container">
         <logo class="logo-icon" />
-        <div class="logo">
+        <div class="logo-texts">
             <p class="logo-text">INDICIUM</p>
             <p class="logo-text small">ICT STUDIEVERENIGING</p>
         </div>
@@ -46,6 +46,24 @@ const router = useRouter()
     svg {
         width: "100%";
         height: "auto";
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .logo-container {
+        .logo-icon {
+            height: 70px;
+            margin-right: 5px;
+        }
+
+        .logo-text {
+            font-family: var(--indicium-font);
+            font-size: 55px;
+
+            &.small {
+                font-size: 21px;
+            }
+        }
     }
 }
 </style>

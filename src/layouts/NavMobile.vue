@@ -299,18 +299,22 @@ function setCurrentLevel(level: 0 | 1 | 2 | 3, name?: string) {
             a {
               display: inline-block;
               padding: 1em;
+              width: 100%;
+              text-align: left;
             }
 
             .sub-menu-toggle {
               cursor: pointer;
               padding: auto;
               float: right;
+              width: 15vw;
+              margin-right: 1em;
             }
           }
         }
 
         &.level-1 {
-          width: calc(calc(100vw - var(--shadowspace)) - var(--linespace));
+          width: calc(100vw - calc(var(--linespace) * 2));
 
           ul {
             li {

@@ -65,10 +65,7 @@ body {
 }
 
 #app {
-
-
-  width: 100%;
-  width: -webkit-fill-available;
+  width: 100vw;
   text-align: center;
   display: table;
   margin: 0;

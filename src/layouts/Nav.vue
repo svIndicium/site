@@ -106,7 +106,7 @@ function becomeMember() {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
+  width: inherit;
 
   .container.flex {
     position: relative;

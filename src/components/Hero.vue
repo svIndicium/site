@@ -38,31 +38,53 @@ import HeroBackground from './HeroBackground.vue';
   display: flex;
   justify-content: center;
   position: relative;
-  width: 100%;
+  width: inherit;
   overflow: hidden;
 
   .background-view {
     width: inherit;
   }
+}
 
-  &-content {
+.hero-content {
+  z-index: 10;
+  position: relative;
+  padding: 200px 0 100px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h1 {
+    max-width: 832px;
+    margin-bottom: 24px;
+  }
+
+  .buttons {
+    display: flex;
+    align-items: center;
+    justify-self: center;
+
+    .btn {
+      margin-right: 32px;
+    }
+  }
+}
+
+
+// --bp-desktop-sm: 1120px;
+@media only screen and (max-width: 1120px) {
+  .hero {
+    top: 30px;
+  }
+
+  .hero-content {
     z-index: 10;
     position: relative;
-    padding: 128px 0 192px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 
     h1 {
-      max-width: 832px;
-      margin-bottom: 24px;
-    }
-
-    @media screen and (max-width: var(--bp-tablet-sm)) {
-      .logo {
-        margin-bottom: 24px;
-      }
+      font-size: 2em;
+      margin: 30px;
     }
 
     .buttons {
