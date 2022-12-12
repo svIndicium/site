@@ -67,15 +67,11 @@ function changeTheme(theme: string) {
 
 <style lang="scss" scoped>
 footer {
-  background: var(--indi-green-3);
+  background: var(--indi-blue-3);
   padding: 30px 0;
   color: var(--text-color);
   margin-top: 16px;
-  border-top: 2px solid var(--indi-green-1);
-
-  @media screen and (max-width: var(--bp-tablet-sm)) {
-    padding: 12px;
-  }
+  border-top: 2px solid var(--indi-blue-1);
 
   .container {
     max-width: 1084px;
@@ -83,11 +79,7 @@ footer {
     padding: 0 24px;
     display: flex;
     justify-content: space-between;
-    flex-direction: column;
-
-    @media screen and (max-width: var(--bp-tablet-sm)) {
-      display: block;
-    }
+    flex-direction: row;
 
     .footer-menu {
 
@@ -98,6 +90,16 @@ footer {
       li {
         line-height: 1.6;
       }
+    }
+  }
+}
+
+@media screen and (max-width: 1120px) {
+  footer {
+    padding: 12px;
+
+    .container {
+      flex-direction: column;
     }
   }
 }

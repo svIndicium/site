@@ -33,12 +33,12 @@ body {
   margin: 0;
 
   &::-webkit-scrollbar {
-    width: 1em;
-    background-color: gray;
+    width: 0.6em;
+    background-color: var(--indi-blue-3);
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: var(--indi-blue-green-2);
+    background-color: var(--indi-blue-2);
     outline: 0px solid slategrey;
   }
 
@@ -54,6 +54,10 @@ body {
 // --bp-desktop-sm: 1120px;
 @media only screen and (max-width: 1120px) {
   body {
+    &::-webkit-scrollbar {
+      width: 1em;
+    }
+
     .nav {
       display: none !important;
     }
