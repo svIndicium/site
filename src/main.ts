@@ -12,6 +12,7 @@ import Commissies from "@/views/Commissies.vue";
 import LidWorden from "@/views/LidWorden.vue";
 import Contact from "@/views/Contact.vue";
 import Placeholder from "@/views/Placeholder.vue";
+import Statuten from "@/views/Statuten.vue";
 import FourOFour from "@/views/404.vue";
 import FourEighteen from "@/views/418.vue";
 
@@ -32,7 +33,7 @@ const router = createRouter({
     { name: "Partners", path: "/partners", component: Placeholder },
     { name: "Vacatures", path: "/vacatures", component: Placeholder },
     { name: "Contact", path: "/contact", component: Contact },
-    { name: "Statuten", path: "/statuten", component: Placeholder },
+    { name: "Statuten", path: "/statuten", component: Statuten },
     { name: "Privacy reglement", path: "/privacy", component: Placeholder },
     { name: "I'm a tea pot", path: "/418", component: FourEighteen },
     // and finally the default route, when none of the above matches:
