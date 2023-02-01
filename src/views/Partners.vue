@@ -38,7 +38,7 @@ function expandJobOffer(event: MouseEvent) {
       <div class="details">
         <h3>{{ partner.title }}</h3>
         <p class="description">{{ partner.description }}</p>
-        <a class="readMore" :href="'/parters/' + partner.slug">Meer weten?</a>
+        <a class="readMore" :href="'/partners/' + partner.slug">Meer weten?</a>
       </div>
     </div>
   </ContentContainer>
