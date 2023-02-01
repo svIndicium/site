@@ -10,6 +10,7 @@ import OverIndicium from "@/views/OverIndicium.vue";
 import Bestuur from "@/views/Bestuur.vue";
 import Commissies from "@/views/Commissies.vue";
 import Partners from "@/views/Partners.vue";
+import Partner from "@/views/Partner.vue";
 import LidWorden from "@/views/LidWorden.vue";
 import Contact from "@/views/Contact.vue";
 import Placeholder from "@/views/Placeholder.vue";
@@ -32,6 +33,7 @@ const router = createRouter({
     { name: "Oud Bestuur", path: "/oud-besturen", component: Placeholder },
     { name: "Commissies", path: "/commissies", component: Placeholder },
     { name: "Partners", path: "/partners", component: Partners },
+    { name: "Partner", path: "/partners/:partner", component: Partner },
     { name: "Vacatures", path: "/vacatures", component: Placeholder },
     { name: "Contact", path: "/contact", component: Contact },
     { name: "Statuten", path: "/statuten", component: Statuten },

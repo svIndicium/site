@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import ContentContainer from '@/layouts/ContentContainer.vue';
-import { mainPartner, otherPartners } from '@/content/partners.json';
+import FourOFour from '@/views/404.vue';
+import { otherPartners as partners } from '@/content/partners.json';
+
+const partnerSlug = location.pathname.split('/').pop();
+const partner = partners.find(partner => partner.slug === partnerSlug);
 
 function expandJobOffer(event: MouseEvent) {
   const target = event.target as HTMLElement;
@@ -9,22 +13,20 @@ function expandJobOffer(event: MouseEvent) {
 </script>
 
 <template>
-  <ContentContainer>
-    <h1>Partners</h1>
-    <p>Introductie over partners ofs, idk</p>
-    <div id="main-partner" class="container">
+  <ContentContainer v-if="partner !== undefined">
+    <h1>{{ partner.title }}</h1>
+    <div id="partner" class="container">
       <div class="details">
-        <img class="partner-logo" :src="'/assets/partners/' + mainPartner.imgUrl" :alt="'Logo' + mainPartner.title">
+        <img class="partner-logo" :src="'/assets/partners/' + partner.imgUrl" :alt="'Logo' + partner.title">
         <div class="description">
-          <h3>Hoofdpartner: {{ mainPartner.title }}</h3>
-          <p v-for="paragraph in mainPartner.description.split('\n')">{{ paragraph }}</p>
+          <p v-for="paragraph in partner.description.split('\n')">{{ paragraph }}</p>
         </div>
       </div>
       <div class="job-offers-container">
-        <h4>Vacatures bij {{ mainPartner.title }}</h4>
-        <div class="job-offers">
-          <div class="job-offer" v-for="jobOffer in mainPartner.jobOffers">
-            <span class="job-offer-title" @click="expandJobOffer">{{ jobOffer.title }}</span>
+        <h2>Vacatures bij {{ partner.title }}</h2>
+        <div class="job-offers container">
+          <div class="job-offer" v-for="jobOffer in partner.jobOffers">
+            <h3 class="job-offer-title" @click="expandJobOffer">{{ jobOffer.title }}</h3>
             <div class="job-offer-description">
               <p>{{ jobOffer.description }}</p>
             </div>
@@ -32,21 +34,15 @@ function expandJobOffer(event: MouseEvent) {
         </div>
       </div>
     </div>
-    <h1>Premium partners</h1>
-    <div class="partner container" v-for="partner in otherPartners">
-      <img class="partner-logo" :src="'/assets/partners/' + partner.imgUrl" :alt="'Logo' + partner.title">
-      <div class="details">
-        <h3>{{ partner.title }}</h3>
-        <p class="description">{{ partner.description }}</p>
-        <a class="readMore" :href="'/parters/' + partner.slug">Meer weten?</a>
-      </div>
-    </div>
   </ContentContainer>
+  <FourOFour v-else />
 </template>
 
 <style scoped lang="scss">
-#main-partner {
-  margin: 100px auto 150px auto;
+@import "@/assets/scss/variables.scss";
+
+#partner {
+  margin: 100px auto 50px auto;
 
   .details {
     display: grid;
@@ -68,9 +64,8 @@ function expandJobOffer(event: MouseEvent) {
   }
 
   .job-offers-container {
-    margin-top: 3em;
-
     .job-offers {
+
       .job-offer {
         display: flex;
         flex-direction: column;
@@ -86,7 +81,7 @@ function expandJobOffer(event: MouseEvent) {
           display: flex;
           align-items: center;
           margin: 0;
-          font-size: 1.3em;
+          font-size: 1.5em;
           line-height: 4ex;
           cursor: pointer;
         }
@@ -128,10 +123,6 @@ function expandJobOffer(event: MouseEvent) {
   grid-template-columns: 1fr 2fr;
   gap: 8%;
   align-items: center;
-
-  @media screen and (max-width: 768px) {
-    grid-template-columns: 1fr;
-  }
 
   .partner-logo {
     height: fit-content;
