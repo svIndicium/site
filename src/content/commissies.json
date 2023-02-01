@@ -1,0 +1,45 @@
+[
+  {
+    "title": "Commissie",
+    "description" : "Wil jij naast je studie actief bijdragen aan onze studievereniging meld je dan aan voor een van onze commissies. Naast dat dit super leuk is, staat dit ook goed op je CV!"
+  },
+  {
+    "title": "Dev Commissie",
+    "imgUrl": "src/assets/icons/underconstruction.svg",
+    "description" : "Als ICT studievereniging beheren we natuurlijk onze eigen website en server, deze hebben maandelijks onderhouden nodig om up to date te blijven.\n\nWil je graag wat extra uitdaging en kennis opsteken? Dan is dit misschien iets voor jou!"
+  },
+  {
+    "title": "Introductie Commissie",
+    "imgUrl": "src/assets/introkamp/1.jpg",
+    "description" : "Voor alle eerstejaars organiseren wij de voor het begin van het jaar een introductiekamp, waar wij samen met een aantal oudere jaars een gezellig week(end) organiseren.\n\nHeb je leuke ideeen of activiteiten, meld je aan en versterk deze commissie!"
+  },
+  {
+    "title": "Promotie Commissie",
+    "imgUrl": "src/assets/images/fotoOff.jpg",
+    "description" : "Zijn dingen zoals designs en Figma/Illustrator jou zeker niet onbekend, en wil je graag de vereniging ondersteunen bij het maken van promotie en fotomateriaal? meld je dan aan voor deze comissie!"
+  },
+  {
+    "title": "Feest Commissie",
+    "imgUrl": "src/assets/images/sebTappen.jpg",
+    "description" : "Heb je altijd zin in een feestje na de reguliere lessen of een excuus nodig om te gaan feesten? Help dan met het organiseren van de leukste feest van het jaar."
+  },
+  {
+    "title": "Activiteiten Commissie",
+    "imgUrl": "src/assets/images/bowlen.jpg",
+    "description" : "Gedurende het jaar worden er door de ActieCom activiteiten geregeld zoals o.a. borrels en sportieve activiteiten.\n\nZou jij graag naast je studie extra leuke activiteiten willen organiseren? Meld je dan vooral aan!"
+  },
+  {
+    "title": "Educatie Commissie",
+    "imgUrl": "src/assets/images/gastcollege.jpg",
+    "description" : "Ben jij gedurende je studie opzoek naar extra uitdagingen, of heb je het gevoel dat je informatie mist binnen de studie? Of opzoek naar samenwerking met bedrijven, die graag ons over het bedrijfsleven wil vertellen. Meld je dan aan voor deze comissie!"
+  },
+  {
+    "title": "Reis Commissie",
+    "imgUrl": "src/assets/images/brussel.jpg",
+    "description" : "Elk jaar organiseren wij reizen naar beurzen en of activiteiten in het buitenland. Hier is het natuurlijk noodazakelijk om een hoop dingen te regelen.\n\nHeb jij het gevoel dat je je hier voor gemaakt bent? Meld je dan vooral aan!"
+  },
+  {
+    "title": "Ka$ Commissie",
+    "description" : "Ben je goed met geld, of wil je er graag meer over leren. Dan is de Kascommissie misschien iets voor jou!"
+  }
+]

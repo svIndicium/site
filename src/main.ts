@@ -16,6 +16,7 @@ import Placeholder from "@/views/Placeholder.vue";
 import Statuten from "@/views/Statuten.vue";
 import FourOFour from "@/views/404.vue";
 import FourEighteen from "@/views/418.vue";
+import Dispuut from "@/views/Dispuut.vue";
 
 import "@/assets/scss/variables.scss";
 import "@/assets/scss/main.scss";
@@ -30,9 +31,10 @@ const router = createRouter({
     { name: "Bestuur", path: "/bestuur", component: Bestuur },
     { name: "Lid Worden", path: "/lid-worden", component: LidWorden },
     { name: "Oud Bestuur", path: "/oud-besturen", component: Placeholder },
-    { name: "Commissies", path: "/commissies", component: Placeholder },
+    { name: "Commissies", path: "/commissies", component: Commissies },
+    { name: "Dispuut", path: "/dispuut", component: Dispuut },
     { name: "Partners", path: "/partners", component: Partners },
-    { name: "Vacatures", path: "/vacatures", component: Placeholder },
+    /*{ name: "Vacatures", path: "/vacatures", component: Placeholder },*/
     { name: "Contact", path: "/contact", component: Contact },
     { name: "Statuten", path: "/statuten", component: Statuten },
     { name: "Privacy reglement", path: "/privacy", component: Placeholder },

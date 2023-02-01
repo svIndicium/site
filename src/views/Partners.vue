@@ -3,6 +3,7 @@ import ContentContainer from '@/layouts/ContentContainer.vue';
 import partners from '@/content/partners.json';
 
 const [mainPartner, ...otherPartners] = partners;
+
 </script>
 
 <template>
