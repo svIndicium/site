@@ -1,60 +1,105 @@
-[
-  {
-    "title": "Axians Integrated Solutions",
-    "description": "Wat wij doen? We optimaliseren de bedrijfskritische informatievoorziening door het ontsluiten, bouwen en beheren van API’s. Wij leggen dwarsverbanden tussen systemen en apparaten, om zo (keten)data te verrijken en te visualiseren o.b.v. de technologieën van Red Hat en Microsoft Azure. In afstemming met onze klanten werken wij bij voorkeur agile en omarmen wij de open source gedachte.Je komt terecht in een team met ca.40 medewerkers, waarin zowel JAVA ontwikkelaars, .Net ontwikkelaars en Mendix ontwikkelaars(Mendix is een rapid application platform) werken.We werken met elkaar samen aan verschillende leuke projecten, bijvoorbeeld bij Landal GreenParks en CenterParcs.Hier zijn we bezig met home automation: als de gast in het vakantiehuisje aankomt, dan is het huisje van tevoren al opgewarmd(het tempatuursysteem wordt dus gekoppeld aan het planningssysteem).We werken aan een systeem dat facturen opstelt voor betaling naar de eigenaar / verhuurder van de huisjes;hier wordt data opgehaald uit een ander systeem van Landal, waarbij er een aantal berekeningen wordt uitgevoerd op basis van een lijst functionele regels bij CenterParcs wordt er gewerkt aan een applicatie om de data van verschillende losse applicaties centraal te kunnen beheren en inzien.",
-    "imgUrl": "/assets/partners/axians-logo.png",
-    "url": "https://www.axians.nl/integrated-solutions/",
+{
+  "mainPartner": {
+    "title": "PossibilIT",
+    "description": "Wij zijn PossibilIT, part of 4NG. Wij zijn dé expert in Subscription Management, leggen iedere integratie en optimaliseren al jouw CRM-processen!\n4NG is één netwerk met 10 bureaus. Elk bureau heeft zijn eigen expertise, en zo pakken wij samen alle facetten van de digitale klantreis en gebruikerservaring aan. Waar de uitdaging ook ligt. 4NG opereert binnen drie domeinen, digital strategy, development & data en performance marketing & growth. Met een groep van meer dan 350 gepassioneerde professionals realiseert 4NG digitale ambities van organisaties.",
+    "imgUrl": "PossibilIT.png",
+    "url": "https://www.possibilit.nl/",
     "jobOffers": [
       {
-        "title": "Vacature nummber één",
-        "description": "Nulla lacinia lobortis tortor. Sed et diam urna. In imperdiet viverra laoreet. Nunc blandit eget mauris at dignissim. Integer iaculis scelerisque sem quis ultricies. Nam euismod tristique ex id pretium. Etiam finibus nunc sed massa sollicitudin, ac vehicula libero pellentesque. Nulla turpis magna, lacinia quis sem quis, dignissim imperdiet ligula. Quisque vestibulum, metus vel hendrerit tempus, metus dui pretium est, et consequat elit turpis vel dolor. Duis id felis ullamcorper.",
-        "url": "https://www.axians.nl/integrated-solutions/"
-      }
-    ]
-  },
-  {
-    "title": "Sue B.V.",
-    "description": "Sue is met ruim honderd IT-specialisten het grootste IT-consultancybedrijf op het gebied van Unix, Linux en open source. Al meer dan twintig jaar bieden wij top-200 bedrijven en MKB’s in Nederland deskundige assistentie bij het beheer van hun IT-infrastructuur en bedrijfsapplicaties, denk hierbij o.a. aan system management & integration, cloud, automation, networking, security, containers en configuration management. Sue kenmerkt zich door een informele en ambitieuze sfeer, veel gezellige activiteiten en volop ruimte voor jouw persoonlijke ontwikkeling. We hebben een fietsclub, fotowedstrijden, bootcamps en pubquizzen. Wekelijks zijn er trainingen, workshops en meetups over zowel technische vaardigheden (denk aan Red Hat System Administration) als professionele vaardigheden (denk aan Adviseren als Expert). Nergens anders bouw je je cv zo goed op als bij Sue!",
-    "imgUrl": "/assets/partners/sue.png",
-    "url": "https://sue.nl/",
-    "jobOffers": [
-      {
-        "title": "De eerste vacature",
-        "description": "Vivamus maximus odio in purus pellentesque consectetur. Curabitur eu ipsum quis libero rutrum volutpat. Vivamus non eleifend velit, eget interdum felis. Fusce interdum eleifend nisi. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque orci urna, rutrum lobortis commodo ac, dictum ut sapien. Nullam et orci nibh. Duis lectus nunc, efficitur sit amet placerat eu, consequat vel dui. Phasellus auctor semper libero a elementum. Aenean.",
-        "url": "https://www.axians.nl/integrated-solutions/"
+        "title": "Altijd op zoek",
+        "description": "4NG is altijd op zoek naar nieuw talent! Neem een kijkje op onze website en wie weet staat jouw droombaan ertussen.",
+        "url": ""
       },
       {
-        "title": "Vacature no. 2",
-        "description": "Nulla lacinia lobortis tortor. Sed et diam urna. In imperdiet viverra laoreet. Nunc blandit eget mauris at dignissim. Integer iaculis scelerisque sem quis ultricies. Nam euismod tristique ex id pretium. Etiam finibus nunc sed massa sollicitudin, ac vehicula libero pellentesque. Nulla turpis magna, lacinia quis sem quis, dignissim imperdiet ligula. Quisque vestibulum, metus vel hendrerit tempus, metus dui pretium est, et consequat elit turpis vel dolor. Duis id felis ullamcorper.",
-        "url": "https://www.axians.nl/integrated-solutions/"
+        "title": "Altijd op zoek",
+        "description": "4NG is altijd op zoek naar nieuw talent! Neem een kijkje op onze website en wie weet staat jouw droombaan ertussen.",
+        "url": ""
       }
     ]
   },
-  {
-    "title": "Cegeka",
-    "description": "Onze missie\nWij zijn een familiebedrijf dat IT-oplossingen levert op basis van vakmanschap. We staan dicht bij onze klanten.\n\nWij helpen organisaties om een efficiënte en gepersonaliseerde ervaring te creëren voor hun klanten, consumenten en burgers.\n\nOnze ambitie is om uit te groeien tot de Europese orchestrator op het gebied van digitale bedrijfsplatformen en ecosystemen in onze focusmarkten.",
-    "imgUrl": "/assets/partners/logo_cegeka.png",
-    "url": "https://www.cegeka.com/nl-nl/",
-    "jobOffers": [
+  "otherPartners": [
+    {
+      "slug": "hogeschool-utrecht",
+      "title": "Hogeschool Utrecht",
+      "description": "Wij zijn een hogeschool in Utrecht. Nam mollis mi eget tristique laoreet. In molestie, odio eget euismod vestibulum, tortor tellus cursus est, vel ultricies mi leo pretium leo. Proin posuere mauris et nisl porta fringilla. In eros risus, auctor a nisl ut, consectetur molestie nulla. Nulla ex augue, auctor et faucibus ut, ultrices a ipsum. Etiam consequat non purus vitae finibus. Maecenas et hendrerit eros. Curabitur faucibus, velit nec rhoncus accumsan, lectus elit fringilla est, a finibus ante odio eget dolor. Curabitur non ante eget tortor dictum congue. Nunc accumsan ante vitae turpis porttitor tempor non et justo. Fusce nec leo non risus efficitur pellentesque nec non felis. Quisque euismod nisi ut diam tincidunt, nec dapibus justo lacinia. Phasellus commodo, lectus ut facilisis tristique, urna massa tincidunt ex, quis facilisis nunc dui ut erat. Sed et accumsan lacus. Nam at nulla urna. Morbi gravida vestibulum orci, ut molestie augue fringilla sed.",
+      "imgUrl": "hogeschool-utrecht-logo-svg-vector.svg",
+      "url": "https://www.hu.nl/",
+      "jobOffers": [
+        {
+          "title": "Docent voor een nieuwe cursus waar niemand om vroeg",
+          "description": "Ben jij bereid om uren te besteden aan het opvoeden van lastige kleuters terwijl je slechts een schamele loon ontvangt? Stuur dan snel je cv naar ons toe en kom ons team versterken in het onmogelijke taak om de volgende generatie op te voeden!",
+          "url": ""
+        },
+        {
+          "title": "Directeur van het beste bedrijf ter wereld",
+          "description": "Ben jij bereid om uren te besteden aan het oplossen van administratieve rompslomp en het bemiddelen tussen lastige ouders, leraren en bestuurders? Stuur dan snel je cv naar ons toe en kom ons team versterken in het onmogelijke taak om onze school draaiende te houden!",
+          "url": ""
+        }
+      ]
+    },
+    {
+      "slug": "axians-integrated-solutions",
+      "title": "Axians Integrated Solutions",
+      "description": "Wat wij doen? We optimaliseren de bedrijfskritische informatievoorziening door het ontsluiten, bouwen en beheren van API’s. Wij leggen dwarsverbanden tussen systemen en apparaten, om zo (keten)data te verrijken en te visualiseren o.b.v. de technologieën van Red Hat en Microsoft Azure. In afstemming met onze klanten werken wij bij voorkeur agile en omarmen wij de open source gedachte.Je komt terecht in een team met ca.40 medewerkers, waarin zowel JAVA ontwikkelaars, .Net ontwikkelaars en Mendix ontwikkelaars(Mendix is een rapid application platform) werken.We werken met elkaar samen aan verschillende leuke projecten, bijvoorbeeld bij Landal GreenParks en CenterParcs.Hier zijn we bezig met home automation: als de gast in het vakantiehuisje aankomt, dan is het huisje van tevoren al opgewarmd(het tempatuursysteem wordt dus gekoppeld aan het planningssysteem).We werken aan een systeem dat facturen opstelt voor betaling naar de eigenaar / verhuurder van de huisjes;hier wordt data opgehaald uit een ander systeem van Landal, waarbij er een aantal berekeningen wordt uitgevoerd op basis van een lijst functionele regels bij CenterParcs wordt er gewerkt aan een applicatie om de data van verschillende losse applicaties centraal te kunnen beheren en inzien.",
+      "imgUrl": "axians-logo.png",
+      "url": "https://www.axians.nl/integrated-solutions/",
+      "jobOffers": [
+        {
+          "title": "Vacature nummber één",
+          "description": "Nulla lacinia lobortis tortor. Sed et diam urna. In imperdiet viverra laoreet. Nunc blandit eget mauris at dignissim. Integer iaculis scelerisque sem quis ultricies. Nam euismod tristique ex id pretium. Etiam finibus nunc sed massa sollicitudin, ac vehicula libero pellentesque. Nulla turpis magna, lacinia quis sem quis, dignissim imperdiet ligula. Quisque vestibulum, metus vel hendrerit tempus, metus dui pretium est, et consequat elit turpis vel dolor. Duis id felis ullamcorper.",
+          "url": "https://www.axians.nl/integrated-solutions/"
+        }
+      ]
+    },
+    {
+      "slug": "sue",
+      "title": "Sue B.V.",
+      "description": "Sue is met ruim honderd IT-specialisten het grootste IT-consultancybedrijf op het gebied van Unix, Linux en open source. Al meer dan twintig jaar bieden wij top-200 bedrijven en MKB’s in Nederland deskundige assistentie bij het beheer van hun IT-infrastructuur en bedrijfsapplicaties, denk hierbij o.a. aan system management & integration, cloud, automation, networking, security, containers en configuration management. Sue kenmerkt zich door een informele en ambitieuze sfeer, veel gezellige activiteiten en volop ruimte voor jouw persoonlijke ontwikkeling. We hebben een fietsclub, fotowedstrijden, bootcamps en pubquizzen. Wekelijks zijn er trainingen, workshops en meetups over zowel technische vaardigheden (denk aan Red Hat System Administration) als professionele vaardigheden (denk aan Adviseren als Expert). Nergens anders bouw je je cv zo goed op als bij Sue!",
+      "imgUrl": "sue.png",
+      "url": "https://sue.nl/",
+      "jobOffers": [
+        {
+          "title": "De eerste vacature",
+          "description": "Vivamus maximus odio in purus pellentesque consectetur. Curabitur eu ipsum quis libero rutrum volutpat. Vivamus non eleifend velit, eget interdum felis. Fusce interdum eleifend nisi. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque orci urna, rutrum lobortis commodo ac, dictum ut sapien. Nullam et orci nibh. Duis lectus nunc, efficitur sit amet placerat eu, consequat vel dui. Phasellus auctor semper libero a elementum. Aenean.",
+          "url": "https://www.axians.nl/integrated-solutions/"
+        },
+        {
+          "title": "Vacature no. 2",
+          "description": "Nulla lacinia lobortis tortor. Sed et diam urna. In imperdiet viverra laoreet. Nunc blandit eget mauris at dignissim. Integer iaculis scelerisque sem quis ultricies. Nam euismod tristique ex id pretium. Etiam finibus nunc sed massa sollicitudin, ac vehicula libero pellentesque. Nulla turpis magna, lacinia quis sem quis, dignissim imperdiet ligula. Quisque vestibulum, metus vel hendrerit tempus, metus dui pretium est, et consequat elit turpis vel dolor. Duis id felis ullamcorper.",
+          "url": "https://www.axians.nl/integrated-solutions/"
+        }
+      ]
+    },
+    {
+      "slug": "cegeka",
+      "title": "Cegeka",
+      "description": "Onze missie\nWij zijn een familiebedrijf dat IT-oplossingen levert op basis van vakmanschap. We staan dicht bij onze klanten.\n\nWij helpen organisaties om een efficiënte en gepersonaliseerde ervaring te creëren voor hun klanten, consumenten en burgers.\n\nOnze ambitie is om uit te groeien tot de Europese orchestrator op het gebied van digitale bedrijfsplatformen en ecosystemen in onze focusmarkten.",
+      "imgUrl": "logo_cegeka.png",
+      "url": "https://www.cegeka.com/nl-nl/",
+      "jobOffers": [
 
-    ]
-  },
-  {
-    "title": "Axians Business Analytics",
-    "description": "Wij helpen organisaties waarde te halen uit data. Wij leveren datagedreven maatwerk waardoor klanten op basis van informatie hun business uitdagingen kunnen oplossen. Dit doen wij door data uit diverse bronnen te ontsluiten naar een dataplatform en daaruit informatie te tonen in rapportages en dashboards. Het gaat dan zowel om informatie uit het verleden als voorspellingen voor de toekomst o.b.v. Artificial Intelligence. Naast het uitvoeren van projecten (consultancy), verzorgen we ook trainingen, beheren wij de omgevingen en leveren wij de licenties voor analytics software van IBM en Microsoft.",
-    "imgUrl": "/assets/partners/axians-logo.png",
-    "url": "https://www.axians.nl/"
-  },
-  {
-    "title": "Student aan huis",
-    "description": "Studentaanhuis, de digitale wegenwacht van Nederland\nHeb je hulp nodig bij je computer, tablet, smartphone of een ander digitaal apparaat? Onze deskundige IT-studenten lossen het snel en vakkundig voor je op.\nWij verhelpen niet alleen je problemen, maar zorgen er ook voor dat je altijd veilig en goed van al je digitale apparaten gebruik kunt blijven maken. Wij fixen het wel!\n",
-    "imgUrl": "/assets/partners/SAH.svg",
-    "url": "https://www.studentaanhuis.nl/"
-  },
-  {
-    "title": "Utrecht Promotions",
-    "description": "Textieldrukkerij Utrecht Promotions is onze vaste partner op het gebied van bedrukte en geborduurde textiel.\nLeden van Studievereniging Indicium kunnen hier hun bestellingen plaatsen en krijgen hier bij elke bestelling een standaard kortingspercentage van 10%.\nUtrecht Promotions is gevestigd in de wijk Oudwijk, net buiten het centrum van Utrecht, en is makkelijk per OV en fiets te bereiken.",
-    "imgUrl": "/assets/partners/utrecht-promotions-logo.png",
-    "url": "https://www.utrecht-promotions.nl/"
-  }
-]
+      ]
+    },
+    {
+      "slug": "axians-business-analytics",
+      "title": "Axians Business Analytics",
+      "description": "Wij helpen organisaties waarde te halen uit data. Wij leveren datagedreven maatwerk waardoor klanten op basis van informatie hun business uitdagingen kunnen oplossen. Dit doen wij door data uit diverse bronnen te ontsluiten naar een dataplatform en daaruit informatie te tonen in rapportages en dashboards. Het gaat dan zowel om informatie uit het verleden als voorspellingen voor de toekomst o.b.v. Artificial Intelligence. Naast het uitvoeren van projecten (consultancy), verzorgen we ook trainingen, beheren wij de omgevingen en leveren wij de licenties voor analytics software van IBM en Microsoft.",
+      "imgUrl": "axians-logo.png",
+      "url": "https://www.axians.nl/"
+    },
+    {
+      "slug": "student-aan-huis",
+      "title": "Student aan huis",
+      "description": "Studentaanhuis, de digitale wegenwacht van Nederland\nHeb je hulp nodig bij je computer, tablet, smartphone of een ander digitaal apparaat? Onze deskundige IT-studenten lossen het snel en vakkundig voor je op.\nWij verhelpen niet alleen je problemen, maar zorgen er ook voor dat je altijd veilig en goed van al je digitale apparaten gebruik kunt blijven maken. Wij fixen het wel!\n",
+      "imgUrl": "SAH.svg",
+      "url": "https://www.studentaanhuis.nl/"
+    },
+    {
+      "slug": "utrecht-promotions",
+      "title": "Utrecht Promotions",
+      "description": "Textieldrukkerij Utrecht Promotions is onze vaste partner op het gebied van bedrukte en geborduurde textiel.\nLeden van Studievereniging Indicium kunnen hier hun bestellingen plaatsen en krijgen hier bij elke bestelling een standaard kortingspercentage van 10%.\nUtrecht Promotions is gevestigd in de wijk Oudwijk, net buiten het centrum van Utrecht, en is makkelijk per OV en fiets te bereiken.",
+      "imgUrl": "utrecht-promotions-logo.png",
+      "url": "https://www.utrecht-promotions.nl/"
+    }
+  ]
+}
