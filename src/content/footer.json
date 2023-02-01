@@ -2,7 +2,7 @@
   "items": [
     {
       "title": "Inschrijven",
-      "url": "/aanmelden"
+      "url": "/lid-worden"
     },
     {
       "title": "Vacatures",
@@ -36,10 +36,6 @@
     "email": "bestuur@indicium.hu"
   },
   "socialMediaItems": [
-    {
-      "title": "Facebook",
-      "url": "https://www.facebook.com/SVIndicium"
-    },
     {
       "title": "Instagram",
       "url": "https://instagram.com/svindicium"
