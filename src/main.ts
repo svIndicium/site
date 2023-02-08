@@ -31,7 +31,7 @@ const router = createRouter({
     { name: "Bestuur", path: "/bestuur", component: Bestuur },
     { name: "Lid Worden", path: "/lid-worden", component: LidWorden },
     { name: "Oud Bestuur", path: "/oud-besturen", component: Placeholder },
-    { name: "Commissies", path: "/commissies", component: Placeholder },
+    { name: "Commissies", path: "/commissies", component: Commissies },
     { name: "Partners", path: "/partners", component: Partners },
     { name: "Partner", path: "/partners/:partner", component: Partner },
     { name: "Vacatures", path: "/vacatures", component: Placeholder },
