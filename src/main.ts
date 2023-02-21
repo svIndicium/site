@@ -8,6 +8,7 @@ import Home from "@/views/Home.vue";
 import Activiteiten from "@/views/Activiteiten.vue";
 import OverIndicium from "@/views/OverIndicium.vue";
 import Bestuur from "@/views/Bestuur.vue";
+import OudBestuur from "@/views/OudBestuur.vue";
 import Commissies from "@/views/Commissies.vue";
 import Partners from "@/views/Partners.vue";
 import Partner from "@/views/Partner.vue";
@@ -30,7 +31,7 @@ const router = createRouter({
     { name: "Over Indicium", path: "/over-indicium", component: OverIndicium },
     { name: "Bestuur", path: "/bestuur", component: Bestuur },
     { name: "Lid Worden", path: "/lid-worden", component: LidWorden },
-    { name: "Oud Bestuur", path: "/oud-besturen", component: Placeholder },
+    { name: "Oud Bestuur", path: "/oud-besturen", component: OudBestuur },
     { name: "Commissies", path: "/commissies", component: Commissies },
     { name: "Partners", path: "/partners", component: Partners },
     { name: "Partner", path: "/partners/:partner", component: Partner },

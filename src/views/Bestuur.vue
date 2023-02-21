@@ -5,34 +5,42 @@
 // this reference line is needed for TS and svg loader. Copy and past where needed
 /// <reference types="vite-svg-loader" />
 import ContentContainer from '@/layouts/ContentContainer.vue';
-import constuctionsSVG from "@/assets/icons/underconstruction.svg?component"
+import { currentBoard } from '@/content/boards.json';
 </script>
 
 <template>
     <ContentContainer>
-        <constuctionsSVG />
-        <h1>Sorry. Deze pagina is nog effe niet af</h1>
-        <h2>Duurt lang? kom bij devcom!</h2>
+      <h1>Bestuur</h1>
+      <img :src="`/assets/boards/${currentBoard.groupPhoto}`" alt="Groepsfoto">
+      <div class="member" v-for="member in currentBoard.members">
+        <img class="member-photo" :src="member.photo" :alt="member.name">
+        <div class="member-info">
+          <h3>{{ member.name }}</h3>
+          <h4>{{ member.function }}</h4>
+          <p>{{ member.introduction }}</p>
+        </div>
+      </div>
     </ContentContainer>
 </template>
 
 <style scoped lang="scss">
-svg {
-    width: 300px;
-    height: 300px;
-}
+  .member {
+    max-width: 1200px;
+    margin: 4em auto;
+    display: grid;
+    grid-auto-flow: column;
+    column-gap: 10%;
 
-.logo {
-    height: 6em;
-    padding: 1.5em;
-    will-change: filter;
-}
+    @media screen and (max-width: 768px) {
+      grid-auto-flow: row;
 
-.logo:hover {
-    filter: drop-shadow(0 0 2em #646cffaa);
-}
+      .member-photo {
+        margin: 0 auto;
+      }
+    }
 
-.logo.vue:hover {
-    filter: drop-shadow(0 0 2em #42b883aa);
-}
+    &:nth-child(odd) .member-info {
+        grid-column: 1;
+    }
+  }
 </style>

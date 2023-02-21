@@ -1,0 +1,146 @@
+{
+  "currentBoard": {
+    "year": "2022-2023",
+    "groupPhoto": "bestuur22-23.jpg",
+    "members": [
+      {
+        "name": "Rowan Ross",
+        "function": "voorzitter",
+        "introduction": "Praesent ex justo, accumsan quis purus id, rhoncus fringilla dui. Phasellus tempus, tellus at mattis suscipit, est est placerat lectus, a vehicula augue enim ac.",
+        "photo": "https://cataas.com/cat/says/Rowan Ross"
+      },
+      {
+        "name": "Maurice Stoof",
+        "function": "secretaris",
+        "introduction": "Donec sed aliquam mauris. Cras rutrum justo ultricies ipsum ornare malesuada. Aenean in tristique risus, eu dapibus lacus. Suspendisse at porttitor ligula. Sed eu leo.",
+        "photo": "https://cataas.com/cat/says/Maurice Stoof"
+      },
+      {
+        "name": "Oona Bertrums",
+        "function": "penningmeester",
+        "introduction": "Nulla molestie massa non consequat finibus. Quisque molestie nulla et ex gravida, et tempor sapien consectetur. Orci varius natoque penatibus et magnis dis parturient montes.",
+        "photo": "https://cataas.com/cat/says/Oona Bertrums"
+      }
+    ]
+  },
+  "previousBoards": [
+    {
+      "year": "2021-2022",
+      "groupPhoto": "bestuur21-22.jpg",
+      "members": [
+        {
+          "name": "Kevin de Meijer",
+          "function": "voorzitter"
+        },
+        {
+          "name": "Jasper Nellestijn",
+          "function": "secretaris"
+        },
+        {
+          "name": "Yaïr Westmaas",
+          "function": "penningmeester"
+        },
+        {
+          "name": "Jasper van Loon",
+          "function": "algemeen commissaris"
+        }
+      ]
+    },
+    {
+      "year": "2020-2021",
+      "groupPhoto": "bestuur20-21.jpg",
+      "members": [
+        {
+          "name": "Jasper Nellestijn",
+          "function": "voorzitter"
+        },
+        {
+          "name": "Rick Holtmen",
+          "function": "vice-voorzitter"
+        },
+        {
+          "name": "Joost Lekkerkerker",
+          "function": "secretaris"
+        },
+        {
+          "name": "Stefanie Twisker",
+          "function": "penningmeester"
+        },
+        {
+          "name": "Alex Streumer",
+          "function": "algemeen commissaris"
+        }
+      ]
+    },
+    {
+      "year": "2019-2020",
+      "groupPhoto": "bestuur19-20.jpg",
+      "members": [
+        {
+          "name": "Jesper Oddes",
+          "function": "voorzitter"
+        },
+        {
+          "name": "Rick Holtmen",
+          "function": "vice-voorzitter"
+        },
+        {
+          "name": "Simon Parmet",
+          "function": "secretaris"
+        },
+        {
+          "name": "Yasin Karapinar",
+          "function": "penningmeester"
+        },
+        {
+          "name": "Joost Lekkerkerker",
+          "function": "algemeen commissaris"
+        }
+      ]
+    },
+    {
+      "year": "2018-2019",
+      "groupPhoto": "bestuur18-19.jpg",
+      "members": [
+        {
+          "name": "Lars van Scheijndel",
+          "function": "voorzitter"
+        },
+        {
+          "name": "Robbert Schuurmans",
+          "function": "secretaris"
+        },
+        {
+          "name": "Sebastiaan Saarloos",
+          "function": "penningmeester"
+        },
+        {
+          "name": "Jeroen van Hattem",
+          "function": "algemeen commissaris"
+        }
+      ]
+    },
+    {
+      "year": "2017-2018",
+      "groupPhoto": "bestuur17-18.jpg",
+      "members": [
+        {
+          "name": "William Loosman",
+          "function": "voorzitter"
+        },
+        {
+          "name": "Nigel van Hattum",
+          "function": "secretaris"
+        },
+        {
+          "name": "Sander de Bruin",
+          "function": "penningmeester"
+        },
+        {
+          "name": "Olivier Verwoerd",
+          "function": "algemeen commissaris"
+        }
+      ]
+    }
+  ]
+}
