@@ -4,73 +4,53 @@ import ContentContainer from "@/layouts/ContentContainer.vue";
 import commissies from '@/content/commissies.json';
 const [commissie] = commissies;
 
-/*function readerCom() {
-  for (commissie ; commissies){
-    var divElement =
-  }
-}*/
-
 
 </script>
-
-<template>
+<!--<template>
     <content-container>
       <div class="commissie" v-for="commissie in commissies">
         <h1>{{commissie.title}}</h1>
-<!--        https://udn.realityripple.com/docs/Web/API/Element/scrollIntoView-->
         <img class="foto" :src="commissie.imgUrl" >
         <p class="description">{{ commissie.description }}</p>
       </div>
     </content-container>
+</template>-->
+
+<template>
+  <ContentContainer>
+    <h1>Commissies</h1>
+    <div class="commissie" v-for="(commissie, index) in commissies">
+      <img class="foto" :src="commissie.imgUrl" >
+      <div class="commissie-info">
+        <h3>{{ commissie.title }}</h3>
+        <p>{{ commissie.description }}</p>
+      </div>
+      <div v-if="index % 2 === 0" class="spacer"></div>
+    </div>
+  </ContentContainer>
 </template>
 
 <style scoped lang="scss">
-.commissie:before{
-  width: 50%;
-  margin: 0 auto;
-  padding: 5em 0;
+.commissie {
+  max-width: 1200px;
+  margin: 4em auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 10%;
 
-  .foto {
-    float: left;
-    margin: 0.2em 0.8em 0.8em 0;
-    width: 20%;
-  }
+  @media screen and (max-width: 768px) {
+    grid-template-columns: 1fr;
 
-  .description {
-    text-align: left;
-    margin: 0;
-  }
-
-  :after {
-    content: "";
-    visibility: hidden;
-    display: grid;
-    height: 0;
-    clear: both;
+    .foto {
+      margin: 0 auto;
+    }
   }
 }
-.commissie:after {
-  width: 80%;
-  margin: 0 auto;
-  padding: 5em 0;
 
-  .foto {
-    float: left;
-    margin: 0.2em 0.8em 0.8em 0;
-    width: 20%;
-  }
-
-  .description {
-    text-align: center;
-    margin: 0;
-  }
-
-  :after {
-    content: "";
-    visibility: hidden;
-    display: block;
-    height: 0;
-    clear: both;
-  }
+.spacer {
+  grid-column: 1 / -1;
+  height: 1em;
 }
 </style>
+
+

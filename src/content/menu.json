@@ -13,29 +13,20 @@
           "url": "/over-indicium"
         },
         {
-          "title": "Commissies",
-          "url": "/commissies",
-          "grandchildren": {
-            "place": "right",
-            "items": [
-              {
-                "title": "Commissies",
-                "url": "/commissies"
-              }
-            ]
-          }
-        },
-        {
-          "title": "Dispuut",
-          "url": "/Dispuut"
-        },
-        {
           "title": "Huidig bestuur",
           "url": "/bestuur"
         },
         {
           "title": "Oud Besturen",
           "url": "/oud-besturen"
+        },
+        {
+          "title": "Commissies",
+          "url": "/commissies"
+        },
+        {
+          "title": "Dispuut",
+          "url": "/Dispuut"
         }
       ]
     },
