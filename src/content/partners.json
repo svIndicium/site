@@ -58,27 +58,6 @@
           "url": "https://workingtalent.nl/vacatures/it-traineeship-4-september-2023"
         }
       ]
-    },
-    {
-      "slug": "axians-business-analytics",
-      "title": "Axians Business Analytics",
-      "description": "Wij helpen organisaties waarde te halen uit data. Wij leveren datagedreven maatwerk waardoor klanten op basis van informatie hun business uitdagingen kunnen oplossen. Dit doen wij door data uit diverse bronnen te ontsluiten naar een dataplatform en daaruit informatie te tonen in rapportages en dashboards. Het gaat dan zowel om informatie uit het verleden als voorspellingen voor de toekomst o.b.v. Artificial Intelligence. Naast het uitvoeren van projecten (consultancy), verzorgen we ook trainingen, beheren wij de omgevingen en leveren wij de licenties voor analytics software van IBM en Microsoft.",
-      "imgUrl": "axians-logo.png",
-      "url": "https://www.axians.nl/"
-    },
-    {
-      "slug": "student-aan-huis",
-      "title": "Student aan huis",
-      "description": "Studentaanhuis, de digitale wegenwacht van Nederland\nHeb je hulp nodig bij je computer, tablet, smartphone of een ander digitaal apparaat? Onze deskundige IT-studenten lossen het snel en vakkundig voor je op.\nWij verhelpen niet alleen je problemen, maar zorgen er ook voor dat je altijd veilig en goed van al je digitale apparaten gebruik kunt blijven maken. Wij fixen het wel!\n",
-      "imgUrl": "SAH.svg",
-      "url": "https://www.studentaanhuis.nl/"
-    },
-    {
-      "slug": "utrecht-promotions",
-      "title": "Utrecht Promotions",
-      "description": "Textieldrukkerij Utrecht Promotions is onze vaste partner op het gebied van bedrukte en geborduurde textiel.\nLeden van Studievereniging Indicium kunnen hier hun bestellingen plaatsen en krijgen hier bij elke bestelling een standaard kortingspercentage van 10%.\nUtrecht Promotions is gevestigd in de wijk Oudwijk, net buiten het centrum van Utrecht, en is makkelijk per OV en fiets te bereiken.",
-      "imgUrl": "utrecht-promotions-logo.png",
-      "url": "https://www.utrecht-promotions.nl/"
     }
   ]
 }
