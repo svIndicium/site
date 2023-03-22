@@ -66,6 +66,16 @@ function changeTheme(theme: string) {
 </template>
 
 <style lang="scss" scoped>
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
 footer {
   background: var(--indi-blue-3);
   padding: 30px 0;

@@ -119,6 +119,8 @@ function becomeMember() {
   }
 
   ul {
+    list-style: none;
+    padding: 0;
     display: flex;
     margin: 0;
     justify-content: space-between;

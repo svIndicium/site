@@ -17,7 +17,7 @@ function expandJobOffer(event: MouseEvent) {
         <img class="partner-logo" :src="'/assets/partners/' + mainPartner.imgUrl" :alt="'Logo' + mainPartner.title">
         <div class="description">
           <h3>Hoofdpartner: {{ mainPartner.title }}</h3>
-          <p v-for="paragraph in mainPartner.description.split('\n')">{{ paragraph }}</p>
+          <p v-for="paragraph in mainPartner.description" v-html="paragraph"></p>
         </div>
       </div>
       <div class="job-offers-container">
@@ -26,7 +26,8 @@ function expandJobOffer(event: MouseEvent) {
           <div class="job-offer" v-for="jobOffer in mainPartner.jobOffers">
             <span class="job-offer-title" @click="expandJobOffer">{{ jobOffer.title }}</span>
             <div class="job-offer-description">
-              <p>{{ jobOffer.description }}</p>
+              <p v-html="jobOffer.description"></p>
+              <a v-if="jobOffer.url" class="readMore" :href="jobOffer.url" target="_blank">Lees meer</a>
             </div>
           </div>
         </div>
@@ -37,7 +38,7 @@ function expandJobOffer(event: MouseEvent) {
       <img class="partner-logo" :src="'/assets/partners/' + partner.imgUrl" :alt="'Logo' + partner.title">
       <div class="details">
         <h3>{{ partner.title }}</h3>
-        <p class="description">{{ partner.description }}</p>
+        <p v-for="paragraph in partner.description" class="description" v-html="paragraph"></p>
         <a class="readMore" :href="'/partners/' + partner.slug">Meer weten?</a>
       </div>
     </div>
@@ -123,7 +124,7 @@ function expandJobOffer(event: MouseEvent) {
 }
 
 .partner {
-  margin: 50px auto 100px auto;
+  margin: 50px auto;
   display: grid;
   grid-template-columns: 1fr 2fr;
   gap: 8%;
@@ -141,13 +142,15 @@ function expandJobOffer(event: MouseEvent) {
   .description {
     text-align: left;
   }
+}
 
-  .readMore {
-    display: inline-block;
-    margin-top: 0.5em;
-    padding: 0.7em;
-    background-color: var(--indi-blue-1);
-    border-radius: 0.5em;
-  }
+.readMore {
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+  margin: 1em auto;
+  padding: 0.7em;
+  background-color: var(--indi-blue-1);
+  border-radius: 0.5em;
 }
 </style>

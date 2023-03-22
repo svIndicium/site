@@ -293,6 +293,8 @@ function setCurrentLevel(level: 0 | 1 | 2 | 3, name?: string) {
         transition: var(--transition-time) ease-in-out;
 
         ul {
+          list-style: none;
+          padding: 0;
           margin: 0;
 
           li {

@@ -19,16 +19,18 @@ function expandJobOffer(event: MouseEvent) {
       <div class="details">
         <img class="partner-logo" :src="'/assets/partners/' + partner.imgUrl" :alt="'Logo' + partner.title">
         <div class="description">
-          <p v-for="paragraph in partner.description.split('\n')">{{ paragraph }}</p>
+          <p v-for="paragraph in partner.description" v-html="paragraph"></p>
+          <a v-if="partner.url" class="readMore" :href="partner.url" target="_blank">Lees meer</a>
         </div>
       </div>
-      <div class="job-offers-container">
+      <div v-if="partner.jobOffers.length > 0" class="job-offers-container">
         <h2>Vacatures bij {{ partner.title }}</h2>
         <div class="job-offers container">
           <div class="job-offer" v-for="jobOffer in partner.jobOffers">
             <h3 class="job-offer-title" @click="expandJobOffer">{{ jobOffer.title }}</h3>
             <div class="job-offer-description">
-              <p>{{ jobOffer.description }}</p>
+              <p v-for="paragraph in jobOffer.description" v-html="paragraph"></p>
+              <a v-if="jobOffer.url" class="readMore" :href="jobOffer.url" target="_blank">Lees meer</a>
             </div>
           </div>
         </div>
@@ -41,8 +43,12 @@ function expandJobOffer(event: MouseEvent) {
 <style scoped lang="scss">
 @import "@/assets/scss/variables.scss";
 
+.job-offer-description ul {
+  list-style: circle;
+}
+
 #partner {
-  margin: 100px auto 50px auto;
+  margin: 50px auto;
 
   .details {
     display: grid;
@@ -132,13 +138,15 @@ function expandJobOffer(event: MouseEvent) {
   .description {
     text-align: left;
   }
+}
 
-  .readMore {
-    display: inline-block;
-    margin-top: 0.5em;
-    padding: 0.7em;
-    background-color: var(--indi-blue-1);
-    border-radius: 0.5em;
-  }
+.readMore {
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+  margin: 1em auto;
+  padding: 0.7em;
+  background-color: var(--indi-blue-1);
+  border-radius: 0.5em;
 }
 </style>
