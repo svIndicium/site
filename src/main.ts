@@ -41,7 +41,7 @@ const router = createRouter({
     { name: "Privacy reglement", path: "/privacy", component: Placeholder },
     { name: "I'm a tea pot", path: "/418", component: FourEighteen },
     // and finally the default route, when none of the above matches:
-    { path: "/:pathMatch(.*)*", component: FourOFour },
+    { name: "Pagina niet gevonden", path: "/:pathMatch(.*)*", component: FourOFour },
   ],
 });
 
@@ -49,6 +49,12 @@ const app = createApp(App);
 // Make sure to _use_ the router instance to make the
 // whole app router-aware.
 app.use(router);
+
+router.afterEach((to, from, failure) => {
+  if (to.name) {
+    document.title = 'Indicium - ' + to.name.toString();
+  }
+});
 
 // we want to store some data, but not with cookies since this is more cool.
 // if you get confused about this, check out the devtools.
