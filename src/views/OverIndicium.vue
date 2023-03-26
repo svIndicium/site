@@ -4,8 +4,8 @@
 
   const images = [
     "/assets/images/borrel2019.JPG",
-    "/assets/images/sebTappen.JPG",
-    "/assets/images/fotoOff.JPG",
+    "/assets/images/sebTappen.jpg",
+    "/assets/images/fotoOff.jpg",
   ];
 
 </script>
