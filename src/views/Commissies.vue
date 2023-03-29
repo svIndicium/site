@@ -6,19 +6,12 @@ const [commissie] = commissies;
 
 
 </script>
-<!--<template>
-    <content-container>
-      <div class="commissie" v-for="commissie in commissies">
-        <h1>{{commissie.title}}</h1>
-        <img class="foto" :src="commissie.imgUrl" >
-        <p class="description">{{ commissie.description }}</p>
-      </div>
-    </content-container>
-</template>-->
+<!-- todo: eerste kopje gecentreerd en fix fotos-->
 
 <template>
   <ContentContainer>
     <h1>Commissies</h1>
+    <p id="intro">Wil jij naast je studie actief bijdragen aan onze studievereniging meld je dan aan voor een van onze commissies. Naast dat dit super leuk is, staat dit ook goed op je CV!</p>
     <div class="commissie" v-for="(commissie, index) in commissies">
       <img class="foto" :src="commissie.imgUrl" >
       <div class="commissie-info">
@@ -45,6 +38,11 @@ const [commissie] = commissies;
       margin: 0 auto;
     }
   }
+}
+
+#intro {
+  margin-left: 200px;
+  margin-right: 200px;
 }
 
 .spacer {
