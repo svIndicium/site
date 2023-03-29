@@ -31,18 +31,5 @@
 	@media screen and (max-width: var(--bp-tablet-sm)) {
 		margin-top: 16px;
 	}
-
-	&:after {
-		content: '';
-		position: absolute;
-		left: 16px;
-		top: 16px;
-		width: 100%;
-		height: 100%;
-		display: block;
-		background: #dbedea;
-		border-radius: 4px;
-		z-index: -1;
-	}
 }
 </style>
