@@ -7,7 +7,7 @@
 import ContentContainer from '@/layouts/ContentContainer.vue';
 import { currentBoard } from '@/content/boards.json';
 </script>
-
+npm
 <template>
     <ContentContainer>
       <h1>Bestuur</h1>
