@@ -11,7 +11,6 @@ function expandJobOffer(event: MouseEvent) {
 <template>
   <ContentContainer>
     <h1>Partners</h1>
-    <p>Introductie over partners ofs, idk</p>
     <div id="main-partner" class="container">
       <div class="details">
         <img class="partner-logo" :src="'/assets/partners/' + mainPartner.imgUrl" :alt="'Logo' + mainPartner.title">
