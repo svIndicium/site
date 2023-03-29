@@ -1,11 +1,7 @@
 [
   {
-    "title": "Commissie",
-    "description" : "Wil jij naast je studie actief bijdragen aan onze studievereniging meld je dan aan voor een van onze commissies. Naast dat dit super leuk is, staat dit ook goed op je CV!"
-  },
-  {
     "title": "Dev Commissie",
-    "imgUrl": "/assets/icons/underconstruction.svg",
+    "imgUrl": "/assets/images/devcat.png",
     "description" : "Als ICT studievereniging beheren we natuurlijk onze eigen website en server, deze hebben maandelijks onderhouden nodig om up to date te blijven.\n\nWil je graag wat extra uitdaging en kennis opsteken? Dan is dit misschien iets voor jou!"
   },
   {
@@ -35,11 +31,12 @@
   },
   {
     "title": "Reis Commissie",
-    "imgUrl": "/assets/images/brussel.jpg",
+    "imgUrl": "/assets/images/reiscom.jpg",
     "description" : "Elk jaar organiseren wij reizen naar beurzen en of activiteiten in het buitenland. Hier is het natuurlijk noodazakelijk om een hoop dingen te regelen.\n\nHeb jij het gevoel dat je je hier voor gemaakt bent? Meld je dan vooral aan!"
   },
   {
     "title": "Ka$ Commissie",
+    "imgUrl": "/assets/images/moneycat.png",
     "description" : "Ben je goed met geld, of wil je er graag meer over leren. Dan is de Kascommissie misschien iets voor jou!"
   }
 ]
