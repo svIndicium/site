@@ -5,10 +5,6 @@
       "url": "/lid-worden"
     },
     {
-      "title": "Vacatures",
-      "url": "/vacatures"
-    },
-    {
       "title": "Statuten",
       "url": "/statuten"
     },
@@ -26,7 +22,7 @@
     },
     {
       "title": "Privacyreglement",
-      "url": "/privacyreglement"
+      "url": "/privacy"
     }
   ],
   "contactItems": {
