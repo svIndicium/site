@@ -4,6 +4,8 @@ import { ref } from 'vue'
 import { stateStore } from "@/stores/state";
 import content from '@/content/menu.json'
 import NavLogo from "@/components/NavLogo.vue"
+import { useRouter } from 'vue-router'
+
 const currentLevel2 = ref<string>("")
 const currentLevel3 = ref<string>("")
 
@@ -37,6 +39,11 @@ function setCurrentLevel(level: 0 | 1 | 2 | 3, name?: string) {
   }
   state.state.navLevel = level;
 }
+
+const router = useRouter();
+router.afterEach(() => {
+  state.state.navLevel = 0;
+});
 
 </script>
 
