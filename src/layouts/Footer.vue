@@ -21,7 +21,7 @@ function changeTheme(theme: string) {
         <h4>Pagina's</h4>
         <ul class="footer-menu pages">
           <li v-for="(menuItem, idx) in pages" :key="idx" ref="menuItemsRefs">
-            <a :href="menuItem.url">{{ menuItem.title }}</a>
+            <RouterLink :to="menuItem.url">{{ menuItem.title }}</RouterLink>
           </li>
         </ul>
 

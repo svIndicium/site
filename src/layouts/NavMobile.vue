@@ -67,14 +67,14 @@ router.afterEach(() => {
       <div class="menubar blue" v-bind:class="{ visible: state.state.navLevel > 0 }" @click.self="setCurrentLevel(1)">
         <div class="menu level-1" v-bind:class="{ visible: state.state.navLevel > 0 }">
           <ul>
-            <li v-for="item in items" :key="(item.title + item.url + item.children)" @click.self="setCurrentLevel(0)">
-              <a v-if="item.url.startsWith('http')" :href="item.url" target="_blank" @click="setCurrentLevel(0)">
+            <li v-for="item in items" :key="(item.title + item.url + item.children)">
+              <a v-if="item.url.startsWith('http')" :href="item.url" target="_blank">
                 {{ item.title }}
               </a>
 
-              <a v-else :href="item.url" @click="setCurrentLevel(0)">
+              <RouterLink v-else :to="item.url">
                 {{ item.title }}
-              </a>
+              </RouterLink>
 
               <a v-if="item.children" title="Goto submenu" class="sub-menu-toggle"
                 @click="setCurrentLevel(2, item.title)">‌‌ ‌‌ ‌‌▸‌‌ ‌‌ ‌‌‌‌ ‌‌‌
@@ -94,9 +94,9 @@ router.afterEach(() => {
                         {{ child.title }}
                       </a>
 
-                      <a v-else :href="child.url" @click="setCurrentLevel(0)">
+                      <RouterLink v-else :to="child.url">
                         {{ child.title }}
-                      </a>
+                      </RouterLink>
 
                       <a v-if="child.grandchildren" title="Goto sub-submenu" class="sub-menu-toggle"
                         @click="setCurrentLevel(3, child.title)">‌‌ ‌‌ ‌‌▸‌‌ ‌‌ ‌‌‌‌ ‌‌‌
@@ -114,9 +114,9 @@ router.afterEach(() => {
                                 @click="setCurrentLevel(0)">
                                 {{ grandchild.title }}
                               </a>
-                              <a v-else :href="grandchild.url" @click="setCurrentLevel(0)">
+                              <RouterLink v-else :to="grandchild.url">
                                 {{ grandchild.title }}
-                              </a>
+                              </RouterLink>
                             </li>
                           </ul>
                         </div>
