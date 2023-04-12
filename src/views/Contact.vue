@@ -5,30 +5,27 @@ import ContentContainer from '@/layouts/ContentContainer.vue';
 </script>
 
 <template>
-    <ContentContainer>
-        <div class="two-columns">
-            <div class="contact-info">
-                <h1>Contact</h1>
-                <ul data-v-22481b25="">
-                    <li data-v-22481b25=""><span data-v-22481b25="" class="medium">Adres</span>: Heidelberglaan 15, 3584
-                        CS Utrecht
-                    </li>
-                    <li data-v-22481b25=""><span data-v-22481b25="" class="medium">Lokaal</span>: HL15-4.092
-                    </li>
-                    <li data-v-22481b25=""><span data-v-22481b25="" class="medium">E-mailadres</span>:
-                        bestuur@indicium.hu
-                    </li>
-                    <li data-v-22481b25=""><span data-v-22481b25="" class="medium">KVK</span>: 68788878
-                    </li>
-                </ul>
-                <p data-v-22481b25="">Of stuur direct een e-mail naar het bestuur:</p> <a data-v-f77bb2e0=""
-                    data-v-22481b25="" href="mailto:bestuur@indicium.hu" class="btn l">
-                    Mail direct
-                </a>
-            </div>
-            <IndiciumMap class="map" />
-        </div>
-    </ContentContainer>
+  <ContentContainer>
+    <div class="two-columns">
+      <div class="contact-info">
+        <h1>Contact</h1>
+        <ul>
+          <li>
+            <span class="medium">Adres</span>: <a href="https://goo.gl/maps/oCNHCibfBjtaSENT8">Heidelberglaan 15, 3584 CS Utrecht</a>
+          </li>
+          <li>
+            <span class="medium">Lokaal</span>: HL15-4.092
+          </li>
+          <li>
+            <span class="medium">KVK</span>: 68788878
+          </li>
+        </ul>
+        <p>Of stuur direct een e-mail naar het bestuur:</p>
+        <a href="mailto:bestuur@indicium.hu" class="btn l">bestuur@indicium.hu</a>
+      </div>
+      <IndiciumMap class="map" />
+    </div>
+  </ContentContainer>
 </template>
 
 <style scoped lang="scss">
@@ -41,6 +38,10 @@ import ContentContainer from '@/layouts/ContentContainer.vue';
     .map {
         flex-grow: 1;
         margin: 0 30px;
+
+        @media screen and (max-width: 768px) {
+          display: none;
+        }
     }
 
     .contact-info {
