@@ -43,6 +43,9 @@ const router = createRouter({
     // and finally the default route, when none of the above matches:
     { name: "Pagina niet gevonden", path: "/:pathMatch(.*)*", component: FourOFour },
   ],
+  scrollBehavior: (to, from, savedPosition) => {
+    return { top: savedPosition?.top ?? 0 };
+  },
 });
 
 const app = createApp(App);
