@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import ContentContainer from '@/layouts/ContentContainer.vue';
-import { mainPartner, otherPartners } from '@/content/partners.json';
+import { mainPartner, premiumPartners, regularPartners } from '@/content/partners.json';
 
 function expandJobOffer(event: MouseEvent) {
   const target = event.target as HTMLElement;
@@ -33,7 +33,16 @@ function expandJobOffer(event: MouseEvent) {
       </div>
     </div>
     <h1>Premium partners</h1>
-    <div class="partner container" v-for="partner in otherPartners">
+    <div class="partner" v-for="partner in premiumPartners">
+      <img class="partner-logo" :src="'/assets/partners/' + partner.imgUrl" :alt="'Logo' + partner.title">
+      <div class="details">
+        <h3>{{ partner.title }}</h3>
+        <p v-for="paragraph in partner.description" class="description" v-html="paragraph"></p>
+        <a class="readMore" :href="'/partners/' + partner.slug">Meer weten?</a>
+      </div>
+    </div>
+    <h1>Reguliere partners</h1>
+    <div class="partner" v-for="partner in regularPartners">
       <img class="partner-logo" :src="'/assets/partners/' + partner.imgUrl" :alt="'Logo' + partner.title">
       <div class="details">
         <h3>{{ partner.title }}</h3>
@@ -124,13 +133,19 @@ function expandJobOffer(event: MouseEvent) {
 
 .partner {
   margin: 50px auto;
+  max-width: 1600px;
   display: grid;
   grid-template-columns: 1fr 2fr;
   gap: 8%;
   align-items: center;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1000px) {
     grid-template-columns: 1fr;
+
+    .partner-logo {
+      margin: 0 auto;
+      max-width: 600px;
+    }
   }
 
   .partner-logo {
