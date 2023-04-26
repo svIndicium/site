@@ -22,6 +22,7 @@ import FourEighteen from "@/views/418.vue";
 import "@/assets/scss/variables.scss";
 import "@/assets/scss/main.scss";
 import "@/assets/scss/typography.scss";
+import Dispuut from "@/views/Dispuut.vue";
 
 const router = createRouter({
   history: createWebHistory(),
@@ -33,6 +34,7 @@ const router = createRouter({
     { name: "Lid Worden", path: "/lid-worden", component: LidWorden },
     { name: "Oud Bestuur", path: "/oud-besturen", component: OudBestuur },
     { name: "Commissies", path: "/commissies", component: Commissies },
+    { name: "Dispuut", path: "/dispuut", component: Dispuut },
     { name: "Partners", path: "/partners", component: Partners },
     { name: "Partner", path: "/partners/:partner", component: Partner },
     { name: "Vacatures", path: "/vacatures", component: Placeholder },
