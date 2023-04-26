@@ -14,5 +14,6 @@ type Partner = {
 
 declare module '@/content/partners.json' {
   export const mainPartner: Partner;
-  export const otherPartners: Array<Partner & { slug: string }>;
+  export const premiumPartners: Array<Partner & { slug: string }>;
+  export const regularPartners: Array<Partner & { slug: string }>;
 }

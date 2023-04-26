@@ -38,9 +38,9 @@ function becomeMember() {
             {{ item.title }}
           </a>
 
-          <a v-else :href="item.url">
+          <RouterLink v-else :to="item.url">
             {{ item.title }}
-          </a>
+          </RouterLink>
 
           <span v-if="item.children" prefetch class="drop-icon-desktop-header">▾</span>
 
@@ -53,9 +53,9 @@ function becomeMember() {
                 {{ child.title }}
               </a>
 
-              <a v-else :href="child.url">
+              <RouterLink v-else :to="child.url">
                 {{ child.title }}
-              </a>
+              </RouterLink>
 
               <label v-if="(child.grandchildren && child.grandchildren.place == 'right')" title="Toggle Drop-down"
                 class="drop-icon">▸</label>

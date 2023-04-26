@@ -1,10 +1,14 @@
 <script setup lang="ts">
-import ContentContainer from '@/layouts/ContentContainer.vue';
-import { mainPartner, otherPartners } from '@/content/partners.json';
+import ContentContainer from "@/layouts/ContentContainer.vue";
+import {
+  mainPartner,
+  premiumPartners,
+  regularPartners,
+} from "@/content/partners.json";
 
 function expandJobOffer(event: MouseEvent) {
   const target = event.target as HTMLElement;
-  target.parentElement!.classList.toggle('open');
+  target.parentElement!.classList.toggle("open");
 }
 </script>
 
@@ -13,31 +17,73 @@ function expandJobOffer(event: MouseEvent) {
     <h1>Partners</h1>
     <div id="main-partner" class="container">
       <div class="details">
-        <img class="partner-logo" :src="'/assets/partners/' + mainPartner.imgUrl" :alt="'Logo' + mainPartner.title">
+        <img
+          class="partner-logo"
+          :src="'/assets/partners/' + mainPartner.imgUrl"
+          :alt="'Logo' + mainPartner.title"
+        />
         <div class="description">
           <h3>Hoofdpartner: {{ mainPartner.title }}</h3>
-          <p v-for="paragraph in mainPartner.description" v-html="paragraph"></p>
+          <p
+            v-for="paragraph in mainPartner.description"
+            v-html="paragraph"
+          ></p>
         </div>
       </div>
       <div class="job-offers-container">
         <h4>Vacatures bij {{ mainPartner.title }}</h4>
         <div class="job-offers">
           <div class="job-offer" v-for="jobOffer in mainPartner.jobOffers">
-            <span class="job-offer-title" @click="expandJobOffer">{{ jobOffer.title }}</span>
+            <span class="job-offer-title" @click="expandJobOffer">{{
+              jobOffer.title
+            }}</span>
             <div class="job-offer-description">
               <p v-html="jobOffer.description"></p>
-              <a v-if="jobOffer.url" class="readMore" :href="jobOffer.url" target="_blank">Lees meer</a>
+              <a
+                v-if="jobOffer.url"
+                class="readMore"
+                :href="jobOffer.url"
+                target="_blank"
+                >Lees meer</a
+              >
             </div>
           </div>
         </div>
       </div>
     </div>
+    <hr class="dashed-line" />
     <h1>Premium partners</h1>
-    <div class="partner container" v-for="partner in otherPartners">
-      <img class="partner-logo" :src="'/assets/partners/' + partner.imgUrl" :alt="'Logo' + partner.title">
+    <div class="partner" v-for="partner in premiumPartners">
+      <img
+        class="partner-logo"
+        :src="'/assets/partners/' + partner.imgUrl"
+        :alt="'Logo' + partner.title"
+      />
       <div class="details">
         <h3>{{ partner.title }}</h3>
-        <p v-for="paragraph in partner.description" class="description" v-html="paragraph"></p>
+        <p
+          v-for="paragraph in partner.description"
+          class="description"
+          v-html="paragraph"
+        ></p>
+        <a class="readMore" :href="'/partners/' + partner.slug">Meer weten?</a>
+      </div>
+    </div>
+    <hr class="dashed-line" />
+    <h1>Reguliere partners</h1>
+    <div class="partner" v-for="partner in regularPartners">
+      <img
+        class="partner-logo"
+        :src="'/assets/partners/' + partner.imgUrl"
+        :alt="'Logo' + partner.title"
+      />
+      <div class="details">
+        <h3>{{ partner.title }}</h3>
+        <p
+          v-for="paragraph in partner.description"
+          class="description"
+          v-html="paragraph"
+        ></p>
         <a class="readMore" :href="'/partners/' + partner.slug">Meer weten?</a>
       </div>
     </div>
@@ -45,8 +91,19 @@ function expandJobOffer(event: MouseEvent) {
 </template>
 
 <style scoped lang="scss">
+.dashed-line {
+  border: none;
+  height: 2px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--indi-green-1),
+    var(--indi-green-1) 30px,
+    transparent 30px,
+    transparent 60px
+  );
+}
 #main-partner {
-  margin: 100px auto 150px auto;
+  margin: 0 auto 150px auto;
 
   .details {
     display: grid;
@@ -69,6 +126,9 @@ function expandJobOffer(event: MouseEvent) {
 
   .job-offers-container {
     margin-top: 3em;
+    background-color: var(--panel-background);
+    border-radius: 8px;
+    border: 1px solid gray;
 
     .job-offers {
       .job-offer {
@@ -124,13 +184,19 @@ function expandJobOffer(event: MouseEvent) {
 
 .partner {
   margin: 50px auto;
+  max-width: 1600px;
   display: grid;
   grid-template-columns: 1fr 2fr;
   gap: 8%;
   align-items: center;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1000px) {
     grid-template-columns: 1fr;
+
+    .partner-logo {
+      margin: 0 auto;
+      max-width: 600px;
+    }
   }
 
   .partner-logo {

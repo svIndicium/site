@@ -1,15 +1,16 @@
 <script setup lang="ts">
 /// <reference types="vite-svg-loader" />
-import { ref } from 'vue'
+import { ref } from "vue";
 import { stateStore } from "@/stores/state";
-import content from '@/content/menu.json'
-import NavLogo from "@/components/NavLogo.vue"
-const currentLevel2 = ref<string>("")
-const currentLevel3 = ref<string>("")
+import content from "@/content/menu.json";
+import NavLogo from "@/components/NavLogo.vue";
+import { useRouter } from "vue-router";
+
+const currentLevel2 = ref<string>("");
+const currentLevel3 = ref<string>("");
 
 const state = stateStore();
-const items = content.items
-
+const items = content.items;
 
 function toggleNavLevel() {
   if (state.state.navLevel) {
@@ -18,7 +19,6 @@ function toggleNavLevel() {
     state.state.navLevel = 1;
   }
 }
-
 
 function setCurrentLevel(level: 0 | 1 | 2 | 3, name?: string) {
   if (name) {
@@ -38,78 +38,155 @@ function setCurrentLevel(level: 0 | 1 | 2 | 3, name?: string) {
   state.state.navLevel = level;
 }
 
+const router = useRouter();
+router.afterEach(() => {
+  state.state.navLevel = 0;
+});
 </script>
-
 
 <template>
   <nav class="mobile-nav">
     <div class="mobile-container flex">
       <NavLogo />
 
-      <div class="nav-toggle" v-bind:class="{ rotated: state.state.navLevel }" @click="toggleNavLevel">
-        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none" stroke-width="2"
-          stroke-linecap="square">
-          <line v-bind:class="{ green: state.state.navLevel > 2 }" x1="7.5" y1="10" x2="22.5" y2="10"></line>
-          <line v-bind:class="{ bluegreen: state.state.navLevel > 1 }" x1="7.5" y1="15" x2="22.5" y2="15"></line>
-          <line v-bind:class="{ blue: state.state.navLevel > 0 }" x1="7.5" y1="20" x2="22.5" y2="20"></line>
+      <div
+        class="nav-toggle"
+        v-bind:class="{ rotated: state.state.navLevel }"
+        @click="toggleNavLevel"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="30"
+          height="30"
+          viewBox="0 0 30 30"
+          fill="none"
+          stroke-width="2"
+          stroke-linecap="square"
+        >
+          <line
+            v-bind:class="{ green: state.state.navLevel > 2 }"
+            x1="7.5"
+            y1="10"
+            x2="22.5"
+            y2="10"
+          ></line>
+          <line
+            v-bind:class="{ bluegreen: state.state.navLevel > 1 }"
+            x1="7.5"
+            y1="15"
+            x2="22.5"
+            y2="15"
+          ></line>
+          <line
+            v-bind:class="{ blue: state.state.navLevel > 0 }"
+            x1="7.5"
+            y1="20"
+            x2="22.5"
+            y2="20"
+          ></line>
         </svg>
       </div>
     </div>
 
     <div class="mobile-menu" v-bind:class="{ visible: state.state.navLevel }">
-      <div class="menubar blue" v-bind:class="{ visible: state.state.navLevel > 0 }" @click.self="setCurrentLevel(1)">
-        <div class="menu level-1" v-bind:class="{ visible: state.state.navLevel > 0 }">
+      <div
+        class="menubar blue"
+        v-bind:class="{ visible: state.state.navLevel > 0 }"
+        @click.self="setCurrentLevel(1)"
+      >
+        <div
+          class="menu level-1"
+          v-bind:class="{ visible: state.state.navLevel > 0 }"
+        >
           <ul>
-            <li v-for="item in items" :key="(item.title + item.url + item.children)" @click.self="setCurrentLevel(0)">
-              <a v-if="item.url.startsWith('http')" :href="item.url" target="_blank" @click="setCurrentLevel(0)">
+            <li
+              v-for="item in items"
+              :key="item.title + item.url + item.children"
+            >
+              <a
+                v-if="item.url.startsWith('http')"
+                :href="item.url"
+                target="_blank"
+              >
                 {{ item.title }}
               </a>
 
-              <a v-else :href="item.url" @click="setCurrentLevel(0)">
+              <RouterLink v-else :to="item.url">
                 {{ item.title }}
+              </RouterLink>
+
+              <a
+                v-if="item.children"
+                title="Goto submenu"
+                class="sub-menu-toggle"
+                @click="setCurrentLevel(2, item.title)"
+                >‌‌ ‌‌ ‌‌▸‌‌ ‌‌ ‌‌‌‌ ‌‌‌
               </a>
 
-              <a v-if="item.children" title="Goto submenu" class="sub-menu-toggle"
-                @click="setCurrentLevel(2, item.title)">‌‌ ‌‌ ‌‌▸‌‌ ‌‌ ‌‌‌‌ ‌‌‌
-              </a>
-
-              <div class="menubar bluegreen" v-bind:class="{ visible: item.title == currentLevel2 }"
-                @click.self="setCurrentLevel(2)">
-                <div class="menu level-2" v-bind:class="{ visible: item.title == currentLevel2 }">
+              <div
+                class="menubar bluegreen"
+                v-bind:class="{ visible: item.title == currentLevel2 }"
+                @click.self="setCurrentLevel(2)"
+              >
+                <div
+                  class="menu level-2"
+                  v-bind:class="{ visible: item.title == currentLevel2 }"
+                >
                   <ul class="sub-menu">
-                    <li class="sub-menu-li" v-for="child in item.children" :key="
-                      child.title +
-                      child.url +
-                      child.grandchildren
-                    ">
-                      <a v-if="child.url.startsWith('http')" :href="child.url" target="_blank"
-                        @click="setCurrentLevel(0)">
+                    <li
+                      class="sub-menu-li"
+                      v-for="child in item.children"
+                      :key="child.title + child.url + child.grandchildren"
+                    >
+                      <a
+                        v-if="child.url.startsWith('http')"
+                        :href="child.url"
+                        target="_blank"
+                        @click="setCurrentLevel(0)"
+                      >
                         {{ child.title }}
                       </a>
 
-                      <a v-else :href="child.url" @click="setCurrentLevel(0)">
+                      <RouterLink v-else :to="child.url">
                         {{ child.title }}
+                      </RouterLink>
+
+                      <a
+                        v-if="child.grandchildren"
+                        title="Goto sub-submenu"
+                        class="sub-menu-toggle"
+                        @click="setCurrentLevel(3, child.title)"
+                        >‌‌ ‌‌ ‌‌▸‌‌ ‌‌ ‌‌‌‌ ‌‌‌
                       </a>
 
-                      <a v-if="child.grandchildren" title="Goto sub-submenu" class="sub-menu-toggle"
-                        @click="setCurrentLevel(3, child.title)">‌‌ ‌‌ ‌‌▸‌‌ ‌‌ ‌‌‌‌ ‌‌‌
-                      </a>
-
-                      <div class="menubar green" v-bind:class="{ visible: child.title == currentLevel3 }"
-                        @click.self="(state.state.navLevel = 3)">
-                        <div class="menu level-3" v-bind:class="{
-                          visible: child.title == currentLevel3,
-                        }">
+                      <div
+                        class="menubar green"
+                        v-bind:class="{ visible: child.title == currentLevel3 }"
+                        @click.self="state.state.navLevel = 3"
+                      >
+                        <div
+                          class="menu level-3"
+                          v-bind:class="{
+                            visible: child.title == currentLevel3,
+                          }"
+                        >
                           <ul class="sub-sub-menu">
-                            <li class="sub-sub-menu-li" v-for="grandchild in child.grandchildren?.items"
-                              :key="grandchild.title + grandchild.url">
-                              <a v-if="grandchild.url.startsWith('http')" :href="grandchild.url" target="_blank"
-                                @click="setCurrentLevel(0)">
+                            <li
+                              class="sub-sub-menu-li"
+                              v-for="grandchild in child.grandchildren?.items"
+                              :key="grandchild.title + grandchild.url"
+                            >
+                              <a
+                                v-if="grandchild.url.startsWith('http')"
+                                :href="grandchild.url"
+                                target="_blank"
+                                @click="setCurrentLevel(0)"
+                              >
                                 {{ grandchild.title }}
                               </a>
-                              <a v-else :href="grandchild.url" @click="setCurrentLevel(0)">
+                              <RouterLink v-else :to="grandchild.url">
                                 {{ grandchild.title }}
-                              </a>
+                              </RouterLink>
                             </li>
                           </ul>
                         </div>
@@ -122,17 +199,17 @@ function setCurrentLevel(level: 0 | 1 | 2 | 3, name?: string) {
           </ul>
         </div>
       </div>
-      <div class="mobile-menu-shadow" v-bind:class="{ hidden: !state.state.navLevel }" @click="setCurrentLevel(0)">
-      </div>
+      <div
+        class="mobile-menu-shadow"
+        v-bind:class="{ hidden: !state.state.navLevel }"
+        @click="setCurrentLevel(0)"
+      ></div>
     </div>
   </nav>
 </template>
 
-
 <style lang="scss" scoped>
 @import "../assets/scss/variables.scss";
-
-
 
 .mobile-nav {
   --navbar-height: 16vw;
@@ -239,6 +316,10 @@ function setCurrentLevel(level: 0 | 1 | 2 | 3, name?: string) {
       visibility: visible;
     }
 
+    a {
+      color: var(--text-color);
+      font-weight: bold;
+    }
     .menubar {
       display: flex;
       position: relative;
@@ -331,7 +412,9 @@ function setCurrentLevel(level: 0 | 1 | 2 | 3, name?: string) {
 
         &.level-2 {
           position: absolute;
-          width: calc(calc(100vw - var(--shadowspace)) - calc(var(--linespace) * 2));
+          width: calc(
+            calc(100vw - var(--shadowspace)) - calc(var(--linespace) * 2)
+          );
 
           ul {
             li {
@@ -346,9 +429,9 @@ function setCurrentLevel(level: 0 | 1 | 2 | 3, name?: string) {
 
         &.level-3 {
           position: absolute;
-          width: calc(calc(100vw - var(--shadowspace)) - calc(var(--linespace) * 3));
-          ;
-
+          width: calc(
+            calc(100vw - var(--shadowspace)) - calc(var(--linespace) * 3)
+          );
           ul {
             li {
               border-bottom: solid 1px var(--indi-green-1);

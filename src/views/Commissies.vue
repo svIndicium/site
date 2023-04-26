@@ -1,19 +1,20 @@
 <script setup lang="ts">
-
 import ContentContainer from "@/layouts/ContentContainer.vue";
-import commissies from '@/content/commissies.json';
+import commissies from "@/content/commissies.json";
 const [commissie] = commissies;
-
-
 </script>
 <!-- todo: eerste kopje gecentreerd en fix fotos-->
 
 <template>
   <ContentContainer>
     <h1>Commissies</h1>
-    <p id="intro">Wil jij naast je studie actief bijdragen aan onze studievereniging meld je dan aan voor een van onze commissies. Naast dat dit super leuk is, staat dit ook goed op je CV!</p>
+    <p id="intro">
+      Wil jij naast je studie actief bijdragen aan onze studievereniging meld je
+      dan aan voor een van onze commissies. Naast dat dit super leuk is, staat
+      dit ook goed op je CV!
+    </p>
     <div class="commissie" v-for="(commissie, index) in commissies">
-      <img class="foto" :src="commissie.imgUrl" >
+      <img class="foto" :src="commissie.imgUrl" />
       <div class="commissie-info">
         <h3>{{ commissie.title }}</h3>
         <p>{{ commissie.description }}</p>
@@ -30,6 +31,10 @@ const [commissie] = commissies;
   display: grid;
   grid-template-columns: 1fr 1fr;
   column-gap: 10%;
+
+  h3 {
+    margin-top: 0;
+  }
 
   @media screen and (max-width: 768px) {
     grid-template-columns: 1fr;
@@ -50,5 +55,3 @@ const [commissie] = commissies;
   height: 1em;
 }
 </style>
-
-

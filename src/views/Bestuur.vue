@@ -7,11 +7,10 @@
 import ContentContainer from '@/layouts/ContentContainer.vue';
 import { currentBoard } from '@/content/boards.json';
 </script>
-npm
+
 <template>
     <ContentContainer>
       <h1>Bestuur</h1>
-      <img :src="`/assets/boards/${currentBoard.groupPhoto}`" alt="Groepsfoto">
       <div class="member" v-for="member in currentBoard.members">
         <img class="member-photo" :src="member.photo ? '/assets/boards/' + member.photo : 'https://cataas.com/cat/says/' + member.name" :alt="member.name">
         <div class="member-info">
@@ -20,6 +19,7 @@ npm
           <p>{{ member.introduction }}</p>
         </div>
       </div>
+      <img id="group-photo" :src="`/assets/boards/${currentBoard.groupPhoto}`" alt="Groepsfoto">
     </ContentContainer>
 </template>
 
@@ -39,7 +39,7 @@ npm
       }
     }
 
-    &:nth-child(odd) .member-info {
+    &:nth-child(even) .member-info {
         grid-column: 1;
     }
   }
