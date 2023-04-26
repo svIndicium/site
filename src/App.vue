@@ -70,7 +70,6 @@ body {
 
 #app {
   width: 100vw;
-  text-align: center;
   display: table;
   margin: 0;
   padding: 0;
@@ -79,6 +78,4 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
-.page-content {}
 </style>

@@ -57,12 +57,12 @@ const images = [
       </p>
       <h1>Hoe wij zijn ontstaan</h1>
       <p>
-        "Er moeten toch ook ICT-ers zijn die het wel leuk vinden om gezellige dingen te doen”. Dit 
-        waren de wijze woorden van onze voorzitter William die aan het praten was tegen Nigel onze 
-        secretaris. Diezelfde dag werd Olivier door William benaderd of hij het ook leuk lijkt om ICT weer 
-        gezellig te maken. Het enige wat er nog ontbrak was iemand die zich goed kon vinden in de cijfers. De 
-        zoektocht duurde niet lang. We hadden al snel iemand gevonden die uitstekend kan boekhouden en zo met Sander 
-        onze penningmeester erbij hadden we een hecht bestuur gevormd. 
+        "Er moeten toch ook ICT-ers zijn die het wel leuk vinden om gezellige dingen te doen”. Dit
+        waren de wijze woorden van onze voorzitter William die aan het praten was tegen Nigel onze
+        secretaris. Diezelfde dag werd Olivier door William benaderd of hij het ook leuk lijkt om ICT weer
+        gezellig te maken. Het enige wat er nog ontbrak was iemand die zich goed kon vinden in de cijfers. De
+        zoektocht duurde niet lang. We hadden al snel iemand gevonden die uitstekend kan boekhouden en zo met Sander
+        onze penningmeester erbij hadden we een hecht bestuur gevormd.
       </p>
     </div>
   </ContentContainer>
@@ -76,11 +76,12 @@ const images = [
   max-width: 1200px;
 }
 
+h2 {
+  text-align: center;
+}
+
 p {
   width: 70%;
   margin: 0 auto;
-}
-
-img {
 }
 </style>

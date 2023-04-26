@@ -1,11 +1,6 @@
 <script setup lang="ts">
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-
-// this reference line is needed for TS and svg loader. Copy and past where needed
 /// <reference types="vite-svg-loader" />
 import ContentContainer from '@/layouts/ContentContainer.vue';
-
 import constuctionsSVG from "@/assets/icons/underconstruction.svg?component"
 </script>
 
@@ -18,6 +13,10 @@ import constuctionsSVG from "@/assets/icons/underconstruction.svg?component"
 </template>
 
 <style scoped lang="scss">
+* {
+  text-align: center;
+}
+
 svg {
     width: 300px;
     height: 300px;

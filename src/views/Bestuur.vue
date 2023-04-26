@@ -1,9 +1,4 @@
 <script setup lang="ts">
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-
-// this reference line is needed for TS and svg loader. Copy and past where needed
-/// <reference types="vite-svg-loader" />
 import ContentContainer from '@/layouts/ContentContainer.vue';
 import { currentBoard } from '@/content/boards.json';
 </script>
@@ -24,23 +19,36 @@ import { currentBoard } from '@/content/boards.json';
 </template>
 
 <style scoped lang="scss">
-  .member {
-    max-width: 1200px;
-    margin: 4em auto;
-    display: grid;
-    grid-auto-flow: column;
-    column-gap: 10%;
+h1 {
+  text-align: center;
+}
 
-    @media screen and (max-width: 768px) {
-      grid-auto-flow: row;
+.member {
+  max-width: 1170px;
+  margin: 4em auto;
+  display: grid;
+  grid-auto-flow: column;
+  column-gap: 10%;
 
-      .member-photo {
-        margin: 0 auto;
-      }
-    }
+  h3:has(+ h4) {
+    margin-bottom: 0;
+  }
 
-    &:nth-child(even) .member-info {
-        grid-column: 1;
+  @media screen and (max-width: 768px) {
+    grid-auto-flow: row;
+
+    .member-photo {
+      margin: 0 auto;
     }
   }
+
+  &:nth-child(even) .member-info {
+      grid-column: 1;
+  }
+}
+
+#group-photo {
+  display: block;
+  margin: 0 auto;
+}
 </style>
