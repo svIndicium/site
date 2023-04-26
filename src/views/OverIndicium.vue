@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import ContentContainer from "@/layouts/ContentContainer.vue";
-//import Carousel from '@/layouts/Carousel.vue';
+import "vue3-carousel/dist/carousel.css";
+import { Carousel, Slide, Pagination, Navigation } from "vue3-carousel";
 
 const images = [
   "/assets/images/borrel2019.JPG",
@@ -12,7 +13,21 @@ const images = [
 <template>
   <ContentContainer>
     <div class="carousel">
-      <!-- <Carousel :images="images" /> -->
+      <carousel
+        :items-to-show="1.5"
+        :wrap-around="true"
+        :autoplay="5000"
+        :transition="600"
+      >
+        <slide v-for="slide in images" :key="slide">
+          <img :src="slide" />
+        </slide>
+
+        <template #addons>
+          <navigation />
+          <pagination />
+        </template>
+      </carousel>
     </div>
     <div>
       <h1>Over Indicium</h1>
@@ -55,5 +70,8 @@ const images = [
 p {
   width: 70%;
   margin: 0 auto;
+}
+
+img {
 }
 </style>
