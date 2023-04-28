@@ -4,65 +4,103 @@
 
 // this reference line is needed for TS and svg loader. Copy and past where needed
 /// <reference types="vite-svg-loader" />
-import Hero from "@/components/Hero.vue"
+import Hero from '@/components/Hero.vue';
+import Calendar from '@/components/Calendar.vue';
+import 'vue3-carousel/dist/carousel.css';
+import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel';
+
+const images = ['/assets/images/borrel2019.JPG', '/assets/images/sebTappen.jpg', '/assets/images/fotoOff.jpg'];
 </script>
 
 <template>
-    <Hero />
+  <Hero />
+  <div class="split-container">
+    <div class="left">
+      <div class="carousel">
+        <carousel :items-to-show="1" :wrap-around="true" :autoplay="5000" :transition="600">
+          <slide v-for="slide in images" :key="slide">
+            <img :src="slide" style="height: 300px" />
+          </slide>
 
-    <div class="container" data-v-4413e4a8="">
+          <template #addons>
+            <navigation />
+            <pagination />
+          </template>
+        </carousel>
+      </div>
+      <div class="container" data-v-4413e4a8="">
         <div class="text-block text-center contained" data-v-4413e4a8="">
-            <h2>
-                Over Indicium
-            </h2>
-            <p>Wij zijn dé studievereniging voor HBO-ICT van Hogeschool Utrecht. We organiseren het hele jaar door
-                activiteiten zoals bedrijfsbezoeken, kroegcolleges, gastcolleges, lunchlezingen, en nog veel meer
-                over allerlei verschillende onderwerpen. Maar we organiseren natuurlijk ook activiteiten voor
-                gezelligheid! Kom eens langs op onze borrels, LAN-party's of iets anders dat we organiseren!</p>
-
+          <h2 style="margin-top: 0.3em">Over Indicium</h2>
+          <p>
+            Wij zijn dé studievereniging voor HBO-ICT van Hogeschool Utrecht. We organiseren het hele jaar door
+            activiteiten zoals bedrijfsbezoeken, kroegcolleges, gastcolleges, lunchlezingen, en nog veel meer over
+            allerlei verschillende onderwerpen. Maar we organiseren natuurlijk ook activiteiten voor gezelligheid! Kom
+            eens langs op onze borrels, LAN-party's of iets anders dat we organiseren!
+          </p>
         </div>
+      </div>
+
+      <div class="container" data-v-4413e4a8="">
+        <div class="text-block text-center contained" data-v-4413e4a8="">
+          <h2>Lid zijn is meedoen!</h2>
+          <p>
+            Een hoop activiteiten organiseren we voor iedereen. Maar als lid krijg je natuurlijk veel meer voordelen! Je
+            krijgt dan korting bij activiteiten of je wordt uitgenodigd voor activiteiten die exclusief voor leden zijn.
+            Ook kunnen we je helpen met het zoeken van een stage en kan je er altijd terecht als je ergens niet uitkomt.
+            Interesse?
+          </p>
+        </div>
+        <div class="text-block text-center contained" data-v-4413e4a8="">
+          <h2>Commissies?</h2>
+          <p>
+            Lijkt je het leuk om de vereniging te helpen door het meeorganiseren van activiteiten, zoals borrels,
+            feestjes, gastcolleges, lunchlezingen, reizen, of wil je je programmeerskills verbeteren? Neem eens een
+            kijkje bij onze commissies, deze commissies bestaan uit enthousiaste leden die helpen om de vereniging
+            draaiende te houden. Wil je meer informatie of wil je weten wat voor commissies er allemaal zijn?
+          </p>
+        </div>
+      </div>
     </div>
 
-    <div class="container" data-v-4413e4a8="">
-        <div class="text-block text-center contained" data-v-4413e4a8="">
-            <h2>
-                Lid zijn is meedoen!
-            </h2>
-            <p>Een hoop activiteiten organiseren we voor iedereen. Maar als lid krijg je natuurlijk veel meer
-                voordelen! Je krijgt dan korting bij activiteiten of je wordt uitgenodigd voor activiteiten die
-                exclusief voor leden zijn. Ook kunnen we je helpen met het zoeken van een stage en kan je er altijd
-                terecht als je ergens niet uitkomt. Interesse?</p>
-        </div>
-        <div class="text-block text-center contained" data-v-4413e4a8="">
-            <h2>
-                Commissies?
-            </h2>
-            <p>Lijkt je het leuk om de vereniging te helpen door het meeorganiseren van activiteiten, zoals borrels,
-                feestjes, gastcolleges, lunchlezingen, reizen, of wil je je programmeerskills verbeteren? Neem eens
-                een kijkje bij onze commissies, deze commissies bestaan uit enthousiaste leden die helpen om de
-                vereniging draaiende te houden. Wil je meer informatie of wil je weten wat voor commissies er
-                allemaal zijn?</p>
-        </div>
+    <div class="right">
+      <Suspense>
+        <Calendar />
+      </Suspense>
     </div>
+  </div>
 </template>
 
 <style scoped lang="scss">
 svg {
-    width: 300px;
-    height: 300px;
+  width: 300px;
+  height: 300px;
+}
+
+.split-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  .left {
+    max-width: 800px;
+  }
+
+  .right {
+    width: 400px;
+  }
 }
 
 .logo {
-    height: 6em;
-    padding: 1.5em;
-    will-change: filter;
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
 }
 
 .logo:hover {
-    filter: drop-shadow(0 0 2em #646cffaa);
+  filter: drop-shadow(0 0 2em #646cffaa);
 }
 
 .logo.vue:hover {
-    filter: drop-shadow(0 0 2em #42b883aa);
+  filter: drop-shadow(0 0 2em #42b883aa);
 }
 </style>

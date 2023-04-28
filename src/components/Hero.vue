@@ -1,11 +1,7 @@
-
 <script setup lang="ts">
 /// <reference types="vite-svg-loader" />
-import logo from '@/components/LogoElement.vue'
+import logo from '@/components/LogoElement.vue';
 import HeroBackground from './HeroBackground.vue';
-
-
-
 </script>
 
 <template>
@@ -14,12 +10,10 @@ import HeroBackground from './HeroBackground.vue';
       <div class="hero-content">
         <div class="logo">
           <logo />
-
         </div>
         <h1 class="fadeInUp">
           Wij zijn dé
-          <span class="extra-bold">studie</span>vereniging voor HBO-ICT van
-          Hogeschool Utrecht
+          <span class="extra-bold">studie</span>vereniging voor HBO-ICT van Hogeschool Utrecht
         </h1>
 
         <!-- <div class="buttons fadeInUp">
@@ -31,10 +25,10 @@ import HeroBackground from './HeroBackground.vue';
   </div>
 </template>
 
-
 <style lang="scss" scoped>
 .hero {
   top: 20px;
+  margin-bottom: 40px;
   display: flex;
   justify-content: center;
   position: relative;
@@ -70,7 +64,6 @@ import HeroBackground from './HeroBackground.vue';
     }
   }
 }
-
 
 // --bp-desktop-sm: 1120px;
 @media only screen and (max-width: 1120px) {

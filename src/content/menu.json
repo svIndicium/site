@@ -1,10 +1,6 @@
 {
   "items": [
     {
-      "title": "Activiteiten",
-      "url": "/activiteiten"
-    },
-    {
       "title": "Over ons",
       "url": "/over-indicium",
       "children": [
@@ -37,6 +33,10 @@
     {
       "title": "Contact",
       "url": "/contact"
+    },
+    {
+      "title": "Introductie voor nieuwe studenten",
+      "url": "/intro"
     },
     {
       "title": "Lid worden",

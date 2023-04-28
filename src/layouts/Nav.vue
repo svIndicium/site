@@ -1,29 +1,26 @@
 <script setup lang="ts">
 /// <reference types="vite-svg-loader" />
-import { ref } from 'vue'
-import { stateStore } from "@/stores/state";
-import content from '@/content/menu.json'
-import NavLogo from "@/components/NavLogo.vue"
-import { useRouter } from 'vue-router'
+import { ref } from 'vue';
+import { stateStore } from '@/stores/state';
+import content from '@/content/menu.json';
+import NavLogo from '@/components/NavLogo.vue';
+import { useRouter } from 'vue-router';
 import confetti from 'canvas-confetti';
 
-const router = useRouter()
+const router = useRouter();
 const state = stateStore();
-const items = content.items
+const items = content.items;
 
-function becomeMember() {
+function partyButton() {
   confetti({
     angle: 200,
     particleCount: 150,
     spread: 110,
     origin: { y: 0.0, x: 1 },
-    startVelocity: 100
+    startVelocity: 100,
   });
 }
-
-
 </script>
-
 
 <template>
   <nav :class="'nav'">
@@ -31,7 +28,10 @@ function becomeMember() {
       <NavLogo />
       <ul>
         <li v-for="item in items" :key="item.title + item.url + item.children">
-          <a v-if="(item.url == '/lid-worden')" :href="item.url" class="wordt-lid" @mouseenter="becomeMember">
+          <a v-if="item.url == '/intro'" :href="item.url" class="intro" @mouseenter="partyButton">
+            {{ item.title }}
+          </a>
+          <a v-else-if="item.url == '/lid-worden'" :href="item.url" class="wordt-lid" @mouseenter="partyButton">
             {{ item.title }}
           </a>
           <a v-else-if="item.url.startsWith('http')" :href="item.url" target="_blank">
@@ -46,8 +46,12 @@ function becomeMember() {
 
           <ul class="sub-menu">
             <li class="sub-menu-li" v-for="child in item.children" :key="child.title + child.url + child.grandchildren">
-              <label v-if="(child.grandchildren && child.grandchildren.place == 'left')" title="Toggle Drop-down"
-                class="drop-icon">◂</label>
+              <label
+                v-if="child.grandchildren && child.grandchildren.place == 'left'"
+                title="Toggle Drop-down"
+                class="drop-icon"
+                >◂</label
+              >
 
               <a v-if="child.url.startsWith('http')" :href="child.url" target="_blank">
                 {{ child.title }}
@@ -57,12 +61,19 @@ function becomeMember() {
                 {{ child.title }}
               </RouterLink>
 
-              <label v-if="(child.grandchildren && child.grandchildren.place == 'right')" title="Toggle Drop-down"
-                class="drop-icon">▸</label>
+              <label
+                v-if="child.grandchildren && child.grandchildren.place == 'right'"
+                title="Toggle Drop-down"
+                class="drop-icon"
+                >▸</label
+              >
 
               <ul v-if="child.grandchildren && child.grandchildren.place == 'right'" class="sub-sub-menu">
-                <li class="sub-sub-menu-li" v-for="grandchild in child.grandchildren.items"
-                  :key="grandchild.title + grandchild.url">
+                <li
+                  class="sub-sub-menu-li"
+                  v-for="grandchild in child.grandchildren.items"
+                  :key="grandchild.title + grandchild.url"
+                >
                   <a v-if="grandchild.url.startsWith('http')" :href="grandchild.url" target="_blank">
                     {{ grandchild.title }}
                   </a>
@@ -74,8 +85,11 @@ function becomeMember() {
               </ul>
 
               <ul v-if="child.grandchildren && child.grandchildren.place == 'left'" class="sub-sub-menu-left">
-                <li class="sub-sub-menu-li" v-for="grandchild in child.grandchildren.items"
-                  :key="grandchild.title + grandchild.url">
+                <li
+                  class="sub-sub-menu-li"
+                  v-for="grandchild in child.grandchildren.items"
+                  :key="grandchild.title + grandchild.url"
+                >
                   <a v-if="grandchild.url.startsWith('http')" :href="grandchild.url" target="_blank">
                     {{ grandchild.title }}
                   </a>
@@ -93,10 +107,8 @@ function becomeMember() {
   </nav>
 </template>
 
-
-
 <style lang="scss" scoped>
-@import "../assets/scss/variables.scss";
+@import '../assets/scss/variables.scss';
 
 .nav {
   display: block;
@@ -128,8 +140,6 @@ function becomeMember() {
     overflow: auto;
 
     a {
-
-
       &:hover {
         text-decoration: underline;
         cursor: pointer;
@@ -140,8 +150,6 @@ function becomeMember() {
         text-decoration: underline overline;
       }
     }
-
-
 
     li {
       display: flex;
@@ -160,10 +168,16 @@ function becomeMember() {
         text-align: center;
         text-decoration: none;
 
+        &.intro {
+          border: 2px solid var(--indi-blue-1);
+          padding: 8px;
+          border-radius: 8px;
+        }
+
         &.wordt-lid {
           background-color: var(--indi-blue-1);
           padding: 8px;
-          border-radius: 8px
+          border-radius: 8px;
         }
       }
     }

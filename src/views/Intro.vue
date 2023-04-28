@@ -11,9 +11,8 @@ import ContentContainer from '@/layouts/ContentContainer.vue';
 <template>
   <ContentContainer>
     <theeSVG class="icon"></theeSVG>
-    <h1>Rustig aan, neem wat thee</h1>
-    <h2>418 - ODZ: "Het is altijd thee tijd"</h2>
-    <p>Als je denkt dat dit niet klopt. Ben je meer dan welkom om ons te helpen bij de DEVCOM!</p>
+    <h1>Rustig aan de inschrijving is nog niet open</h1>
+    <h2>Neem wat thee</h2>
   </ContentContainer>
 </template>
 
