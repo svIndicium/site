@@ -1,14 +1,11 @@
 <script setup lang="ts">
-
 import ContentContainer from '@/layouts/ContentContainer.vue';
 </script>
 
 <template>
-    <ContentContainer>
-        <iframe src="/pdf/statutenindicium.pdf" width="100%" height="500px" />
-    </ContentContainer>
+  <ContentContainer>
+    <iframe src="/pdf/statutenindicium.pdf" width="100%" height="800px" />
+  </ContentContainer>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

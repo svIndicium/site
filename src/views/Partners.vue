@@ -1,14 +1,10 @@
 <script setup lang="ts">
-import ContentContainer from "@/layouts/ContentContainer.vue";
-import {
-  mainPartner,
-  premiumPartners,
-  regularPartners,
-} from "@/content/partners.json";
+import ContentContainer from '@/layouts/ContentContainer.vue';
+import { mainPartner, premiumPartners, regularPartners } from '@/content/partners.json';
 
 function expandJobOffer(event: MouseEvent) {
   const target = event.target as HTMLElement;
-  target.parentElement!.classList.toggle("open");
+  target.parentElement!.classList.toggle('open');
 }
 </script>
 
@@ -17,35 +13,20 @@ function expandJobOffer(event: MouseEvent) {
     <h1>Partners</h1>
     <div id="main-partner" class="container">
       <div class="details">
-        <img
-          class="partner-logo"
-          :src="'/assets/partners/' + mainPartner.imgUrl"
-          :alt="'Logo' + mainPartner.title"
-        />
+        <img class="partner-logo" :src="'/assets/partners/' + mainPartner.imgUrl" :alt="'Logo' + mainPartner.title" />
         <div class="description">
           <h3>Hoofdpartner: {{ mainPartner.title }}</h3>
-          <p
-            v-for="paragraph in mainPartner.description"
-            v-html="paragraph"
-          ></p>
+          <p v-for="paragraph in mainPartner.description" v-html="paragraph"></p>
         </div>
       </div>
       <div class="job-offers-container">
         <h4>Vacatures bij {{ mainPartner.title }}</h4>
         <div class="job-offers">
           <div class="job-offer" v-for="jobOffer in mainPartner.jobOffers">
-            <span class="job-offer-title" @click="expandJobOffer">{{
-              jobOffer.title
-            }}</span>
+            <span class="job-offer-title" @click="expandJobOffer">{{ jobOffer.title }}</span>
             <div class="job-offer-description">
               <p v-html="jobOffer.description"></p>
-              <a
-                v-if="jobOffer.url"
-                class="readMore"
-                :href="jobOffer.url"
-                target="_blank"
-                >Lees meer</a
-              >
+              <a v-if="jobOffer.url" class="readMore" :href="jobOffer.url" target="_blank">Lees meer</a>
             </div>
           </div>
         </div>
@@ -54,36 +35,20 @@ function expandJobOffer(event: MouseEvent) {
     <hr class="dashed-line" />
     <h1>Premium partners</h1>
     <div class="partner" v-for="partner in premiumPartners">
-      <img
-        class="partner-logo"
-        :src="'/assets/partners/' + partner.imgUrl"
-        :alt="'Logo' + partner.title"
-      />
+      <img class="partner-logo" :src="'/assets/partners/' + partner.imgUrl" :alt="'Logo' + partner.title" />
       <div class="details">
         <h3>{{ partner.title }}</h3>
-        <p
-          v-for="paragraph in partner.description"
-          class="description"
-          v-html="paragraph"
-        ></p>
+        <p v-for="paragraph in partner.description" class="description" v-html="paragraph"></p>
         <a class="readMore" :href="'/partners/' + partner.slug">Meer weten?</a>
       </div>
     </div>
     <hr class="dashed-line" />
     <h1>Reguliere partners</h1>
     <div class="partner" v-for="partner in regularPartners">
-      <img
-        class="partner-logo"
-        :src="'/assets/partners/' + partner.imgUrl"
-        :alt="'Logo' + partner.title"
-      />
+      <img class="partner-logo" :src="'/assets/partners/' + partner.imgUrl" :alt="'Logo' + partner.title" />
       <div class="details">
         <h3>{{ partner.title }}</h3>
-        <p
-          v-for="paragraph in partner.description"
-          class="description"
-          v-html="paragraph"
-        ></p>
+        <p v-for="paragraph in partner.description" class="description" v-html="paragraph"></p>
         <a class="readMore" :href="'/partners/' + partner.slug">Meer weten?</a>
       </div>
     </div>
@@ -130,15 +95,19 @@ function expandJobOffer(event: MouseEvent) {
     border-radius: 8px;
     border: 1px solid gray;
 
+    h4 {
+      margin: 16px;
+    }
+
     .job-offers {
       .job-offer {
         display: flex;
         flex-direction: column;
         box-sizing: border-box;
-        width: 80%;
+        width: 100%;
         text-align: left;
+        padding: 0 16px;
         margin: 1.5em auto;
-        padding-left: 2em;
         background-color: rgba(255, 255, 255, 0.15);
         border-radius: 1.5em;
 
@@ -153,10 +122,10 @@ function expandJobOffer(event: MouseEvent) {
 
         .job-offer-title::after {
           display: inline-block;
-          content: "";
+          content: '';
           background-color: var(--text-color);
-          -webkit-mask-image: url("/assets/icons/arrow-up.svg");
-          mask-image: url("/assets/icons/arrow-up.svg");
+          -webkit-mask-image: url('/assets/icons/arrow-up.svg');
+          mask-image: url('/assets/icons/arrow-up.svg');
           height: 12px;
           width: 21px;
           margin-left: auto;

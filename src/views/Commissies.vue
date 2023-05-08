@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import ContentContainer from "@/layouts/ContentContainer.vue";
-import commissies from "@/content/commissies.json";
+import ContentContainer from '@/layouts/ContentContainer.vue';
+import commissies from '@/content/commissies.json';
 const [commissie] = commissies;
 </script>
 <!-- todo: eerste kopje gecentreerd en fix fotos-->
@@ -9,9 +9,8 @@ const [commissie] = commissies;
   <ContentContainer>
     <h1>Commissies</h1>
     <p id="intro">
-      Wil jij naast je studie actief bijdragen aan onze studievereniging meld je
-      dan aan voor een van onze commissies. Naast dat dit super leuk is, staat
-      dit ook goed op je CV!
+      Wil jij naast je studie actief bijdragen aan onze studievereniging meld je dan aan voor een van onze commissies.
+      Naast dat dit super leuk is, staat dit ook goed op je CV!
     </p>
     <div class="commissie" v-for="(commissie, index) in commissies">
       <img class="foto" :src="commissie.imgUrl" />
@@ -30,7 +29,7 @@ const [commissie] = commissies;
   margin: 4em auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  column-gap: 10%;
+  column-gap: 10px;
 
   h3 {
     margin-top: 0;

@@ -19,7 +19,7 @@ const images = ['/assets/images/borrel2019.JPG', '/assets/images/sebTappen.jpg',
       <div class="carousel">
         <carousel :items-to-show="1" :wrap-around="true" :autoplay="5000" :transition="600">
           <slide v-for="slide in images" :key="slide">
-            <img :src="slide" style="height: 300px" />
+            <img :src="slide" style="height: 400px; max-height: 50vw" />
           </slide>
 
           <template #addons>
@@ -86,6 +86,7 @@ svg {
   }
 
   .right {
+    padding: 24px;
     width: 400px;
   }
 }
