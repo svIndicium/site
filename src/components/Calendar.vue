@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import { ref } from 'vue';
+
+const maxCalEvents = ref(7);
 /**
  * There's a bunch more data, but we don't need it
  * Documentation can be found at https://developers.google.com/calendar/api/v3/reference/events/list
@@ -64,7 +67,7 @@ const events: Event<Date>[] = calendarData.items
 </script>
 
 <template>
-  <div class="event" v-for="event in events.slice(0, 7)" :key="event.id">
+  <div class="event" v-for="event in events.slice(0, maxCalEvents)" :key="event.id">
     <div class="date">
       <span class="day">{{ event.start.toLocaleDateString('nl', { day: 'numeric' }) }}</span>
       <br />
@@ -116,6 +119,7 @@ const events: Event<Date>[] = calendarData.items
       >
     </div>
   </div>
+  <a v-if="maxCalEvents == 7 && events.length > 7" @click="maxCalEvents = 100">laat meer zien</a>
 </template>
 
 <style lang="scss">

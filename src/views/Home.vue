@@ -63,6 +63,7 @@ const images = ['/assets/images/borrel2019.JPG', '/assets/images/sebTappen.jpg',
     </div>
 
     <div class="right">
+      <h2>Agenda</h2>
       <Suspense>
         <Calendar />
       </Suspense>

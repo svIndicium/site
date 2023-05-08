@@ -18,7 +18,7 @@ const images = ['/assets/images/borrel2019.JPG', '/assets/images/sebTappen.jpg',
         professionals uit de branche. De vereniging heeft ook een actieve rol in de organisatie van evenementen, zoals 2
         maal per jaar een studiereis naar beurzen door Europa en hackathons.
       </p>
-      <h1>Introkamp</h1>
+      <h2>Introkamp</h2>
       <p>
         Verreweg een van de leukste activiteiten van het jaar is het introkamp vlak voor het begin van het studiejaar.
         Tijdens het introkamp organiseren de leden van de vereniging activiteiten die gericht zijn op teambuilding en
@@ -27,7 +27,7 @@ const images = ['/assets/images/borrel2019.JPG', '/assets/images/sebTappen.jpg',
         door middel van uitdagende activiteiten, teambuilding en een leuk feestje. Kortom, het introkamp is de beste
         manier om je studententijd in Utrecht te beginnen en vrienden te maken voor de rest van je studie.
       </p>
-      <h1>Hoe wij zijn ontstaan</h1>
+      <h2>Hoe wij zijn ontstaan</h2>
       <p>
         "Er moeten toch ook ICT-ers zijn die het wel leuk vinden om gezellige dingen te doen”. Dit waren de wijze
         woorden van onze voorzitter William die aan het praten was tegen Nigel onze secretaris. Diezelfde dag werd
@@ -49,7 +49,8 @@ const images = ['/assets/images/borrel2019.JPG', '/assets/images/sebTappen.jpg',
 }
 
 h2 {
-  text-align: center;
+  width: 70%;
+  margin: 16px auto 0 auto;
 }
 
 p {
