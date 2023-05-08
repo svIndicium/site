@@ -29,7 +29,7 @@ const router = createRouter({
   history: createWebHistory(),
   routes: [
     { name: 'Home', path: '/', component: Home },
-    { name: 'Activiteiten', path: '/activiteiten', component: Activiteiten },
+    // { name: 'Activiteiten', path: '/activiteiten', component: Activiteiten },
     { name: 'Over Indicium', path: '/over-indicium', component: OverIndicium },
     { name: 'Bestuur', path: '/bestuur', component: Bestuur },
     { name: 'Lid Worden', path: '/lid-worden', component: LidWorden },

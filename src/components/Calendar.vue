@@ -64,7 +64,7 @@ const events: Event<Date>[] = calendarData.items
 </script>
 
 <template>
-  <div class="event" v-for="event in events" :key="event.id">
+  <div class="event" v-for="event in events.slice(0, 7)" :key="event.id">
     <div class="date">
       <span class="day">{{ event.start.toLocaleDateString('nl', { day: 'numeric' }) }}</span>
       <br />

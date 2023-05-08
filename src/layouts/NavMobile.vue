@@ -1,13 +1,13 @@
 <script setup lang="ts">
 /// <reference types="vite-svg-loader" />
-import { ref } from "vue";
-import { stateStore } from "@/stores/state";
-import content from "@/content/menu.json";
-import NavLogo from "@/components/NavLogo.vue";
-import { useRouter } from "vue-router";
+import { ref } from 'vue';
+import { stateStore } from '@/stores/state';
+import content from '@/content/menu.json';
+import NavLogo from '@/components/NavLogo.vue';
+import { useRouter } from 'vue-router';
 
-const currentLevel2 = ref<string>("");
-const currentLevel3 = ref<string>("");
+const currentLevel2 = ref<string>('');
+const currentLevel3 = ref<string>('');
 
 const state = stateStore();
 const items = content.items;
@@ -30,10 +30,10 @@ function setCurrentLevel(level: 0 | 1 | 2 | 3, name?: string) {
     }
   }
   if (level < 3) {
-    currentLevel3.value = "";
+    currentLevel3.value = '';
   }
   if (level < 2) {
-    currentLevel2.value = "";
+    currentLevel2.value = '';
   }
   state.state.navLevel = level;
 }
@@ -49,11 +49,7 @@ router.afterEach(() => {
     <div class="mobile-container flex">
       <NavLogo />
 
-      <div
-        class="nav-toggle"
-        v-bind:class="{ rotated: state.state.navLevel }"
-        @click="toggleNavLevel"
-      >
+      <div class="nav-toggle" v-bind:class="{ rotated: state.state.navLevel }" @click="toggleNavLevel">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="30"
@@ -63,51 +59,19 @@ router.afterEach(() => {
           stroke-width="2"
           stroke-linecap="square"
         >
-          <line
-            v-bind:class="{ green: state.state.navLevel > 2 }"
-            x1="7.5"
-            y1="10"
-            x2="22.5"
-            y2="10"
-          ></line>
-          <line
-            v-bind:class="{ bluegreen: state.state.navLevel > 1 }"
-            x1="7.5"
-            y1="15"
-            x2="22.5"
-            y2="15"
-          ></line>
-          <line
-            v-bind:class="{ blue: state.state.navLevel > 0 }"
-            x1="7.5"
-            y1="20"
-            x2="22.5"
-            y2="20"
-          ></line>
+          <line v-bind:class="{ green: state.state.navLevel > 2 }" x1="7.5" y1="10" x2="22.5" y2="10"></line>
+          <line v-bind:class="{ bluegreen: state.state.navLevel > 1 }" x1="7.5" y1="15" x2="22.5" y2="15"></line>
+          <line v-bind:class="{ blue: state.state.navLevel > 0 }" x1="7.5" y1="20" x2="22.5" y2="20"></line>
         </svg>
       </div>
     </div>
 
     <div class="mobile-menu" v-bind:class="{ visible: state.state.navLevel }">
-      <div
-        class="menubar blue"
-        v-bind:class="{ visible: state.state.navLevel > 0 }"
-        @click.self="setCurrentLevel(1)"
-      >
-        <div
-          class="menu level-1"
-          v-bind:class="{ visible: state.state.navLevel > 0 }"
-        >
+      <div class="menubar blue" v-bind:class="{ visible: state.state.navLevel > 0 }" @click.self="setCurrentLevel(1)">
+        <div class="menu level-1" v-bind:class="{ visible: state.state.navLevel > 0 }">
           <ul>
-            <li
-              v-for="item in items"
-              :key="item.title + item.url + item.children"
-            >
-              <a
-                v-if="item.url.startsWith('http')"
-                :href="item.url"
-                target="_blank"
-              >
+            <li v-for="item in items" :key="item.title + item.url + item.children">
+              <a v-if="item.url.startsWith('http')" :href="item.url" target="_blank">
                 {{ item.title }}
               </a>
 
@@ -128,11 +92,11 @@ router.afterEach(() => {
                 v-bind:class="{ visible: item.title == currentLevel2 }"
                 @click.self="setCurrentLevel(2)"
               >
-                <div
-                  class="menu level-2"
-                  v-bind:class="{ visible: item.title == currentLevel2 }"
-                >
+                <div class="menu level-2" v-bind:class="{ visible: item.title == currentLevel2 }">
                   <ul class="sub-menu">
+                    <li>
+                      <a @click="setCurrentLevel(1)"> .. </a>
+                    </li>
                     <li
                       class="sub-menu-li"
                       v-for="child in item.children"
@@ -171,6 +135,9 @@ router.afterEach(() => {
                           }"
                         >
                           <ul class="sub-sub-menu">
+                            <li>
+                              <a @click="setCurrentLevel(2)"> .. </a>
+                            </li>
                             <li
                               class="sub-sub-menu-li"
                               v-for="grandchild in child.grandchildren?.items"
@@ -209,7 +176,7 @@ router.afterEach(() => {
 </template>
 
 <style lang="scss" scoped>
-@import "../assets/scss/variables.scss";
+@import '../assets/scss/variables.scss';
 
 .mobile-nav {
   --navbar-height: 16vw;
@@ -217,6 +184,10 @@ router.afterEach(() => {
   --transition-time: 0.2s;
   --linespace: 5vw;
   --shadowspace: 10vw;
+
+  a {
+    cursor: pointer;
+  }
 
   li {
     display: flex;
@@ -321,6 +292,7 @@ router.afterEach(() => {
       font-weight: bold;
     }
     .menubar {
+      cursor: pointer;
       display: flex;
       position: relative;
       z-index: 0;
@@ -412,9 +384,7 @@ router.afterEach(() => {
 
         &.level-2 {
           position: absolute;
-          width: calc(
-            calc(100vw - var(--shadowspace)) - calc(var(--linespace) * 2)
-          );
+          width: calc(calc(100vw - var(--shadowspace)) - calc(var(--linespace) * 2));
 
           ul {
             li {
@@ -429,9 +399,7 @@ router.afterEach(() => {
 
         &.level-3 {
           position: absolute;
-          width: calc(
-            calc(100vw - var(--shadowspace)) - calc(var(--linespace) * 3)
-          );
+          width: calc(calc(100vw - var(--shadowspace)) - calc(var(--linespace) * 3));
           ul {
             li {
               border-bottom: solid 1px var(--indi-green-1);
