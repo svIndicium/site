@@ -9,11 +9,9 @@ import Calendar from '@/components/Calendar.vue';
 import 'vue3-carousel/dist/carousel.css';
 import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel';
 import { mainPartner, premiumPartners, regularPartners } from '@/content/partners.json';
-
-const images = ['/assets/images/borrel2019.JPG', '/assets/images/sebTappen.jpg', '/assets/images/fotoOff.jpg'];
-
 import { stateStore } from '@/stores/state';
 const state = stateStore();
+const images = ['/assets/images/borrel2019.JPG', '/assets/images/sebTappen.jpg', '/assets/images/fotoOff.jpg'];
 </script>
 
 <template>

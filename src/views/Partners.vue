@@ -1,15 +1,13 @@
 <script setup lang="ts">
 import ContentContainer from '@/layouts/ContentContainer.vue';
 import { mainPartner, premiumPartners, regularPartners } from '@/content/partners.json';
+import { stateStore } from '@/stores/state';
+const state = stateStore();
 
 function expandJobOffer(event: MouseEvent) {
   const target = event.target as HTMLElement;
   target.parentElement!.classList.toggle('open');
 }
-
-import { stateStore } from '@/stores/state';
-
-const state = stateStore();
 </script>
 
 <template>
