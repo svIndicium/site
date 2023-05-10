@@ -8,8 +8,12 @@ import Hero from '@/components/Hero.vue';
 import Calendar from '@/components/Calendar.vue';
 import 'vue3-carousel/dist/carousel.css';
 import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel';
+import { mainPartner, premiumPartners, regularPartners } from '@/content/partners.json';
 
 const images = ['/assets/images/borrel2019.JPG', '/assets/images/sebTappen.jpg', '/assets/images/fotoOff.jpg'];
+
+import { stateStore } from '@/stores/state';
+const state = stateStore();
 </script>
 
 <template>
@@ -67,6 +71,28 @@ const images = ['/assets/images/borrel2019.JPG', '/assets/images/sebTappen.jpg',
       <Suspense>
         <Calendar />
       </Suspense>
+
+      <h2>Partners</h2>
+      <div class="partner-container">
+        <img
+          style="height: 120px; margin-top: 0"
+          class="partner-logo"
+          :src="'/assets/partners/' + (state.darkModeActive ? mainPartner.imgUrlDark : mainPartner.imgUrl)"
+          :alt="'Logo' + mainPartner.title"
+        />
+        <img
+          v-for="partner in premiumPartners"
+          class="partner-logo"
+          :src="'/assets/partners/' + (state.darkModeActive ? partner.imgUrlDark : partner.imgUrl)"
+          :alt="'Logo' + partner.title"
+        />
+        <img
+          v-for="partner in regularPartners"
+          class="partner-logo"
+          :src="'/assets/partners/' + (state.darkModeActive ? partner.imgUrlDark : partner.imgUrl)"
+          :alt="'Logo' + partner.title"
+        />
+      </div>
     </div>
   </div>
 </template>
@@ -89,6 +115,17 @@ svg {
   .right {
     padding: 24px;
     width: 400px;
+
+    .partner-container {
+      border-radius: 4px;
+      padding: 8px;
+      background-color: var(--secondary-background-color);
+    }
+
+    img {
+      margin-top: 16px;
+      height: 66px;
+    }
   }
 }
 

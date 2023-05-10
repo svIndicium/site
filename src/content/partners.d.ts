@@ -2,15 +2,16 @@ type JobOffer = {
   title: string;
   description: Array<string>;
   url?: string;
-}
+};
 
 type Partner = {
   title: string;
-  description: Array<string>
+  description: Array<string>;
   imgUrl: string;
+  imgUrlDark: string;
   url?: string;
-  jobOffers: Array<JobOffer>
-}
+  jobOffers: Array<JobOffer>;
+};
 
 declare module '@/content/partners.json' {
   export const mainPartner: Partner;

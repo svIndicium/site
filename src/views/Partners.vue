@@ -6,6 +6,10 @@ function expandJobOffer(event: MouseEvent) {
   const target = event.target as HTMLElement;
   target.parentElement!.classList.toggle('open');
 }
+
+import { stateStore } from '@/stores/state';
+
+const state = stateStore();
 </script>
 
 <template>
@@ -13,7 +17,11 @@ function expandJobOffer(event: MouseEvent) {
     <h1>Partners</h1>
     <div id="main-partner" class="container">
       <div class="details">
-        <img class="partner-logo" :src="'/assets/partners/' + mainPartner.imgUrl" :alt="'Logo' + mainPartner.title" />
+        <img
+          class="partner-logo"
+          :src="'/assets/partners/' + (state.darkModeActive ? mainPartner.imgUrlDark : mainPartner.imgUrl)"
+          :alt="'Logo' + mainPartner.title"
+        />
         <div class="description">
           <h3>Hoofdpartner: {{ mainPartner.title }}</h3>
           <p v-for="paragraph in mainPartner.description" v-html="paragraph"></p>
@@ -35,7 +43,11 @@ function expandJobOffer(event: MouseEvent) {
     <hr class="dashed-line" />
     <h1>Premium partners</h1>
     <div class="partner" v-for="partner in premiumPartners">
-      <img class="partner-logo" :src="'/assets/partners/' + partner.imgUrl" :alt="'Logo' + partner.title" />
+      <img
+        class="partner-logo"
+        :src="'/assets/partners/' + (state.darkModeActive ? partner.imgUrlDark : partner.imgUrl)"
+        :alt="'Logo' + partner.title"
+      />
       <div class="details">
         <h3>{{ partner.title }}</h3>
         <p v-for="paragraph in partner.description" class="description" v-html="paragraph"></p>
@@ -45,7 +57,11 @@ function expandJobOffer(event: MouseEvent) {
     <hr class="dashed-line" />
     <h1>Reguliere partners</h1>
     <div class="partner" v-for="partner in regularPartners">
-      <img class="partner-logo" :src="'/assets/partners/' + partner.imgUrl" :alt="'Logo' + partner.title" />
+      <img
+        class="partner-logo"
+        :src="'/assets/partners/' + (state.darkModeActive ? partner.imgUrlDark : partner.imgUrl)"
+        :alt="'Logo' + partner.title"
+      />
       <div class="details">
         <h3>{{ partner.title }}</h3>
         <p v-for="paragraph in partner.description" class="description" v-html="paragraph"></p>
