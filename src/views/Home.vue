@@ -11,7 +11,7 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel';
 import { mainPartner, premiumPartners, regularPartners } from '@/content/partners.json';
 import { stateStore } from '@/stores/state';
 const state = stateStore();
-const images = ['/assets/images/borrel2019.JPG', '/assets/images/sebTappen.jpg', '/assets/images/fotoOff.jpg'];
+const images = ['/assets/images/DSC_2456.JPG', '/assets/images/DSC_3982.JPG', '/assets/images/Introkamp-53.jpg'];
 </script>
 
 <template>
@@ -21,7 +21,7 @@ const images = ['/assets/images/borrel2019.JPG', '/assets/images/sebTappen.jpg',
       <div class="carousel">
         <carousel :items-to-show="1" :wrap-around="true" :autoplay="5000" :transition="600">
           <slide v-for="slide in images" :key="slide">
-            <img :src="slide" style="height: 400px; max-height: 50vw" />
+            <img alt="Foto's" :src="slide" style="height: 400px; max-height: 50vw" />
           </slide>
 
           <template #addons>

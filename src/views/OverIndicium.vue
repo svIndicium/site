@@ -3,11 +3,28 @@ import ContentContainer from '@/layouts/ContentContainer.vue';
 import 'vue3-carousel/dist/carousel.css';
 import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel';
 
-const images = ['/assets/images/borrel2019.JPG', '/assets/images/sebTappen.jpg', '/assets/images/fotoOff.jpg'];
+const images = ['/assets/images/Karten-20.jpg', '/assets/images/Poolen-12.jpg', '/assets/images/DSC_2852.JPG'];
 </script>
 
 <template>
   <ContentContainer>
+    <div class="carousel">
+      <carousel
+        :items-to-show="1.5"
+        :wrap-around="true"
+        :autoplay="5000"
+        :transition="600"
+      >
+        <slide v-for="slide in images" :key="slide">
+          <img alt="slider" :src="slide" />
+        </slide>
+
+        <template #addons>
+          <navigation />
+          <pagination />
+        </template>
+      </carousel>
+    </div>
     <div>
       <h1>Over Indicium</h1>
       <p>
