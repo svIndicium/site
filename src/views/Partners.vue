@@ -80,10 +80,6 @@ function expandJobOffer(event: MouseEvent) {
       grid-template-columns: 1fr;
     }
 
-    .partner-logo {
-      height: fit-content;
-    }
-
     .description {
       text-align: left;
     }
