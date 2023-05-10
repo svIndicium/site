@@ -31,6 +31,11 @@ const [commissie] = commissies;
   grid-template-columns: 1fr 1fr;
   column-gap: 10px;
 
+  img {
+    object-fit: contain;
+    width: 80%;
+  }
+
   h3 {
     margin-top: 0;
   }

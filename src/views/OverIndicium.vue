@@ -26,7 +26,7 @@ const images = ['/assets/images/Karten-20.jpg', '/assets/images/Poolen-12.jpg', 
       </carousel>
     </div>
     <div>
-      <h1>Over Indicium</h1>
+      <h2>Over Indicium</h2>
       <p>
         Indicium is de studievereniging voor studenten van het Institute for ICT aan de Hogeschool Utrecht. De
         vereniging organiseert naast informele activiteiten zoals poolen, bowlen, karten en feestjes met andere

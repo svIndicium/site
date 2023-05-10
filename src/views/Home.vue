@@ -12,6 +12,10 @@ import { mainPartner, premiumPartners, regularPartners } from '@/content/partner
 import { stateStore } from '@/stores/state';
 const state = stateStore();
 const images = ['/assets/images/DSC_2456.JPG', '/assets/images/DSC_3982.JPG', '/assets/images/Introkamp-53.jpg'];
+
+function gotoPartners() {
+  window.location.href = '/partners';
+}
 </script>
 
 <template>
@@ -71,9 +75,9 @@ const images = ['/assets/images/DSC_2456.JPG', '/assets/images/DSC_3982.JPG', '/
       </Suspense>
 
       <h2>Partners</h2>
-      <div class="partner-container">
+      <div class="partner-container" @click="gotoPartners">
         <img
-          style="height: 120px; margin-top: 0"
+          style="height: 100px; margin-top: 0"
           class="partner-logo"
           :src="'/assets/partners/' + (state.darkModeActive ? mainPartner.imgUrlDark : mainPartner.imgUrl)"
           :alt="'Logo' + mainPartner.title"
@@ -115,14 +119,17 @@ svg {
     width: 400px;
 
     .partner-container {
+      cursor: pointer;
       border-radius: 4px;
-      padding: 8px;
+      padding: 12px;
       background-color: var(--secondary-background-color);
     }
 
     img {
-      margin-top: 16px;
+      object-fit: contain;
+      margin: 16px;
       height: 66px;
+      max-width: 300px;
     }
   }
 }
