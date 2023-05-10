@@ -9,7 +9,7 @@ const images = ['/assets/images/borrel2019.JPG', '/assets/images/sebTappen.jpg',
 <template>
   <ContentContainer>
     <div>
-      <h1>Over Indicium</h1>
+      <h2>Over Indicium</h2>
       <p>
         Indicium is de studievereniging voor studenten van het Institute for ICT aan de Hogeschool Utrecht. De
         vereniging organiseert naast informele activiteiten zoals poolen, bowlen, karten en feestjes met andere

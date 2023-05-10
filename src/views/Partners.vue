@@ -117,7 +117,8 @@ function expandJobOffer(event: MouseEvent) {
         width: 100%;
         text-align: left;
         padding: 0 16px;
-        margin: 1.5em auto;
+        margin: 1.5em 16px;
+        width: calc(100% - 32px);
         background-color: rgba(255, 255, 255, 0.15);
         border-radius: 1.5em;
 
@@ -169,17 +170,18 @@ function expandJobOffer(event: MouseEvent) {
   gap: 8%;
   align-items: center;
 
+  .partner-logo {
+    max-width: 600px;
+    width: 100%;
+  }
+
   @media screen and (max-width: 1000px) {
     grid-template-columns: 1fr;
 
     .partner-logo {
+      max-width: 300px;
       margin: 0 auto;
-      max-width: 600px;
     }
-  }
-
-  .partner-logo {
-    width: 100%;
   }
 
   .description {
