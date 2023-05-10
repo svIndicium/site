@@ -96,10 +96,6 @@ const state = stateStore();
       grid-template-columns: 1fr;
     }
 
-    .partner-logo {
-      height: fit-content;
-    }
-
     .description {
       text-align: left;
     }

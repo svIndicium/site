@@ -10,7 +10,7 @@ const [dispuut] = disputen;
     <h1>Dispuut</h1>
     <p id="intro"></p>
     <div class="dispuut" v-for="(dispuut, index) in disputen">
-      <img class="foto" :src="dispuut.imgUrl" />
+      <img alt="dispuutfoto" class="foto" :src="dispuut.imgUrl"/>
       <div class="dispuut-info">
         <h2>{{ dispuut.title }}</h2>
         <p>{{ dispuut.description }}</p>
