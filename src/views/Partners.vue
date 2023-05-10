@@ -169,7 +169,6 @@ function expandJobOffer(event: MouseEvent) {
   }
 
   .partner-logo {
-    height: fit-content;
     width: 100%;
   }
 
