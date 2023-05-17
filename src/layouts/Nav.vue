@@ -10,6 +10,16 @@ import confetti from 'canvas-confetti';
 const router = useRouter();
 const state = stateStore();
 const items = content.items;
+var confettiTimeoutId: any;
+
+function startPartyButton() {
+  clearTimeout(confettiTimeoutId);
+  confettiTimeoutId = setTimeout(() => partyButton(), 500);
+}
+
+function cancelPartyButton() {
+  clearTimeout(confettiTimeoutId);
+}
 
 function partyButton() {
   confetti({
@@ -28,10 +38,22 @@ function partyButton() {
       <NavLogo />
       <ul>
         <li v-for="item in items" :key="item.title + item.url + item.children">
-          <a v-if="item.url == '/intro'" :href="item.url" class="intro" @mouseenter="partyButton">
+          <a
+            v-if="item.url == '/intro'"
+            :href="item.url"
+            class="intro"
+            @mouseenter="startPartyButton"
+            @mouseleave="cancelPartyButton"
+          >
             {{ item.title }}
           </a>
-          <a v-else-if="item.url == '/lid-worden'" :href="item.url" class="wordt-lid" @mouseenter="partyButton">
+          <a
+            v-else-if="item.url == '/lid-worden'"
+            :href="item.url"
+            class="wordt-lid"
+            @mouseenter="startPartyButton"
+            @mouseleave="cancelPartyButton"
+          >
             {{ item.title }}
           </a>
           <a v-else-if="item.url.startsWith('http')" :href="item.url" target="_blank">
