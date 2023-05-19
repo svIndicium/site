@@ -5,31 +5,10 @@ import { stateStore } from '@/stores/state';
 import content from '@/content/menu.json';
 import NavLogo from '@/components/NavLogo.vue';
 import { useRouter } from 'vue-router';
-import confetti from 'canvas-confetti';
 
 const router = useRouter();
 const state = stateStore();
 const items = content.items;
-var confettiTimeoutId: any;
-
-function startPartyButton() {
-  clearTimeout(confettiTimeoutId);
-  confettiTimeoutId = setTimeout(() => partyButton(), 500);
-}
-
-function cancelPartyButton() {
-  clearTimeout(confettiTimeoutId);
-}
-
-function partyButton() {
-  confetti({
-    angle: 200,
-    particleCount: 150,
-    spread: 110,
-    origin: { y: 0.0, x: 1 },
-    startVelocity: 100,
-  });
-}
 </script>
 
 <template>
@@ -38,22 +17,10 @@ function partyButton() {
       <NavLogo />
       <ul>
         <li v-for="item in items" :key="item.title + item.url + item.children">
-          <a
-            v-if="item.url == '/intro'"
-            :href="item.url"
-            class="intro"
-            @mouseenter="startPartyButton"
-            @mouseleave="cancelPartyButton"
-          >
+          <a v-if="item.url == '/intro'" :href="item.url" class="intro">
             {{ item.title }}
           </a>
-          <a
-            v-else-if="item.url == '/lid-worden'"
-            :href="item.url"
-            class="wordt-lid"
-            @mouseenter="startPartyButton"
-            @mouseleave="cancelPartyButton"
-          >
+          <a v-else-if="item.url == '/lid-worden'" :href="item.url" class="wordt-lid">
             {{ item.title }}
           </a>
           <a v-else-if="item.url.startsWith('http')" :href="item.url" target="_blank">
