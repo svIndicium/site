@@ -67,9 +67,9 @@ const items = content.items;
                     {{ grandchild.title }}
                   </a>
 
-                  <a v-else :href="grandchild.url">
+                  <RouterLink v-else :to="grandchild.url">
                     {{ grandchild.title }}
-                  </a>
+                  </RouterLink>
                 </li>
               </ul>
 
@@ -83,9 +83,9 @@ const items = content.items;
                     {{ grandchild.title }}
                   </a>
 
-                  <a v-else :href="grandchild.url">
+                  <RouterLink v-else :to="grandchild.url">
                     {{ grandchild.title }}
-                  </a>
+                  </RouterLink>
                 </li>
               </ul>
             </li>

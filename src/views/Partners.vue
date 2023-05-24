@@ -49,7 +49,7 @@ function expandJobOffer(event: MouseEvent) {
       <div class="details">
         <h3>{{ partner.title }}</h3>
         <p v-for="paragraph in partner.description" class="description" v-html="paragraph"></p>
-        <a class="readMore" :href="'/partners/' + partner.slug">Meer weten?</a>
+        <RouterLink class="readMore" :to="'/partners/' + partner.slug">Meer weten?</RouterLink>
       </div>
     </div>
     <hr class="dashed-line" />
@@ -63,7 +63,7 @@ function expandJobOffer(event: MouseEvent) {
       <div class="details">
         <h3>{{ partner.title }}</h3>
         <p v-for="paragraph in partner.description" class="description" v-html="paragraph"></p>
-        <a class="readMore" :href="'/partners/' + partner.slug">Meer weten?</a>
+        <RouterLink class="readMore" :to="'/partners/' + partner.slug">Meer weten?</RouterLink>
       </div>
     </div>
   </ContentContainer>

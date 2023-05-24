@@ -18,7 +18,7 @@ import HeroBackground from './HeroBackground.vue';
 
         <!-- <div class="buttons fadeInUp">
           <a size="l" url="https://leden.conscribo.nl/svIndicium/aanmeldenlidmaatschap">Word lid</a>
-          <a url="/activiteiten">Bekijk agenda</a>
+          <RouterLink url="/activiteiten">Bekijk agenda</RouterLink>
         </div> -->
       </div>
     </HeroBackground>
