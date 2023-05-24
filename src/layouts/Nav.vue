@@ -17,12 +17,12 @@ const items = content.items;
       <NavLogo />
       <ul>
         <li v-for="item in items" :key="item.title + item.url + item.children">
-          <a v-if="item.url == '/intro'" :href="item.url" class="intro">
+          <RouterLink v-if="item.url == '/intro'" :to="item.url" class="intro">
             {{ item.title }}
-          </a>
-          <a v-else-if="item.url == '/lid-worden'" :href="item.url" class="wordt-lid">
+          </RouterLink>
+          <RouterLink v-else-if="item.url == '/lid-worden'" :to="item.url" class="wordt-lid">
             {{ item.title }}
-          </a>
+          </RouterLink>
           <a v-else-if="item.url.startsWith('http')" :href="item.url" target="_blank">
             {{ item.title }}
           </a>
