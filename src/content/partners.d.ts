@@ -8,7 +8,7 @@ type Partner = {
   title: string;
   description: Array<string>;
   imgUrl: string;
-  imgUrlDark: string;
+  imgUrlDark?: string;
   url?: string;
   jobOffers: Array<JobOffer>;
 };

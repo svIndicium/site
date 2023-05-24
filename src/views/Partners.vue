@@ -17,7 +17,7 @@ function expandJobOffer(event: MouseEvent) {
       <div class="details">
         <img
           class="partner-logo"
-          :src="'/assets/partners/' + (state.darkModeActive ? mainPartner.imgUrlDark : mainPartner.imgUrl)"
+          :src="'/assets/partners/' + (state.darkModeActive && mainPartner.imgUrlDark ? mainPartner.imgUrlDark : mainPartner.imgUrl)"
           :alt="'Logo' + mainPartner.title"
         />
         <div class="description">
@@ -43,7 +43,7 @@ function expandJobOffer(event: MouseEvent) {
     <div class="partner" v-for="partner in premiumPartners">
       <img
         class="partner-logo"
-        :src="'/assets/partners/' + (state.darkModeActive ? partner.imgUrlDark : partner.imgUrl)"
+        :src="'/assets/partners/' + (state.darkModeActive && partner.imgUrlDark ? partner.imgUrlDark : partner.imgUrl)"
         :alt="'Logo' + partner.title"
       />
       <div class="details">
@@ -54,16 +54,15 @@ function expandJobOffer(event: MouseEvent) {
     </div>
     <hr class="dashed-line" />
     <h1>Reguliere partners</h1>
-    <div class="partner" v-for="partner in regularPartners">
-      <img
-        class="partner-logo"
-        :src="'/assets/partners/' + (state.darkModeActive ? partner.imgUrlDark : partner.imgUrl)"
-        :alt="'Logo' + partner.title"
-      />
-      <div class="details">
-        <h3>{{ partner.title }}</h3>
-        <p v-for="paragraph in partner.description" class="description" v-html="paragraph"></p>
-        <RouterLink class="readMore" :to="'/partners/' + partner.slug">Meer weten?</RouterLink>
+    <div class="regular-partners">
+      <div class="regular-partner" v-for="partner in regularPartners">
+        <RouterLink :to="'/partners/' + partner.slug" class="partner-logo">
+          <img
+            :src="'/assets/partners/' + (state.darkModeActive && partner.imgUrlDark ? partner.imgUrlDark : partner.imgUrl)"
+            :alt="'Logo' + partner.title"
+          />
+        </RouterLink>
+        <RouterLink class="readMore" :to="'/partners/' + partner.slug">{{ partner.title }}</RouterLink>
       </div>
     </div>
   </ContentContainer>
@@ -81,6 +80,7 @@ function expandJobOffer(event: MouseEvent) {
     transparent 60px
   );
 }
+
 #main-partner {
   margin: 0 auto 150px auto;
 
@@ -186,6 +186,46 @@ function expandJobOffer(event: MouseEvent) {
 
   .description {
     text-align: left;
+  }
+}
+
+.regular-partners {
+  display: grid;
+  gap: 5em;
+  width: 95em;
+  margin: 3em auto;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+
+  @media screen and (max-width: 1600px) {
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 70em;
+  }
+
+  @media screen and (max-width: 1250px) {
+    grid-template-columns: 1fr 1fr;
+    width: 45em;
+  }
+
+  @media screen and (max-width: 850px) {
+    grid-template-columns: 1fr;
+    width: 20em;
+  }
+
+  .regular-partner {
+    height: 20em;
+    width: 20em;
+    display: grid;
+    grid-auto-flow: row;
+    grid-template-rows: 1fr auto;
+    justify-content: flex-end;
+
+    .partner-logo {
+      align-self: center;
+
+      img {
+        width: 20em;
+      }
+    }
   }
 }
 
