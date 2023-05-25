@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 
 const maxCalEvents = ref(7);
 /**
@@ -36,7 +36,16 @@ const calendarData: { items: Event<string>[] } = await fetch(
     new Date().toISOString(),
 ).then((res) => res.json());
 
-const events: Event<Date>[] = calendarData.items
+function generateGoogleCalendarLink(): string {
+  const calendarId = 'c_cb2b2ab9761bec69a9d24fd452f2d970d31755cf1c382272560d81fddca0e5e5@group.calendar.google.com';
+  const baseUrl = 'https://calendar.google.com/calendar/render';
+
+  return `${baseUrl}?cid=${encodeURIComponent(calendarId)}`;
+}
+
+const calendarLink = generateGoogleCalendarLink();
+
+const events: Event<Date>[] = Array.from(calendarData.items)
   .filter((event) => event.status === 'confirmed')
   .map((event) => {
     let tempEvent: Event<string | Date>;
@@ -64,79 +73,71 @@ const events: Event<Date>[] = calendarData.items
     }
     return tempEvent;
   });
+
+const visibleEvents = computed<Event<Date>[]>(() => {
+  return Array.from(events.values()).slice(0, maxCalEvents.value);
+});
+
+const shouldShowMoreLink = computed<boolean>(() => {
+  return maxCalEvents.value === 7 && Array.from(events.values()).length > 7;
+});
+
+function getLocationLink(location: string): string {
+  const locationMappings: { [key: string]: string } = {
+    hideout: 'https://goo.gl/maps/jgiRSbRDpSzCqoiWA',
+    hl15: 'https://goo.gl/maps/fjbPzpTAYB6CMwSv5',
+    pl101: 'https://goo.gl/maps/UtboneV2dUFEmGeRA',
+    pl99: 'https://goo.gl/maps/q4CDYQcyiBYCwGkC7',
+    ucs: 'https://goo.gl/maps/MeUEBY4ahNgi6WmW8',
+  };
+
+  const lowercaseLocation = location.toLowerCase().replaceAll(' ', '');
+  if (lowercaseLocation in locationMappings) {
+    return locationMappings[lowercaseLocation];
+  } else {
+    return `https://maps.google.com/?q=${encodeURIComponent(location)}`;
+  }
+}
+
+function showMoreEvents(): void {
+  maxCalEvents.value = maxCalEvents.value + 7;
+}
 </script>
 
 <template>
-  <div class="event" v-for="event in events.slice(0, maxCalEvents)" :key="event.id">
-    <div class="date">
-      <span class="day">{{ event.start.toLocaleDateString('nl', { day: 'numeric' }) }}</span>
-      <br />
-      <span class="month">{{ event.start.toLocaleDateString('nl', { month: 'short' }) }}</span>
+  <div class="events-container">
+    <div class="event" v-for="event in visibleEvents" :key="event.id">
+      <div class="date">
+        <span class="day">{{ event.start.toLocaleDateString('nl', { day: 'numeric' }) }}</span>
+        <br />
+        <span class="month">{{ event.start.toLocaleDateString('nl', { month: 'short' }) }}</span>
+      </div>
+      <div class="details">
+        <p class="title">{{ event.summary }}</p>
+        <a v-if="event.location" class="location" :href="getLocationLink(event.location)" target="_blank">
+          @{{ event.location }}
+        </a>
+      </div>
     </div>
-    <div class="details">
-      <p class="title">{{ event.summary }}</p>
-      <a
-        v-if="event.location && event.location.toLowerCase().replaceAll(' ', '').includes('hideout')"
-        class="location"
-        href="https://goo.gl/maps/jgiRSbRDpSzCqoiWA"
-        target="_blank"
-        >@{{ event.location }}</a
-      >
-      <a
-        v-else-if="event.location && event.location.toLowerCase().replaceAll(' ', '').includes('hl15')"
-        class="location"
-        href="https://goo.gl/maps/fjbPzpTAYB6CMwSv5"
-        target="_blank"
-        >@{{ event.location }}</a
-      >
-      <a
-        v-else-if="event.location && event.location.toLowerCase().replaceAll(' ', '').includes('pl101')"
-        class="location"
-        href="https://goo.gl/maps/UtboneV2dUFEmGeRA"
-        target="_blank"
-        >@{{ event.location }}</a
-      >
-      <a
-        v-else-if="event.location && event.location.toLowerCase().replaceAll(' ', '').includes('pl99')"
-        class="location"
-        href="https://goo.gl/maps/q4CDYQcyiBYCwGkC7"
-        target="_blank"
-        >@{{ event.location }}</a
-      >
-      <a
-        v-else-if="event.location && event.location.toLowerCase().replaceAll(' ', '').includes('ucs')"
-        class="location"
-        href="https://goo.gl/maps/MeUEBY4ahNgi6WmW8"
-        target="_blank"
-        >@{{ event.location }}</a
-      >
-      <a
-        v-else-if="event.location"
-        class="location"
-        :href="'https://maps.google.com/?q=' + event.location"
-        target="_blank"
-        >@{{ event.location }}</a
-      >
-    </div>
+    <a class="button" v-if="events.length > 7" @click="showMoreEvents">laat meer zien</a>
+    <!-- button to add to google calendar -->
   </div>
-  <a v-if="maxCalEvents == 7 && events.length > 7" @click="maxCalEvents = 100">laat meer zien</a>
+  <div class="button-container">
+    <a v-if="visibleEvents.length" :href="calendarLink" target="_blank" class="button"> Add to Google Calendar </a>
+  </div>
 </template>
 
-<style lang="scss">
+<style scoped lang="scss">
 .event {
-  display: flex;
-  height: 55px;
+  display: grid;
+  grid-template-columns: 63px 1fr;
   text-align: left;
-  margin: 1em 0;
 
   .date {
-    display: inline-block;
+    display: block;
     text-align: center;
-    height: 55px;
-    width: 55px;
     padding: 4px;
-    margin-right: 1em;
-    background-color: var(--indi-green-1);
+    background-color: var(--indi-green-2);
     border-radius: 5px;
 
     .day {
@@ -146,13 +147,17 @@ const events: Event<Date>[] = calendarData.items
     .month {
       font-size: 19px;
     }
+
+    .button {
+      align-self: center;
+    }
   }
 
   .details {
-    height: 55px;
-    width: calc(100% - 79px);
+    margin-left: 16px;
     display: flex;
     flex-direction: column;
+    height: 100%;
 
     p {
       margin: 0;
@@ -162,5 +167,28 @@ const events: Event<Date>[] = calendarData.items
       font-style: italic;
     }
   }
+}
+
+.events-container {
+  background-color: var(--secondary-background-color);
+  border-radius: 4px;
+  padding: 16px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.button-container {
+  text-align: center;
+  padding-top: 1em;
+}
+
+.button {
+  display: inline-block;
+  color: var(--text-color);
+  background-color: var(--indi-green-2);
+  padding: 0.5em 0.8em;
+  border-radius: 8px;
+  text-decoration: none;
 }
 </style>
