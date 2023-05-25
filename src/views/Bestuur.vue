@@ -4,18 +4,22 @@ import { currentBoard } from '@/content/boards.json';
 </script>
 
 <template>
-    <ContentContainer>
-      <h1>Bestuur</h1>
-      <div class="member" v-for="member in currentBoard.members">
-        <img class="member-photo" :src="member.photo ? '/assets/boards/' + member.photo : 'https://cataas.com/cat/says/' + member.name" :alt="member.name">
-        <div class="member-info">
-          <h3>{{ member.name }}</h3>
-          <h4>{{ member.function }}</h4>
-          <p>{{ member.introduction }}</p>
-        </div>
+  <ContentContainer>
+    <h1>Bestuur</h1>
+    <div class="member" v-for="member in currentBoard.members">
+      <img
+        class="member-photo"
+        :src="member.photo ? '/assets/boards/' + member.photo : 'https://cataas.com/cat/says/' + member.name"
+        :alt="member.name"
+      />
+      <div class="member-info">
+        <h3>{{ member.name }}</h3>
+        <h4>{{ member.function }}</h4>
+        <p>{{ member.introduction }}</p>
       </div>
-      <img id="group-photo" :src="`/assets/boards/${currentBoard.groupPhoto}`" alt="Groepsfoto">
-    </ContentContainer>
+    </div>
+    <img id="group-photo" :src="`/assets/boards/${currentBoard.groupPhoto}`" alt="Groepsfoto" />
+  </ContentContainer>
 </template>
 
 <style scoped lang="scss">
@@ -43,7 +47,7 @@ h1 {
   }
 
   &:nth-child(even) .member-info {
-      grid-column: 1;
+    grid-column: 1;
   }
 }
 

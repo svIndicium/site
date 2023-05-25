@@ -1,16 +1,16 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import { stateStore } from "@/stores/state";
-import footerContent from '@/content/footer.json'
+import { ref } from 'vue';
+import { stateStore } from '@/stores/state';
+import footerContent from '@/content/footer.json';
 
 const state = stateStore();
-const pages = ref<{ title: string; url: string; }[]>(footerContent.items)
-const socialPages = ref<{ title: string; url: string; }[]>(footerContent.socialMediaItems)
-const contact = ref<{}>(footerContent.contactItems)
+const pages = ref<{ title: string; url: string }[]>(footerContent.items);
+const socialPages = ref<{ title: string; url: string }[]>(footerContent.socialMediaItems);
+const contact = ref<{}>(footerContent.contactItems);
 
 function changeTheme(theme: string) {
-  state.settings.theme = theme
-  state.refreshTheme()
+  state.settings.theme = theme;
+  state.refreshTheme();
 }
 </script>
 
@@ -24,7 +24,6 @@ function changeTheme(theme: string) {
             <RouterLink :to="menuItem.url">{{ menuItem.title }}</RouterLink>
           </li>
         </ul>
-
       </div>
 
       <div class="column">
@@ -47,16 +46,28 @@ function changeTheme(theme: string) {
         <ul class="footer-menu options">
           <p>Select theme</p>
           <div class="toggle dark-mode">
-            <input id="auto-mode" type="radio" @change="changeTheme('auto')"
-              :checked="state.settings.theme == 'auto'" />
+            <input
+              id="auto-mode"
+              type="radio"
+              @change="changeTheme('auto')"
+              :checked="state.settings.theme == 'auto'"
+            />
             <label for="auto-mode">Auto</label>
-            <br>
-            <input id="light-mode" type="radio" @change="changeTheme('light')"
-              :checked="state.settings.theme == 'light'" />
+            <br />
+            <input
+              id="light-mode"
+              type="radio"
+              @change="changeTheme('light')"
+              :checked="state.settings.theme == 'light'"
+            />
             <label for="light-mode">Light</label>
-            <br>
-            <input id="dark-mode" type="radio" @change="changeTheme('dark')"
-              :checked="state.settings.theme == 'dark'" />
+            <br />
+            <input
+              id="dark-mode"
+              type="radio"
+              @change="changeTheme('dark')"
+              :checked="state.settings.theme == 'dark'"
+            />
             <label for="dark-mode">Dark</label>
           </div>
         </ul>
@@ -92,7 +103,6 @@ footer {
     flex-direction: row;
 
     .footer-menu {
-
       &.pages {
         columns: 2;
       }

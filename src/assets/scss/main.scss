@@ -1,9 +1,9 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap");
-@import "variables";
-@import "typography";
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap');
+@import 'variables';
+@import 'typography';
 
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   color: var(--text-color);
   overflow-x: hidden;
   background-color: var(--root-background-color);

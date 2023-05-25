@@ -9,12 +9,7 @@ const images = ['/assets/images/Karten-20.jpg', '/assets/images/Poolen-12.jpg', 
 <template>
   <ContentContainer>
     <div class="carousel">
-      <carousel
-        :items-to-show="1.5"
-        :wrap-around="true"
-        :autoplay="5000"
-        :transition="600"
-      >
+      <carousel :items-to-show="1.5" :wrap-around="true" :autoplay="5000" :transition="600">
         <slide v-for="slide in images" :key="slide">
           <img alt="slider" :src="slide" />
         </slide>

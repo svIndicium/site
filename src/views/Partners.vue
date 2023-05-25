@@ -17,7 +17,10 @@ function expandJobOffer(event: MouseEvent) {
       <div class="details">
         <img
           class="partner-logo"
-          :src="'/assets/partners/' + (state.darkModeActive && mainPartner.imgUrlDark ? mainPartner.imgUrlDark : mainPartner.imgUrl)"
+          :src="
+            '/assets/partners/' +
+            (state.darkModeActive && mainPartner.imgUrlDark ? mainPartner.imgUrlDark : mainPartner.imgUrl)
+          "
           :alt="'Logo' + mainPartner.title"
         />
         <div class="description">
@@ -58,7 +61,9 @@ function expandJobOffer(event: MouseEvent) {
       <div class="regular-partner" v-for="partner in regularPartners">
         <RouterLink :to="'/partners/' + partner.slug" class="partner-logo">
           <img
-            :src="'/assets/partners/' + (state.darkModeActive && partner.imgUrlDark ? partner.imgUrlDark : partner.imgUrl)"
+            :src="
+              '/assets/partners/' + (state.darkModeActive && partner.imgUrlDark ? partner.imgUrlDark : partner.imgUrl)
+            "
             :alt="'Logo' + partner.title"
           />
         </RouterLink>
