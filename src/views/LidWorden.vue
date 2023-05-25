@@ -1,20 +1,63 @@
 <script setup lang="ts">
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-
-// this reference line is needed for TS and svg loader. Copy and past where needed
-/// <reference types="vite-svg-loader" />
 import ContentContainer from '@/layouts/ContentContainer.vue';
 import confetti from 'canvas-confetti';
 
-confetti({
-  angle: 90,
-  particleCount: 200,
-  spread: 130,
-  origin: { y: 1, x: 0.5 },
-  startVelocity: 90,
-  ticks: 400,
-});
+// takes a position and calculates the angle needed to point to the middle of the screen
+function calculateAngleToCenter(x: number, y: number): number {
+  const deltaX = window.innerWidth / 2 - x * window.innerWidth;
+  const deltaY = window.innerHeight / 2 - y * window.innerHeight;
+
+  const angleRadians = Math.atan2(deltaY, deltaX);
+  const angleDegrees = -(angleRadians * (180 / Math.PI));
+
+  return angleDegrees;
+}
+
+// calculates the angle needed to cover the screen with a cone if pointing from a corner to the screen center
+function calculateConeAngle(): number {
+  const aspectRatio = window.innerWidth / window.innerHeight;
+  const coneAngle = 90 * aspectRatio + 5;
+  return coneAngle;
+}
+
+// this is overengineered and I like it.
+const generateConfetti = (origin: { y: number; x: number }[], maxConfettiCount: number = 100): void => {
+  const particleCount: number = Math.floor(maxConfettiCount / locations.length);
+
+  locations.forEach((location) => {
+    const randParticleCount = particleCount - Math.random() * (particleCount / 2),
+      randDrift = Math.random() * 1 - 0.5,
+      randScale = 0.9 + Math.random() * 0.2;
+
+    confetti({
+      angle: calculateAngleToCenter(location.x, location.y),
+      particleCount: randParticleCount,
+      spread: calculateConeAngle(),
+      origin: location,
+      startVelocity: 90,
+      ticks: 400,
+      disableForReducedMotion: true,
+      shapes: ['star', 'circle', 'square'],
+      drift: randDrift,
+      scalar: randScale,
+    });
+  });
+};
+
+let locations = [
+  { x: 0, y: 0 },
+  { x: 0, y: 1 },
+  { x: 1, y: 0 },
+  { x: 1, y: 1 },
+];
+
+// Most modern phones have 8 cores, 8 threads, so return 8.
+// So its safe to assume that 10 or more is a laptop or desktop device.
+// The browser may adjust this number based on capability.
+if (navigator.hardwareConcurrency <= 6) generateConfetti(locations, 100); // low-end, some phones
+else if (navigator.hardwareConcurrency <= 10)
+  generateConfetti(locations, 200); // likely 6-core or modern big.little intel
+else generateConfetti(locations, 400); // likely 8-core or more, 200 looks fine so this is bonus
 </script>
 
 <template>
@@ -58,7 +101,7 @@ iframe {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
+  width: 100vw;
   height: 900px;
   max-width: 1200px;
   border-radius: 4px;
