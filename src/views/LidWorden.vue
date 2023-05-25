@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ref, onMounted, onUnmounted } from 'vue';
 import ContentContainer from '@/layouts/ContentContainer.vue';
 import confetti from 'canvas-confetti';
 
@@ -58,6 +59,27 @@ if (navigator.hardwareConcurrency <= 6) generateConfetti(locations, 100); // low
 else if (navigator.hardwareConcurrency <= 10)
   generateConfetti(locations, 200); // likely 6-core or modern big.little intel
 else generateConfetti(locations, 400); // likely 8-core or more, 200 looks fine so this is bonus
+
+function adjustContainerHeight() {
+  const signupContainer = document.querySelector('.signupContainer') as HTMLElement | null;
+  const iframe = document.querySelector('iframe') as HTMLIFrameElement | null;
+  if (signupContainer && iframe) {
+    const iframeBody = iframe.contentDocument?.body;
+    if (iframeBody) {
+      const height = Math.max(iframeBody.clientHeight, iframeBody.scrollHeight);
+      signupContainer.style.minHeight = `${height}px`;
+    }
+  }
+}
+
+onMounted(() => {
+  adjustContainerHeight();
+  window.addEventListener('resize', adjustContainerHeight);
+});
+
+onUnmounted(() => {
+  window.removeEventListener('resize', adjustContainerHeight);
+});
 </script>
 
 <template>
@@ -102,7 +124,7 @@ iframe {
   flex-direction: column;
   align-items: center;
   width: 100vw;
-  height: 900px;
+  min-height: 900px;
   max-width: 1200px;
   border-radius: 4px;
   margin-bottom: 48px;
