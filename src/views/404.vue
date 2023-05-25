@@ -1,14 +1,6 @@
 <script setup lang="ts">
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-
-// this reference line is needed for TS and svg loader. Copy and past where needed
-/// <reference types="vite-svg-loader" />
-
-import HelloWorld from '@/components/HelloWorld.vue';
-
 import ContentContainer from '@/layouts/ContentContainer.vue';
-import constuctionsSVG from '@/assets/icons/underconstruction.svg?component';
+
 const excuses = [
   'Sorry. Het was dit of een tentamen en het is het allebei niet geworden',
   'Zit de wifi-kabel er goed in?',
@@ -18,14 +10,62 @@ const excuses = [
   'Aan deze pagina zijn we nog niet toegekomen',
   '(╯°□°)╯︵ ┻━┻',
   '(┛ಠ_ಠ)┛彡┻━┻',
-  'Dit was niet onderdeel van mijn stage opdracht',
+  'Dit was niet onderdeel van mijn stageopdracht',
   'Het werkte op mijn PC nog wel',
   'Is er toevallig iemand met verstand van computers die dit kan fixen?',
   'Deze pagina is op vakantie, dat moet soms ook even',
+  'Sorry, ik was even verdwaald in de codejungle',
+  'Mijn excuses, ik heb een deadline-draak verslagen en was even uitgeput',
+  'Het spijt me, ik had een tijdmachine nodig om dit op tijd af te hebben',
+  'Verontschuldiging! Mijn kat heeft mijn toetsenbord gegijzeld',
+  'Oeps, ik was verdwaald in een eindeloze lus. Gelukkig ben ik er weer!',
+  "Sorry, ik was even aan het dagdromen over het oplossen van een Rubik's kubus",
+  'Mijn excuses, mijn code heeft last van podiumangst. Hij werkt alleen achter de schermen',
+  'Sorry, ik weet geen quotes meer',
+  'Deed je dit express?',
 ];
-const faces = ['😢', '😭', '😿', '😞', '😩', '🙁', '😟', '😦', '😨', '😰', '😮', '😪', '😵'];
-const excuus = excuses[Math.floor(Math.random() * excuses.length)];
+
+const faces = [
+  '😢',
+  '😭',
+  '😿',
+  '😞',
+  '😩',
+  '🙁',
+  '😟',
+  '😦',
+  '😨',
+  '😰',
+  '😮',
+  '😪',
+  '😵',
+  '😔',
+  '😕',
+  '😑',
+  '😬',
+  '🤔',
+  '😓',
+  '😖',
+  '😣',
+  '😩',
+  '😫',
+  '😮',
+  '😱',
+  '😳',
+  '🤯',
+  '😱',
+  '🙀',
+  '😧',
+  '😦',
+  '🤧',
+  '😷',
+  '🤕',
+  '🐍',
+];
+
+let excuus = excuses[Math.floor(Math.random() * excuses.length)];
 const sadface = faces[Math.floor(Math.random() * faces.length)];
+if (sadface === '🐍') excuus = 'Sorry, Peet zat in de server';
 </script>
 
 <template>
@@ -43,33 +83,13 @@ svg {
   height: 300px;
 }
 
-h1 {
-  text-align: center;
-}
-
-h2 {
-  text-align: center;
-}
-
+h1,
+h2,
 p {
   text-align: center;
 }
 
 .face {
   font-size: 150px;
-}
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-}
-
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
 }
 </style>
