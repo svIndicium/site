@@ -1,70 +1,75 @@
 <script setup lang="ts">
-
 /// <reference types="vite-svg-loader" />
 
 // https://codepen.io/jenniesyip/pen/GWqJyR
-import HeroCircuit from "@/assets/icons/hero.svg?component"
+import HeroCircuit from '@/assets/icons/hero.svg?component';
 
-
-var backgroundStyle = " transform: translate(" + (-10 + Math.floor(Math.random() * 20)) + "%, " + (-10 + Math.floor(Math.random() * 20)) + "%) rotate(" + (Math.floor(Math.random() * 8) * 45) + "deg);"
-
-
+var backgroundStyle =
+  ' transform: translate(' +
+  (-10 + Math.floor(Math.random() * 20)) +
+  '%, ' +
+  (-10 + Math.floor(Math.random() * 20)) +
+  '%) rotate(' +
+  Math.floor(Math.random() * 8) * 45 +
+  'deg);';
 </script>
 
 <template>
-    <div class="background-view">
-        <HeroCircuit class="HeroCircuit"
-            style="scale: 2.5;overflow: hidden;position:absolute;top: 0%;left:0%;width: 100%;height: 800px;"
-            :style="backgroundStyle" />
-        <slot class="overlay"></slot>
-    </div>
+  <div class="background-view">
+    <HeroCircuit
+      class="HeroCircuit"
+      style="scale: 2.5; overflow: hidden; position: absolute; top: 0%; left: 0%; width: 100%; height: 800px"
+      :style="backgroundStyle"
+    />
+    <slot class="overlay"></slot>
+  </div>
 </template>
 
 <style lang="scss">
-[data-theme=dark] {
-    .background-view {
-        background-color: black;
+[data-theme='dark'] {
+  .background-view {
+    background-color: black;
 
-        .HeroCircuit {
-            path {
-                stroke: #333;
-            }
+    .HeroCircuit {
+      path {
+        stroke: #333;
+      }
 
-            rect {
-                stroke: #333;
-            }
+      rect {
+        stroke: #333;
+      }
 
-            circle {
-                stroke: #333;
-            }
-        }
+      circle {
+        stroke: #333;
+      }
     }
+  }
 }
 
 .background-view {
-    background-color: var(--secondary-background-color);
+  background-color: var(--secondary-background-color);
 
-    .HeroCircuit {
-
-        .path {
-            animation: draw 40s infinite;
-            animation-timing-function: linear;
-        }
-
-        .path-2 {
-            animation: draw 20s infinite;
-            animation-delay: 1s;
-            animation-timing-function: linear;
-        }
-
-        @keyframes draw {
-            0% {}
-
-            100% {
-                stroke-dashoffset: 0;
-                stroke-opacity: 1;
-            }
-        }
+  .HeroCircuit {
+    .path {
+      animation: draw 40s infinite;
+      animation-timing-function: linear;
     }
+
+    .path-2 {
+      animation: draw 20s infinite;
+      animation-delay: 1s;
+      animation-timing-function: linear;
+    }
+
+    @keyframes draw {
+      0% {
+      }
+
+      100% {
+        stroke-dashoffset: 0;
+        stroke-opacity: 1;
+      }
+    }
+  }
 }
 </style>

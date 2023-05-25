@@ -5,7 +5,7 @@ import { premiumPartners, regularPartners } from '@/content/partners.json';
 
 const partners = [...premiumPartners, ...regularPartners];
 const partnerSlug = location.pathname.split('/').pop();
-const partner = partners.find(partner => partner.slug === partnerSlug);
+const partner = partners.find((partner) => partner.slug === partnerSlug);
 
 function expandJobOffer(event: MouseEvent) {
   const target = event.target as HTMLElement;
@@ -18,7 +18,7 @@ function expandJobOffer(event: MouseEvent) {
     <h1>{{ partner.title }}</h1>
     <div id="partner" class="container">
       <div class="details">
-        <img class="partner-logo" :src="'/assets/partners/' + partner.imgUrl" :alt="'Logo' + partner.title">
+        <img class="partner-logo" :src="'/assets/partners/' + partner.imgUrl" :alt="'Logo' + partner.title" />
         <div class="description">
           <p v-for="paragraph in partner.description" v-html="paragraph"></p>
           <a v-if="partner.url" class="readMore" :href="partner.url" target="_blank">Lees meer</a>
@@ -42,7 +42,7 @@ function expandJobOffer(event: MouseEvent) {
 </template>
 
 <style scoped lang="scss">
-@import "@/assets/scss/variables.scss";
+@import '@/assets/scss/variables.scss';
 
 .job-offer-description ul {
   list-style: circle;
@@ -72,7 +72,6 @@ function expandJobOffer(event: MouseEvent) {
 
   .job-offers-container {
     .job-offers {
-
       .job-offer {
         display: flex;
         flex-direction: column;
@@ -95,10 +94,10 @@ function expandJobOffer(event: MouseEvent) {
 
         .job-offer-title::after {
           display: inline-block;
-          content: "";
+          content: '';
           background-color: var(--text-color);
-          -webkit-mask-image: url("/assets/icons/arrow-up.svg");
-          mask-image: url("/assets/icons/arrow-up.svg");
+          -webkit-mask-image: url('/assets/icons/arrow-up.svg');
+          mask-image: url('/assets/icons/arrow-up.svg');
           height: 12px;
           width: 21px;
           margin-left: auto;
