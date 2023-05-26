@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue';
-
+import { storeToRefs } from 'pinia';
+import { stateStore } from '@/stores/state';
+import 'add-to-calendar-button';
+const state = stateStore();
+const { darkModeActive } = storeToRefs(state);
 const maxCalEvents = ref(7);
 /**
  * There's a bunch more data, but we don't need it
@@ -35,15 +39,6 @@ const calendarData: { items: Event<string>[] } = await fetch(
   'https://www.googleapis.com/calendar/v3/calendars/c_cb2b2ab9761bec69a9d24fd452f2d970d31755cf1c382272560d81fddca0e5e5@group.calendar.google.com/events?key=AIzaSyBo4AYTvUouRsZbG4KiopyeIng_1UOdNyc&orderBy=startTime&singleEvents=true&timeMin=' +
     new Date().toISOString(),
 ).then((res) => res.json());
-
-function generateGoogleCalendarLink(): string {
-  const calendarId = 'c_cb2b2ab9761bec69a9d24fd452f2d970d31755cf1c382272560d81fddca0e5e5@group.calendar.google.com';
-  const baseUrl = 'https://calendar.google.com/calendar/render';
-
-  return `${baseUrl}?cid=${encodeURIComponent(calendarId)}`;
-}
-
-const calendarLink = generateGoogleCalendarLink();
 
 const events: Event<Date>[] = Array.from(calendarData.items)
   .filter((event) => event.status === 'confirmed')
@@ -120,10 +115,22 @@ function showMoreEvents(): void {
       </div>
     </div>
     <a class="button" v-if="events.length > 7" @click="showMoreEvents">laat meer zien</a>
-    <!-- button to add to google calendar -->
-  </div>
-  <div class="button-container">
-    <a v-if="visibleEvents.length" :href="calendarLink" target="_blank" class="button"> Add to Google Calendar </a>
+    <!-- note: startdate and times HAVE TO BE INCLUDED -->
+    <add-to-calendar-button
+      name="Indicium"
+      startDate="2023-1-1"
+      startTime="00:00"
+      endTime="00:00"
+      timeZone="Europe/Amsterdam"
+      icsFile="https://calendar.google.com/calendar/ical/c_cb2b2ab9761bec69a9d24fd452f2d970d31755cf1c382272560d81fddca0e5e5%40group.calendar.google.com/public/basic.ics"
+      subscribe
+      iCalFileName="Indicium Activiteiten Calender"
+      options="'Apple','Google','iCal','Outlook.com','Microsoft365','MicrosoftTeams'"
+      listStyle="modal"
+      label="Voeg toe aan agenda"
+      :lightMode="darkModeActive ? 'dark' : 'light'"
+      language="nl"
+    ></add-to-calendar-button>
   </div>
 </template>
 
