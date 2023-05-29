@@ -16,79 +16,33 @@ const items = content.items;
       <NavLogo />
       <ul>
         <li v-for="item in items" :key="item.title + item.url + item.children">
-          <RouterLink v-if="item.url == '/intro'" :to="item.url" class="button secondary rounded">
-            {{ item.title }}
-          </RouterLink>
-          <RouterLink v-else-if="item.url == '/lid-worden'" :to="item.url" class="button primary rounded">
-            {{ item.title }}
-          </RouterLink>
-          <a v-else-if="item.url.startsWith('http')" :href="item.url" target="_blank" class="button rounded">
-            {{ item.title }}
-          </a>
-
-          <RouterLink v-else :to="item.url">
-            {{ item.title }}
-          </RouterLink>
+          <template v-if="item.url == '/intro'">
+            <RouterLink :to="item.url" class="button secondary rounded">{{ item.title }}</RouterLink>
+          </template>
+          <template v-else-if="item.url == '/lid-worden'">
+            <RouterLink :to="item.url" class="button primary rounded">{{ item.title }}</RouterLink>
+          </template>
+          <template v-else-if="item.url.startsWith('http')">
+            <a :href="item.url" target="_blank">{{ item.title }}</a>
+          </template>
+          <template v-else>
+            <RouterLink :to="item.url">{{ item.title }}</RouterLink>
+          </template>
 
           <span v-if="item.children" prefetch class="drop-icon-desktop-header">▾</span>
 
-          <ul v-if="item.children" class="sub-menu">
-            <li class="sub-menu-li" v-for="child in item.children" :key="child.title + child.url + child.grandchildren">
-              <label
-                v-if="child.grandchildren && child.grandchildren.place == 'left'"
-                title="Toggle Drop-down"
-                class="drop-icon"
-                >◂</label
-              >
-
-              <a v-if="child.url.startsWith('http')" :href="child.url" target="_blank">
-                {{ child.title }}
-              </a>
-
-              <RouterLink v-else :to="child.url">
-                {{ child.title }}
-              </RouterLink>
-
-              <label
-                v-if="child.grandchildren && child.grandchildren.place == 'right'"
-                title="Toggle Drop-down"
-                class="drop-icon"
-                >▸</label
-              >
-
-              <ul v-if="child.grandchildren && child.grandchildren.place == 'right'" class="sub-sub-menu">
-                <li
-                  class="sub-sub-menu-li"
-                  v-for="grandchild in child.grandchildren.items"
-                  :key="grandchild.title + grandchild.url"
-                >
-                  <a v-if="grandchild.url.startsWith('http')" :href="grandchild.url" target="_blank">
-                    {{ grandchild.title }}
-                  </a>
-
-                  <RouterLink v-else :to="grandchild.url">
-                    {{ grandchild.title }}
-                  </RouterLink>
-                </li>
-              </ul>
-
-              <ul v-if="child.grandchildren && child.grandchildren.place == 'left'" class="sub-sub-menu-left">
-                <li
-                  class="sub-sub-menu-li"
-                  v-for="grandchild in child.grandchildren.items"
-                  :key="grandchild.title + grandchild.url"
-                >
-                  <a v-if="grandchild.url.startsWith('http')" :href="grandchild.url" target="_blank">
-                    {{ grandchild.title }}
-                  </a>
-
-                  <RouterLink v-else :to="grandchild.url">
-                    {{ grandchild.title }}
-                  </RouterLink>
-                </li>
-              </ul>
-            </li>
-          </ul>
+          <template v-if="item.children">
+            <ul class="sub-menu">
+              <li class="sub-menu-li" v-for="child in item.children" :key="child.title + child.url">
+                <template v-if="child.url.startsWith('http')">
+                  <a :href="child.url" target="_blank">{{ child.title }}</a>
+                </template>
+                <template v-else>
+                  <RouterLink :to="child.url">{{ child.title }}</RouterLink>
+                </template>
+              </li>
+            </ul>
+          </template>
         </li>
       </ul>
     </div>
@@ -131,6 +85,7 @@ const items = content.items;
 
   ul {
     display: flex;
+    align-items: center;
     flex-grow: 1;
     padding: 0;
     margin: 0;
@@ -155,15 +110,27 @@ const items = content.items;
       align-items: center;
       justify-content: center;
       width: 150px;
-      padding: 15px 0;
+      height: 100%;
 
       a {
-        display: block;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         font-size: 1rem;
         font-weight: 500;
         color: rgb(var(--text-color));
         text-align: center;
         text-decoration: none;
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    li:has(.button) {
+      height: unset;
+
+      .button {
+        max-width: max-content;
       }
     }
 
@@ -177,14 +144,29 @@ const items = content.items;
 
         .sub-menu-li {
           width: 100%;
-          height: auto;
+          height: 50px;
 
-          .a {
-            text-decoration: none;
+          a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
             width: 100%;
+            height: 100%;
+            color: rgb(var(--text-color));
+          }
+
+          a:hover,
+          a:focus-within {
+            background-color: rgb(var(--indi-blue-green-1));
+            color: white;
+            text-decoration: none;
           }
         }
       }
+    }
+
+    :is(li:hover, li:focus-within):has(.button) {
+      background-color: transparent;
     }
 
     .sub-menu {
@@ -200,10 +182,6 @@ const items = content.items;
       visibility: hidden;
       z-index: 1;
       overflow: visible;
-
-      a {
-        display: block;
-      }
     }
   }
 
