@@ -195,7 +195,7 @@ router.afterEach(() => {
   }
 
   .mobile-container.flex {
-    background-color: var(--root-background-color);
+    background-color: rgb(var(--root-background-color));
     z-index: 100;
     display: flex;
     position: fixed;
@@ -204,7 +204,7 @@ router.afterEach(() => {
     width: 100%;
     height: var(--navbar-heigh);
     max-height: var(--navbar-max-height);
-    box-shadow: inset 0 -2px 0 var(--indi-blue-1);
+    box-shadow: inset 0 -2px 0 rgb(var(--indi-blue-1));
 
     // visibility: hidden;
 
@@ -224,7 +224,7 @@ router.afterEach(() => {
     .nav-toggle {
       display: flex;
       cursor: pointer;
-      stroke: var(--text-color);
+      stroke: rgb(var(--text-color));
       padding-bottom: 0px;
       position: relative;
       padding-left: 10px;
@@ -248,17 +248,17 @@ router.afterEach(() => {
 
           &.blue {
             transition-delay: var(--transition-time);
-            stroke: var(--indi-blue-1);
+            stroke: rgb(var(--indi-blue-1));
           }
 
           &.bluegreen {
             transition-delay: var(--transition-time);
-            stroke: var(--indi-blue-green-1);
+            stroke: rgb(var(--indi-blue-green-1));
           }
 
           &.green {
             transition-delay: var(--transition-time);
-            stroke: var(--indi-green-1);
+            stroke: rgb(var(--indi-green-1));
           }
         }
       }
@@ -273,6 +273,8 @@ router.afterEach(() => {
   .mobile-menu {
     visibility: hidden;
     position: fixed;
+    overflow-x: hidden;
+    overflow-y: auto;
     // clamp doesn't support 0 without unit.
     // compiler transfers 0px back to 0 thus rendering this broken.
     // this is a know issue in css
@@ -288,7 +290,7 @@ router.afterEach(() => {
     }
 
     a {
-      color: var(--text-color);
+      color: rgb(var(--text-color));
       font-weight: bold;
     }
     .menubar {
@@ -304,7 +306,7 @@ router.afterEach(() => {
       transition-delay: var(--transition-time);
 
       &.blue {
-        background-color: var(--indi-blue-1);
+        background-color: rgb(var(--indi-blue-1));
 
         &.visible {
           left: (var(--shadowspace));
@@ -313,7 +315,7 @@ router.afterEach(() => {
       }
 
       &.bluegreen {
-        background-color: var(--indi-blue-green-1);
+        background-color: rgb(var(--indi-blue-green-1));
         position: absolute;
         top: 0;
         width: calc(calc(100vw - var(--shadowspace)) - var(--shadowspace));
@@ -325,7 +327,7 @@ router.afterEach(() => {
       }
 
       &.green {
-        background-color: var(--indi-green-1);
+        background-color: rgb(var(--indi-green-1));
         position: absolute;
         top: 0;
         width: 100%;
@@ -341,7 +343,7 @@ router.afterEach(() => {
         position: relative;
         height: 100%;
         left: 100%;
-        background-color: var(--root-background-color);
+        background-color: rgb(var(--root-background-color));
         transition-delay: 0s;
         transition: var(--transition-time) ease-in-out;
 
@@ -373,10 +375,10 @@ router.afterEach(() => {
 
           ul {
             li {
-              border-bottom: solid 1px var(--indi-blue-1);
+              border-bottom: solid 1px rgb(var(--indi-blue-1));
 
               .sub-menu-toggle {
-                border-left: solid 1px var(--indi-blue-1);
+                border-left: solid 1px rgb(var(--indi-blue-1));
               }
             }
           }
@@ -388,10 +390,10 @@ router.afterEach(() => {
 
           ul {
             li {
-              border-bottom: solid 1px var(--indi-blue-green-1);
+              border-bottom: solid 1px rgb(var(--indi-blue-green-1));
 
               .sub-menu-toggle {
-                border-left: solid 1px var(--indi-blue-green-1);
+                border-left: solid 1px rgb(var(--indi-blue-green-1));
               }
             }
           }
@@ -402,10 +404,10 @@ router.afterEach(() => {
           width: calc(calc(100vw - var(--shadowspace)) - calc(var(--linespace) * 3));
           ul {
             li {
-              border-bottom: solid 1px var(--indi-green-1);
+              border-bottom: solid 1px rgb(var(--indi-green-1));
 
               .sub-menu-toggle {
-                border-left: solid 1px var(--indi-green-1);
+                border-left: solid 1px rgb(var(--indi-green-1));
               }
             }
           }
@@ -416,7 +418,7 @@ router.afterEach(() => {
           transition-delay: var(--transition-time);
         }
 
-        @media screen and (min-width: var(--bp-tablet-md)) {
+        @media screen and (min-width: #{calc($bp-tablet-lg + 1px)}) {
           display: block;
           visibility: hidden;
           width: 0;
@@ -442,7 +444,7 @@ router.afterEach(() => {
       }
     }
 
-    @media screen and (min-width: var(--bp-tablet-md)) {
+    @media screen and (min-width: #{calc($bp-tablet-lg + 1px)}) {
       display: block;
       visibility: hidden;
       width: 0;
@@ -450,7 +452,7 @@ router.afterEach(() => {
     }
   }
 
-  @media screen and (min-width: var(--bp-tablet-md)) {
+  @media screen and (min-width: #{calc($bp-tablet-lg + 1px)}) {
     display: block;
     visibility: hidden;
     width: 0;

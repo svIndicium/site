@@ -19,7 +19,7 @@ function gotoPartners() {
 </script>
 
 <template>
-  <Hero />
+  <Hero class="hero" />
   <div class="split-container">
     <div class="left">
       <div class="carousel">
@@ -100,15 +100,30 @@ function gotoPartners() {
 </template>
 
 <style scoped lang="scss">
+.hero {
+  padding-top: var(--nav-height);
+}
+
 svg {
   width: 300px;
   height: 300px;
 }
-
 .split-container {
+  position: relative;
+  padding-top: 32px;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 0;
+    right: 0;
+    height: 10px;
+    background: linear-gradient(to top, rgba(grey, 0.25) 0%, rgba(0, 0, 0, 0) 100%);
+  }
 
   .left {
     max-width: 800px;
@@ -122,7 +137,7 @@ svg {
       cursor: pointer;
       border-radius: 4px;
       padding: 12px;
-      background-color: var(--secondary-background-color);
+      background-color: rgb(var(--secondary-background-color));
     }
 
     img {
@@ -146,5 +161,12 @@ svg {
 
 .logo.vue:hover {
   filter: drop-shadow(0 0 2em #42b883aa);
+}
+
+.partner-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
 </style>

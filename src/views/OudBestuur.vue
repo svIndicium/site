@@ -33,8 +33,10 @@ import { previousBoards } from '@/content/boards.json';
 </template>
 
 <style scoped lang="scss">
+@import '@/assets/scss/variables.scss';
+
 .board {
-  border-bottom: 3px solid var(--indi-blue-1);
+  border-bottom: 3px solid rgb(var(--indi-blue-1));
   max-width: 1200px;
   margin: 0 auto;
   padding: 2.5em 0;
@@ -42,7 +44,7 @@ import { previousBoards } from '@/content/boards.json';
   grid-auto-flow: column;
   column-gap: 10%;
 
-  @media screen and (max-width: 975px) {
+  @media screen and (max-width: #{$bp-tablet-lg}) {
     grid-auto-flow: row;
   }
 

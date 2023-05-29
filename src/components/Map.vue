@@ -18,16 +18,12 @@
   border-radius: 4px;
   position: relative;
 
-  @media screen and (max-width: var(--bp-tablet-sm)) {
-    width: 80vw;
-  }
-
   iframe {
     width: 100%;
-    height: 450px;
+    height: 100%;
   }
 
-  @media screen and (max-width: var(--bp-tablet-sm)) {
+  @media screen and (max-width: #{bp-tablet-sm}) {
     margin-top: 16px;
   }
 }

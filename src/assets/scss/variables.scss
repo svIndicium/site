@@ -1,28 +1,44 @@
+// Breakpoints
+$bp-mobile-sm: 321px;
+$bp-mobile-md: 376px;
+$bp-mobile-lg: 414px;
+$bp-tablet-sm: 562px;
+$bp-tablet-md: 768px;
+$bp-tablet-lg: 944px;
+$bp-desktop-sm: 1120px;
+$bp-desktop-md: 1280px;
+$bp-desktop-lg: 1536px;
+
 :root {
-  --text-color: #333;
-  --link-color: #005fff;
-  --root-background-color: #fff;
-  --secondary-background-color: #f2f2f2;
+  --nav-height: 90px;
 
-  --indi-blue-1: #72c9e1;
-  --indi-blue-2: #aadeed;
-  --indi-blue-3: #e2f4f9;
+  --text-color: 51, 51, 51;
+  --link-color: 0, 95, 255;
+  --root-background-color: 255, 255, 255;
+  --secondary-background-color: 242, 242, 242;
 
-  --indi-blue-green-1: #73c3b6;
-  --indi-blue-green-2: #abdbd3;
-  --indi-blue-green-3: #e3f3f0;
+  --hero-bg-color: var(--secondary-background-color);
+  --pcb-trace-color: lightgrey;
 
-  --indi-green-1: #a3cf9b;
-  --indi-green-2: #c7e2c3;
-  --indi-green-3: #eff5eb;
+  --indi-blue-1: 114, 201, 225;
+  --indi-blue-2: 170, 222, 237;
+  --indi-blue-3: 226, 244, 249;
 
-  --indi-grey: #eff0f0;
+  --indi-blue-green-1: 115, 195, 182;
+  --indi-blue-green-2: 171, 219, 211;
+  --indi-blue-green-3: 227, 243, 240;
+
+  --indi-green-1: 163, 207, 155;
+  --indi-green-2: 199, 226, 195;
+  --indi-green-3: 239, 245, 235;
+
+  --indi-grey: 239, 240, 240;
   --indi-success: var(--indi-green-2);
-  --indi-warning: #fac052;
-  --indi-error: #cf9797;
+  --indi-warning: 250, 192, 82;
+  --indi-error: 207, 151, 151;
 
-  --panel-background: #f3f8fa;
-  --inner-sidebar-background: #f8f9f9;
+  --panel-background: 243, 248, 250;
+  --inner-sidebar-background: 247, 250, 250;
 
   --sidebar-width: 286px;
 
@@ -30,45 +46,38 @@
   --text-font: 'Calibri', sans-serif;
   --indicium-font: 'Indicium-font', serif;
 
-  // Breakpoints
-  --bp-mobile-sm: 321px;
-  --bp-mobile-md: 376px;
-  --bp-mobile-lg: 414px;
-  --bp-tablet-sm: 562px;
-  --bp-tablet-md: 768px;
-  --bp-desktop-sm: 1120px;
-  --bp-desktop-md: 1280px;
-  --bp-desktop-lg: 1536px;
-
   // used for lazy darkmode, namely for the Conscribo iframe which cant be styled by us
   --filter: invert(0);
 }
 
 [data-theme='dark'] {
-  --text-color: #f2f2f2;
-  --link-color: #64c8ff;
-  --root-background-color: #0b1416;
-  --secondary-background-color: #2f3437;
+  --text-color: 242, 242, 242;
+  --link-color: 100, 200, 255;
+  --root-background-color: 11, 20, 22;
+  --secondary-background-color: 47, 52, 55;
 
-  --indi-blue-1: #447887;
-  --indi-blue-2: #2f545e;
-  --indi-blue-3: #1b3036;
+  --hero-bg-color: 0, 0, 0;
+  --pcb-trace-color: 51, 51, 51;
 
-  --indi-blue-green-1: #45756d;
-  --indi-blue-green-2: #30514c;
-  --indi-blue-green-3: #1b2e2b;
+  --indi-blue-1: 68, 120, 135;
+  --indi-blue-2: 47, 84, 94;
+  --indi-blue-3: 27, 48, 54;
 
-  --indi-green-1: #617c5d;
-  --indi-green-2: #435641;
-  --indi-green-3: #263125;
+  --indi-blue-green-1: 69, 117, 109;
+  --indi-blue-green-2: 48, 81, 76;
+  --indi-blue-green-3: 27, 46, 43;
 
-  --indi-grey: #eff0f0;
+  --indi-green-1: 97, 124, 93;
+  --indi-green-2: 67, 86, 65;
+  --indi-green-3: 38, 49, 37;
+
+  --indi-grey: 239, 240, 240;
   --indi-success: var(--indi-green-2);
-  --indi-warning: #fac052;
-  --indi-error: #cf9797;
+  --indi-warning: 250, 192, 82;
+  --indi-error: 207, 151, 151;
 
-  --panel-background: #000;
-  --inner-sidebar-background: #f8f9f9;
+  --panel-background: 0, 0, 0;
+  --inner-sidebar-background: 248, 249, 249;
 
   // used for lazy darkmode, namely for the Conscribo iframe which cant be styled by us
   --filter: invert(1);

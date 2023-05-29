@@ -144,7 +144,7 @@ function showMoreEvents(): void {
     display: block;
     text-align: center;
     padding: 4px;
-    background-color: var(--indi-green-2);
+    background-color: rgb(var(--indi-green-2));
     border-radius: 5px;
 
     .day {
@@ -177,7 +177,7 @@ function showMoreEvents(): void {
 }
 
 .events-container {
-  background-color: var(--secondary-background-color);
+  background-color: rgb(var(--secondary-background-color));
   border-radius: 4px;
   padding: 16px 14px;
   display: flex;
@@ -192,8 +192,8 @@ function showMoreEvents(): void {
 
 .button {
   display: inline-block;
-  color: var(--text-color);
-  background-color: var(--indi-green-2);
+  color: rgb(var(--text-color));
+  background-color: rgb(var(--indi-green-2));
   padding: 0.5em 0.8em;
   border-radius: 8px;
   text-decoration: none;

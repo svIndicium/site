@@ -6,89 +6,55 @@ import HeroBackground from './HeroBackground.vue';
 
 <template>
   <div class="hero">
-    <HeroBackground>
-      <div class="hero-content">
-        <div class="logo">
-          <logo />
-        </div>
-        <h1 class="fadeInUp">
-          Wij zijn dé
-          <span class="extra-bold">studie</span>vereniging voor HBO-ICT van Hogeschool Utrecht
-        </h1>
-
-        <!-- <div class="buttons fadeInUp">
-          <a size="l" url="https://leden.conscribo.nl/svIndicium/aanmeldenlidmaatschap">Word lid</a>
-          <RouterLink url="/activiteiten">Bekijk agenda</RouterLink>
-        </div> -->
-      </div>
-    </HeroBackground>
+    <div class="bg-container">
+      <HeroBackground />
+    </div>
+    <div class="hero-content">
+      <logo />
+      <h1>
+        Wij zijn dé
+        <span class="extra-bold">studie</span>vereniging voor HBO-ICT van Hogeschool Utrecht
+      </h1>
+      <!-- <a size="l" href="https://leden.conscribo.nl/svIndicium/aanmeldenlidmaatschap">Word lid</a> -->
+    </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
+@import '@/assets/scss/variables.scss';
+
 .hero {
-  top: 20px;
-  margin-bottom: 40px;
   display: flex;
   justify-content: center;
   position: relative;
   width: inherit;
-  overflow: hidden;
 
-  .background-view {
-    width: 100vw;
-  }
-}
-
-.hero-content {
-  z-index: 10;
-  position: relative;
-  padding: 200px 0 100px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  h1 {
-    max-width: 832px;
-    margin-bottom: 24px;
-  }
-
-  .buttons {
-    display: flex;
-    align-items: center;
-    justify-self: center;
-
-    .btn {
-      margin-right: 32px;
-    }
-  }
-}
-
-// --bp-desktop-sm: 1120px;
-@media only screen and (max-width: 1120px) {
-  .hero {
-    top: 30px;
+  .bg-container {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    z-index: -1;
+    background-color: rgb(var(--hero-bg-color));
   }
 
   .hero-content {
-    z-index: 10;
-    position: relative;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 128px 0;
 
     h1 {
-      font-size: 2em;
-      margin: 30px;
+      max-width: 800px;
+      padding: 0 16px;
     }
+  }
+}
 
-    .buttons {
-      display: flex;
-      align-items: center;
-      justify-self: center;
-
-      .btn {
-        margin-right: 32px;
-      }
-    }
+@media screen and (max-width: #{$bp-desktop-sm}) {
+  h1 {
+    font-size: 2em;
   }
 }
 </style>

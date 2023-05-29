@@ -77,6 +77,8 @@ function changeTheme(theme: string) {
 </template>
 
 <style lang="scss" scoped>
+@import '@/assets/scss/variables.scss';
+
 a {
   text-decoration: none;
   color: inherit;
@@ -88,11 +90,11 @@ ul {
 }
 
 footer {
-  background: var(--indi-blue-3);
+  background: rgb(var(--indi-blue-3));
   padding: 30px 0;
-  color: var(--text-color);
+  color: rgb(var(--text-color));
   margin-top: 16px;
-  border-top: 2px solid var(--indi-blue-1);
+  border-top: 2px solid rgb(var(--indi-blue-1));
 
   .container {
     max-width: 1084px;
@@ -114,7 +116,7 @@ footer {
   }
 }
 
-@media screen and (max-width: 1120px) {
+@media screen and (max-width: #{$bp-desktop-sm}) {
   footer {
     padding: 12px;
 

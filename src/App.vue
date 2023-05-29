@@ -20,6 +20,7 @@ state.refreshTheme();
 </template>
 
 <style lang="scss">
+@import './assets/scss/variables.scss';
 @font-face {
   font-family: 'Indicium-font';
   font-weight: 400;
@@ -34,11 +35,11 @@ body {
 
   &::-webkit-scrollbar {
     width: 0.6em;
-    background-color: var(--indi-blue-3);
+    background-color: rgb(var(--indi-blue-3));
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: var(--indi-blue-2);
+    background-color: rgb(var(--indi-blue-2));
     outline: 0px solid slategrey;
   }
 
@@ -49,10 +50,11 @@ body {
   .mobile-nav {
     display: none;
   }
+  background-color: rgb(var(--root-background-color));
 }
 
 // --bp-desktop-sm: 1120px;
-@media only screen and (max-width: 1120px) {
+@media screen and (max-width: #{$bp-tablet-lg}) {
   body {
     &::-webkit-scrollbar {
       width: 1em;

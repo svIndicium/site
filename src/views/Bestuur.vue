@@ -23,6 +23,8 @@ import { currentBoard } from '@/content/boards.json';
 </template>
 
 <style scoped lang="scss">
+@import '@/assets/scss/variables.scss';
+
 h1 {
   text-align: center;
 }
@@ -38,7 +40,7 @@ h1 {
     margin-bottom: 0;
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: #{$bp-tablet-md}) {
     grid-auto-flow: row;
 
     .member-photo {

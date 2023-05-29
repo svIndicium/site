@@ -2,17 +2,24 @@
 @import 'variables';
 @import 'typography';
 
+body,
+div,
+nav,
+footer,
+svg,
+.button.primary {
+  transition-property: background-color, border-color, box-shadow, fill, stroke, opacity, transform;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in-out;
+}
+
 body {
   font-family: 'Roboto', sans-serif;
-  color: var(--text-color);
+  color: rgb(var(--text-color));
   overflow-x: hidden;
-  background-color: var(--root-background-color);
+  background-color: rgb(var(--root-background-color));
 
-  * {
-    transition: background 300ms;
-  }
-
-  @media screen and (max-width: var(--bp-tablet-md)) {
+  @media screen and (max-width: #{bp-tablet-md}) {
     padding-top: 0;
   }
 }
@@ -22,7 +29,7 @@ h1 {
 }
 
 a {
-  color: var(--link-color);
+  color: rgb(var(--link-color));
 }
 
 img,
@@ -59,5 +66,28 @@ img,
     -webkit-transform: translateZ(0);
     opacity: 1;
     transform: translateZ(0);
+  }
+}
+
+.button {
+  padding: 0.5rem;
+
+  &.hover:hover {
+    cursor: pointer;
+    transition: none;
+    background-color: rgb(var(--indi-blue-1));
+  }
+
+  &.rounded {
+    border-radius: 0.5rem;
+  }
+
+  &.primary {
+    background-color: rgb(var(--indi-blue-1));
+    color: white;
+  }
+
+  &.secondary {
+    border: 2px solid rgb(var(--indi-blue-1));
   }
 }

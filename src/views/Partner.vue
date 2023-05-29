@@ -57,7 +57,7 @@ function expandJobOffer(event: MouseEvent) {
     gap: 8%;
     align-items: center;
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: #{$bp-tablet-md}) {
       grid-template-columns: 1fr;
     }
 
@@ -95,7 +95,7 @@ function expandJobOffer(event: MouseEvent) {
         .job-offer-title::after {
           display: inline-block;
           content: '';
-          background-color: var(--text-color);
+          background-color: rgb(var(--text-color));
           -webkit-mask-image: url('/assets/icons/arrow-up.svg');
           mask-image: url('/assets/icons/arrow-up.svg');
           height: 12px;
@@ -146,7 +146,7 @@ function expandJobOffer(event: MouseEvent) {
   display: inline-block;
   margin: 1em auto;
   padding: 0.7em;
-  background-color: var(--indi-blue-1);
+  background-color: rgb(var(--indi-blue-1));
   border-radius: 0.5em;
 }
 </style>

@@ -24,6 +24,8 @@ const [commissie] = commissies;
 </template>
 
 <style scoped lang="scss">
+@import '@/assets/scss/variables.scss';
+
 .commissie {
   max-width: 1200px;
   margin: 4em auto;
@@ -40,7 +42,7 @@ const [commissie] = commissies;
     margin-top: 0;
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: #{$bp-tablet-md}) {
     grid-template-columns: 1fr;
 
     .foto {

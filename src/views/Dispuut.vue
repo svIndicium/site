@@ -21,8 +21,10 @@ const [dispuut] = disputen;
 </template>
 
 <style scoped lang="scss">
+@import '@/assets/scss/variables.scss';
+
 .dispuut {
-  border-bottom: 3px solid var(--indi-blue-1);
+  border-bottom: 3px solid rgb(var(--indi-blue-1));
   max-width: 1500px;
   margin: 0 auto;
   padding: 2em 0;
@@ -31,14 +33,9 @@ const [dispuut] = disputen;
   column-gap: 5%;
   text-align: left;
 
-  @media screen and (max-width: 975px) {
+  @media screen and (max-width: #{$bp-tablet-lg}) {
     grid-auto-flow: row;
   }
-
-  // .foto{
-  //   margin: 0 auto;
-  //   size: 900px;
-  // }
 
   h2 {
     margin-top: 0;
