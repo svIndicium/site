@@ -115,10 +115,12 @@ function showMoreEvents(): void {
       </div>
     </div>
     <a class="button" v-if="events.length > 7" @click="showMoreEvents">laat meer zien</a>
-    <!-- note: startdate and times HAVE TO BE INCLUDED -->
+  </div>
+  <div class="button-container">
+    <!-- note: startdate and times HAVE TO BE INCLUDED, :startDate will pick yesterday -->
     <add-to-calendar-button
       name="Indicium"
-      startDate="2023-1-1"
+      :startDate="new Date(new Date().setDate(new Date().getDate() - 1)).toISOString()"
       startTime="00:00"
       endTime="00:00"
       timeZone="Europe/Amsterdam"
@@ -127,7 +129,7 @@ function showMoreEvents(): void {
       iCalFileName="Indicium Activiteiten Calender"
       options="'Apple','Google','iCal','Outlook.com','Microsoft365','MicrosoftTeams'"
       listStyle="modal"
-      label="Voeg toe aan agenda"
+      label="Voeg alle activiteiten toe aan agenda"
       :lightMode="darkModeActive ? 'dark' : 'light'"
       language="nl"
     ></add-to-calendar-button>
@@ -146,6 +148,7 @@ function showMoreEvents(): void {
     padding: 4px;
     background-color: rgb(var(--indi-green-2));
     border-radius: 5px;
+    height: -webkit-fit-content;
 
     .day {
       font-size: 32px;
@@ -186,6 +189,8 @@ function showMoreEvents(): void {
 }
 
 .button-container {
+  display: grid;
+  place-items: center;
   text-align: center;
   padding-top: 1em;
 }
