@@ -8,7 +8,7 @@ type ChildItem = {
   title: string;
   url: string;
   grandchildren: {
-    place: 'left' | 'right';
+    place: 'left' | 'right'; // shouldn't this be decided programmatically?
     items: Array<GrandChildItem>;
   };
 };

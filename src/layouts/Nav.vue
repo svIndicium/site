@@ -131,6 +131,7 @@ const items = content.items;
 
   ul {
     display: flex;
+    align-items: center;
     flex-grow: 1;
     padding: 0;
     margin: 0;
@@ -155,15 +156,27 @@ const items = content.items;
       align-items: center;
       justify-content: center;
       width: 150px;
-      padding: 15px 0;
+      height: 100%;
 
       a {
-        display: block;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         font-size: 1rem;
         font-weight: 500;
         color: rgb(var(--text-color));
         text-align: center;
         text-decoration: none;
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    li:has(.button) {
+      height: unset;
+
+      .button {
+        max-width: max-content;
       }
     }
 
@@ -177,14 +190,29 @@ const items = content.items;
 
         .sub-menu-li {
           width: 100%;
-          height: auto;
+          height: 50px;
 
-          .a {
-            text-decoration: none;
+          a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
             width: 100%;
+            height: 100%;
+            color: rgb(var(--text-color));
+          }
+
+          a:hover,
+          a:focus-within {
+            background-color: rgb(var(--indi-blue-green-1));
+            color: white;
+            text-decoration: none;
           }
         }
       }
+    }
+
+    :is(li:hover, li:focus-within):has(.button) {
+      background-color: transparent;
     }
 
     .sub-menu {
@@ -200,10 +228,6 @@ const items = content.items;
       visibility: hidden;
       z-index: 1;
       overflow: visible;
-
-      a {
-        display: block;
-      }
     }
   }
 
