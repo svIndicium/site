@@ -24,6 +24,7 @@ h2 {
   font-weight: 500;
   line-height: 140%;
   color: var(--text-color);
+  margin-block-end: 0.2em;
 
   @media screen and (max-width: var(--bp-tablet-md)) {
     font-size: 36px;

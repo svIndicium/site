@@ -71,7 +71,6 @@ const events: Event<Date>[] = Array.from(calendarData.items)
   });
 // console.log(events);
 
-
 const visibleEvents = computed<Event<Date>[]>(() => {
   return Array.from(events.values()).slice(0, maxCalEvents.value);
 });
@@ -109,22 +108,8 @@ function extractHourAndMinutes(timeString: string) {
 </script>
 
 <template>
-  <div class="events-container">
-    <div class="event" v-for="event in visibleEvents" :key="event.id">
-      <div class="date">
-        <span class="day">{{ event.start.toLocaleDateString('nl', { day: 'numeric' }) }}</span>
-        <br />
-        <span class="month">{{ event.start.toLocaleDateString('nl', { month: 'short' }) }}</span>
-      </div>
-      <div class="details">
-        <p class="title">{{ event.summary }}</p>
-        <a v-if="event.location" class="location" :href="getLocationLink(event.location)" target="_blank">
-          @{{ event.location }}
-        </a>
-      </div>
-    </div>
-    <a class="button" v-if="events.length > 7" @click="showMoreEvents">laat meer zien</a>
-    <!-- note: startdate and times HAVE TO BE INCLUDED -->
+  <div style="display: flex; align-items: flex-end; justify-content: space-between">
+    <h2>Agenda</h2>
     <add-to-calendar-button
       name="Indicium"
       startDate="2023-1-1"
@@ -139,7 +124,26 @@ function extractHourAndMinutes(timeString: string) {
       label="Voeg toe aan agenda"
       :lightMode="darkModeActive ? 'dark' : 'light'"
       language="nl"
+      style="margin-block-end: 0.5em; --btn-shadow: unset; --btn-shadow-hover: unset"
     ></add-to-calendar-button>
+  </div>
+  <div class="events-container">
+    <div class="event" v-for="event in visibleEvents" :key="event.id">
+      <div class="date">
+        <span class="day">{{ event.start.toLocaleDateString('nl', { day: 'numeric' }) }}</span>
+        <br />
+        <span class="month">{{ event.start.toLocaleDateString('nl', { month: 'short' }) }}</span>
+      </div>
+      <div class="details">
+        <p class="title" style="font-weight: bold; margin-block-end: 0.2em">{{ event.summary }}</p>
+        <p>{{ extractHourAndMinutes('' + event.start) }} => {{ extractHourAndMinutes('' + event.end) }}</p>
+        <a v-if="event.location" class="location" :href="getLocationLink(event.location)" target="_blank">
+          @{{ event.location }}
+        </a>
+      </div>
+    </div>
+    <a class="button" v-if="events.length > 7" @click="showMoreEvents">laat meer zien</a>
+    <!-- note: startdate and times HAVE TO BE INCLUDED -->
   </div>
 </template>
 

@@ -69,7 +69,6 @@ function gotoPartners() {
     </div>
 
     <div class="right">
-      <h2>Agenda</h2>
       <Suspense>
         <Calendar />
       </Suspense>
