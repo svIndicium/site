@@ -44,31 +44,33 @@ const calendarData: { items: Event<string>[] } = await fetch(
 const events: Event<Date>[] = Array.from(calendarData.items)
   .filter((event) => event.status === 'confirmed')
   .map((event) => {
-    let tempEvent: Event<string | Date>;
+    let tempEvent: Event<string | Date> = event;
     if ('date' in event.start) {
       tempEvent = {
-        ...event,
+        ...tempEvent,
         start: new Date(event.start.date),
       };
     } else {
       tempEvent = {
-        ...event,
+        ...tempEvent,
         start: new Date(event.start.dateTime),
       };
     }
     if ('date' in event.end) {
       tempEvent = {
-        ...event,
-        start: new Date(event.end.date),
+        ...tempEvent,
+        end: new Date(event.end.date),
       };
     } else {
       tempEvent = {
-        ...event,
-        start: new Date(event.end.dateTime),
+        ...tempEvent,
+        end: new Date(event.end.dateTime),
       };
     }
     return tempEvent;
   });
+// console.log(events);
+
 
 const visibleEvents = computed<Event<Date>[]>(() => {
   return Array.from(events.values()).slice(0, maxCalEvents.value);
