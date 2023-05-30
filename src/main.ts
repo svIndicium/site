@@ -18,6 +18,8 @@ import Partners from '@/views/Partners.vue';
 import Partner from '@/views/Partner.vue';
 import Contact from '@/views/Contact.vue';
 import Statuten from '@/views/Statuten.vue';
+import Privacy from '@/views/Privacy.vue';
+import HR from '@/views/HR.vue';
 import Placeholder from '@/views/Placeholder.vue';
 import FourOFour from '@/views/404.vue';
 import FourEighteen from '@/views/418.vue';
@@ -43,9 +45,10 @@ const router = createRouter({
     { name: 'Vacatures', path: '/vacatures', component: Placeholder },
     { name: 'Contact', path: '/contact', component: Contact },
     { name: 'Statuten', path: '/statuten', component: Statuten },
-    { name: 'Privacy reglement', path: '/privacy', component: Placeholder },
-    { name: "I'm a tea pot", path: '/418', component: FourEighteen },
+    { name: 'HR', path: '/hr', component: HR },
+    { name: 'Privacy', path: '/privacyreglement', component: Privacy },
     { name: 'Sandbox', path: '/sandbox', component: Sandbox },
+    { name: "I'm a tea pot", path: '/418', component: FourEighteen },
     // and finally the default route, when none of the above matches:
     { name: 'Pagina niet gevonden', path: '/:pathMatch(.*)*', component: FourOFour },
   ],
