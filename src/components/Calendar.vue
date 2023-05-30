@@ -40,6 +40,7 @@ const calendarData: { items: Event<string>[] } = await fetch(
     new Date().toISOString(),
 ).then((res) => res.json());
 
+//This function is wrong
 const events: Event<Date>[] = Array.from(calendarData.items)
   .filter((event) => event.status === 'confirmed')
   .map((event) => {
@@ -97,6 +98,12 @@ function getLocationLink(location: string): string {
 function showMoreEvents(): void {
   maxCalEvents.value = maxCalEvents.value + 7;
 }
+
+function extractHourAndMinutes(timeString: string) {
+  const regex = /(\d{2}:\d{2}):\d{2}/;
+  const match = timeString.match(regex);
+  return match ? match[1] : null;
+}
 </script>
 
 <template>
@@ -146,6 +153,7 @@ function showMoreEvents(): void {
     padding: 4px;
     background-color: var(--indi-green-2);
     border-radius: 5px;
+    max-height: 60px;
 
     .day {
       font-size: 32px;
