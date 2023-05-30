@@ -7,6 +7,7 @@ import App from './App.vue';
 import Home from '@/views/Home.vue';
 import Activiteiten from '@/views/Activiteiten.vue';
 import OverIndicium from '@/views/OverIndicium.vue';
+import Sandbox from '@/views/Sandbox.vue';
 import Bestuur from '@/views/Bestuur.vue';
 import LidWorden from '@/views/LidWorden.vue';
 import Intro from '@/views/Intro.vue';
@@ -44,6 +45,7 @@ const router = createRouter({
     { name: 'Statuten', path: '/statuten', component: Statuten },
     { name: 'Privacy reglement', path: '/privacy', component: Placeholder },
     { name: "I'm a tea pot", path: '/418', component: FourEighteen },
+    { name: 'Sandbox', path: '/sandbox', component: Sandbox },
     // and finally the default route, when none of the above matches:
     { name: 'Pagina niet gevonden', path: '/:pathMatch(.*)*', component: FourOFour },
   ],
