@@ -4,6 +4,9 @@ import { createPinia } from 'pinia';
 import piniaPluginPersistedstate from 'pinia-plugin-persistedstate';
 import './style.css';
 import App from './App.vue';
+import 'viewerjs/dist/viewer.css';
+import VueViewer from 'v-viewer';
+
 import Home from '@/views/Home.vue';
 import Activiteiten from '@/views/Activiteiten.vue';
 import OverIndicium from '@/views/OverIndicium.vue';
@@ -19,6 +22,8 @@ import Partner from '@/views/Partner.vue';
 import Contact from '@/views/Contact.vue';
 import Statuten from '@/views/Statuten.vue';
 import Privacy from '@/views/Privacy.vue';
+import BetalingGelukt from '@/views/BetalingGelukt.vue';
+import BetalingMislukt from '@/views/BetalingMislukt.vue';
 import HR from '@/views/HR.vue';
 import Placeholder from '@/views/Placeholder.vue';
 import FourOFour from '@/views/404.vue';
@@ -47,6 +52,8 @@ const router = createRouter({
     { name: 'Statuten', path: '/statuten', component: Statuten },
     { name: 'HR', path: '/hr', component: HR },
     { name: 'Privacy', path: '/privacyreglement', component: Privacy },
+    { name: 'Betaling Gelukt', path: '/betaling/:gelukt', component: BetalingGelukt },
+    { name: 'Betaling Mislukt', path: '/betaling/:mislukt', component: BetalingMislukt },
     { name: 'Sandbox', path: '/sandbox', component: Sandbox },
     { name: "I'm a tea pot", path: '/418', component: FourEighteen },
     // and finally the default route, when none of the above matches:
@@ -73,4 +80,5 @@ router.afterEach((to, from, failure) => {
 const pinia = createPinia();
 pinia.use(piniaPluginPersistedstate);
 app.use(pinia);
+app.use(VueViewer);
 app.mount('#app');
