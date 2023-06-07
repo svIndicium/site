@@ -11,7 +11,7 @@ import Sandbox from '@/views/Sandbox.vue';
 import Bestuur from '@/views/Bestuur.vue';
 import LidWorden from '@/views/LidWorden.vue';
 import Intro from '@/views/Intro.vue';
-import OudBestuur from '@/views/OudBestuur.vue';
+import Besturen from '@/views/BestuurTijdlijn.vue';
 import Commissies from '@/views/Commissies.vue';
 import Dispuut from '@/views/Dispuut.vue';
 import Partners from '@/views/Partners.vue';
@@ -37,7 +37,7 @@ const router = createRouter({
     { name: 'Bestuur', path: '/bestuur', component: Bestuur },
     { name: 'Lid Worden', path: '/lid-worden', component: LidWorden },
     { name: 'Intro', path: '/intro', component: Intro },
-    { name: 'Oud Bestuur', path: '/oud-besturen', component: OudBestuur },
+    { name: 'Oud Bestuur', path: '/besturen', component: Besturen },
     { name: 'Commissies', path: '/commissies', component: Commissies },
     { name: 'Dispuut', path: '/dispuut', component: Dispuut },
     { name: 'Partners', path: '/partners', component: Partners },
