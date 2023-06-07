@@ -12,8 +12,8 @@
   <path fill="none" stroke="#73C3B6" stroke-linecap="round" stroke-linejoin="round"
     d="M20.62,3.61C18.25,4,16.5,5.37,16.5,7a2.57,2.57,0,0,0,.7,1.7l-.7,2.8,2.86-1.43A8.12,8.12,0,0,0,22,10.5c3,0,5.5-1.57,5.5-3.5,0-1.6-1.69-2.95-4-3.37">
   </path>
-  <line x1="21.25" x2="22.75" y1="6.25" y2="7.75" fill="none" stroke="#73C3B6" stroke-linecap="round"
+  <line x1="21.25" x2="22.75" y1="6.25" y2="7.75" fill="none" stroke="#e17772" stroke-linecap="round"
     stroke-linejoin="round"></line>
-  <line x1="22.75" x2="21.25" y1="6.25" y2="7.75" fill="none" stroke="#73C3B6" stroke-linecap="round"
+  <line x1="22.75" x2="21.25" y1="6.25" y2="7.75" fill="none" stroke="#e17772" stroke-linecap="round"
     stroke-linejoin="round"></line>
 </svg>
