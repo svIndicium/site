@@ -28,6 +28,7 @@ import HR from '@/views/HR.vue';
 import Placeholder from '@/views/Placeholder.vue';
 import FourOFour from '@/views/404.vue';
 import FourEighteen from '@/views/418.vue';
+import Error from '@/views/error.vue';
 
 import '@/assets/scss/variables.scss';
 import '@/assets/scss/main.scss';
@@ -56,6 +57,7 @@ const router = createRouter({
     { name: 'Betaling Mislukt', path: '/betaling/:mislukt', component: BetalingMislukt },
     { name: 'Sandbox', path: '/sandbox', component: Sandbox },
     { name: "I'm a tea pot", path: '/418', component: FourEighteen },
+    { name: 'Error', path: '/error', component: Error },
     // and finally the default route, when none of the above matches:
     { name: 'Pagina niet gevonden', path: '/:pathMatch(.*)*', component: FourOFour },
   ],
