@@ -13,8 +13,8 @@
           "url": "/bestuur"
         },
         {
-          "title": "Oud Besturen",
-          "url": "/oud-besturen"
+          "title": "Besturen Tijdlijn",
+          "url": "/besturen"
         },
         {
           "title": "Commissies",
@@ -35,7 +35,7 @@
       "url": "/contact"
     },
     {
-      "title": "Introductie voor nieuwe studenten",
+      "title": "Introkamp",
       "url": "/intro"
     },
     {

@@ -24,6 +24,7 @@ const router = useRouter();
   display: flex;
   align-items: center;
   padding: 0 10px;
+  flex-grow: 1;
 
   .logo-icon {
     height: 48px;
