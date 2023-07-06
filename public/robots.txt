@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /418
+Disallow: /404
+Disallow: /sandbox
+Disallow: /betaling

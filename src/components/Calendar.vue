@@ -38,36 +38,44 @@ type Event<DateTimeFormat extends Date | string> = {
 const calendarData: { items: Event<string>[] } = await fetch(
   'https://www.googleapis.com/calendar/v3/calendars/c_cb2b2ab9761bec69a9d24fd452f2d970d31755cf1c382272560d81fddca0e5e5@group.calendar.google.com/events?key=AIzaSyBo4AYTvUouRsZbG4KiopyeIng_1UOdNyc&orderBy=startTime&singleEvents=true&timeMin=' +
     new Date().toISOString(),
-).then((res) => res.json());
-
-const events: Event<Date>[] = Array.from(calendarData.items)
-  .filter((event) => event.status === 'confirmed')
-  .map((event) => {
-    let tempEvent: Event<string | Date>;
-    if ('date' in event.start) {
-      tempEvent = {
-        ...event,
-        start: new Date(event.start.date),
-      };
-    } else {
-      tempEvent = {
-        ...event,
-        start: new Date(event.start.dateTime),
-      };
-    }
-    if ('date' in event.end) {
-      tempEvent = {
-        ...event,
-        start: new Date(event.end.date),
-      };
-    } else {
-      tempEvent = {
-        ...event,
-        start: new Date(event.end.dateTime),
-      };
-    }
-    return tempEvent;
+)
+  .then((res) => res.json())
+  .catch((err) => {
+    console.error(err);
+    return { items: [] };
   });
+
+//This function is wrong
+const events: Event<Date>[] = Array.isArray(calendarData.items)
+  ? calendarData.items
+      .filter((event) => event.status === 'confirmed')
+      .map((event) => {
+        let tempEvent: Event<string | Date> = event;
+        if ('date' in event.start) {
+          tempEvent = {
+            ...tempEvent,
+            start: new Date(event.start.date),
+          };
+        } else {
+          tempEvent = {
+            ...tempEvent,
+            start: new Date(event.start.dateTime),
+          };
+        }
+        if ('date' in event.end) {
+          tempEvent = {
+            ...tempEvent,
+            end: new Date(event.end.date),
+          };
+        } else {
+          tempEvent = {
+            ...tempEvent,
+            end: new Date(event.end.dateTime),
+          };
+        }
+        return tempEvent;
+      })
+  : [];
 
 const visibleEvents = computed<Event<Date>[]>(() => {
   return Array.from(events.values()).slice(0, maxCalEvents.value);
@@ -96,6 +104,12 @@ function getLocationLink(location: string): string {
 
 function showMoreEvents(): void {
   maxCalEvents.value = maxCalEvents.value + 7;
+}
+
+function extractHourAndMinutes(timeString: string) {
+  const regex = /(\d{2}:\d{2}):\d{2}/;
+  const match = timeString.match(regex);
+  return match ? match[1] : null;
 }
 </script>
 
@@ -132,7 +146,26 @@ function showMoreEvents(): void {
       label="Voeg alle activiteiten toe aan agenda"
       :lightMode="darkModeActive ? 'dark' : 'light'"
       language="nl"
+      style="margin-block-end: 0.5em; --btn-shadow: unset; --btn-shadow-hover: unset"
     ></add-to-calendar-button>
+  </div>
+  <div class="events-container">
+    <div class="event" v-for="event in visibleEvents" :key="event.id">
+      <div class="date">
+        <span class="day">{{ event.start.toLocaleDateString('nl', { day: 'numeric' }) }}</span>
+        <br />
+        <span class="month">{{ event.start.toLocaleDateString('nl', { month: 'short' }) }}</span>
+      </div>
+      <div class="details">
+        <p class="title" style="font-weight: bold; margin-block-end: 0.2em">{{ event.summary }}</p>
+        <p>{{ extractHourAndMinutes('' + event.start) }} => {{ extractHourAndMinutes('' + event.end) }}</p>
+        <a v-if="event.location" class="location" :href="getLocationLink(event.location)" target="_blank">
+          @{{ event.location }}
+        </a>
+      </div>
+    </div>
+    <a class="button" v-if="events.length > 7" @click="showMoreEvents">laat meer zien</a>
+    <!-- note: startdate and times HAVE TO BE INCLUDED -->
   </div>
 </template>
 

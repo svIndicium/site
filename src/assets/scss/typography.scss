@@ -36,7 +36,12 @@ h1 {
 }
 
 h2 {
-  font-size: 2.5rem;
+  font-family: 'Indicium-font', serif;
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 140%;
+  color: var(--text-color);
+  margin-block-end: 0.2em;
 
   @media screen and (max-width: #{bp-tablet-md}) {
     font-size: 2.25rem;

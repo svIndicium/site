@@ -53,7 +53,6 @@ body {
   background-color: rgb(var(--root-background-color));
 }
 
-// --bp-desktop-sm: 1120px;
 @media screen and (max-width: #{$bp-tablet-lg}) {
   body {
     &::-webkit-scrollbar {

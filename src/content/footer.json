@@ -9,6 +9,15 @@
       "url": "/statuten"
     },
     {
+      "title": "Huishoudelijk reglement",
+      "url": "/hr"
+    },
+
+    {
+      "title": "Privacyreglement",
+      "url": "/privacyreglement"
+    },
+    {
       "title": "Over Indicium",
       "url": "/over-indicium"
     },
@@ -19,10 +28,6 @@
     {
       "title": "Sponsoren en partners",
       "url": "/partners"
-    },
-    {
-      "title": "Privacyreglement",
-      "url": "/privacy"
     }
   ],
   "contactItems": {

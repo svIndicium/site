@@ -25,8 +25,52 @@
   },
   "previousBoards": [
     {
+      "year": "2023-2024",
+      "groupPhoto": "bestuur23-24.jpg",
+      "members": [
+        {
+          "name": "Igor Kettlitz",
+          "function": "voorzitter"
+        },
+        {
+          "name": "Henk van den Dag",
+          "function": "secretaris"
+        },
+        {
+          "name": "Jasper van den Bremer",
+          "function": "penningmeester"
+        },
+        {
+          "name": "Seger van Vlijmen",
+          "function": "vice-voorzitter"
+        },
+        {
+          "name": "Hanne de Deckere",
+          "function": "algemeen commissaris"
+        }
+      ]
+    },
+    {
+      "year": "2022-2023",
+      "groupPhoto": "bestuur22-23.jpg",
+      "members": [
+        {
+          "name": "Rowan Ross",
+          "function": "voorzitter"
+        },
+        {
+          "name": "Maurice Stoof",
+          "function": "secretaris"
+        },
+        {
+          "name": "Oona Bertrums",
+          "function": "penningmeester"
+        }
+      ]
+    },
+    {
       "year": "2021-2022",
-      "groupPhoto": "geen.png",
+      "groupPhoto": "",
       "members": [
         {
           "name": "Kevin de Meijer",
@@ -48,7 +92,7 @@
     },
     {
       "year": "2020-2021",
-      "groupPhoto": "geen.png",
+      "groupPhoto": "",
       "members": [
         {
           "name": "Jasper Nellestijn",

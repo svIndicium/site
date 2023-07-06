@@ -85,6 +85,19 @@ onUnmounted(() => {
 <template>
   <ContentContainer>
     <h1>Aanmelden lidmaatschap INDICIUM</h1>
+    <details>
+      <summary>Lijst BIC codes</summary>
+      <p>ING: INGBNL2A</p>
+      <p>Rabobank: RABONL2U</p>
+      <p>Knab bank: KNABNL2H</p>
+      <p>Abn Amro: ABNANL2A</p>
+      <p>Bunq: BUNQNL2A</p>
+      <p>SNS: SNSBNL2A</p>
+      <p>Triodos: TRIONL2U</p>
+      <p>Asn Bank: ASNBNL21</p>
+      <p>Regiobank: RBRBNL21</p>
+    </details>
+
     <div class="signupContainer">
       <iframe src="https://leden.conscribo.nl/svIndicium/aanmeldenlidmaatschap"></iframe>
     </div>
@@ -108,6 +121,10 @@ h1 {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+
+details {
+  margin: 10px;
 }
 
 iframe {
