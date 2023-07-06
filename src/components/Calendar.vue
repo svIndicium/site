@@ -81,10 +81,6 @@ const visibleEvents = computed<Event<Date>[]>(() => {
   return Array.from(events.values()).slice(0, maxCalEvents.value);
 });
 
-const shouldShowMoreLink = computed<boolean>(() => {
-  return maxCalEvents.value === 7 && Array.from(events.values()).length > 7;
-});
-
 function getLocationLink(location: string): string {
   const locationMappings: { [key: string]: string } = {
     hideout: 'https://goo.gl/maps/jgiRSbRDpSzCqoiWA',
@@ -114,6 +110,7 @@ function extractHourAndMinutes(timeString: string) {
 </script>
 
 <template>
+  <h2 class="title">Kalender</h2>
   <div class="events-container">
     <div class="event" v-for="event in visibleEvents" :key="event.id">
       <div class="date">
@@ -122,7 +119,8 @@ function extractHourAndMinutes(timeString: string) {
         <span class="month">{{ event.start.toLocaleDateString('nl', { month: 'short' }) }}</span>
       </div>
       <div class="details">
-        <p class="title">{{ event.summary }}</p>
+        <p class="title" style="font-weight: bold; margin-block-end: 0.2em">{{ event.summary }}</p>
+        <p>{{ extractHourAndMinutes('' + event.start) }} => {{ extractHourAndMinutes('' + event.end) }}</p>
         <a v-if="event.location" class="location" :href="getLocationLink(event.location)" target="_blank">
           @{{ event.location }}
         </a>
@@ -140,32 +138,14 @@ function extractHourAndMinutes(timeString: string) {
       timeZone="Europe/Amsterdam"
       icsFile="https://calendar.google.com/calendar/ical/c_cb2b2ab9761bec69a9d24fd452f2d970d31755cf1c382272560d81fddca0e5e5%40group.calendar.google.com/public/basic.ics"
       subscribe
-      iCalFileName="Indicium Activiteiten Calender"
+      iCalFileName="Indicium Activiteiten Kalender"
       options="'Apple','Google','iCal','Outlook.com','Microsoft365','MicrosoftTeams'"
       listStyle="modal"
-      label="Voeg alle activiteiten toe aan agenda"
+      label="Voeg alles toe aan je agenda"
       :lightMode="darkModeActive ? 'dark' : 'light'"
       language="nl"
       style="margin-block-end: 0.5em; --btn-shadow: unset; --btn-shadow-hover: unset"
     ></add-to-calendar-button>
-  </div>
-  <div class="events-container">
-    <div class="event" v-for="event in visibleEvents" :key="event.id">
-      <div class="date">
-        <span class="day">{{ event.start.toLocaleDateString('nl', { day: 'numeric' }) }}</span>
-        <br />
-        <span class="month">{{ event.start.toLocaleDateString('nl', { month: 'short' }) }}</span>
-      </div>
-      <div class="details">
-        <p class="title" style="font-weight: bold; margin-block-end: 0.2em">{{ event.summary }}</p>
-        <p>{{ extractHourAndMinutes('' + event.start) }} => {{ extractHourAndMinutes('' + event.end) }}</p>
-        <a v-if="event.location" class="location" :href="getLocationLink(event.location)" target="_blank">
-          @{{ event.location }}
-        </a>
-      </div>
-    </div>
-    <a class="button" v-if="events.length > 7" @click="showMoreEvents">laat meer zien</a>
-    <!-- note: startdate and times HAVE TO BE INCLUDED -->
   </div>
 </template>
 
@@ -235,5 +215,9 @@ function extractHourAndMinutes(timeString: string) {
   padding: 0.5em 0.8em;
   border-radius: 8px;
   text-decoration: none;
+}
+
+.title {
+  margin: 1rem 0;
 }
 </style>
