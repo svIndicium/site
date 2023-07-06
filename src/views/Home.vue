@@ -129,7 +129,7 @@ svg {
   }
 
   .right {
-    padding: 24px;
+    padding: 0 24px;
     width: 400px;
 
     .partner-container {

@@ -2,6 +2,10 @@
 /// <reference types="vite-svg-loader" />
 import logo from '@/components/LogoElement.vue';
 import HeroBackground from './HeroBackground.vue';
+import { storeToRefs } from 'pinia';
+import { stateStore } from '@/stores/state';
+const state = stateStore();
+const { darkModeActive } = storeToRefs(state);
 </script>
 
 <template>
@@ -15,7 +19,27 @@ import HeroBackground from './HeroBackground.vue';
         Wij zijn dé
         <span class="extra-bold">studie</span>vereniging voor HBO-ICT van Hogeschool Utrecht
       </h1>
-      <!-- <a size="l" href="https://leden.conscribo.nl/svIndicium/aanmeldenlidmaatschap">Word lid</a> -->
+      <div class="subtitle-items">
+        <a class="button primary rounded" href="https://leden.conscribo.nl/svIndicium/aanmeldenlidmaatschap"
+          >Word lid</a
+        >
+        <add-to-calendar-button
+          name="Indicium"
+          :startDate="new Date(new Date().setDate(new Date().getDate() - 1)).toISOString()"
+          startTime="00:00"
+          endTime="00:00"
+          timeZone="Europe/Amsterdam"
+          icsFile="https://calendar.google.com/calendar/ical/c_cb2b2ab9761bec69a9d24fd452f2d970d31755cf1c382272560d81fddca0e5e5%40group.calendar.google.com/public/basic.ics"
+          subscribe
+          iCalFileName="Indicium Activiteiten Kalender"
+          options="'Apple','Google','iCal','Outlook.com','Microsoft365','MicrosoftTeams'"
+          listStyle="modal"
+          label="Importeer kalender"
+          :lightMode="darkModeActive ? 'dark' : 'light'"
+          language="nl"
+          style="margin-block-end: 0.5em; --btn-shadow: unset; --btn-shadow-hover: unset"
+        ></add-to-calendar-button>
+      </div>
     </div>
   </div>
 </template>
@@ -43,11 +67,25 @@ import HeroBackground from './HeroBackground.vue';
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 128px 0;
+    padding: 92px 0;
 
     h1 {
       max-width: 800px;
       padding: 0 16px;
+    }
+
+    .button.primary.rounded {
+      font-size: 1.1rem;
+      letter-spacing: 0.06rem;
+      text-decoration: none;
+    }
+
+    & .subtitle-items {
+      margin-top: 1rem;
+      & > * {
+        display: inline-block;
+        margin: 0.5em;
+      }
     }
   }
 }
