@@ -1,21 +1,10 @@
 <script setup lang="ts">
 /// <reference types="vite-svg-loader" />
-import { stateStore } from '@/stores/state';
 import content from '@/content/menu.json';
 import NavLogo from '@/components/NavLogo.vue';
 import MenuItem from '@/components/MenuItem.vue';
-import { useRouter } from 'vue-router';
 
 const items = content.items;
-
-const getLinkClass = (url: string) => {
-  // Define your link classes based on the URL condition here
-  return {
-    'button secondary rounded': url === '/intro',
-    'button primary rounded': url === '/lid-worden',
-    'button rounded': url.startsWith('http'),
-  };
-};
 </script>
 
 <template>

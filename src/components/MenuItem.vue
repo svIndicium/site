@@ -22,6 +22,16 @@ export default {
       default: false,
     },
   },
+  methods: {
+    getLinkClass(url: string) {
+      // returns custom classes for a url, for customization
+      return {
+        'button secondary rounded': url === '/intro',
+        'button primary rounded': url === '/lid-worden',
+        'button rounded': url.startsWith('http'),
+      };
+    },
+  },
   setup(props) {
     const menuItem: Ref<HTMLElement | null> = ref(null);
     const state = reactive({
@@ -72,7 +82,7 @@ export default {
 
 <template>
   <li class="menu-item" ref="menuItem" @mouseover="mouseOver">
-    <router-link :to="item.url" class="navlink">{{ item.title }}</router-link>
+    <router-link :to="item.url" class="navlink" :class="getLinkClass(item.url)">{{ item.title }}</router-link>
     <span v-if="item.children" :class="`${dropdownClass} arrow`" v-html="arrowHTML" />
     <ul v-if="item.children && shouldDisplayDropdown" :class="`dropdown ${dropdownClass}`" :data-depth="depth % 3">
       <MenuItem
@@ -168,5 +178,10 @@ span.down {
   &.left {
     left: 8px;
   }
+}
+
+.menu-item .navlink.button {
+  height: unset;
+  width: max-content;
 }
 </style>
