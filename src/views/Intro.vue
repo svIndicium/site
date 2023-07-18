@@ -4,7 +4,7 @@ import ContentContainer from '@/layouts/ContentContainer.vue';
 
 <template>
   <ContentContainer>
-    <img :src="'/public/assets/images/intro2022.jpeg'" alt="'Intro'" />
+    <img :src="'/assets/images/intro2022.jpeg'" alt="'Intro'" />
 
     <h1>Introductiekamp 2023</h1>
 
