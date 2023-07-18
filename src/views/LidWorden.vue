@@ -136,7 +136,7 @@ iframe {
 }
 
 .signupContainer {
-  background-color: rgb(var(--secondary-background-color));
+  background-color: var(--secondary-background-color);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -148,11 +148,11 @@ iframe {
 }
 
 .newtab-button {
-  background-color: rgb(var(--indi-blue-1));
+  background-color: var(--indi-blue-1);
   padding: 8px;
   margin-bottom: 16px;
   border-radius: 8px;
-  color: rgb(var(--text-color));
+  color: var(--text-color);
   font-weight: 600;
 }
 </style>

@@ -81,8 +81,8 @@ function expandJobOffer(event: MouseEvent) {
   height: 2px;
   background: repeating-linear-gradient(
     90deg,
-    rgb(var(--indi-green-1)),
-    rgb(var(--indi-green-1)) 30px,
+    var(--indi-green-1),
+    var(--indi-green-1) 30px,
     transparent 30px,
     transparent 60px
   );

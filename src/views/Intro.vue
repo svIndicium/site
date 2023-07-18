@@ -84,6 +84,7 @@ em {
 
 img {
   width: 80vw;
+  aspect-ratio: 1024/600; // resolution of the image (prevents content shift)
   max-width: 600px;
   margin: 10px auto;
   display: flex;

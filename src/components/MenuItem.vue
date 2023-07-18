@@ -98,7 +98,7 @@ export default {
 <style lang="scss" scoped>
 .dropdown {
   position: absolute;
-  background: rgb(var(--root-background-color));
+  background: var(--root-background-color);
   top: 100%;
   min-width: 200px;
   width: max-content;
@@ -112,11 +112,11 @@ export default {
 // FIX: issue with CSS cascading. If a child is hovered, the parent's color is also applied and causes a specificity/cascade error.
 @each $index, $color in (0: --indi-blue-green-1, 1: --indi-green-1, 2: --indi-blue-1) {
   [data-depth='#{$index}'] {
-    box-shadow: inset 0 0 0 2px rgb(var($color));
+    box-shadow: inset 0 0 0 2px var($color);
 
     & .menu-item a:hover,
     & .menu-item a:focus-within {
-      background-color: rgb(var($color));
+      background-color: var($color);
     }
   }
 }
@@ -135,7 +135,7 @@ export default {
     justify-content: center;
     width: 100%;
     height: 100%;
-    color: rgb(var(--text-color));
+    color: var(--text-color);
     padding-left: 1.6rem;
     padding-right: 1.6rem;
   }
@@ -146,7 +146,7 @@ export default {
   & a:focus-within {
     color: white;
     text-decoration: none;
-    background-color: rgb(var(--indi-blue-1));
+    background-color: var(--indi-blue-1);
   }
 }
 

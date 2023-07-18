@@ -35,11 +35,11 @@ body {
 
   &::-webkit-scrollbar {
     width: 0.6em;
-    background-color: rgb(var(--indi-blue-3));
+    background-color: var(--indi-blue-3);
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: rgb(var(--indi-blue-2));
+    background-color: var(--indi-blue-2);
     outline: 0px solid slategrey;
   }
 
@@ -50,7 +50,7 @@ body {
   .mobile-nav {
     display: none;
   }
-  background-color: rgb(var(--root-background-color));
+  background-color: var(--root-background-color);
 }
 
 @media screen and (max-width: #{$bp-tablet-lg}) {

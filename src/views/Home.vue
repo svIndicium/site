@@ -136,7 +136,7 @@ svg {
       cursor: pointer;
       border-radius: 4px;
       padding: 12px;
-      background-color: rgb(var(--secondary-background-color));
+      background-color: var(--secondary-background-color);
     }
 
     img {

@@ -26,8 +26,8 @@ const items = content.items;
   justify-content: space-between;
   align-items: center;
   z-index: 1000;
-  background: rgb(var(--root-background-color));
-  border-bottom: 2px solid rgb(var(--indi-blue-1));
+  background: var(--root-background-color);
+  border-bottom: 2px solid var(--indi-blue-1);
   /*
   * Consider using sticky so pages don't need to be padded at the top.
   * Unless if you are considering to use transparent navs on some pages,

@@ -15,9 +15,9 @@ svg,
 
 body {
   font-family: 'Roboto', sans-serif;
-  color: rgb(var(--text-color));
+  color: var(--text-color);
   overflow-x: hidden;
-  background-color: rgb(var(--root-background-color));
+  background-color: var(--root-background-color);
 
   @media screen and (max-width: #{bp-tablet-md}) {
     padding-top: 0;
@@ -29,7 +29,7 @@ h1 {
 }
 
 a {
-  color: rgb(var(--link-color));
+  color: var(--link-color);
 }
 
 img,
@@ -70,12 +70,31 @@ img,
 }
 
 .button {
+  box-sizing: border-box;
   padding: 0.5rem;
+  text-decoration: none;
+  color: var(--text-color);
+
+  --button-color: white;
+  --button-fill: var(--indi-blue-1);
+  --button-hover-color: var(--indi-blue-2);
+
+  &.indi-blue-2 {
+    --button-color: white;
+    --button-fill: var(--indi-blue-2);
+    --button-hover-color: var(--indi-blue-3);
+  }
+
+  &.indi-green-1 {
+    --button-color: white;
+    --button-fill: var(--indi-green-1);
+    --button-hover-color: var(--indi-green-2);
+  }
 
   &.hover:hover {
     cursor: pointer;
     transition: none;
-    background-color: rgb(var(--indi-blue-1));
+    background-color: var(--button-fill);
   }
 
   &.rounded {
@@ -84,18 +103,18 @@ img,
 
   &.primary {
     border: 2px solid transparent;
-    background-color: rgb(var(--indi-blue-1));
+    background-color: var(--button-fill);
     color: white !important;
     &:hover {
       transition: none;
-      border: 2px solid rgb(var(--indi-blue-2));
+      border: 2px solid var(--button-hover-color);
     }
   }
 
   &.secondary {
-    border: 2px solid rgb(var(--indi-blue-1));
+    border: 2px solid var(--button-fill);
     &:hover {
-      background-color: rgb(var(--indi-blue-1));
+      background-color: var(--button-fill);
       color: white !important;
     }
   }

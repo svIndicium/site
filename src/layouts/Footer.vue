@@ -90,11 +90,11 @@ ul {
 }
 
 footer {
-  background: rgb(var(--indi-blue-3));
+  background: var(--indi-blue-3);
   padding: 30px 0;
-  color: rgb(var(--text-color));
+  color: var(--text-color);
   margin-top: 16px;
-  border-top: 2px solid rgb(var(--indi-blue-1));
+  border-top: 2px solid var(--indi-blue-1);
 
   .container {
     max-width: 1084px;

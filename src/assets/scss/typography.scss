@@ -4,7 +4,7 @@ h3,
 h4,
 h5,
 h6 {
-  color: rgb(var(--text-color));
+  color: var(--text-color);
   line-height: 140%;
   font-weight: 500;
   font-style: normal;

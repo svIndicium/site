@@ -23,6 +23,9 @@ const { darkModeActive } = storeToRefs(state);
         <a class="button primary rounded" href="https://leden.conscribo.nl/svIndicium/aanmeldenlidmaatschap"
           >Word lid</a
         >
+
+        <router-link class="button primary rounded indi-green-1" to="/intro">Introkamp</router-link>
+
         <add-to-calendar-button
           name="Indicium"
           :startDate="new Date(new Date().setDate(new Date().getDate() - 1)).toISOString()"
@@ -59,7 +62,7 @@ const { darkModeActive } = storeToRefs(state);
     z-index: 0;
     overflow: hidden;
     z-index: -1;
-    background-color: rgb(var(--hero-bg-color));
+    background-color: var(--hero-bg-color);
   }
 
   .hero-content {
@@ -74,7 +77,8 @@ const { darkModeActive } = storeToRefs(state);
       padding: 0 16px;
     }
 
-    .button.primary.rounded {
+    .button.primary.rounded,
+    .button.secondary.rounded {
       font-size: 1.1rem;
       letter-spacing: 0.06rem;
       text-decoration: none;

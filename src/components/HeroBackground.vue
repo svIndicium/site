@@ -30,7 +30,7 @@ var backgroundStyle =
   path,
   rect,
   circle {
-    stroke: rgb(var(--pcb-trace-color));
+    stroke: var(--pcb-trace-color);
   }
 }
 

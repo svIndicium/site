@@ -12,33 +12,33 @@ $bp-desktop-lg: 1536px;
 :root {
   --nav-height: 90px;
 
-  --text-color: 51, 51, 51;
-  --link-color: 0, 95, 255;
-  --root-background-color: 255, 255, 255;
-  --secondary-background-color: 242, 242, 242;
+  --text-color-raw: 51, 51, 51;
+  --link-color-raw: 0, 95, 255;
+  --root-background-color-raw: 255, 255, 255;
+  --secondary-background-color-raw: 242, 242, 242;
 
-  --hero-bg-color: var(--secondary-background-color);
-  --pcb-trace-color: lightgrey;
+  --hero-bg-color-raw: var(--secondary-background-color-raw);
+  --pcb-trace-color-raw: 211, 211, 211;
 
-  --indi-blue-1: 114, 201, 225;
-  --indi-blue-2: 170, 222, 237;
-  --indi-blue-3: 226, 244, 249;
+  --indi-blue-1-raw: 114, 201, 225;
+  --indi-blue-2-raw: 170, 222, 237;
+  --indi-blue-3-raw: 226, 244, 249;
 
-  --indi-blue-green-1: 115, 195, 182;
-  --indi-blue-green-2: 171, 219, 211;
-  --indi-blue-green-3: 227, 243, 240;
+  --indi-blue-green-1-raw: 115, 195, 182;
+  --indi-blue-green-2-raw: 171, 219, 211;
+  --indi-blue-green-3-raw: 227, 243, 240;
 
-  --indi-green-1: 163, 207, 155;
-  --indi-green-2: 199, 226, 195;
-  --indi-green-3: 239, 245, 235;
+  --indi-green-1-raw: 163, 207, 155;
+  --indi-green-2-raw: 199, 226, 195;
+  --indi-green-3-raw: 239, 245, 235;
 
-  --indi-grey: 239, 240, 240;
-  --indi-success: var(--indi-green-2);
-  --indi-warning: 250, 192, 82;
-  --indi-error: 207, 151, 151;
+  --indi-grey-raw: 239, 240, 240;
+  --indi-success-raw: var(--indi-green-2-raw);
+  --indi-warning-raw: 250, 192, 82;
+  --indi-error-raw: 207, 151, 151;
 
-  --panel-background: 243, 248, 250;
-  --inner-sidebar-background: 247, 250, 250;
+  --panel-background-raw: 243, 248, 250;
+  --inner-sidebar-background-raw: 247, 250, 250;
 
   --sidebar-width: 286px;
 
@@ -51,34 +51,60 @@ $bp-desktop-lg: 1536px;
 }
 
 [data-theme='dark'] {
-  --text-color: 242, 242, 242;
-  --link-color: 100, 200, 255;
-  --root-background-color: 11, 20, 22;
-  --secondary-background-color: 47, 52, 55;
+  --text-color-raw: 242, 242, 242;
+  --link-color-raw: 100, 200, 255;
+  --root-background-color-raw: 11, 20, 22;
+  --secondary-background-color-raw: 47, 52, 55;
 
-  --hero-bg-color: 0, 0, 0;
-  --pcb-trace-color: 51, 51, 51;
+  --hero-bg-color-raw: 0, 0, 0;
+  --pcb-trace-color-raw: 51, 51, 51;
 
-  --indi-blue-1: 68, 120, 135;
-  --indi-blue-2: 47, 84, 94;
-  --indi-blue-3: 27, 48, 54;
+  --indi-blue-1-raw: 68, 120, 135;
+  --indi-blue-2-raw: 47, 84, 94;
+  --indi-blue-3-raw: 27, 48, 54;
 
-  --indi-blue-green-1: 69, 117, 109;
-  --indi-blue-green-2: 48, 81, 76;
-  --indi-blue-green-3: 27, 46, 43;
+  --indi-blue-green-1-raw: 69, 117, 109;
+  --indi-blue-green-2-raw: 48, 81, 76;
+  --indi-blue-green-3-raw: 27, 46, 43;
 
-  --indi-green-1: 97, 124, 93;
-  --indi-green-2: 67, 86, 65;
-  --indi-green-3: 38, 49, 37;
+  --indi-green-1-raw: 97, 124, 93;
+  --indi-green-2-raw: 67, 86, 65;
+  --indi-green-3-raw: 38, 49, 37;
 
-  --indi-grey: 239, 240, 240;
-  --indi-success: var(--indi-green-2);
-  --indi-warning: 250, 192, 82;
-  --indi-error: 207, 151, 151;
+  --indi-grey-raw: 239, 240, 240;
+  --indi-success-raw: var(--indi-green-2);
+  --indi-warning-raw: 250, 192, 82;
+  --indi-error-raw: 207, 151, 151;
 
-  --panel-background: 0, 0, 0;
-  --inner-sidebar-background: 248, 249, 249;
+  --panel-background-raw: 0, 0, 0;
+  --inner-sidebar-background-raw: 248, 249, 249;
 
   // used for lazy darkmode, namely for the Conscribo iframe which cant be styled by us
   --filter: invert(1);
+}
+
+// use the raw colors to create the actual colors
+// this way you can use raw colors and normal rgb vars
+:root {
+  --text-color: rgb(var(--text-color-raw));
+  --link-color: rgb(var(--link-color-raw));
+  --root-background-color: rgb(var(--root-background-color-raw));
+  --secondary-background-color: rgb(var(--secondary-background-color-raw));
+  --hero-bg-color: rgb(var(--hero-bg-color-raw));
+  --pcb-trace-color: rgb(var(--pcb-trace-color-raw));
+  --indi-blue-1: rgb(var(--indi-blue-1-raw));
+  --indi-blue-2: rgb(var(--indi-blue-2-raw));
+  --indi-blue-3: rgb(var(--indi-blue-3-raw));
+  --indi-blue-green-1: rgb(var(--indi-blue-green-1-raw));
+  --indi-blue-green-2: rgb(var(--indi-blue-green-2-raw));
+  --indi-blue-green-3: rgb(var(--indi-blue-green-3-raw));
+  --indi-green-1: rgb(var(--indi-green-1-raw));
+  --indi-green-2: rgb(var(--indi-green-2-raw));
+  --indi-green-3: rgb(var(--indi-green-3-raw));
+  --indi-grey: rgb(var(--indi-grey-raw));
+  --indi-success: rgb(var(--indi-success-raw));
+  --indi-warning: rgb(var(--indi-warning-raw));
+  --indi-error: rgb(var(--indi-error-raw));
+  --panel-background: rgb(var(--panel-background-raw));
+  --inner-sidebar-background: rgb(var(--inner-sidebar-background-raw));
 }

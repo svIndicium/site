@@ -95,7 +95,7 @@ function expandJobOffer(event: MouseEvent) {
         .job-offer-title::after {
           display: inline-block;
           content: '';
-          background-color: rgb(var(--text-color));
+          background-color: var(--text-color);
           -webkit-mask-image: url('/assets/icons/arrow-up.svg');
           mask-image: url('/assets/icons/arrow-up.svg');
           height: 12px;
@@ -146,7 +146,7 @@ function expandJobOffer(event: MouseEvent) {
   display: inline-block;
   margin: 1em auto;
   padding: 0.7em;
-  background-color: rgb(var(--indi-blue-1));
+  background-color: var(--indi-blue-1);
   border-radius: 0.5em;
 }
 </style>

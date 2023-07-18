@@ -43,7 +43,7 @@ import { previousBoards } from '@/content/boards.json';
 @import '@/assets/scss/variables.scss';
 
 .board {
-  border-bottom: 3px solid rgb(var(--indi-blue-1));
+  border-bottom: 3px solid var(--indi-blue-1);
   max-width: 1200px;
   margin: 0 auto;
   padding: 2.5em 0;

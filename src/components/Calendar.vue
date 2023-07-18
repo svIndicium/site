@@ -159,7 +159,7 @@ function extractHourAndMinutes(timeString: string) {
     display: block;
     text-align: center;
     padding: 4px;
-    background-color: rgb(var(--indi-green-2));
+    background-color: var(--indi-green-2);
     border-radius: 5px;
     height: -webkit-fit-content;
 
@@ -193,7 +193,7 @@ function extractHourAndMinutes(timeString: string) {
 }
 
 .events-container {
-  background-color: rgb(var(--secondary-background-color));
+  background-color: var(--secondary-background-color);
   border-radius: 4px;
   padding: 16px 14px;
   display: flex;
@@ -210,8 +210,8 @@ function extractHourAndMinutes(timeString: string) {
 
 .button {
   display: inline-block;
-  color: rgb(var(--text-color));
-  background-color: rgb(var(--indi-green-2));
+  color: var(--text-color);
+  background-color: var(--indi-green-2);
   padding: 0.5em 0.8em;
   border-radius: 8px;
   text-decoration: none;

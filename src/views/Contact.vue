@@ -38,7 +38,7 @@ import ContentContainer from '@/layouts/ContentContainer.vue';
   margin: 24px 30px;
 
   .map {
-    background-color: rgb(var(--secondary-background-color));
+    background-color: var(--secondary-background-color);
     background-image: url('/assets/misc/map-loading.png');
     background-repeat: no-repeat;
     background-position: center;
@@ -51,7 +51,7 @@ import ContentContainer from '@/layouts/ContentContainer.vue';
   }
 
   .contact-info {
-    background-color: rgb(var(--secondary-background-color));
+    background-color: var(--secondary-background-color);
     border-radius: 4px;
     padding: 16px 14px;
     flex-grow: 1;
