@@ -24,7 +24,7 @@ const { darkModeActive } = storeToRefs(state);
           >Word lid</a
         >
 
-        <router-link class="button primary rounded indi-green-1" to="/intro">Introkamp</router-link>
+        <router-link class="button secondary rounded indi-green-1" to="/intro">Introkamp</router-link>
 
         <add-to-calendar-button
           name="Indicium"

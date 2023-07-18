@@ -142,8 +142,9 @@ export default {
 }
 
 .menu-item {
-  & a:hover,
-  & a:focus-within {
+  & a:hover:not(.button),
+  & a:hover:focus:not(.button),
+  & a:focus-within:not(.button) {
     color: white;
     text-decoration: none;
     background-color: var(--indi-blue-1);
