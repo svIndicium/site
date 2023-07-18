@@ -135,8 +135,7 @@ img,
 
   &:hover,
   &:focus,
-  &:focus-within,
-  &:active {
+  &:focus-within {
     background-color: var(--button-fill);
   }
 }
