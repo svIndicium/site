@@ -110,7 +110,7 @@ function extractHourAndMinutes(timeString: string) {
 </script>
 
 <template>
-  <h2 class="title">Kalender</h2>
+  <h2 class="title">Agenda</h2>
   <div class="events-container">
     <div class="event" v-for="event in visibleEvents" :key="event.id">
       <div class="date">
@@ -141,7 +141,7 @@ function extractHourAndMinutes(timeString: string) {
       iCalFileName="Indicium Activiteiten Kalender"
       options="'Apple','Google','iCal','Outlook.com','Microsoft365','MicrosoftTeams'"
       listStyle="modal"
-      label="Voeg alles toe aan je agenda"
+      label="Importeer agenda in je kalender"
       :lightMode="darkModeActive ? 'dark' : 'light'"
       language="nl"
       style="margin-block-end: 0.5em; --btn-shadow: unset; --btn-shadow-hover: unset"
