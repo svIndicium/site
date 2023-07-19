@@ -100,7 +100,7 @@ router.afterEach(() => {
                     <li
                       class="sub-menu-li"
                       v-for="child in item.children"
-                      :key="child.title + child.url + child.grandchildren"
+                      :key="child.title + child.url + child.children"
                     >
                       <a
                         v-if="child.url.startsWith('http')"
@@ -116,7 +116,7 @@ router.afterEach(() => {
                       </RouterLink>
 
                       <a
-                        v-if="child.grandchildren"
+                        v-if="child.children"
                         title="Goto sub-submenu"
                         class="sub-menu-toggle"
                         @click="setCurrentLevel(3, child.title)"
@@ -140,7 +140,7 @@ router.afterEach(() => {
                             </li>
                             <li
                               class="sub-sub-menu-li"
-                              v-for="grandchild in child.grandchildren?.items"
+                              v-for="grandchild in child.children"
                               :key="grandchild.title + grandchild.url"
                             >
                               <a
