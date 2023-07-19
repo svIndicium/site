@@ -74,6 +74,8 @@ function expandJobOffer(event: MouseEvent) {
 </template>
 
 <style scoped lang="scss">
+@import '@/assets/scss/variables.scss';
+
 .dashed-line {
   border: none;
   height: 2px;
@@ -95,7 +97,7 @@ function expandJobOffer(event: MouseEvent) {
     gap: 8%;
     align-items: center;
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: #{$bp-tablet-md}) {
       grid-template-columns: 1fr;
     }
 
@@ -106,7 +108,7 @@ function expandJobOffer(event: MouseEvent) {
 
   .job-offers-container {
     margin-top: 3em;
-    background-color: var(--panel-background);
+    background-color: rgb(var(--panel-background));
     border-radius: 8px;
     border: 1px solid gray;
 
@@ -139,7 +141,7 @@ function expandJobOffer(event: MouseEvent) {
         .job-offer-title::after {
           display: inline-block;
           content: '';
-          background-color: var(--text-color);
+          background-color: rgb(var(--text-color));
           -webkit-mask-image: url('/assets/icons/arrow-up.svg');
           mask-image: url('/assets/icons/arrow-up.svg');
           height: 12px;
@@ -180,7 +182,7 @@ function expandJobOffer(event: MouseEvent) {
     width: 100%;
   }
 
-  @media screen and (max-width: 1000px) {
+  @media screen and (max-width: #{$bp-tablet-lg}) {
     grid-template-columns: 1fr;
 
     .partner-logo {
@@ -194,6 +196,7 @@ function expandJobOffer(event: MouseEvent) {
   }
 }
 
+// TODO: flexbox or auto grid
 .regular-partners {
   display: grid;
   gap: 5em;
@@ -201,17 +204,17 @@ function expandJobOffer(event: MouseEvent) {
   margin: 3em auto;
   grid-template-columns: 1fr 1fr 1fr 1fr;
 
-  @media screen and (max-width: 1600px) {
+  @media screen and (max-width: #{$bp-desktop-lg}) {
     grid-template-columns: 1fr 1fr 1fr;
     width: 70em;
   }
 
-  @media screen and (max-width: 1250px) {
+  @media screen and (max-width: #{$bp-desktop-sm}) {
     grid-template-columns: 1fr 1fr;
     width: 45em;
   }
 
-  @media screen and (max-width: 850px) {
+  @media screen and (max-width: #{$bp-tablet-md}) {
     grid-template-columns: 1fr;
     width: 20em;
   }
@@ -240,7 +243,7 @@ function expandJobOffer(event: MouseEvent) {
   display: inline-block;
   margin: 1em auto;
   padding: 0.7em;
-  background-color: var(--indi-blue-1);
+  background-color: rgb(var(--indi-blue-1));
   border-radius: 0.5em;
 }
 </style>

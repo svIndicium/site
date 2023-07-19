@@ -2,7 +2,6 @@ import { createApp } from 'vue';
 import { createRouter, createWebHistory } from 'vue-router';
 import { createPinia } from 'pinia';
 import piniaPluginPersistedstate from 'pinia-plugin-persistedstate';
-import './style.css';
 import App from './App.vue';
 import 'viewerjs/dist/viewer.css';
 import VueViewer from 'v-viewer';

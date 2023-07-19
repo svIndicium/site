@@ -18,6 +18,7 @@ const router = useRouter();
 </template>
 
 <style scoped lang="scss">
+@import '@/assets/scss/variables.scss';
 .logo-container {
   display: flex;
   align-items: center;
@@ -45,24 +46,6 @@ const router = useRouter();
   svg {
     width: '100%';
     height: 'auto';
-  }
-}
-
-@media only screen and (max-width: 500px) {
-  .logo-container {
-    .logo-icon {
-      height: 70px;
-      margin-right: 5px;
-    }
-
-    .logo-text {
-      font-family: var(--indicium-font);
-      font-size: 55px;
-
-      &.small {
-        font-size: 21px;
-      }
-    }
   }
 }
 </style>

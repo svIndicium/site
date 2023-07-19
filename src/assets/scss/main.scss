@@ -2,17 +2,24 @@
 @import 'variables';
 @import 'typography';
 
+body,
+div,
+nav,
+footer,
+svg,
+.button.primary {
+  transition-property: background-color, border-color, box-shadow, fill, stroke, opacity, transform;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in-out;
+}
+
 body {
   font-family: 'Roboto', sans-serif;
   color: var(--text-color);
   overflow-x: hidden;
   background-color: var(--root-background-color);
 
-  * {
-    transition: background 300ms;
-  }
-
-  @media screen and (max-width: var(--bp-tablet-md)) {
+  @media screen and (max-width: #{bp-tablet-md}) {
     padding-top: 0;
   }
 }
@@ -59,5 +66,76 @@ img,
     -webkit-transform: translateZ(0);
     opacity: 1;
     transform: translateZ(0);
+  }
+}
+
+.button {
+  box-sizing: border-box;
+  padding: 0.5rem;
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+  transition: none !important;
+
+  --button-fill: var(--indi-blue-2);
+  --button-border: var(--indi-blue-1);
+
+  &.indi-blue-2 {
+    --button-fill: var(--indi-blue-3);
+    --button-border: var(--indi-blue-2);
+  }
+
+  &.indi-blue-3 {
+    --button-fill: transparent;
+    --button-border: var(--indi-blue-3);
+  }
+
+  &.indi-green-1 {
+    --button-fill: var(--indi-green-2);
+    --button-border: var(--indi-green-1);
+  }
+
+  &.indi-green-2 {
+    --button-fill: var(--indi-green-3);
+    --button-border: var(--indi-green-2);
+  }
+
+  &.indi-green-3 {
+    --button-fill: transparent;
+    --button-border: var(--indi-green-3);
+  }
+
+  &.indi-bluegreen-1 {
+    --button-fill: var(--indi-bluegreen-2);
+    --button-border: var(--indi-bluegreen-1);
+  }
+
+  &.indi-bluegreen-2 {
+    --button-fill: var(--indi-bluegreen-3);
+    --button-border: var(--indi-bluegreen-2);
+  }
+
+  &.indi-bluegreen-3 {
+    --button-fill: transparent;
+    --button-border: var(--indi-bluegreen-3);
+  }
+
+  &.rounded {
+    border-radius: 0.5rem;
+  }
+
+  &.primary {
+    border: 2px solid var(--button-border);
+    background-color: var(--button-border);
+  }
+
+  &.secondary {
+    border: 2px solid var(--button-border);
+  }
+
+  &:hover,
+  &:focus,
+  &:focus-within {
+    background-color: var(--button-fill);
   }
 }

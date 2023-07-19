@@ -18,7 +18,7 @@ var backgroundStyle =
   <div class="background-view">
     <HeroCircuit
       class="HeroCircuit"
-      style="scale: 2.5; overflow: hidden; position: absolute; top: 0%; left: 0%; width: 100%; height: 800px"
+      style="scale: 2.5; position: absolute; top: 0; left: 0; width: 100%; height: 100%"
       :style="backgroundStyle"
     />
     <slot class="overlay"></slot>
@@ -26,23 +26,11 @@ var backgroundStyle =
 </template>
 
 <style lang="scss">
-[data-theme='dark'] {
-  .background-view {
-    background-color: black;
-
-    .HeroCircuit {
-      path {
-        stroke: #333;
-      }
-
-      rect {
-        stroke: #333;
-      }
-
-      circle {
-        stroke: #333;
-      }
-    }
+.HeroCircuit {
+  path,
+  rect,
+  circle {
+    stroke: var(--pcb-trace-color);
   }
 }
 

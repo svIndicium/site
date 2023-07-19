@@ -38,45 +38,47 @@ type Event<DateTimeFormat extends Date | string> = {
 const calendarData: { items: Event<string>[] } = await fetch(
   'https://www.googleapis.com/calendar/v3/calendars/c_cb2b2ab9761bec69a9d24fd452f2d970d31755cf1c382272560d81fddca0e5e5@group.calendar.google.com/events?key=AIzaSyBo4AYTvUouRsZbG4KiopyeIng_1UOdNyc&orderBy=startTime&singleEvents=true&timeMin=' +
     new Date().toISOString(),
-).then((res) => res.json());
+)
+  .then((res) => res.json())
+  .catch((err) => {
+    console.error(err);
+    return { items: [] };
+  });
 
 //This function is wrong
-const events: Event<Date>[] = Array.from(calendarData.items)
-  .filter((event) => event.status === 'confirmed')
-  .map((event) => {
-    let tempEvent: Event<string | Date> = event;
-    if ('date' in event.start) {
-      tempEvent = {
-        ...tempEvent,
-        start: new Date(event.start.date),
-      };
-    } else {
-      tempEvent = {
-        ...tempEvent,
-        start: new Date(event.start.dateTime),
-      };
-    }
-    if ('date' in event.end) {
-      tempEvent = {
-        ...tempEvent,
-        end: new Date(event.end.date),
-      };
-    } else {
-      tempEvent = {
-        ...tempEvent,
-        end: new Date(event.end.dateTime),
-      };
-    }
-    return tempEvent;
-  });
-// console.log(events);
+const events: Event<Date>[] = Array.isArray(calendarData.items)
+  ? calendarData.items
+      .filter((event) => event.status === 'confirmed')
+      .map((event) => {
+        let tempEvent: Event<string | Date> = event;
+        if ('date' in event.start) {
+          tempEvent = {
+            ...tempEvent,
+            start: new Date(event.start.date),
+          };
+        } else {
+          tempEvent = {
+            ...tempEvent,
+            start: new Date(event.start.dateTime),
+          };
+        }
+        if ('date' in event.end) {
+          tempEvent = {
+            ...tempEvent,
+            end: new Date(event.end.date),
+          };
+        } else {
+          tempEvent = {
+            ...tempEvent,
+            end: new Date(event.end.dateTime),
+          };
+        }
+        return tempEvent;
+      })
+  : [];
 
 const visibleEvents = computed<Event<Date>[]>(() => {
   return Array.from(events.values()).slice(0, maxCalEvents.value);
-});
-
-const shouldShowMoreLink = computed<boolean>(() => {
-  return maxCalEvents.value === 7 && Array.from(events.values()).length > 7;
 });
 
 function getLocationLink(location: string): string {
@@ -108,25 +110,7 @@ function extractHourAndMinutes(timeString: string) {
 </script>
 
 <template>
-  <div style="display: flex; align-items: flex-end; justify-content: space-between">
-    <h2>Agenda</h2>
-    <add-to-calendar-button
-      name="Indicium"
-      startDate="2023-1-1"
-      startTime="00:00"
-      endTime="00:00"
-      timeZone="Europe/Amsterdam"
-      icsFile="https://calendar.google.com/calendar/ical/c_cb2b2ab9761bec69a9d24fd452f2d970d31755cf1c382272560d81fddca0e5e5%40group.calendar.google.com/public/basic.ics"
-      subscribe
-      iCalFileName="Indicium Activiteiten Calender"
-      options="'Apple','Google','iCal','Outlook.com','Microsoft365','MicrosoftTeams'"
-      listStyle="modal"
-      label="Voeg toe aan agenda"
-      :lightMode="darkModeActive ? 'dark' : 'light'"
-      language="nl"
-      style="margin-block-end: 0.5em; --btn-shadow: unset; --btn-shadow-hover: unset"
-    ></add-to-calendar-button>
-  </div>
+  <h2 class="title">Agenda</h2>
   <div class="events-container">
     <div class="event" v-for="event in visibleEvents" :key="event.id">
       <div class="date">
@@ -143,7 +127,25 @@ function extractHourAndMinutes(timeString: string) {
       </div>
     </div>
     <a class="button" v-if="events.length > 7" @click="showMoreEvents">laat meer zien</a>
-    <!-- note: startdate and times HAVE TO BE INCLUDED -->
+  </div>
+  <div class="button-container">
+    <!-- note: startdate and times HAVE TO BE INCLUDED, :startDate will pick yesterday -->
+    <add-to-calendar-button
+      name="Indicium"
+      :startDate="new Date(new Date().setDate(new Date().getDate() - 1)).toISOString()"
+      startTime="00:00"
+      endTime="00:00"
+      timeZone="Europe/Amsterdam"
+      icsFile="https://calendar.google.com/calendar/ical/c_cb2b2ab9761bec69a9d24fd452f2d970d31755cf1c382272560d81fddca0e5e5%40group.calendar.google.com/public/basic.ics"
+      subscribe
+      iCalFileName="Indicium Activiteiten Kalender"
+      options="'Apple','Google','iCal','Outlook.com','Microsoft365','MicrosoftTeams'"
+      listStyle="modal"
+      label="Importeer agenda in je kalender"
+      :lightMode="darkModeActive ? 'dark' : 'light'"
+      language="nl"
+      style="margin-block-end: 0.5em; --btn-shadow: unset; --btn-shadow-hover: unset"
+    ></add-to-calendar-button>
   </div>
 </template>
 
@@ -159,7 +161,7 @@ function extractHourAndMinutes(timeString: string) {
     padding: 4px;
     background-color: var(--indi-green-2);
     border-radius: 5px;
-    max-height: 60px;
+    height: -webkit-fit-content;
 
     .day {
       font-size: 32px;
@@ -200,6 +202,8 @@ function extractHourAndMinutes(timeString: string) {
 }
 
 .button-container {
+  display: grid;
+  place-items: center;
   text-align: center;
   padding-top: 1em;
 }
@@ -211,5 +215,9 @@ function extractHourAndMinutes(timeString: string) {
   padding: 0.5em 0.8em;
   border-radius: 8px;
   text-decoration: none;
+}
+
+.title {
+  margin: 1rem 0;
 }
 </style>

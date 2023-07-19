@@ -273,6 +273,8 @@ router.afterEach(() => {
   .mobile-menu {
     visibility: hidden;
     position: fixed;
+    overflow-x: hidden;
+    overflow-y: auto;
     // clamp doesn't support 0 without unit.
     // compiler transfers 0px back to 0 thus rendering this broken.
     // this is a know issue in css
@@ -416,7 +418,7 @@ router.afterEach(() => {
           transition-delay: var(--transition-time);
         }
 
-        @media screen and (min-width: var(--bp-tablet-md)) {
+        @media screen and (min-width: #{calc($bp-tablet-lg + 1px)}) {
           display: block;
           visibility: hidden;
           width: 0;
@@ -442,7 +444,7 @@ router.afterEach(() => {
       }
     }
 
-    @media screen and (min-width: var(--bp-tablet-md)) {
+    @media screen and (min-width: #{calc($bp-tablet-lg + 1px)}) {
       display: block;
       visibility: hidden;
       width: 0;
@@ -450,7 +452,7 @@ router.afterEach(() => {
     }
   }
 
-  @media screen and (min-width: var(--bp-tablet-md)) {
+  @media screen and (min-width: #{calc($bp-tablet-lg + 1px)}) {
     display: block;
     visibility: hidden;
     width: 0;

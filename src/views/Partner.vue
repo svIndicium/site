@@ -57,7 +57,7 @@ function expandJobOffer(event: MouseEvent) {
     gap: 8%;
     align-items: center;
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: #{$bp-tablet-md}) {
       grid-template-columns: 1fr;
     }
 

@@ -26,24 +26,42 @@ import ContentContainer from '@/layouts/ContentContainer.vue';
 </template>
 
 <style scoped lang="scss">
+@import '@/assets/scss/variables.scss';
+
 .two-columns {
   margin: 10px 0;
   display: flex;
-  width: 100%;
+  flex-wrap: wrap;
+  gap: 20px;
+  min-height: 500px;
   justify-content: space-around;
+  margin: 24px 30px;
 
   .map {
+    background-color: var(--secondary-background-color);
+    background-image: url('/assets/misc/map-loading.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    min-width: 400px;
+    min-height: 400px;
     flex-grow: 1;
-    margin: 0 30px;
-
-    @media screen and (max-width: 768px) {
-      display: none;
-    }
+    border-radius: 4px;
+    overflow: hidden;
   }
 
   .contact-info {
+    background-color: var(--secondary-background-color);
+    border-radius: 4px;
+    padding: 16px 14px;
+    flex-grow: 1;
+    max-width: 400px;
+
     text-align: left;
-    margin: 0 30px;
+
+    h1 {
+      margin-top: 0;
+    }
   }
 }
 </style>

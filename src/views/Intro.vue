@@ -28,8 +28,12 @@ import ContentContainer from '@/layouts/ContentContainer.vue';
           Om deel uit te maken van dit geweldige introductiekamp, dien je jezelf hieronder te registreren.
         </p>
         <div class="buttons">
-          <a class="aanmelden" href="https://forms.gle/RGBfuZSz34ao8UgF7">Aanmelden voor introkamp</a>
-          <a class="wachtrij" href="https://forms.gle/qfFeLTfoCGJaE3ou9"> Inschrijvingen vol? Aanmelden wachtrij!</a>
+          <a class="button primary rounded indi-green-1 big heavy" href="https://forms.gle/RGBfuZSz34ao8UgF7"
+            >Aanmelden voor introkamp</a
+          >
+          <a class="button secondary rounded big" href="https://forms.gle/qfFeLTfoCGJaE3ou9">
+            Inschrijvingen vol? Aanmelden wachtrij!</a
+          >
         </div>
 
         <p style="text-align: center">Wees er snel bij want er zijn maar een beperkt aantal plekken!<br /></p>
@@ -84,6 +88,7 @@ em {
 
 img {
   width: 80vw;
+  aspect-ratio: 1024/600; // resolution of the image (prevents content shift)
   max-width: 600px;
   margin: 10px auto;
   display: flex;
@@ -99,42 +104,13 @@ img {
   gap: 1rem;
   padding: 1rem 0;
 
-  & > .aanmelden {
-    box-sizing: border-box;
-    background-color: var(--indi-green-1);
-    border: 2px solid var(--indi-green-1);
+  & > .big {
     padding: 16px 8px;
-    border-radius: 8px;
     max-width: 300px;
-    justify-content: center;
-    display: inline-block;
     font-size: 1.5rem;
-    font-weight: 500;
-    color: var(--text-color);
-    text-align: center;
-    text-decoration: none;
 
-    &:hover {
-      background-color: var(--indi-green-2);
-    }
-  }
-
-  & > .wachtrij {
-    display: inline-block;
-    box-sizing: border-box;
-    background-color: transparent;
-    border: 2px solid var(--indi-blue-1);
-    padding: 16px 8px;
-    border-radius: 8px;
-    max-width: 300px;
-    justify-content: center;
-    font-size: 1.5rem;
-    color: var(--text-color);
-    text-align: center;
-    text-decoration: none;
-
-    &:hover {
-      background-color: var(--indi-blue-3);
+    &.heavy {
+      font-weight: 500;
     }
   }
 }

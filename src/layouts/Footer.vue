@@ -77,6 +77,8 @@ function changeTheme(theme: string) {
 </template>
 
 <style lang="scss" scoped>
+@import '@/assets/scss/variables.scss';
+
 a {
   text-decoration: none;
   color: inherit;
@@ -114,7 +116,7 @@ footer {
   }
 }
 
-@media screen and (max-width: 1120px) {
+@media screen and (max-width: #{$bp-desktop-sm}) {
   footer {
     padding: 12px;
 

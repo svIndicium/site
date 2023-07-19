@@ -2,93 +2,101 @@
 /// <reference types="vite-svg-loader" />
 import logo from '@/components/LogoElement.vue';
 import HeroBackground from './HeroBackground.vue';
+import { storeToRefs } from 'pinia';
+import { stateStore } from '@/stores/state';
+const state = stateStore();
+const { darkModeActive } = storeToRefs(state);
 </script>
 
 <template>
   <div class="hero">
-    <HeroBackground>
-      <div class="hero-content">
-        <div class="logo">
-          <logo />
-        </div>
-        <h1 class="fadeInUp">
-          Wij zijn dé
-          <span class="extra-bold">studie</span>vereniging voor HBO-ICT van Hogeschool Utrecht
-        </h1>
+    <div class="bg-container">
+      <HeroBackground />
+    </div>
+    <div class="hero-content">
+      <logo />
+      <h1>
+        Wij zijn dé
+        <span class="extra-bold">studie</span>vereniging voor HBO-ICT van Hogeschool Utrecht
+      </h1>
+      <div class="subtitle-items">
+        <a class="button primary rounded" href="https://leden.conscribo.nl/svIndicium/aanmeldenlidmaatschap"
+          >Word lid</a
+        >
 
-        <!-- <div class="buttons fadeInUp">
-          <a size="l" url="https://leden.conscribo.nl/svIndicium/aanmeldenlidmaatschap">Word lid</a>
-          <RouterLink url="/activiteiten">Bekijk agenda</RouterLink>
-        </div> -->
+        <router-link class="button primary rounded indi-green-1" to="/intro">Introkamp</router-link>
+
+        <add-to-calendar-button
+          name="Indicium"
+          :startDate="new Date(new Date().setDate(new Date().getDate() - 1)).toISOString()"
+          startTime="00:00"
+          endTime="00:00"
+          timeZone="Europe/Amsterdam"
+          icsFile="https://calendar.google.com/calendar/ical/c_cb2b2ab9761bec69a9d24fd452f2d970d31755cf1c382272560d81fddca0e5e5%40group.calendar.google.com/public/basic.ics"
+          subscribe
+          iCalFileName="Indicium Activiteiten Kalender"
+          options="'Apple','Google','iCal','Outlook.com','Microsoft365','MicrosoftTeams'"
+          listStyle="modal"
+          label="Importeer agenda"
+          :lightMode="darkModeActive ? 'dark' : 'light'"
+          language="nl"
+          style="margin-block-end: 0.5em; --btn-shadow: unset; --btn-shadow-hover: unset"
+        ></add-to-calendar-button>
       </div>
-    </HeroBackground>
+    </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
+@import '@/assets/scss/variables.scss';
+
 .hero {
-  top: 20px;
-  margin-bottom: 40px;
   display: flex;
   justify-content: center;
   position: relative;
   width: inherit;
-  overflow: hidden;
 
-  .background-view {
-    width: 100vw;
-  }
-}
-
-.hero-content {
-  z-index: 10;
-  position: relative;
-  padding: 200px 0 100px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  h1 {
-    max-width: 832px;
-    margin-bottom: 24px;
-  }
-
-  .buttons {
-    display: flex;
-    align-items: center;
-    justify-self: center;
-
-    .btn {
-      margin-right: 32px;
-    }
-  }
-}
-
-// --bp-desktop-sm: 1120px;
-@media only screen and (max-width: 1120px) {
-  .hero {
-    top: 30px;
+  .bg-container {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    z-index: -1;
+    background-color: var(--hero-bg-color);
   }
 
   .hero-content {
-    z-index: 10;
-    position: relative;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 92px 0;
 
     h1 {
-      font-size: 2em;
-      margin: 30px;
+      max-width: 800px;
+      padding: 0 16px;
     }
 
-    .buttons {
-      display: flex;
-      align-items: center;
-      justify-self: center;
+    .button.primary.rounded,
+    .button.secondary.rounded {
+      font-size: 1.1rem;
+      letter-spacing: 0.06rem;
+      text-decoration: none;
+    }
 
-      .btn {
-        margin-right: 32px;
+    & .subtitle-items {
+      margin-top: 1rem;
+      & > * {
+        display: inline-block;
+        margin: 0.5em;
       }
     }
+  }
+}
+
+@media screen and (max-width: #{$bp-desktop-sm}) {
+  h1 {
+    font-size: 2em;
   }
 }
 </style>

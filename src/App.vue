@@ -20,6 +20,7 @@ state.refreshTheme();
 </template>
 
 <style lang="scss">
+@import './assets/scss/variables.scss';
 @font-face {
   font-family: 'Indicium-font';
   font-weight: 400;
@@ -49,10 +50,10 @@ body {
   .mobile-nav {
     display: none;
   }
+  background-color: var(--root-background-color);
 }
 
-// --bp-desktop-sm: 1120px;
-@media only screen and (max-width: 1120px) {
+@media screen and (max-width: #{$bp-tablet-lg}) {
   body {
     &::-webkit-scrollbar {
       width: 1em;
