@@ -22,24 +22,67 @@ const router = useRouter();
 .logo-container {
   display: flex;
   align-items: center;
-  width: 256px;
   padding-left: 10px;
   padding-right: 10px;
   flex-direction: column;
 
   .logo-icon {
     height: 111px;
-    margin-right: 5px;
+    @media screen and (max-width: #{$bp-mobile-lg}) {
+      & {
+        height: 96px;
+      }
+    }
   }
 
   .logo-text {
     font-family: var(--indicium-font);
     margin: 0px;
-    font-size: 89px;
+
+    font-size: 5.5em;
 
     &.small {
       color: #878787;
-      font-size: 34px;
+      font-size: 2.1em;
+    }
+
+    $logobreakpoints: (
+      (
+        bp: $bp-desktop-sm,
+        fontSize: 5em,
+        smallFontSize: 2em,
+      ),
+      (
+        bp: $bp-tablet-sm,
+        fontSize: 4em,
+        smallFontSize: 1.5em,
+      ),
+      (
+        bp: $bp-mobile-lg,
+        fontSize: 3em,
+        smallFontSize: 1.2em,
+      ),
+      (
+        bp: $bp-mobile-sm,
+        fontSize: 2em,
+        smallFontSize: 1em,
+      )
+    );
+
+    // default
+    &.small {
+      color: #878787;
+      font-size: 2.1em;
+    }
+
+    @each $breakpoint in $logobreakpoints {
+      @media screen and (max-width: map-get($breakpoint, bp)) {
+        font-size: map-get($breakpoint, fontSize);
+
+        &.small {
+          font-size: map-get($breakpoint, smallFontSize);
+        }
+      }
     }
   }
 

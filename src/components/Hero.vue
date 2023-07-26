@@ -55,11 +55,11 @@ const { darkModeActive } = storeToRefs(state);
   justify-content: center;
   position: relative;
   width: inherit;
+  overflow: hidden;
 
   .bg-container {
     position: absolute;
     inset: 0;
-    z-index: 0;
     overflow: hidden;
     z-index: -1;
     background-color: var(--hero-bg-color);
@@ -71,10 +71,35 @@ const { darkModeActive } = storeToRefs(state);
     flex-direction: column;
     align-items: center;
     padding: 92px 0;
+    max-width: 100%;
 
     h1 {
       max-width: 800px;
       padding: 0 16px;
+      font-weight: 500;
+    }
+
+    $h1-breakpoints: (
+      (
+        bp: $bp-desktop-sm,
+        fontSize: 2em,
+      ),
+      (
+        bp: $bp-tablet-sm,
+        fontSize: 1.5em,
+      ),
+      (
+        bp: $bp-mobile-lg,
+        fontSize: 1.2em,
+      )
+    );
+
+    h1 {
+      @each $breakpoint in $h1-breakpoints {
+        @media screen and (max-width: map-get($breakpoint, bp)) {
+          font-size: map-get($breakpoint, fontSize);
+        }
+      }
     }
 
     .button.primary.rounded,
@@ -91,12 +116,6 @@ const { darkModeActive } = storeToRefs(state);
         margin: 0.5em;
       }
     }
-  }
-}
-
-@media screen and (max-width: #{$bp-desktop-sm}) {
-  h1 {
-    font-size: 2em;
   }
 }
 </style>
