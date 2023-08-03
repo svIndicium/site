@@ -1,0 +1,10 @@
+[
+  { "name": "Website", "url": "/" },
+  { "icon": "🏕️", "name": "Introkamp", "url": "/intro" },
+  { "icon": "📸", "name": "Instagram", "url": "https://www.instagram.com/svindicium/" },
+  { "icon": "👥", "name": "Word Lid!", "url": "/lid-worden" },
+  { "icon": "📄", "name": "Over Indicium", "url": "/over-indicium" },
+  { "icon": "🐱", "name": "GitHub", "url": "https://github.com/svIndicium/" },
+  { "icon": "💼", "name": "LinkedIn", "url": "https://www.linkedin.com/company/s.v.indicium/" },
+  { "icon": "📩", "name": "Contact", "url": "/contact" }
+]

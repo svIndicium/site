@@ -5,18 +5,27 @@ import FooterMenu from '@/layouts/Footer.vue';
 
 import { stateStore } from '@/stores/state';
 
+import { computed } from 'vue';
+import { useRoute } from 'vue-router';
+
+const route = useRoute();
+const hideNavFooter = computed(() => {
+  const paths = ['/links']; // paths to hide nav and footer on
+  return paths.includes(route.path);
+});
+
 const state = stateStore();
 
 state.refreshTheme();
 </script>
 
 <template>
-  <NavDesktop />
-  <NavMobile />
+  <NavDesktop v-if="!hideNavFooter" />
+  <NavMobile v-if="!hideNavFooter" />
   <div class="page-content">
     <router-view></router-view>
   </div>
-  <FooterMenu />
+  <FooterMenu v-if="!hideNavFooter" />
 </template>
 
 <style lang="scss">
