@@ -1,8 +1,6 @@
 <script setup lang="ts">
-/// <reference types="vite-svg-loader" />
 import { defineProps } from 'vue';
 import { Link as socialLinks } from '../content/links';
-import logo from '@/assets/logo/indicium-logo-icon.svg';
 
 const props = defineProps({
   link: {
@@ -11,29 +9,23 @@ const props = defineProps({
   },
 });
 
-// if the icon is "", set it to undefined
-if (props.link.icon === '') {
-  props.link.icon = undefined;
+if (props.link.icon === '' || props.link.icon === undefined) {
+  props.link.icon = '/public/icon.svg'; // indicium logo
 }
+
+const filetypes = ['png', 'svg', 'jpg', 'jpeg', 'svg', 'bmp', 'webp', 'gif', 'apng', 'avif'];
+const isImage = filetypes.some((filetype) => props.link.icon?.endsWith('.' + filetype));
 </script>
 
 <template>
   <a v-if="!link.url.startsWith('/')" class="link" :href="link.url" target="_blank" rel="noopener noreferrer">
-    <!-- if the link.icon is an image, display the image -->
-    <img v-if="link.icon && link.icon.endsWith('.png')" :src="link.icon" :alt="link.name" class="img" />
-    <!-- if the link.icon is an emoji, display the emoji -->
-    <span v-else-if="link.icon" class="emoji img">{{ link.icon }}</span>
-    <!-- if the link.icon is not defined, display the default icon -->
-    <logo v-else class="img" />
+    <img v-if="link.icon && isImage" :src="link.icon" :alt="link.name" />
+    <span v-else-if="link.icon" class="emoji">{{ link.icon }}</span>
     <p>{{ link.name }}</p>
   </a>
   <RouterLink v-else :to="link.url" class="link">
-    <!-- if the link.icon is an image, display the image -->
-    <img v-if="link.icon && link.icon.endsWith('.png')" :src="link.icon" :alt="link.name" class="img" />
-    <!-- if the link.icon is an emoji, display the emoji -->
-    <span v-else-if="link.icon" class="emoji img">{{ link.icon }}</span>
-    <!-- if the link.icon is not defined, display the default icon -->
-    <logo v-else class="img" />
+    <img v-if="link.icon && isImage" :src="link.icon" :alt="link.name" />
+    <span v-else-if="link.icon" class="emoji">{{ link.icon }}</span>
     <p>{{ link.name }}</p>
   </RouterLink>
 </template>
@@ -59,7 +51,7 @@ if (props.link.icon === '') {
     background-color: rgba(var(--secondary-background-color-raw), 0.75);
   }
 
-  & .img {
+  & > :is(img, .emoji) {
     height: 64px;
     width: 64px;
     object-fit: contain;
@@ -89,7 +81,7 @@ if (props.link.icon === '') {
     grid-template-columns: 48px 1fr;
     padding: 0.5rem 1rem;
 
-    & img {
+    & > :is(img, .emoji) {
       height: 48px;
     }
   }
