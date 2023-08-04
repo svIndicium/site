@@ -83,6 +83,9 @@ const isImage = filetypes.some((filetype) => props.link.icon?.endsWith('.' + fil
 
     & > :is(img, .emoji) {
       height: 48px;
+      width: 48px;
+      font-size: 32px;
+      line-height: 48px;
     }
   }
 }
