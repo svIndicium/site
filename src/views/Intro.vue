@@ -6,7 +6,7 @@ import ContentContainer from '@/layouts/ContentContainer.vue';
   <ContentContainer>
     <img :src="'/assets/images/intro2022.jpeg'" alt="'Intro'" />
 
-    <h1>Introductiekamp 2023</h1>
+    <h1 class="big-title">Intro​duct​ie​kamp 2023</h1>
 
     <section class="intro">
       <div>
@@ -57,6 +57,14 @@ import ContentContainer from '@/layouts/ContentContainer.vue';
 </template>
 
 <style scoped lang="scss">
+@import '@/assets/scss/variables.scss';
+@media screen and (max-width: #{$bp-mobile-lg}) {
+  .big-title {
+    font-size: 2.5rem;
+    word-break: break-word;
+  }
+}
+
 em {
   &.openict {
     opacity: 0.84;
