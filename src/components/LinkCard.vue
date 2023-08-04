@@ -10,7 +10,7 @@ const props = defineProps({
 });
 
 if (props.link.icon === '' || props.link.icon === undefined) {
-  props.link.icon = '/public/icon.svg'; // indicium logo
+  props.link.icon = '/icon.svg'; // indicium logo
 }
 
 const filetypes = ['png', 'svg', 'jpg', 'jpeg', 'svg', 'bmp', 'webp', 'gif', 'apng', 'avif'];
