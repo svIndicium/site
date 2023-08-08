@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { defineProps } from 'vue';
 import { Link as socialLinks } from '../content/links';
 
 const props = defineProps({
