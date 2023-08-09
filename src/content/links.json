@@ -2,6 +2,7 @@
   { "name": "Website", "url": "/" },
   { "icon": "🏕️", "name": "Introkamp Nieuwe Studenten", "url": "https://forms.gle/RGBfuZSz34ao8UgF7" },
   { "icon": "📃", "name": "Introkamp Huidige Leden", "url": "https://forms.gle/qfFeLTfoCGJaE3ou9" },
+  { "icon": "🧑‍🏫", "name": "Introkamp Docenten", "url": "https://forms.gle/e9q3XpWcCJJSsveB9" },
   { "icon": "📸", "name": "Instagram", "url": "https://www.instagram.com/svindicium/" },
   { "icon": "👥", "name": "Word Lid!", "url": "/lid-worden" },
   { "icon": "📄", "name": "Over Indicium", "url": "/over-indicium" },

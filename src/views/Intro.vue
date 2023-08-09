@@ -31,8 +31,12 @@ import ContentContainer from '@/layouts/ContentContainer.vue';
           <a class="button primary rounded indi-green-1 big heavy" href="https://forms.gle/RGBfuZSz34ao8UgF7"
             >Aanmelden voor introkamp</a
           >
-          <a class="button secondary rounded big" href="https://forms.gle/qfFeLTfoCGJaE3ou9">
+          <a class="button secondary rounded indi-bluegreen-1 big" href="https://forms.gle/qfFeLTfoCGJaE3ou9">
             Inschrijvingen vol? Aanmelden wachtrij!</a
+          >
+
+          <a class="button secondary rounded big" href="https://forms.gle/e9q3XpWcCJJSsveB9">
+            Aanmelden voor Docenten HU</a
           >
         </div>
 
