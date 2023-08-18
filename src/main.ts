@@ -29,6 +29,7 @@ import FourOFour from '@/views/404.vue';
 import FourEighteen from '@/views/418.vue';
 import Error from '@/views/error.vue';
 import Links from './views/Links.vue';
+import Discord from './views/Discord.vue';
 
 import '@/assets/scss/variables.scss';
 import '@/assets/scss/main.scss';
@@ -59,7 +60,8 @@ const router = createRouter({
     { name: "I'm a tea pot", path: '/418', component: FourEighteen },
     { name: 'Error', path: '/error', component: Error },
     // quick links page for socials:
-    { name: 'Indicium Links', path: '/links', component: Links },
+    { name: 'Links', path: '/links', component: Links },
+    { name: 'Discord', path: '/discord', component: Discord },
     // and finally the default route, when none of the above matches:
     { name: 'Pagina niet gevonden', path: '/:pathMatch(.*)*', component: FourOFour },
   ],

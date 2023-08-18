@@ -10,7 +10,7 @@ import { useRoute } from 'vue-router';
 
 const route = useRoute();
 const hideNavFooter = computed(() => {
-  const paths = ['/links']; // paths to hide nav and footer on
+  const paths = ['/links', '/discord']; // paths to hide nav and footer on
   return paths.includes(route.path);
 });
 
