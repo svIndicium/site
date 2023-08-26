@@ -35,7 +35,9 @@ function expandJobOffer(event: MouseEvent) {
             <span class="job-offer-title" @click="expandJobOffer">{{ jobOffer.title }}</span>
             <div class="job-offer-description">
               <p v-html="jobOffer.description"></p>
-              <a v-if="jobOffer.url" class="readMore" :href="jobOffer.url" target="_blank">Lees meer</a>
+              <a v-if="jobOffer.url" class="readMore button primary rounded" :href="jobOffer.url" target="_blank"
+                >Lees meer</a
+              >
             </div>
           </div>
         </div>
@@ -52,7 +54,7 @@ function expandJobOffer(event: MouseEvent) {
       <div class="details">
         <h3>{{ partner.title }}</h3>
         <p v-for="paragraph in partner.description" class="description" v-html="paragraph"></p>
-        <RouterLink class="readMore" :to="'/partners/' + partner.slug">Meer weten?</RouterLink>
+        <RouterLink class="readMore button primary rounded" :to="'/partners/' + partner.slug">Meer weten?</RouterLink>
       </div>
     </div>
     <hr class="dashed-line" />
@@ -67,7 +69,9 @@ function expandJobOffer(event: MouseEvent) {
             :alt="'Logo' + partner.title"
           />
         </RouterLink>
-        <RouterLink class="readMore" :to="'/partners/' + partner.slug">{{ partner.title }}</RouterLink>
+        <RouterLink class="readMore button primary rounded indi-green-1" :to="'/partners/' + partner.slug">{{
+          partner.title
+        }}</RouterLink>
       </div>
     </div>
   </ContentContainer>

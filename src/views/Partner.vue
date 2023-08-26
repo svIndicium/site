@@ -29,7 +29,7 @@ function expandJobOffer(event: MouseEvent) {
         />
         <div class="description">
           <p v-for="paragraph in partner.description" v-html="paragraph"></p>
-          <a v-if="partner.url" class="readMore" :href="partner.url" target="_blank">Lees meer</a>
+          <a v-if="partner.url" class="button primary rounded" :href="partner.url" target="_blank">Lees meer</a>
         </div>
       </div>
       <div v-if="partner.jobOffers.length > 0" class="job-offers-container">
@@ -39,7 +39,14 @@ function expandJobOffer(event: MouseEvent) {
             <h3 class="job-offer-title" @click="expandJobOffer">{{ jobOffer.title }}</h3>
             <div class="job-offer-description">
               <p v-for="paragraph in jobOffer.description" v-html="paragraph"></p>
-              <a v-if="jobOffer.url" class="readMore" :href="jobOffer.url" target="_blank">Lees meer</a>
+              <a
+                v-if="jobOffer.url"
+                class="button primary rounded indi-green-1"
+                style="display: inline-block; margin-bottom: 1em"
+                :href="jobOffer.url"
+                target="_blank"
+                >Lees meer</a
+              >
             </div>
           </div>
         </div>
@@ -51,7 +58,6 @@ function expandJobOffer(event: MouseEvent) {
 
 <style scoped lang="scss">
 @import '@/assets/scss/variables.scss';
-
 .job-offer-description ul {
   list-style: circle;
 }
@@ -87,7 +93,7 @@ function expandJobOffer(event: MouseEvent) {
         width: 80%;
         text-align: left;
         margin: 1.5em auto;
-        padding-left: 2em;
+        padding: 0 2em;
         background-color: rgba(255, 255, 255, 0.15);
         border-radius: 1.5em;
 
@@ -109,7 +115,6 @@ function expandJobOffer(event: MouseEvent) {
           height: 12px;
           width: 21px;
           margin-left: auto;
-          margin-right: 1em;
           transition: 0.2s transform ease-out;
         }
 
@@ -146,15 +151,5 @@ function expandJobOffer(event: MouseEvent) {
   .description {
     text-align: left;
   }
-}
-
-.readMore {
-  text-decoration: none;
-  color: inherit;
-  display: inline-block;
-  margin: 1em auto;
-  padding: 0.7em;
-  background-color: var(--indi-blue-1);
-  border-radius: 0.5em;
 }
 </style>
