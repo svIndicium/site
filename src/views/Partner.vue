@@ -2,6 +2,8 @@
 import ContentContainer from '@/layouts/ContentContainer.vue';
 import FourOFour from '@/views/404.vue';
 import { premiumPartners, regularPartners } from '@/content/partners.json';
+import { stateStore } from '@/stores/state';
+const state = stateStore();
 
 const partners = [...premiumPartners, ...regularPartners];
 const partnerSlug = location.pathname.split('/').pop();
@@ -18,7 +20,13 @@ function expandJobOffer(event: MouseEvent) {
     <h1>{{ partner.title }}</h1>
     <div id="partner" class="container">
       <div class="details">
-        <img class="partner-logo" :src="'/assets/partners/' + partner.imgUrl" :alt="'Logo' + partner.title" />
+        <img
+          class="partner-logo"
+          :src="
+            '/assets/partners/' + (state.darkModeActive && partner.imgUrlDark ? partner.imgUrlDark : partner.imgUrl)
+          "
+          :alt="'Logo' + partner.title"
+        />
         <div class="description">
           <p v-for="paragraph in partner.description" v-html="paragraph"></p>
           <a v-if="partner.url" class="readMore" :href="partner.url" target="_blank">Lees meer</a>
