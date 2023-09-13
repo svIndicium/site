@@ -17,6 +17,7 @@ import DataNotFound from '@/assets/icons/data-not-found.svg?component';
       <DataNotFound v-else />
       <div class="board-info">
         <h2 class="board-year">{{ board.year }}</h2>
+        <i v-if="board.caption" class="board-caption">{{ board.caption }}</i>
         <p v-for="member in board.members">
           <b>{{ member.name }}</b> - <span class="function">{{ member.function }}</span>
         </p>
