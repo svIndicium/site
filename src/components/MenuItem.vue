@@ -26,7 +26,7 @@ export default {
     getLinkClass(url: string) {
       // returns custom classes for a url, for customization
       return {
-        'button secondary rounded': url === '/intro',
+        'button secondary rounded': url === '/links',
         'button primary rounded': url === '/lid-worden',
         'button rounded': url.startsWith('http'),
       };

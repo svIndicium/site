@@ -1,11 +1,6 @@
 [
   { "name": "Website", "url": "/" },
-  { "icon": "🍻", "name": "Welkomsborrel", "url": "https://shop.ikbenaanwezig.nl/tickets/event/welkomsborrel" },
-  {
-    "icon": "🎱",
-    "name": "Eerstejaars poolen",
-    "url": "https://shop.ikbenaanwezig.nl/tickets/event/eerstejaars-poolen-"
-  },
+  { "icon": "🍻", "name": "Karaokeborrel", "url": "https://ticketl.ink/V8ZW4" },
   { "icon": "📸", "name": "Instagram", "url": "https://www.instagram.com/svindicium/" },
   { "icon": "👥", "name": "Word Lid!", "url": "/lid-worden" },
   { "icon": "📄", "name": "Over Indicium", "url": "/over-indicium" },
