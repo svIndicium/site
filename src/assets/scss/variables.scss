@@ -113,7 +113,8 @@ $bp-desktop-lg: 1536px;
   --indi-error-raw: 207, 151, 151;
   --indi-grey: rgb(239, 240, 240);
   --indi-success: rgb(var(--indi-green-2-raw));
-  --indi-warning: rgb(250, 192, 82);
+  --indi-warning: rgb(139, 64, 0);
+  --indi-error: rgb(139, 0, 0);
 
   --panel-background-raw: 0, 0, 0;
   --inner-sidebar-background-raw: 248, 249, 249;

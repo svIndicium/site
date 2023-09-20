@@ -78,14 +78,18 @@ h6 {
 
 p {
   font-size: 1.25rem;
-  line-height: 100%;
 
   &.small {
     font-size: 0.875rem;
+    line-height: 100%;
   }
 
   &.large {
     font-size: 1.5rem;
+  }
+
+  &.logo-text {
+    line-height: 100%;
   }
 }
 

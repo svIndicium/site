@@ -6,9 +6,16 @@ import ContentContainer from '@/layouts/ContentContainer.vue';
   <ContentContainer>
     <img :src="'/assets/images/intro2022.jpeg'" alt="'Intro'" />
 
-    <h1 class="big-title">Intro​duct​ie​kamp 2023</h1>
+    <h1 class="big-title">Intro​duct​ie​kamp 2024</h1>
 
     <section class="intro">
+      <div class="warning">
+        <p>
+          Op dit moment zijn de inschrijvingen voor de introductie 2024 nog niet geopend. We zijn druk bezig met het
+          plannen van een onvergetelijke ervaring voor jullie allemaal. Zodra we een definitieve datum hebben, zullen we
+          dit op deze pagina bekend maken.
+        </p>
+      </div>
       <div>
         <p>
           Vanuit de Studievereniging Indicium zijn we blij om te zien dat je de keuze hebt gemaakt voor de HBO-ICT
@@ -16,15 +23,15 @@ import ContentContainer from '@/layouts/ContentContainer.vue';
           voor nieuwe vriendschappen, hebben we een speciaal introductiekamp in het leven geroepen.
         </p>
 
-        <p>
+        <!-- <p>
           Dit introductiekamp zal plaatsvinden van <em class="datum">dinsdag 22 augustus</em> tot en met
           <em class="datum">vrijdag 25 augustus</em>. De locaties zijn de prachtige stad Utrecht en een plek nabij
           Geldermalsen. Hier krijg je de kans om je medestudenten beter te leren kennen en de unieke sfeer van onze
           vereniging te ervaren. Er wachten je diverse activiteiten, variërend van spellen tot sportuitdagingen, en het
           geheel wordt afgesloten met een gezellig feest!
-        </p>
+        </p> -->
 
-        <p style="text-align: center">
+        <!-- <p style="text-align: center">
           Om deel uit te maken van dit geweldige introductiekamp, dien je jezelf hieronder te registreren.
         </p>
         <div class="buttons">
@@ -40,7 +47,7 @@ import ContentContainer from '@/layouts/ContentContainer.vue';
           >
         </div>
 
-        <p style="text-align: center">Wees er snel bij want er zijn maar een beperkt aantal plekken!<br /></p>
+        <p style="text-align: center">Wees er snel bij want er zijn maar een beperkt aantal plekken!<br /></p> -->
 
         <p>
           Ons introductiekamp is de perfecte manier om helemaal op te gaan in de vereniging en nieuwe vriendschappen te
@@ -95,6 +102,10 @@ em {
     width: 100%;
     max-width: 1000px;
     padding: 0.5rem 1.5rem;
+
+    &.warning {
+      background-color: var(--indi-warning);
+    }
   }
 }
 
