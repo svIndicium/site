@@ -5,6 +5,28 @@ import piniaPluginPersistedstate from 'pinia-plugin-persistedstate';
 import App from './App.vue';
 import 'viewerjs/dist/viewer.css';
 import VueViewer from 'v-viewer';
+// Import the functions you need from the SDKs you need
+import { initializeApp } from 'firebase/app';
+import { getAnalytics } from 'firebase/analytics';
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: 'AIzaSyD_4U8xu0z-fEqhGQyEt-walZiNSLN0Z9s',
+  authDomain: 'svindicium-website.firebaseapp.com',
+  databaseURL: 'https://svindicium-website-default-rtdb.europe-west1.firebasedatabase.app',
+  projectId: 'svindicium-website',
+  storageBucket: 'svindicium-website.appspot.com',
+  messagingSenderId: '18534773268',
+  appId: '1:18534773268:web:f816171343e066a079ad01',
+  measurementId: 'G-449W2Y5BHP',
+};
+
+// Initialize Firebase
+const firebaseapp = initializeApp(firebaseConfig);
+const analytics = getAnalytics(firebaseapp);
 
 import Home from '@/views/Home.vue';
 import Activiteiten from '@/views/Activiteiten.vue';

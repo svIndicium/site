@@ -12,6 +12,7 @@
   "dependencies": {
     "add-to-calendar-button": "^2.2.9",
     "canvas-confetti": "^1.6.0",
+    "firebase": "^10.4.0",
     "pinia": "^2.0.23",
     "pinia-plugin-persistedstate": "^2.1.1",
     "v-viewer": "^3.0.11",
