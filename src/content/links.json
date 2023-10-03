@@ -1,5 +1,6 @@
 [
   { "name": "Website", "url": "/" },
+  { "icon": "📋", "name": "Commissie Interesse", "url": "https://forms.gle/fVGrQf7KmZVH716WA" },
   { "icon": "https://codedive.pl/favicon.png", "name": "Code::Dive", "url": "https://forms.gle/uVvNnW9CZJgc89J28" },
   { "icon": "📸", "name": "Instagram", "url": "https://www.instagram.com/svindicium/" },
   { "icon": "👥", "name": "Word Lid!", "url": "/lid-worden" },
