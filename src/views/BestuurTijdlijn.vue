@@ -13,8 +13,8 @@ import DataNotFound from '@/assets/icons/data-not-found.svg?component';
   <ContentContainer>
     <h1>Indicium Besturen</h1>
     <div class="board" v-for="board in previousBoards">
-      <img v-if="board.groupPhoto" :src="'/assets/boards/' + board.groupPhoto" alt="Groepsfoto" />
-      <DataNotFound v-else />
+      <img v-if="board.groupPhoto" :src="'/assets/boards/' + board.groupPhoto" alt="Groepsfoto" class="img" />
+      <DataNotFound v-else class="img" />
       <div class="board-info">
         <h2 class="board-year">{{ board.year }}</h2>
         <i v-if="board.caption" class="board-caption">{{ board.caption }}</i>
@@ -27,6 +27,7 @@ import DataNotFound from '@/assets/icons/data-not-found.svg?component';
 </template>
 
 <style scoped lang="scss">
+@import '@/assets/scss/variables.scss';
 .board {
   border-bottom: 3px solid var(--indi-blue-1);
   max-width: 1200px;
@@ -34,10 +35,22 @@ import DataNotFound from '@/assets/icons/data-not-found.svg?component';
   padding: 2.5em 0;
   display: grid;
   grid-auto-flow: column;
-  column-gap: 10%;
+  column-gap: 5%;
 
-  @media screen and (max-width: 975px) {
+  .img {
+    display: block;
+    height: 100%;
+    max-height: 512px;
+    aspect-ratio: 885/512;
+    object-fit: scale-down;
+  }
+
+  @media screen and (max-width: #{$bp-tablet-lg}) {
     grid-auto-flow: row;
+    .img {
+      max-height: 256px;
+      width: 100%;
+    }
   }
 
   &:nth-child(odd) .board-info {
@@ -54,6 +67,10 @@ import DataNotFound from '@/assets/icons/data-not-found.svg?component';
 
   .function {
     color: #b3b3b3;
+  }
+
+  .board-info {
+    max-width: 600px;
   }
 }
 </style>
