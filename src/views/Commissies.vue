@@ -33,17 +33,37 @@ const [commissie] = commissies;
   grid-template-columns: 1fr 1fr;
   column-gap: 10px;
 
-  img {
+  .foto {
     object-fit: contain;
     width: 80%;
+    border-radius: 10px;
+    transition: transform 0.2s;
+  }
+
+  .foto:hover {
+    transform: scale(1.1);
+    transition: transform 0.5s;
   }
 
   h3 {
     margin-top: 0;
   }
 
+  .commissie-info {
+    background-color: var(--secondary-background-color);
+    border-radius: 10px;
+    padding: 1em 2em;
+  }
+
   @media screen and (max-width: #{$bp-tablet-md}) {
     grid-template-columns: 1fr;
+
+    .foto {
+      width: 95%;
+    }
+    .commissie-info {
+      margin-top: 2em;
+    }
 
     .foto {
       margin: 0 auto;
@@ -52,8 +72,8 @@ const [commissie] = commissies;
 }
 
 #intro {
-  margin-left: 200px;
-  margin-right: 200px;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .spacer {
