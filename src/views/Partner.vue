@@ -3,11 +3,20 @@ import ContentContainer from '@/layouts/ContentContainer.vue';
 import FourOFour from '@/views/404.vue';
 import { mainPartner, premiumPartners, regularPartners } from '@/content/partners.json';
 import { stateStore } from '@/stores/state';
+import { watch, ref } from 'vue';
+import { useRoute } from 'vue-router';
 const state = stateStore();
 
 const partners = [...premiumPartners, ...regularPartners, mainPartner];
 const partnerSlug = location.pathname.split('/').pop();
-const partner = partners.find((partner) => partner.slug === partnerSlug);
+const partner = ref(partners.find((p) => p.slug === partnerSlug));
+
+// needed to update partner because of Vue's internal diffing algorithm reusing the component and thus not updating the partner
+const route = useRoute();
+watch(route, (newRoute, oldRoute) => {
+  const newPartnerSlug = newRoute.path.split('/').pop();
+  partner.value = partners.find((p) => p.slug === newPartnerSlug);
+});
 
 function expandJobOffer(event: MouseEvent) {
   const target = event.target as HTMLElement;
