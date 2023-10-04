@@ -63,7 +63,7 @@ const router = createRouter({
     { name: 'Home', path: '/', component: Home },
     // { name: 'Activiteiten', path: '/activiteiten', component: Activiteiten },
     { name: 'Over Indicium', path: '/over-indicium', component: OverIndicium },
-    { name: 'Bestuur', path: '/bestuur', component: Bestuur },
+    // { name: 'Bestuur', path: '/bestuur', component: Bestuur },
     { name: 'Lid Worden', path: '/lid-worden', component: LidWorden },
     { name: 'Intro', path: '/intro', component: Intro },
     { name: 'Oud Bestuur', path: '/besturen', component: Besturen },
