@@ -165,8 +165,9 @@
       ]
     },
     {
-      "year": "2017-2018",
+      "year": "(2016-)2017-2018",
       "groupPhoto": "bestuur17-18.jpg",
+      "caption": "Indicium is officieel opgericht op 18 mei 2017, daarvoor was het oprichtend bestuur al wel bezig met het vormen van de vereniging zoals jullie die kennen",
       "members": [
         {
           "name": "William Loosman",
@@ -182,7 +183,15 @@
         },
         {
           "name": "Olivier Verwoerd",
-          "function": "algemeen commissaris"
+          "function": "algemeen commissaris (tot december 2017)"
+        },
+        {
+          "name": "Idris Janszen",
+          "function": "algemeen commissaris (vanaf december 2017)"
+        },
+        {
+          "name": "Samuel Vrieling",
+          "function": "algemeen commissaris (vanaf december 2017)"
         }
       ]
     }
