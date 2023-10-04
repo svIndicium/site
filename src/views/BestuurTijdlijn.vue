@@ -42,14 +42,27 @@ import DataNotFound from '@/assets/icons/data-not-found.svg?component';
     height: 100%;
     max-height: 512px;
     aspect-ratio: 885/512;
-    object-fit: scale-down;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.2s;
+    background-color: var(--secondary-background-color);
+  }
+
+  .img:hover {
+    transform: scale(1.1);
+    transition: transform 0.5s;
   }
 
   @media screen and (max-width: #{$bp-tablet-lg}) {
     grid-auto-flow: row;
     .img {
-      max-height: 256px;
-      width: 100%;
+      margin: 0 auto;
+      max-height: 320px;
+      width: 95%;
+    }
+
+    .board-info {
+      margin-top: 2em;
     }
   }
 
