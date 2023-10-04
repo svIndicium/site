@@ -28,7 +28,25 @@
     },
     {
       "title": "Partners",
-      "url": "/partners"
+      "url": "/partners",
+      "children": [
+        {
+          "title": "PossibilIT",
+          "url": "/partners/4ng"
+        },
+        {
+          "title": "Working Talent",
+          "url": "/partners/working-talent"
+        },
+        {
+          "title": "YER",
+          "url": "/partners/yer"
+        },
+        {
+          "title": "BPM Company",
+          "url": "/partners/bpm-company"
+        }
+      ]
     },
     {
       "title": "Contact",

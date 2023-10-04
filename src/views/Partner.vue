@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import ContentContainer from '@/layouts/ContentContainer.vue';
 import FourOFour from '@/views/404.vue';
-import { premiumPartners, regularPartners } from '@/content/partners.json';
+import { mainPartner, premiumPartners, regularPartners } from '@/content/partners.json';
 import { stateStore } from '@/stores/state';
 const state = stateStore();
 
-const partners = [...premiumPartners, ...regularPartners];
+const partners = [...premiumPartners, ...regularPartners, mainPartner];
 const partnerSlug = location.pathname.split('/').pop();
 const partner = partners.find((partner) => partner.slug === partnerSlug);
 

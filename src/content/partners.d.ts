@@ -5,6 +5,7 @@ type JobOffer = {
 };
 
 type Partner = {
+  slug: string;
   title: string;
   description: Array<string>;
   imgUrl: string;
@@ -15,6 +16,6 @@ type Partner = {
 
 declare module '@/content/partners.json' {
   export const mainPartner: Partner;
-  export const premiumPartners: Array<Partner & { slug: string }>;
-  export const regularPartners: Array<Partner & { slug: string }>;
+  export const premiumPartners: Array<Partner>;
+  export const regularPartners: Array<Partner>;
 }
