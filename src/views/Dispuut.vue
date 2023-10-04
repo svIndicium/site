@@ -44,6 +44,10 @@ const [dispuut] = disputen;
     border-radius: 10px;
     transition: transform 0.2s;
     background-image: linear-gradient(to bottom right, var(--indi-blue-1), var(--indi-blue-2));
+    @media screen and (max-width: #{$bp-tablet-lg}) {
+      max-width: 95%;
+      margin: 0 auto;
+    }
   }
 
   img:hover {
@@ -68,6 +72,9 @@ const [dispuut] = disputen;
     border-radius: 10px;
     padding: 1em 2em;
     background-color: var(--secondary-background-color);
+    @media screen and (max-width: #{$bp-tablet-lg}) {
+      margin-top: 2em;
+    }
   }
 }
 </style>
