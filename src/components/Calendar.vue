@@ -33,6 +33,16 @@ type Event<DateTimeFormat extends Date | string> = {
         | {
             date: string;
           };
+  multiday_end?: DateTimeFormat extends Date
+    ? Date
+    :
+        | {
+            dateTime: string;
+          }
+        | {
+            date: string;
+          };
+  multimonth_end?: boolean;
 };
 
 const calendarData: { items: Event<string>[] } = await fetch(
@@ -78,7 +88,24 @@ const events: Event<Date>[] = Array.isArray(calendarData.items)
   : [];
 
 const visibleEvents = computed<Event<Date>[]>(() => {
-  return Array.from(events.values()).slice(0, maxCalEvents.value);
+  var enhancedEvents: Event<Date>[] = [];
+  for (var item of events) {
+    if (
+      new Date(item.end.getTime() - 14400000).toLocaleDateString('nl', { day: 'numeric' }) !=
+      item.end.toLocaleDateString('nl', { day: 'numeric' })
+    ) {
+      const mde = new Date(item.end.getTime() - 14400000);
+      if (item.start.toLocaleDateString('nl', { month: 'short' }) != mde.toLocaleDateString('nl', { month: 'short' })) {
+        enhancedEvents.push({ ...item, multiday_end: mde, multimonth_end: true });
+      } else {
+        enhancedEvents.push({ ...item, multiday_end: mde, multimonth_end: false });
+      }
+    } else {
+      enhancedEvents.push({ ...item });
+    }
+  }
+
+  return Array.from(enhancedEvents.values()).slice(0, maxCalEvents.value);
 });
 
 function getLocationLink(location: string): string {
@@ -115,12 +142,33 @@ function extractHourAndMinutes(timeString: string) {
     <div class="event" v-for="event in visibleEvents" :key="event.id">
       <div class="date">
         <span class="day">{{ event.start.toLocaleDateString('nl', { day: 'numeric' }) }}</span>
-        <br />
+        <div v-if="event.multiday_end && !event.multimonth_end">
+          <br />
+          <span>t/m</span>
+          <br />
+          <br />
+          <span class="day">{{ event.multiday_end.toLocaleDateString('nl', { day: 'numeric' }) }}</span>
+        </div>
+
+        <br v-else />
         <span class="month">{{ event.start.toLocaleDateString('nl', { month: 'short' }) }}</span>
+        <div v-if="event.multiday_end && event.multimonth_end">
+          <br />
+          <span>t/m</span>
+          <br />
+          <br />
+          <span class="day">{{ event.multiday_end.toLocaleDateString('nl', { day: 'numeric' }) }}</span>
+          <br />
+          <span class="month">{{ event.multiday_end.toLocaleDateString('nl', { month: 'short' }) }}</span>
+        </div>
       </div>
       <div class="details">
         <p class="title" style="font-weight: bold; margin-block-end: 0.2em">{{ event.summary }}</p>
-        <p>{{ extractHourAndMinutes('' + event.start) }} => {{ extractHourAndMinutes('' + event.end) }}</p>
+        <p
+          v-if="extractHourAndMinutes('' + event.start) != '01:00' && extractHourAndMinutes('' + event.end) != '01:00'"
+        >
+          {{ extractHourAndMinutes('' + event.start) }} => {{ extractHourAndMinutes('' + event.end) }}
+        </p>
         <a v-if="event.location" class="location" :href="getLocationLink(event.location)" target="_blank">
           @{{ event.location }}
         </a>
@@ -161,7 +209,7 @@ function extractHourAndMinutes(timeString: string) {
     padding: 4px;
     background-color: var(--indi-green-2);
     border-radius: 5px;
-    max-height: 60px;
+    max-height: fit-content;
 
     .day {
       font-size: 32px;
