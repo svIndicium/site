@@ -46,6 +46,16 @@ h1 {
     .member-photo {
       margin: 0 auto;
     }
+
+    h3 {
+      margin-top: 0;
+      text-align: center;
+    }
+
+    h4 {
+      margin-top: 0;
+      text-align: center;
+    }
   }
 
   &:nth-child(even) .member-info {
