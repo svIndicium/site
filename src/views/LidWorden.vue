@@ -2,6 +2,7 @@
 import { ref, onMounted, onUnmounted } from 'vue';
 import ContentContainer from '@/layouts/ContentContainer.vue';
 import confetti from 'canvas-confetti';
+import { isUAMobile } from '@/utils/userAgentData';
 
 // takes a position and calculates the angle needed to point to the middle of the screen
 function calculateAngleToCenter(x: number, y: number): number {
@@ -75,6 +76,10 @@ function adjustContainerHeight() {
 onMounted(() => {
   adjustContainerHeight();
   window.addEventListener('resize', adjustContainerHeight);
+
+  if (isUAMobile()) {
+    window.location.replace('https://leden.conscribo.nl/svIndicium/aanmeldenlidmaatschap');
+  }
 });
 
 onUnmounted(() => {
