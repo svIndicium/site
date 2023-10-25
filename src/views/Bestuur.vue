@@ -15,7 +15,7 @@ import { currentBoard } from '@/content/boards.json';
       <div class="member-info">
         <h3>{{ member.name }}</h3>
         <h4>{{ member.function }}</h4>
-        <p>{{ member.introduction }}</p>
+        <!--<p>{{ member.introduction }}</p>-->
       </div>
     </div>
     <img id="group-photo" :src="`/assets/boards/${currentBoard.groupPhoto}`" alt="Groepsfoto" />
