@@ -34,7 +34,12 @@ h1 {
   margin: 4em auto;
   display: grid;
   grid-auto-flow: column;
-  column-gap: 10%;
+  column-gap: 5%;
+
+  h3,
+  h4 {
+    text-align: left;
+  }
 
   h3:has(+ h4) {
     margin-bottom: 0;
@@ -60,6 +65,16 @@ h1 {
 
   &:nth-child(even) .member-info {
     grid-column: 1;
+    h3,
+    h4 {
+      text-align: right;
+    }
+  }
+
+  &:nth-child(odd) {
+    .member-photo {
+      margin: auto 0 auto auto;
+    }
   }
 }
 
