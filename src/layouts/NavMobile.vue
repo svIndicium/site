@@ -84,7 +84,7 @@ router.afterEach(() => {
                 title="Goto submenu"
                 class="sub-menu-toggle"
                 @click="setCurrentLevel(2, item.title)"
-                >‌‌ ‌‌ ‌‌▸‌‌ ‌‌ ‌‌‌‌ ‌‌‌
+              >‌‌ ‌‌ ‌‌▸‌‌ ‌‌ ‌‌‌‌ ‌‌‌
               </a>
 
               <div
@@ -120,7 +120,7 @@ router.afterEach(() => {
                         title="Goto sub-submenu"
                         class="sub-menu-toggle"
                         @click="setCurrentLevel(3, child.title)"
-                        >‌‌ ‌‌ ‌‌▸‌‌ ‌‌ ‌‌‌‌ ‌‌‌
+                      >‌‌ ‌‌ ‌‌▸‌‌ ‌‌ ‌‌‌‌ ‌‌‌
                       </a>
 
                       <div
@@ -182,8 +182,9 @@ router.afterEach(() => {
   --navbar-height: 16vw;
   --navbar-max-height: 68px;
   --transition-time: 0.2s;
-  --linespace: 5vw;
-  --shadowspace: 10vw;
+  --linespace: 3vw;
+  --shadowspace: 6vw;
+  --linespace-transition-delay: calc(var(--transition-time) * 0.5);
 
   a {
     cursor: pointer;
@@ -225,7 +226,7 @@ router.afterEach(() => {
       display: flex;
       cursor: pointer;
       stroke: var(--text-color);
-      padding-bottom: 0px;
+      padding-bottom: 0;
       position: relative;
       padding-left: 10px;
       padding-right: 10px;
@@ -303,14 +304,14 @@ router.afterEach(() => {
       height: 100%;
       width: 100vw - var(--shadowspace); // 100%
       transition: var(--transition-time) ease-in-out;
-      transition-delay: var(--transition-time);
+      transition-delay: var(--linespace-transition-delay);
 
       &.blue {
         background-color: var(--indi-blue-1);
 
         &.visible {
           left: (var(--shadowspace));
-          transition-delay: 0s;
+          transition-delay: var(--linespace-transition-delay);
         }
       }
 
@@ -322,7 +323,7 @@ router.afterEach(() => {
 
         &.visible {
           left: 0;
-          transition-delay: 0s;
+          transition-delay: var(--linespace-transition-delay);
         }
       }
 
@@ -334,12 +335,11 @@ router.afterEach(() => {
 
         &.visible {
           left: 0;
-          transition-delay: 0s;
+          transition-delay: var(--linespace-transition-delay);
         }
       }
 
       .menu {
-        display: flexbox;
         position: relative;
         height: 100%;
         left: 100%;
@@ -362,7 +362,6 @@ router.afterEach(() => {
 
             .sub-menu-toggle {
               cursor: pointer;
-              padding: auto;
               float: right;
               width: 15vw;
               margin-right: 1em;
