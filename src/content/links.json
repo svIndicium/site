@@ -1,15 +1,5 @@
 [
   { "name": "Website", "url": "/" },
-  {
-    "icon": "https://www.conclusion.nl/apple-touch-icon.png",
-    "name": "Inhousedag bij Conclusion",
-    "url": "https://docs.google.com/forms/d/e/1FAIpQLSelb00VPjXHfGQSiQClQi7s3VbmMYz3z8Df9Xa958tW7sQIpw/viewform"
-  },
-  {
-    "icon": "🎄",
-    "name": "Kest Diner x Young_Coders",
-    "url": "https://shop.ikbenaanwezig.nl/tickets/event/christmas-diner"
-  },
   { "icon": "📋", "name": "Commissie Interesse", "url": "https://forms.gle/fVGrQf7KmZVH716WA" },
   { "icon": "📸", "name": "Instagram", "url": "https://www.instagram.com/svindicium/" },
   { "icon": "👥", "name": "Word Lid!", "url": "/lid-worden" },
