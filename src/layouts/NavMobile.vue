@@ -13,10 +13,11 @@ const state = stateStore();
 const items = content.items;
 
 function toggleNavLevel() {
-  if (state.state.navLevel) {
+  if (state.state.navLevel >= 1) {
+    state.state.lastNavLevel = state.state.navLevel;
     state.state.navLevel = 0;
   } else {
-    state.state.navLevel = 1;
+    state.state.navLevel = state.state.lastNavLevel;
   }
 }
 
@@ -35,7 +36,7 @@ function setCurrentLevel(level: 0 | 1 | 2 | 3, name?: string) {
   if (level < 2) {
     currentLevel2.value = '';
   }
-  state.state.navLevel = level;
+  state.state.navLevel = state.state.lastNavLevel = level;
 }
 
 const router = useRouter();

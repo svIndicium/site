@@ -11,6 +11,7 @@ export const stateStore = defineStore({
     },
     state: {
       navLevel: 0, // 0 is closed
+      lastNavLevel: 1,
     },
   }),
   actions: {
