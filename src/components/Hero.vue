@@ -20,9 +20,7 @@ const { darkModeActive } = storeToRefs(state);
         <span class="extra-bold">studie</span>vereniging voor HBO-ICT van Hogeschool Utrecht
       </h1>
       <div class="subtitle-items">
-        <a class="button primary rounded" href="https://leden.conscribo.nl/svIndicium/aanmeldenlidmaatschap"
-          >Word lid</a
-        >
+        <router-link class="button primary rounded" to="/lid-worden">Word lid</router-link>
 
         <router-link class="button primary rounded indi-green-1" to="/links">Quick Links</router-link>
 

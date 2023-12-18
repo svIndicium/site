@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue';
+import { onMounted, onUnmounted } from 'vue';
 import ContentContainer from '@/layouts/ContentContainer.vue';
 import confetti from 'canvas-confetti';
 
@@ -61,8 +61,8 @@ else if (navigator.hardwareConcurrency <= 10)
 else generateConfetti(locations, 400); // likely 8-core or more, 200 looks fine so this is bonus
 
 function adjustContainerHeight() {
-  const signupContainer = document.querySelector('.signupContainer') as HTMLElement | null;
-  const iframe = document.querySelector('iframe') as HTMLIFrameElement | null;
+  const signupContainer = document.querySelector('.signupContainer');
+  const iframe = document.querySelector('iframe');
   if (signupContainer && iframe) {
     const iframeBody = iframe.contentDocument?.body;
     if (iframeBody) {
@@ -99,7 +99,10 @@ onUnmounted(() => {
     </details>
 
     <div class="signupContainer">
-      <iframe src="https://leden.conscribo.nl/svIndicium/aanmeldenlidmaatschap"></iframe>
+      <iframe
+        src="https://leden.conscribo.nl/svIndicium/aanmeldenlidmaatschap"
+        title="Lidmaadschap registratie"
+      ></iframe>
     </div>
     <div>
       Gaat er iets niet helemaal goed? Geen zorgen,
