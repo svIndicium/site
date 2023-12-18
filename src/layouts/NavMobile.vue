@@ -184,7 +184,6 @@ router.afterEach(() => {
   --transition-time: 0.2s;
   --linespace: 3vw;
   --shadowspace: 6vw;
-  --linespace-transition-delay: calc(var(--transition-time) * 0.5);
 
   a {
     cursor: pointer;
@@ -304,14 +303,14 @@ router.afterEach(() => {
       height: 100%;
       width: 100vw - var(--shadowspace); // 100%
       transition: var(--transition-time) ease-in-out;
-      transition-delay: var(--linespace-transition-delay);
+      transition-delay: var(--transition-time);
 
       &.blue {
         background-color: var(--indi-blue-1);
 
         &.visible {
           left: (var(--shadowspace));
-          transition-delay: var(--linespace-transition-delay);
+          transition-delay: 0s;
         }
       }
 
@@ -323,7 +322,7 @@ router.afterEach(() => {
 
         &.visible {
           left: 0;
-          transition-delay: var(--linespace-transition-delay);
+          transition-delay: 0s;
         }
       }
 
@@ -335,7 +334,7 @@ router.afterEach(() => {
 
         &.visible {
           left: 0;
-          transition-delay: var(--linespace-transition-delay);
+          transition-delay: 0s;
         }
       }
 
