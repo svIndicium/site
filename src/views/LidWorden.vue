@@ -117,13 +117,13 @@ iframe {
 }
 
 $breakpoints: (
-  large: 800px,
-  medium: 799px,
-  small-medium: 591px,
-  small: 450px,
-  extra-small: 361px,
-  extra-extra-small: 315px,
-  tiny: 227px,
+  large: 850px,
+  medium: 749px,
+  small-medium: 641px,
+  small: 500px,
+  extra-small: 411px,
+  extra-extra-small: 365px,
+  tiny: 277px,
 );
 
 $min-heights: (
