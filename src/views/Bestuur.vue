@@ -36,6 +36,18 @@ h1 {
   grid-auto-flow: column;
   column-gap: 5%;
 
+  .member-photo {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 10px;
+    transition: transform 0.2s;
+
+    &:hover {
+      transform: scale(1.1);
+      transition: transform 0.5s;
+    }
+  }
+
   h3,
   h4 {
     text-align: left;
@@ -81,5 +93,13 @@ h1 {
 #group-photo {
   display: block;
   margin: 0 auto;
+  max-height: 512px;
+  border-radius: 10px;
+  transition: transform 0.2s;
+
+  &:hover {
+    transform: scale(1.1);
+    transition: transform 0.5s;
+  }
 }
 </style>
