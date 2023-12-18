@@ -121,36 +121,33 @@ const state = stateStore();
   }
 }
 
-// TODO: flexbox or auto grid
 .regular-partners {
-  display: grid;
-  gap: 5em;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  gap: 3em;
   width: 95em;
   margin: 3em auto;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
 
   @media screen and (max-width: #{$bp-desktop-lg}) {
-    grid-template-columns: 1fr 1fr 1fr;
     width: 70em;
   }
 
   @media screen and (max-width: #{$bp-desktop-sm}) {
-    grid-template-columns: 1fr 1fr;
     width: 45em;
   }
 
   @media screen and (max-width: #{$bp-tablet-md}) {
-    grid-template-columns: 1fr;
     width: 20em;
+    gap: 0;
   }
 
   .regular-partner {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
     height: 20em;
     width: 20em;
-    display: grid;
-    grid-auto-flow: row;
-    grid-template-rows: 1fr auto;
-    justify-content: flex-end;
 
     .partner-logo {
       align-self: center;
