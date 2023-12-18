@@ -63,7 +63,6 @@ export function getOS() {
 export function getBrowser() {
   let nAgt = navigator.userAgent;
   let browser = 'unknown';
-  let version = '0';
   let minorVersion = '0';
   let nameOffset, verOffset, ix;
 
@@ -135,7 +134,7 @@ export function getBrowser() {
 }
 
 export function hasSessionStorage() {
-  return typeof Storage !== 'undefined' ? true : false;
+  return typeof Storage !== 'undefined';
 }
 
 export function preloadFullVideoSupported() {
