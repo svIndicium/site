@@ -67,6 +67,7 @@ function adjustContainerHeight() {
     const iframeBody = iframe.contentDocument?.body;
     if (iframeBody) {
       const height = Math.max(iframeBody.clientHeight, iframeBody.scrollHeight);
+      // @ts-expect-error
       signupContainer.style.minHeight = `${height}px`;
     }
   }
