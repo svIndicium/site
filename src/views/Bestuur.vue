@@ -28,7 +28,6 @@ import { currentBoard } from '@/content/boards.json';
   .content-container {
     display: flex;
     flex-direction: column;
-    justify-content: end;
   }
 
   h1 {
