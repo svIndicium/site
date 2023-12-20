@@ -2,12 +2,8 @@
 import ContentContainer from '@/layouts/ContentContainer.vue';
 import { mainPartner, premiumPartners, regularPartners } from '@/content/partners.json';
 import { stateStore } from '@/stores/state';
+import JobOffers from '@/components/JobOffers.vue';
 const state = stateStore();
-
-function expandJobOffer(event: MouseEvent) {
-  const target = event.target as HTMLElement;
-  target.parentElement!.classList.toggle('open');
-}
 </script>
 
 <template>
@@ -28,20 +24,7 @@ function expandJobOffer(event: MouseEvent) {
           <p v-for="paragraph in mainPartner.description" v-html="paragraph"></p>
         </div>
       </div>
-      <div class="job-offers-container">
-        <h4>Vacatures bij {{ mainPartner.title }}</h4>
-        <div class="job-offers">
-          <div class="job-offer" v-for="jobOffer in mainPartner.jobOffers">
-            <span class="job-offer-title" @click="expandJobOffer">{{ jobOffer.title }}</span>
-            <div class="job-offer-description">
-              <p v-html="jobOffer.description"></p>
-              <a v-if="jobOffer.url" class="readMore button primary rounded" :href="jobOffer.url" target="_blank"
-                >Lees meer</a
-              >
-            </div>
-          </div>
-        </div>
-      </div>
+      <JobOffers :partner="mainPartner"/>
     </div>
     <hr class="dashed-line" />
     <h1>Premium partners</h1>
@@ -69,9 +52,9 @@ function expandJobOffer(event: MouseEvent) {
             :alt="'Logo' + partner.title"
           />
         </RouterLink>
-        <RouterLink class="readMore button primary rounded indi-green-1" :to="'/partners/' + partner.slug">{{
-          partner.title
-        }}</RouterLink>
+        <RouterLink class="readMore button primary rounded indi-green-1"
+                    :to="'/partners/' + partner.slug">{{partner.title }}
+        </RouterLink>
       </div>
     </div>
   </ContentContainer>
@@ -107,68 +90,6 @@ function expandJobOffer(event: MouseEvent) {
 
     .description {
       text-align: left;
-    }
-  }
-
-  .job-offers-container {
-    margin-top: 3em;
-    background-color: rgb(var(--panel-background));
-    border-radius: 8px;
-    border: 1px solid gray;
-
-    h4 {
-      margin: 16px;
-    }
-
-    .job-offers {
-      .job-offer {
-        display: flex;
-        flex-direction: column;
-        box-sizing: border-box;
-        width: 100%;
-        text-align: left;
-        padding: 0 16px;
-        margin: 1.5em 16px;
-        width: calc(100% - 32px);
-        background-color: rgba(255, 255, 255, 0.15);
-        border-radius: 1.5em;
-
-        .job-offer-title {
-          display: flex;
-          align-items: center;
-          margin: 0;
-          font-size: 1.3em;
-          line-height: 4ex;
-          cursor: pointer;
-        }
-
-        .job-offer-title::after {
-          display: inline-block;
-          content: '';
-          background-color: rgb(var(--text-color));
-          -webkit-mask-image: url('/assets/icons/arrow-up.svg');
-          mask-image: url('/assets/icons/arrow-up.svg');
-          height: 12px;
-          width: 21px;
-          margin-left: auto;
-          margin-right: 1em;
-          transition: 0.2s transform ease-out;
-        }
-
-        .job-offer-description {
-          display: none;
-        }
-
-        &.open {
-          .job-offer-title::after {
-            transform: scaleY(-1);
-          }
-
-          .job-offer-description {
-            display: block;
-          }
-        }
-      }
     }
   }
 }
