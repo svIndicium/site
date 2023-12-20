@@ -9,7 +9,7 @@ import { currentBoard } from '@/content/boards.json';
     <div class="member" v-for="member in currentBoard.members">
       <img
         class="member-photo"
-        :src="member.photo ? '/assets/boards/' + member.photo : 'https://cataas.com/cat/says/' + member.name"
+        :src="member.photo ? `/assets/boards/${member.photo}` : `https://cataas.com/cat/says/${member.name}`"
         :alt="member.name"
       />
       <div class="member-info">
@@ -23,38 +23,77 @@ import { currentBoard } from '@/content/boards.json';
 </template>
 
 <style scoped lang="scss">
-@import '@/assets/scss/variables.scss';
+  @import '@/assets/scss/variables.scss';
 
-h1 {
-  text-align: center;
-}
-
-.member {
-  max-width: 1170px;
-  margin: 4em auto;
-  display: grid;
-  grid-auto-flow: column;
-  column-gap: 10%;
-
-  h3:has(+ h4) {
-    margin-bottom: 0;
+  .content-container {
+    display: flex;
+    flex-direction: column;
   }
 
-  @media screen and (max-width: #{$bp-tablet-md}) {
-    grid-auto-flow: row;
+  h1 {
+    text-align: center;
+  }
 
-    .member-photo {
-      margin: 0 auto;
+  .member {
+    display: flex;
+    gap: 3em;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 1170px;
+    margin: 2em auto;
+
+    &:nth-child(even) {
+      flex-direction: row-reverse;
+      h3, h4 {
+        text-align: right;
+      }
     }
   }
 
-  &:nth-child(even) .member-info {
-    grid-column: 1;
-  }
-}
+  .member-photo {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 10px;
+    transition: transform 0.2s;
 
-#group-photo {
-  display: block;
-  margin: 0 auto;
-}
+    &:hover {
+      transform: scale(1.05);
+      transition: transform 0.2s;
+    }
+  }
+
+  @media screen and (max-width: #{$bp-tablet-md}) {
+    .member {
+      gap: 1em;
+      margin: 2em auto;
+
+      &:nth-child(even) {
+        h3, h4 {
+          text-align: center;
+        }
+      }
+    }
+    h3, h4 {
+      text-align: center;
+    }
+  }
+
+  @media screen and (max-width: #{$bp-tablet-sm}) {
+    .member {
+      gap: 0;
+    }
+  }
+  #group-photo {
+    display: block;
+    margin: 2em auto;
+    max-height: 512px;
+    border-radius: 10px;
+    transition: transform 0.2s;
+
+    &:hover {
+      transform: scale(1.05);
+      transition: transform 0.2s;
+    }
+  }
+
 </style>
