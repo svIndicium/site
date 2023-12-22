@@ -97,20 +97,20 @@ const state = stateStore();
 .partner {
   margin: 50px auto;
   max-width: 1600px;
-  display: grid;
-  grid-template-columns: 1fr 2fr;
+  display: flex;
   gap: 8%;
   align-items: center;
 
   .partner-logo {
-    max-width: 600px;
-    width: 100%;
+    max-width: 500px;
+    width: 30vw;
   }
 
   @media screen and (max-width: #{$bp-tablet-lg}) {
-    grid-template-columns: 1fr;
+    flex-wrap: wrap;
 
     .partner-logo {
+      width: 100%;
       max-width: 300px;
       margin: 0 auto;
     }
@@ -145,13 +145,10 @@ const state = stateStore();
   .regular-partner {
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-    height: 20em;
+    justify-content: space-between;
     width: 20em;
 
     .partner-logo {
-      align-self: center;
-
       img {
         width: 20em;
       }
