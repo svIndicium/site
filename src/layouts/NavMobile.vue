@@ -13,10 +13,11 @@ const state = stateStore();
 const items = content.items;
 
 function toggleNavLevel() {
-  if (state.state.navLevel) {
+  if (state.state.navLevel >= 1) {
+    state.state.lastNavLevel = state.state.navLevel;
     state.state.navLevel = 0;
   } else {
-    state.state.navLevel = 1;
+    state.state.navLevel = state.state.lastNavLevel;
   }
 }
 
@@ -35,7 +36,7 @@ function setCurrentLevel(level: 0 | 1 | 2 | 3, name?: string) {
   if (level < 2) {
     currentLevel2.value = '';
   }
-  state.state.navLevel = level;
+  state.state.navLevel = state.state.lastNavLevel = level;
 }
 
 const router = useRouter();
@@ -84,7 +85,7 @@ router.afterEach(() => {
                 title="Goto submenu"
                 class="sub-menu-toggle"
                 @click="setCurrentLevel(2, item.title)"
-                >‌‌ ‌‌ ‌‌▸‌‌ ‌‌ ‌‌‌‌ ‌‌‌
+              >‌‌ ‌‌ ‌‌▸‌‌ ‌‌ ‌‌‌‌ ‌‌‌
               </a>
 
               <div
@@ -120,7 +121,7 @@ router.afterEach(() => {
                         title="Goto sub-submenu"
                         class="sub-menu-toggle"
                         @click="setCurrentLevel(3, child.title)"
-                        >‌‌ ‌‌ ‌‌▸‌‌ ‌‌ ‌‌‌‌ ‌‌‌
+                      >‌‌ ‌‌ ‌‌▸‌‌ ‌‌ ‌‌‌‌ ‌‌‌
                       </a>
 
                       <div
@@ -182,8 +183,8 @@ router.afterEach(() => {
   --navbar-height: 16vw;
   --navbar-max-height: 68px;
   --transition-time: 0.2s;
-  --linespace: 5vw;
-  --shadowspace: 10vw;
+  --linespace: 3vw;
+  --shadowspace: 6vw;
 
   a {
     cursor: pointer;
@@ -225,7 +226,7 @@ router.afterEach(() => {
       display: flex;
       cursor: pointer;
       stroke: var(--text-color);
-      padding-bottom: 0px;
+      padding-bottom: 0;
       position: relative;
       padding-left: 10px;
       padding-right: 10px;
@@ -339,7 +340,6 @@ router.afterEach(() => {
       }
 
       .menu {
-        display: flexbox;
         position: relative;
         height: 100%;
         left: 100%;
@@ -362,7 +362,6 @@ router.afterEach(() => {
 
             .sub-menu-toggle {
               cursor: pointer;
-              padding: auto;
               float: right;
               width: 15vw;
               margin-right: 1em;
