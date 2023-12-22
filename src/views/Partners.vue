@@ -76,7 +76,7 @@ const state = stateStore();
 }
 
 #main-partner {
-  margin: 0 auto 150px auto;
+  margin: 0 auto 6em auto;
 
   .details {
     display: grid;
@@ -86,6 +86,7 @@ const state = stateStore();
 
     @media screen and (max-width: #{$bp-tablet-md}) {
       grid-template-columns: 1fr;
+      gap: 0;
     }
 
     .description {

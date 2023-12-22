@@ -50,7 +50,7 @@ watch(route, (newRoute, oldRoute) => {
 }
 
 #partner {
-  margin: 50px auto;
+  margin: 2em auto;
 
   .details {
     display: grid;
@@ -60,6 +60,7 @@ watch(route, (newRoute, oldRoute) => {
 
     @media screen and (max-width: #{$bp-tablet-md}) {
       grid-template-columns: 1fr;
+      gap: 2em;
     }
 
     .partner-logo {
@@ -69,23 +70,6 @@ watch(route, (newRoute, oldRoute) => {
     .description {
       text-align: left;
     }
-  }
-}
-
-.partner {
-  margin: 50px auto 100px auto;
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 8%;
-  align-items: center;
-
-  .partner-logo {
-    height: fit-content;
-    width: 100%;
-  }
-
-  .description {
-    text-align: left;
   }
 }
 </style>
