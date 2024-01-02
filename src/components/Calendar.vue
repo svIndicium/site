@@ -112,6 +112,10 @@ function extractHourAndMinutes(timeString: string) {
 <template>
   <h2 class="title">Agenda</h2>
   <div class="events-container">
+    <p v-if="!visibleEvents.length">
+      Binnenkort zijn er nog geen activiteiten.
+      Voeg de kalender toe aan je agenda om up-to-date te blijven!
+    </p>
     <div class="event" v-for="event in visibleEvents" :key="event.id">
       <div class="date">
         <span class="day">{{ event.start.toLocaleDateString('nl', { day: 'numeric' }) }}</span>
