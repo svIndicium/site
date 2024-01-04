@@ -139,6 +139,48 @@
           "url": "https://careersbpmcompany.eu/vacature/pega-traineeship/?utm_source=referral&utm_medium=vacature&utm_campaign=recruitment"
         }
       ]
+    },
+    {
+      "slug": "young-coders",
+      "title": "Young_Coders",
+      "description": [
+        "Wij zijn Young_Coders. Dé springplank van jouw tech-carrière. Met ons maatwerk traineeship stomen wij je klaar voor zeer uitdagende functies in IT. In onze praktijkgerichte hard skills bootcamp leer je alle technische vaardigheden als aanvulling op jouw studie. Vervolgens breng je jouw kennis in de praktijk, ontwikkel je jouw soft skills en begeleiden wij je naar een vaste baan bij een opdrachtgever waar jij zelf voor kiest.",
+        "<h4>Wat kan ik worden?</h4>",
+        "Bij Young_Coders ben jij een Challenger. Je bent nieuwsgierig en leergierig. Wilt altijd uitgedaagd worden. Daarom noemen wij ons traineeship een Challengership. Onze Challengerships zijn maatwerkopleidingen. Dat betekent dat je wordt opgeleid voor een specifieke functie die bij jou past. Zo wordt jij een uitstekende professional in jouw vakgebied, terwijl je iedere dag iets nieuws leert.",
+        "<h4>Wat kan ik worden?</h4>",
+        "We hebben veel verschillende challengerships. Zo kun je bij ons…:",
+        "<ul> <li>High-tech back-end developer worden</li> <li>AI-developer worden</li> <li>Full-stack developer worden</li> <li>AI consultant worden</li> <li>IT consultant worden</li> <li>Data engineer worden</li> </ul>",
+        "Wij leiden op in o.a.: Python, C++, Java, JavaScript en verschillende low-code platformen en ERP-systemen.",
+        "<h4>Voordelen van het Challengership</h4>",
+        "<ul> <li><strong>Zekerheid</strong>: Je krijgt van ons direct een vast contract en conform salaris.</li> <li><strong>Maatwerk</strong>: Je krijgt een maatwerkopleiding specifiek voor jouw gekozen functie.</li> <li><strong>Persoonlijk</strong>: We werken kleinschalig en zoeken naar de beste match voor jou.</li>  <li><strong>Soft skills</strong>: Je krijgt van ons een uitgebreide soft skills training.</li> <li><strong>Lange termijn</strong>: we zoeken naar een opdrachtgever die een mooi carrièrepad voor je klaar heeft liggen.</li> </ul>"
+      ],
+      "imgUrl": "YOUNG_CODERS_Logo_Rood_light.png",
+      "imgUrlDark": "YOUNG_CODERS_Logo_Rood_dark.png",
+      "url": "https://youngcoders.nl/",
+      "jobOffers": [
+        {
+          "title": "Challengership",
+          "description": [
+            "Benieuwd of er een vacature openstaat die bij jou past? Bekijk dan onze vacatures om te kijken of er Challengerships open staan.",
+            "Het Challengership is ons IT-traineeship voor toptalenten. Word dé specialist in jouw vakgebied met onze Challengerships in o.a. software development, AI, Consultancy en data science.",
+            "Waarom noemen we dit een Challengership? Dat is omdat de tech-industrie eigenlijk één grote uitdaging is. Je wordt élke dag uitgedaagd en bent nooit klaar met leren. Daarom ben je bij ons geen trainee of junior. In ons Challengership ben jij een Challenger.",
+            "<h3>Dit kun je verwachten</h3>",
+            "<ul> <li><strong>Zekerheid</strong>: Je krijgt van ons direct een vast contract en conform salaris.</li> <li><strong>Persoonlijk</strong>: We werken kleinschalig en zoeken naar de beste match voor jou.</li> <li><strong>Maatwerk</strong>: Je krijgt een maatwerkopleiding specifiek voor jouw gekozen functie.</li> <li><strong>Soft skills</strong>: Je krijgt van ons een uitgebreide soft skills training.</li> <li><strong>Lange termijn</strong>: we zoeken naar een opdrachtgever die een mooi carrièrepad voor je klaar heeft liggen.</li> </ul>",
+            "<h4>Bootcamp</h4>",
+            "De start van een Challengership is een intensieve tech-bootcamp. Tijdens de bootcamp leer je design thinking, agile werken, IT-concepten en alle programmeertalen, tools en frameworks die je nodig hebt voor jouw tech-functie. Tijdens de bootcamp ga je ook al kennismaken met het werk bij jouw opdrachtgever. Je werkt parttime aan praktijkopdrachten bij je opdrachtgever en volgt parttime de bootcamp bij Young_Coders.",
+            "Na de bootcamp start ook jouw soft skills traject. Dit is een super leerzaam traject waarin je o.a. leert over feedback geven en ontvangen, communiceren, time management en groeiambities.",
+            "In het soft skills traject krijg je onder andere:",
+            "<ul> <li>Soft skills tweedaagse met overnachting;</li> <li>Individuele gesprekken en doelen;</li> <li>Soft skills oefeningen en training gedurende 5 maanden met elke maand een klassikale les.</li> </ul>",
+            "Het soft skills traject doorloop je dus na je bootcamp, terwijl je aan het werk bent bij jouw opdrachtgever.",
+            "Een Challengership kan 1 of 2 jaar duren en werkt altijd toe naar een vast dienstverband bij jouw opdrachtgever.",
+            "<h4>Instroomcriteria</h4>",
+            "Ieder Challengership heeft zijn eigen aanmeldcriteria, maar over het algemeen ziet een Challenger er als volgt uit.",
+            "<ul> <li>Hbo/ wo diploma in een bèta of technische richting;</li> <li>Ervaring met prorammeren;</li> <li>Recent afgesturdeerd;</li> <li>Vol energie om door te blijven leren na de studie.</li> </ul>",
+            "Benieuwd of er een vacature openstaat die bij jou past? Bekijk dan onze <a href=\"https://youngcoders.nl/it-carriere/vacatures/\">vacatures</a> om te kijken of er Challengerships open staan."
+          ],
+          "url": "https://youngcoders.nl/it-carriere/vacatures/"
+        }
+      ]
     }
   ]
 }
