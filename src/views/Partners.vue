@@ -76,7 +76,7 @@ const state = stateStore();
 }
 
 #main-partner {
-  margin: 0 auto 150px auto;
+  margin: 0 auto 6em auto;
 
   .details {
     display: grid;
@@ -86,6 +86,7 @@ const state = stateStore();
 
     @media screen and (max-width: #{$bp-tablet-md}) {
       grid-template-columns: 1fr;
+      gap: 0;
     }
 
     .description {
@@ -97,20 +98,20 @@ const state = stateStore();
 .partner {
   margin: 50px auto;
   max-width: 1600px;
-  display: grid;
-  grid-template-columns: 1fr 2fr;
+  display: flex;
   gap: 8%;
   align-items: center;
 
   .partner-logo {
-    max-width: 600px;
-    width: 100%;
+    max-width: 500px;
+    width: 30vw;
   }
 
   @media screen and (max-width: #{$bp-tablet-lg}) {
-    grid-template-columns: 1fr;
+    flex-wrap: wrap;
 
     .partner-logo {
+      width: 100%;
       max-width: 300px;
       margin: 0 auto;
     }
@@ -121,40 +122,34 @@ const state = stateStore();
   }
 }
 
-// TODO: flexbox or auto grid
 .regular-partners {
-  display: grid;
-  gap: 5em;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  gap: 3em;
   width: 95em;
   margin: 3em auto;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
 
   @media screen and (max-width: #{$bp-desktop-lg}) {
-    grid-template-columns: 1fr 1fr 1fr;
     width: 70em;
   }
 
   @media screen and (max-width: #{$bp-desktop-sm}) {
-    grid-template-columns: 1fr 1fr;
     width: 45em;
   }
 
   @media screen and (max-width: #{$bp-tablet-md}) {
-    grid-template-columns: 1fr;
     width: 20em;
+    gap: 0;
   }
 
   .regular-partner {
-    height: 20em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     width: 20em;
-    display: grid;
-    grid-auto-flow: row;
-    grid-template-rows: 1fr auto;
-    justify-content: flex-end;
 
     .partner-logo {
-      align-self: center;
-
       img {
         width: 20em;
       }

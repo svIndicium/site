@@ -36,7 +36,7 @@
 .job-offers-container {
   @media screen and (max-width: #{$bp-tablet-md}) {
     // TODO: Make job offers wider on narrow screens
-    margin-top: 6em;
+    margin: 3em auto;
   }
   .job-offers {
     .job-offer {
