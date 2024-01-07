@@ -10,8 +10,7 @@ export const stateStore = defineStore({
       theme: 'auto',
     },
     state: {
-      navLevel: 0, // 0 is closed
-      lastNavLevel: 1,
+      navLevel: 0,  // 0 is closed
     },
   }),
   actions: {
