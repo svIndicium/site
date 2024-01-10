@@ -1,7 +1,12 @@
 [
   { "name": "Website", "url": "/" },
   { "icon": "📋", "name": "Commissie Interesse", "url": "https://forms.gle/fVGrQf7KmZVH716WA" },
-{ "icon": "♣️", "name": "Pokernight", "url": "https://shop.ikbenaanwezig.nl/tickets/event/pokernight" },
+  {
+    "icon": "https://www.conclusion.nl/apple-touch-icon.png",
+    "name": "Lezing bij Conclusion",
+    "url": "https://forms.gle/LjeAihhZfxoeKr237"
+  },
+  { "icon": "♣️", "name": "Pokernight", "url": "https://shop.ikbenaanwezig.nl/tickets/event/pokernight" },
   { "icon": "📸", "name": "Instagram", "url": "https://www.instagram.com/svindicium/" },
   { "icon": "👥", "name": "Word Lid!", "url": "/lid-worden" },
   { "icon": "📄", "name": "Over Indicium", "url": "/over-indicium" },
