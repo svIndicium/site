@@ -40,7 +40,7 @@
         {
           "title": "IT Traineeship",
           "description": [
-            "<bHoe ziet het traineeship eruit?</b>",
+            "<b>Hoe ziet het traineeship eruit?</b>",
             "Je start het traineeship met een intensief IT-bootcamp van acht weken. Het IT-bootcamp wordt in een hybride vorm gegeven: deels op een centrale locatie in Nederland en deels via online thuisonderwijs. In het eerste deel van het bootcamp ga je gedurende drie weken aan de slag met fundamentele IT-onderwerpen zoals Agile & Scrum, networking, architectuur, security, modelleren, coderen, databases en cloud. Tijdens het tweede deel van het bootcamp, dat vijf weken duurt, kies je een specialisatie. Samen kijken we welke specialisatie het beste bij jou past. De verschillende specialisaties zijn:<ul><li>Data</li><li>DevOps Cloud</li><li>Software Development</li><li>Business & IT</li></ul>Persoonlijke ontwikkeling staat bij ons centraal, daarom volg je soft skills trainingen in onder andere mentale weerbaarheid, communicatie, feedback, samenwerken en beïnvloeden. Heb je het bootcamp doorlopen? Tijd voor het echte werk: aan de slag! Onze opdrachtgevers zijn verspreid over heel Nederland en variëren van mkb tot de top 200-bedrijven zoals Ahold Delhaize, PostNL, VDL, NN, Achmea, Alliander, Ordina, CJIB, Belastingdienst, UMC Utrecht en Erasmus MC. Samen gaan wij op zoek naar een interessante organisatie bij jou in de regio. Wij creëren de kansen, jij kiest de opdrachtgever die het beste bij jou past. Je stroomt in als trainee en wordt vanaf dag één begeleid door teamleden, collega's en Working Talent. Het uitgangspunt is dat je na 16 maanden in dienst treedt bij jouw opdrachtgever.",
             "<b>Dit vragen wij van jou:</b>",
             "<ul><li>Een afgeronde hbo- of wo-opleiding (een IT- of bèta studie is een pre)</li><li>Je bent initiatiefrijk, communicatief vaardig, analytisch en flexibel ingesteld</li><li>Vloeiende beheersing van de Nederlandse taal, in woord en geschrift</li></ul>",
@@ -176,9 +176,35 @@
             "<h4>Instroomcriteria</h4>",
             "Ieder Challengership heeft zijn eigen aanmeldcriteria, maar over het algemeen ziet een Challenger er als volgt uit.",
             "<ul> <li>Hbo/ wo diploma in een bèta of technische richting;</li> <li>Ervaring met prorammeren;</li> <li>Recent afgesturdeerd;</li> <li>Vol energie om door te blijven leren na de studie.</li> </ul>",
-            "Benieuwd of er een vacature openstaat die bij jou past? Bekijk dan onze <a href=\"https://youngcoders.nl/it-carriere/vacatures/\">vacatures</a> om te kijken of er Challengerships open staan."
+            "Benieuwd of er een vacature openstaat die bij jou past? Bekijk dan onze <a href=\"https://youngcoders.nl/it-carriere/vacatures/\" target=\"_blank\">vacatures</a> om te kijken of er Challengerships open staan."
           ],
           "url": "https://youngcoders.nl/it-carriere/vacatures/"
+        }
+      ]
+    },
+    {
+      "slug": "ortec",
+      "title": "ORTEC",
+      "description": [
+        "<b>About ORTEC</b>",
+        "We are ORTEC, a purpose-driven organization changing businesses and society at large through the power of data-driven mathematical optimization. We make businesses more efficient, more predictable and more effective. Turning complex challenges into easy-to-use solutions.",
+        "ORTEC's products and services result in optimized fleet routing and dispatch, vehicle and pallet loading, workforce scheduling, delivery forecasting, logistics network planning and warehouse control. ORTEC offers stand-alone, custom-made and SAP® certified and embedded solutions, supported by strategic partnerships.",
+        "We serve clients in almost every industry. And with 17 offices strategically located across 4 continents, we can deliver solutions on a global scale. Always underpinned by local know-how and service.",
+        "<b>Working at ORTEC</b>",
+        "ORTEC is an ambitious organization. Since our founding in 1981, we have grown to employ over 1000 people at locations in Europe, the United States, Australia and Brazil. Most of our employees began working with us after completing their studies. The average ORTEC employee has a technical master's or bachelor's degree, a strongly developed capacity for analytical thinking and the drive to understand problems and then to solve them. The company's organizational structure is flat, with short lines of communication. The atmosphere is open and informal, which forms an excellent basis for a productive working environment.",
+        "You are invited to attend social activities organized by our employees' association, and the Friday afternoon drinks in our own ORTap. Furthermore, an excursion for your department or ORTEC as a whole is organized annually, such as the Christmas breakfast or a barbecue at one of the founders' homes. And in addition to the (Young) Professionals Development Program, each month Young ORTEC organizes activities to help develop your talent, increase your knowledge and expand your network.",
+        "Get to know our people by clicking <a href=\"https://careers.ortec.com/peopleortec/\" target=\"_blank\">this link</a>, or discover more about our company by clikcing the link below"
+      ],
+      "imgUrl": "ORTEC.png",
+      "url": "https://ortec.com/",
+      "jobOffers": [
+        {
+          "title": "Students and starters",
+          "description": [
+            "We are always looking for ambitious students/starters who have affinity with IT, optimization and logistics. As a student you can do a graduation internship and as an graduate you can do an traineeship.",
+            "If you are interested in working at ORTEC, you can send your resume, motivation and grades list to <a href=\"mailto:recruitment@ortec.com\" target=\"_blank\">recruitment@ortec.com</a>. Give a clear indication about the period and specialization you are looking for in the (graduation) internship. For more information you can contact Anouk de Winter or Larissa Ravenhorst (Recruiters)."
+          ],
+          "url": "https://careers.ortec.com/"
         }
       ]
     }
