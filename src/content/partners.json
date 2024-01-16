@@ -196,6 +196,7 @@
         "Get to know our people by clicking <a href=\"https://careers.ortec.com/peopleortec/\" target=\"_blank\">this link</a>, or discover more about our company by clikcing the link below"
       ],
       "imgUrl": "ORTEC.png",
+      "imgUrlDark": "ORTEC.png",
       "url": "https://ortec.com/",
       "jobOffers": [
         {
