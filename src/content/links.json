@@ -1,12 +1,9 @@
 [
   { "name": "Website", "url": "/" },
   { "icon": "📋", "name": "Commissie Interesse", "url": "https://forms.gle/fVGrQf7KmZVH716WA" },
-  {
-    "icon": "https://www.conclusion.nl/apple-touch-icon.png",
-    "name": "Lezing bij Conclusion",
-    "url": "https://forms.gle/LjeAihhZfxoeKr237"
-  },
-  { "icon": "♣️", "name": "Pokernight", "url": "https://shop.ikbenaanwezig.nl/tickets/event/pokernight" },
+  { "icon": "✈️", "name": "Interesse peiling 2e reis", "url": "https://forms.gle/ZUpwbrt2x4GoK9vR9" },
+  { "icon": "🎤", "name": "Karaokeavond 2.0", "url": "https://shop.ikbenaanwezig.nl/tickets/event/karaokeavond-20"},
+  { "icon": "💕", "name": "Indicium X Avanti valentijnsborrel", "url": "https://shop.ikbenaanwezig.nl/tickets/event/valentijnsborrel"},
   { "icon": "📸", "name": "Instagram", "url": "https://www.instagram.com/svindicium/" },
   { "icon": "👥", "name": "Word Lid!", "url": "/lid-worden" },
   { "icon": "📄", "name": "Over Indicium", "url": "/over-indicium" },
