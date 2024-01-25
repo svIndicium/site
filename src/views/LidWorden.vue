@@ -64,22 +64,8 @@ else generateConfetti(locations, 400); // likely 8-core or more, 200 looks fine 
 <template>
   <ContentContainer>
     <h1>Aanmelden lidmaatschap INDICIUM</h1>
-    <details>
-      <summary>Lijst BIC codes</summary>
-      <p>ING: INGBNL2A</p>
-      <p>Rabobank: RABONL2U</p>
-      <p>Knab bank: KNABNL2H</p>
-      <p>Abn Amro: ABNANL2A</p>
-      <p>Bunq: BUNQNL2A</p>
-      <p>SNS: SNSBNL2A</p>
-      <p>Triodos: TRIONL2U</p>
-      <p>Asn Bank: ASNBNL21</p>
-      <p>Regiobank: RBRBNL21</p>
-    </details>
 
-    <div class="signupContainer">
-      <ConscriboForm/>
-    </div>
+    <ConscriboForm />
     <div>
       Gaat er iets niet helemaal goed? Geen zorgen,
       <a href="https://leden.conscribo.nl/svIndicium/aanmeldenlidmaatschap" target="_blank"
@@ -100,6 +86,7 @@ h1 {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  background-color: rgb(227, 227, 227);
 }
 
 details {
