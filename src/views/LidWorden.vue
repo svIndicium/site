@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import ContentContainer from '@/layouts/ContentContainer.vue';
+import ConscriboForm from '@/components/ConscriboForm.vue';
 import confetti from 'canvas-confetti';
 
 // takes a position and calculates the angle needed to point to the middle of the screen
@@ -77,10 +78,7 @@ else generateConfetti(locations, 400); // likely 8-core or more, 200 looks fine 
     </details>
 
     <div class="signupContainer">
-      <iframe
-        src="https://leden.conscribo.nl/svIndicium/aanmeldenlidmaatschap"
-        title="Lidmaadschap registratie"
-      ></iframe>
+      <ConscriboForm/>
     </div>
     <div>
       Gaat er iets niet helemaal goed? Geen zorgen,
