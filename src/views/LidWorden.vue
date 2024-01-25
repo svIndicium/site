@@ -86,7 +86,7 @@ h1 {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: rgb(227, 227, 227);
+  background-color: var(--panel-background);
 }
 
 details {

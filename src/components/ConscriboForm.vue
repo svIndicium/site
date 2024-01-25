@@ -61,6 +61,10 @@ document.head.appendChild(conscriboForm);
     color: red;
   }
 
+  .invalidValue {
+    border: 1px solid red;
+  }
+
   label {
     color: rgba(0, 0, 0, 0.54);
     font-size: 16px;
