@@ -78,69 +78,6 @@
   ],
   "regularPartners": [
     {
-      "slug": "bpm-company",
-      "title": "BPM Company",
-      "description": [
-        "BPM Company is een IT-organisatie en is gevestigd in Utrecht. Wij zijn gespecialiseerd in het automatiseren en optimaliseren van bedrijfsprocessen en doen dit inmiddels 12 jaar voor onze klanten. Meestal gaat het om end to end processen die meerdere afdelingen binnen een organisatie overstijgen, waardoor deze veel dynamiek en complexiteit kennen. ",
-        "Onze consultants hebben daardoor veel impact op de bedrijfsvoering van onze klanten binnen het top-500 segment zoals Rabobank, ING, Transavia, LeasePlan en De Mandemakers Groep. ",
-        "Lijkt je dit wat en wil je (uiteindelijk) graag carrière maken bij één van onze klanten (Detachering) of BPM Company (Consultancy), klik dan onderstaand voor meer informatie!"
-      ],
-      "imgUrl": "bpm-logo.png",
-      "imgUrlDark": "bpm-logo-white.png",
-      "url": "https://www.bpmcompany.eu",
-      "jobOffers": [
-        {
-          "title": "Traineeship (Detachering)",
-          "description": [
-            "De weg naar een carrière in Business Process Management & IT bij een van onze klanten uit de top-500 organisaties van Nederland",
-            "Krijg je energie van automatisering en optimalisatie en lijkt het je gaaf om impact te maken binnen een top-500 organisatie? Kijk dan zeker eens naar de vacature van ons traineeship!",
-            "Over BPM Company",
-            "BPM Company is een IT-organisatie en is gevestigd in Utrecht. Wij zijn gespecialiseerd in het automatiseren en optimaliseren van bedrijfsprocessen en doen dit inmiddels 12 jaar voor onze klanten. Meestal gaat het om end to end processen die meerdere afdelingen binnen een organisatie overstijgen, waardoor deze veel dynamiek en complexiteit kennen. ",
-            "Onze consultants hebben daardoor veel impact op de bedrijfsvoering van onze klanten binnen het top-500 segment zoals Rabobank, ING, Transavia en De Mandemakers Groep. ",
-            "We realiseren onze oplossingen doormiddel van het innovatieve software platform Pega. Een platform waarin je zowel visueel kunt modelleren (low code) als zelf functionaliteiten kunt bouwen (high code). Hierdoor heeft Pega eindeloze mogelijkheden en kunnen de applicaties bovendien snel gebouwd worden. ",
-            "Omdat we een duidelijke kwaliteitsvisie hebben besteden we veel aandacht aan de persoonlijke en technische ontwikkeling van onze collega's. Daarnaast vinden we het familiegevoel erg belangrijk en organiseren we, naast de wekelijkse vrijdagmiddagborrels \uD83D\uDE09, jaarlijks meerdere gezellige bedrijfsuitjes.",
-            "Het traineeship",
-            "Speciaal voor starters hebben wij in samenwerking met een aantal van onze klanten een traineeship ontwikkeld. Met dit traineeship willen we starters graag niet direct het diepe in gooien, maar juist de kans bieden om geleidelijk het werkveld in te groeien, met als uiteindelijke doel om carrière te maken in Business Process Management & IT bij een van onze klanten.",
-            "Het traineeship duurt 15 maanden, bestaat uit twee periodes, is onder onze begeleiding en is volledig betaald. In de eerste periode (2-3 maanden) leer je de theorie van Pega. Vervolgens ga je in de tweede periode (12 maanden) werken bij een van onze klanten, met als doel om te leren werken met Pega en de klant te leren kennen. Hierna is het traineeship voorbij en krijg je een vaste aanstelling bij die klant.",
-            "Welke klant dit is afhankelijk van jouw woonplaats. Het traineeship is ontwikkeld in samenwerking met de klanten Rabobank (Utrecht), Transavia (Amsterdam), LeasePlan (Amsterdam), MKB Brandstof (Rotterdam) en De Mandemakers Groep (Waalwijk)!",
-            "Dit breng jij mee",
-            "<ul><li>Afgeronde HBO/WO opleiding met IT component</li><li>Een absolute passie voor bedrijfsprocessen</li><li>Affiniteit met programmeren</li><li>Nederlands sprekend</li><li>Proactieve doorzetter die er met de volle 100% voor gaat</li></ul>",
-            "Dit verdien jij<ul><li>Volledig salaris vanaf dag 1</li><li>Hybride werkconstructie</li><li>NS Businesscard of kilometervergoeding</li><li>Aan de slag met gave technologie</li><li>Een uitgebreid onboardings programma compleet met certificeringen</li><li>Persoonlijk ontwikkelingsplan met tools en inhoudelijke begeleiding</li><li>Onderdeel van een projectteam waar je gelijk aan de slag kunt</li><li>Een vaste aanstelling met veel doorgroeimogelijkheden bij de klant</li></ul>",
-            "Lijkt dit je leuk? Laat het weten aan onze Talent Sourcer Sander van Suilichem via <a href=\"mailto:sander.vansuilichem@bpmcompany.eu\" target=\"_blank\">sander.vansuilichem@bpmcompany.eu</a> en wie weet word je binnenkort een van onze young professionals!",
-            "Kijk ook eens op onze website voor de vacaturepagina's!",
-            "<a href=\"https://careersbpmcompany.eu/vacature/pega-traineeship-rabobank/?utm_source=referral&utm_medium=vacature&utm_campaign=recruitment\" target=\"_blank\">Traineeship BPMC X Rabobank</a>",
-            "<a href=\"https://careersbpmcompany.eu/vacature/pega-traineeship-leaseplan/?utm_source=referral&utm_medium=vacature&utm_campaign=recruitment\" target=\"_blank\">Traineeship BPMC X LeasePlan</a>",
-            "<a href=\"https://careersbpmcompany.eu/vacature/pega-traineeship-mkb-brandstof/?utm_source=referral&utm_medium=vacature&utm_campaign=recruitment\" target=\"_blank\">Traineeship BPMC X MKB Brandstof</a>",
-            "<a href=\"https://careersbpmcompany.eu/vacature/pega-traineeship-dmg/?utm_source=referral&utm_medium=vacature&utm_campaign=recruitment\" target=\"_blank\">Traineeship BPMC X De Mandemakers Groep</a>",
-            "<a href=\"https://careersbpmcompany.eu/vacature/pega-traineeship-transavia/?utm_source=referral&utm_medium=vacature&utm_campaign=recruitment\" target=\"_blank\">Traineeship BPMC X Transavia</a>"
-          ],
-          "url": "https://careersbpmcompany.eu/vacature/pega-traineeship/?utm_source=referral&utm_medium=vacature&utm_campaign=recruitment"
-        },
-        {
-          "title": "Traineeship (Detachering)",
-          "description": [
-            "Een carrière in Business Process Management & IT in de wereld van consultancy",
-            "Krijg je energie van automatisering en optimalisatie, lijkt het je gaaf om impact te maken binnen verschillende top-500 organisaties en kijk je graag in verschillende keukens? Kijk dan zeker eens naar de vacature van ons traineeship!",
-            "Over BPM Company",
-            "BPM Company is een IT-organisatie en is gevestigd in Utrecht. Wij zijn gespecialiseerd in het automatiseren en optimaliseren van bedrijfsprocessen en doen dit inmiddels 12 jaar voor onze klanten. Meestal gaat het om end to end processen die meerdere afdelingen binnen een organisatie overstijgen, waardoor deze veel dynamiek en complexiteit kennen. ",
-            "Onze consultants hebben daardoor veel impact op de bedrijfsvoering van onze klanten binnen het top-500 segment zoals Rabobank, ING, Transavia, LeasePlan en De Mandemakers Groep. ",
-            "We realiseren onze oplossingen doormiddel van het innovatieve software platform Pega. Een platform waarin je zowel visueel kunt modelleren (low code) als zelf functionaliteiten kunt bouwen (high code). Hierdoor heeft Pega eindeloze mogelijkheden en kunnen de applicaties bovendien snel gebouwd worden. ",
-            "Omdat we een duidelijke kwaliteitsvisie hebben besteden we veel aandacht aan de persoonlijke en technische ontwikkeling van onze collega's. Daarnaast vinden we het familiegevoel erg belangrijk en organiseren we, naast de wekelijkse vrijdagmiddagborrels \uD83D\uDE09, jaarlijks meerdere gezellige bedrijfsuitjes.",
-            "Het traineeship",
-            "Als BPM Company zijn wij niet alleen opzoek naar de ervaren mensen maar bieden we ook starters graag een carrière. Hiervoor hebben we speciaal een traineeship ontwikkeld. ",
-            "Het traineeship duurt 15 maanden. De eerste drie maanden van het traineeship staan in het teken van het leren van de Pega theorie. Hiermee zul je a.d.h.v. zelfstudie en de begeleiding van onze Academy Manager de twee Pega certificaten behalen. Hierna ga je aan de slag en word je ingezet binnen een projectteam bij een van onze klanten. Als het project is afgerond (na ongeveer 1,5 jaar) word je vervolgens weer ingezet bij een ander project en/of klant. Zo maak je niet alleen carrière in Business Process Management & IT, maar word je ook consultant waarmee je bij verschillende organisaties een kijkje in de keuken zult nemen.",
-            "Na het traineeship ben je opgeleid tot System Architect, maar daarmee stopt het zeker niet. Gedurende jouw carrière bij BPM Company staat je ontwikkeling bovenaan. Met behulp van een persoonlijk kompas en de begeleiding van jouw Peoplemanager zul je jezelf (zowel persoonlijk als professioneel) door ontwikkelen. Hiermee kun je dan ook doorgroeien naar een rol die past bij jouw ambities!",
-            "Dit breng jij mee<ul><li>Afgeronde HBO/WO opleiding met IT component</li><li>Een absolute passie voor bedrijfsprocessen</li><li>Affiniteit met programmeren</li><li>Nederlands sprekend</li><li>Proactieve doorzetter die er met de volle 100% voor gaat</li></ul>",
-            "Dit verdien jij",
-            "<ul><li>Volledig salaris vanaf dag 1</li><li>Hybride werkconstructie</li><li>NS Businesscard of kilometervergoeding</li><li>Aan de slag met gave technologie</li><li>Een uitgebreid onboardings programma compleet met certificeringen</li><li>Persoonlijk ontwikkelingsplan met tools en inhoudelijke begeleiding</li><li>Onderdeel van een projectteam waar je gelijk aan de slag kunt</li><li>Een vaste aanstelling met veel doorgroeimogelijkheden</li></ul>",
-            "Lijkt dit je leuk? Laat het weten aan onze Talent Sourcer Sander van Suilichem via <a href=\"mailto:sander.vansuilichem@bpmcompany.eu\" target=\"_blank\">sander.vansuilichem@bpmcompany.eu</a> en wie weet word je binnenkort een van onze young professionals!",
-            "<a href=\"https://careersbpmcompany.eu/vacature/pega-traineeship/?utm_source=referral&utm_medium=vacature&utm_campaign=recruitment\" target=\"_blank\">Kijk ook eens op onze website voor de vacaturepagina!</a>"
-          ],
-          "url": "https://careersbpmcompany.eu/vacature/pega-traineeship/?utm_source=referral&utm_medium=vacature&utm_campaign=recruitment"
-        }
-      ]
-    },
-    {
       "slug": "young-coders",
       "title": "Young_Coders",
       "description": [
