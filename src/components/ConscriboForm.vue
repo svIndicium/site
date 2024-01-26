@@ -9,7 +9,13 @@ conscriboForm.async = true;
 
 document.head.appendChild(conscriboForm);
 
-// TODO: client-side checks
+// setTimeout(() => {
+//   console.log('owo');
+//   console.log(document.querySelector('.accountTable > tr:nth-child(2) > td:nth-child(2) > input[type=text]'));
+// }, 500);
+
+// function customFormCheckAndSubmit() {}
+// TODO:
 </script>
 
 <template>
@@ -21,11 +27,15 @@ document.head.appendChild(conscriboForm);
 //@import 'https://leden.conscribo.nl/common_resources/css/WebForm.css';
 
 .cwfForm {
-  background: #fff;
+  background: var(--root-background-color);
+  color: var(--text-color);
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   border-radius: 4px;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
-  padding: 20px;
+
+  width: 100%;
+  max-width: 1000px;
+  overflow-x: auto;
 
   table:first-of-type {
     width: 100%;
@@ -39,18 +49,12 @@ document.head.appendChild(conscriboForm);
       border-bottom: 1px solid rgba(224, 224, 224, 1);
     }
 
-    th {
-      color: rgba(0, 0, 0, 0.54);
-    }
-
     td {
-      color: rgba(0, 0, 0, 0.87);
-
       // Make checkboxes bigger and color them
       input[type='checkbox'] {
         width: fit-content;
         transform: scale(2); // Scale up the checkbox
-        margin: 20px 0;
+        margin: 20px 10px;
         vertical-align: middle;
         accent-color: #a3cf9b;
       }
@@ -103,6 +107,11 @@ document.head.appendChild(conscriboForm);
     border-radius: 4px;
     cursor: pointer;
     font-size: 16px;
+
+    /* &.submitButton {
+      display: none;
+    } */
+
     &:hover {
       background-color: darken(rgb(114, 201, 225), 10%);
     }
