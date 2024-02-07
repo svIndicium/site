@@ -1,48 +1,9 @@
 <script setup lang="ts">
+import { fetchConscriboFormAndInjectFix } from '@/utils/conscriboForm';
 
-fetch('https://leden.conscribo.nl/svindicium/jsForm/load/aanmeldenlidmaatschap_kopie/cwfForm')
-  .then((response) => response.text())
-  .then((data) => {
-    data = data.replace(
-      /if\(res\.bic\.length === 0\) \{([\s\S]*?)return false;/,
-      `
-\t\tif(res.bic.length === 0) {
-\t\t\treturn true;
-\t\t}
-\t\tif(res.name.length === 0) {
-\t\t\treturn true;
-\t\t}
-\t\treturn false;`);
+const conscriboFormUrl = 'https://leden.conscribo.nl/svindicium/jsForm/load/aanmeldenlidmaatschap_kopie/cwfForm'
 
-    data = data.replace(/proto\.toggleInvalidBic = function\(toggleValue\) \{([\s\S]*?)};/,
-    `proto.toggleInvalidBic = function(toggleValue) {
-\t\tthis._toggleInvalidOnElement(this.bicElement.ge(), toggleValue);
-\t}\n
-\tproto.toggleInvalidName = function(toggleValue) {
-\t\tthis._toggleInvalidOnElement(this.nameElement.ge(), toggleValue);
-\t};`
-    );
-
-    data = data.replace(/obj\.toggleInvalidBic\(false\);/,
-      `obj.toggleInvalidBic(false);
- \t\t\tobj.toggleInvalidName(false)`
-    );
-
-    data = data.replace(/obj\.toggleInvalidBic\(res\.bic\.length === 0\);/,
-      `obj.toggleInvalidBic(res.bic.length === 0);
-\t\t\tobj.toggleInvalidName(res.name.length === 0);`
-    );
-
-    console.log(data);
-
-    // creating a script element
-    let scriptElement = document.createElement('script');
-    scriptElement.innerHTML = data;
-
-    // appending the script element to the body of the web page
-    document.body.appendChild(scriptElement);
-  })
-  .catch((error) => console.warn('Error occurred: ', error));
+fetchConscriboFormAndInjectFix(conscriboFormUrl);
 </script>
 
 <template>
@@ -50,7 +11,7 @@ fetch('https://leden.conscribo.nl/svindicium/jsForm/load/aanmeldenlidmaatschap_k
 </template>
 
 <style lang="scss">
-// TODO: Dit is matig. Moeten we zelf mooi maken.
+// De CSS van Conscribo zelf, ter referentie.
 //@import 'https://leden.conscribo.nl/common_resources/css/WebForm.css';
 
 .cwfForm {
