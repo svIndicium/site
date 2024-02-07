@@ -3,6 +3,9 @@ export let fetchConscriboFormAndInjectFix = (src_url: string): void => {
     .then((response) => response.text())
     .then((formScript) => {
 
+      formScript = formScript.replace(/Telefoonnummer<\\[\s\S]*?;/,
+        "Telefoonnummer");
+
       formScript = formScript.replace(/proto\.toggleInvalidBic = function\(toggleValue\) \{([\s\S]*?)};/,
         (match) => `${match}
   \tproto.toggleInvalidName = function(toggleValue) {
