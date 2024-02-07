@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { fetchConscriboFormAndInjectFix } from '@/utils/conscriboForm';
 
-const conscriboFormUrl = 'https://leden.conscribo.nl/svindicium/jsForm/load/aanmeldenlidmaatschap_kopie/cwfForm'
+const conscriboFormUrl = 'https://leden.conscribo.nl/svindicium/jsForm/load/aanmeldenlidmaatschap_kopie/cwfForm';
 
 fetchConscriboFormAndInjectFix(conscriboFormUrl);
 </script>
@@ -46,6 +46,13 @@ fetchConscriboFormAndInjectFix(conscriboFormUrl);
         vertical-align: middle;
         accent-color: #a3cf9b;
       }
+    }
+  }
+
+  .date-input-container {
+    background-color: var(--root-background-color);
+    .calendarTable {
+      color: black; // doesn't allow theming
     }
   }
 
