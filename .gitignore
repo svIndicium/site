@@ -26,3 +26,6 @@ tsconfig.node.tsbuildinfo
 
 # Firebase
 .firebase/
+
+# Sentry Config File
+.env.sentry-build-plugin
