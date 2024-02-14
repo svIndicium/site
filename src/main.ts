@@ -117,8 +117,27 @@ const app = createApp(App);
 
 // Init sentry after createApp(App) and before app.use(router);
 Sentry.init({
+  app,
   dsn: 'https://2bfb847cd3d1d790b53925093b61a8f5@o4506729777594368.ingest.sentry.io/4506729846996992', // DSN is a public token!
-  integrations: [],
+  integrations: [
+    // Add browser profiling integration to the list of integrations
+    Sentry.browserTracingIntegration(),
+    Sentry.browserProfilingIntegration(),
+  ],
+
+  // Set tracesSampleRate to 1.0 to capture 100%
+  // of transactions for performance monitoring.
+  // We recommend adjusting this value in production
+  tracesSampleRate: 1.0,
+  // Set `tracePropagationTargets` to control for which URLs distributed tracing should be enabled
+  tracePropagationTargets: ['localhost', /^https:\/\/svindicium\.nl\/api/],
+
+  // Set profilesSampleRate to 1.0 to profile every transaction.
+  // Since profilesSampleRate is relative to tracesSampleRate,
+  // the final profiling rate can be computed as tracesSampleRate * profilesSampleRate
+  // For example, a tracesSampleRate of 0.5 and profilesSampleRate of 0.5 would
+  // results in 25% of transactions being profiled (0.5*0.5=0.25)
+  profilesSampleRate: 1.0,
 });
 
 // Make sure to _use_ the router instance to make the

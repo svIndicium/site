@@ -7,7 +7,13 @@ import { fileURLToPath, URL } from 'url';
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
-    vue(),
+    vue({
+      template: {
+        compilerOptions: {
+          isCustomElement: (tag) => ['add-to-calendar-button'].includes(tag),
+        },
+      },
+    }),
     svgLoader({
       defaultImport: 'component',
     }),
