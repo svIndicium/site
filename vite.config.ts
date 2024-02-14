@@ -1,3 +1,4 @@
+import { sentryVitePlugin } from '@sentry/vite-plugin';
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import svgLoader from 'vite-svg-loader';
@@ -9,6 +10,10 @@ export default defineConfig({
     vue(),
     svgLoader({
       defaultImport: 'component',
+    }),
+    sentryVitePlugin({
+      org: 'indiciun-it', // TODO verander naar sv-indicium zodra support heeft geantwoord.
+      project: 'frontend',
     }),
   ],
   resolve: {
@@ -25,5 +30,6 @@ export default defineConfig({
         assetFileNames: `assets/[name].[ext]`,
       },
     },
+    sourcemap: true,
   },
 });

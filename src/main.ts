@@ -5,6 +5,10 @@ import piniaPluginPersistedstate from 'pinia-plugin-persistedstate';
 import App from './App.vue';
 import 'viewerjs/dist/viewer.css';
 import VueViewer from 'v-viewer';
+
+// Sentry production error logger.
+import * as Sentry from '@sentry/vue';
+
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app';
 import { getAnalytics } from 'firebase/analytics';
@@ -74,7 +78,7 @@ const router = createRouter({
       component: LidWorden,
       beforeEnter: (to, from, next) => {
         if (isMobile) {
-        // before enter is used so the page doesn't flicker on mobile
+          // before enter is used so the page doesn't flicker on mobile
           window.location.replace('https://leden.conscribo.nl/svIndicium/aanmeldenlidmaatschap');
         } else {
           next();
@@ -110,6 +114,13 @@ const router = createRouter({
 });
 
 const app = createApp(App);
+
+// Init sentry after createApp(App) and before app.use(router);
+Sentry.init({
+  dsn: 'https://2bfb847cd3d1d790b53925093b61a8f5@o4506729777594368.ingest.sentry.io/4506729846996992', // DSN is a public token!
+  integrations: [],
+});
+
 // Make sure to _use_ the router instance to make the
 // whole app router-aware.
 app.use(router);
