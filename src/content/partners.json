@@ -1,21 +1,23 @@
 {
   "mainPartner": {
-    "slug": "4ng",
-    "title": "PossibilIT",
+    "slug": "conclusion",
+    "title": "Conclusion",
     "description": [
-      "Wij zijn PossibilIT, part of 4NG. Wij zijn dé expert in Subscription Management, leggen iedere integratie en optimaliseren al jouw CRM-processen!",
-      "4NG is één netwerk met 10 bureaus. Elk bureau heeft zijn eigen expertise, en zo pakken wij samen alle facetten van de digitale klantreis en gebruikerservaring aan. Waar de uitdaging ook ligt. 4NG opereert binnen drie domeinen, digital strategy, development & data en performance marketing & growth. Met een groep van meer dan 350 gepassioneerde professionals realiseert 4NG digitale ambities van organisaties."
-    ],
-    "imgUrl": "PossibilIT.png",
-    "imgUrlDark": "possibility-logo.png",
-    "url": "https://www.possibilit.nl/",
+      "<a href=https://www.conclusion.nl/ target=\"_blank\">Conclusion</a> is een uniek ecosysteem voor Business Transformatie en IT Services met meer dan 25 zelfstandige bedrijven en circa 2.500 collega’s.",
+      "Bij Conclusion werk je samen met andere specialisten aan betekenisvolle, innovatieve en impactvolle projecten. Dat doe je met je collega’s, maar ook met de andere bedrijven binnen ons ecosysteem. Door onze expertise te bundelen en samen te werken zijn we van toegevoegde waarde voor onze klanten, of dat nu start-ups, groeiers of gerenommeerde organisaties zijn."
+      ],
+    "imgUrl": "CONCLUSION_RAINB_RGB_LOGO.jpg",
+    "imgUrlDark": "CONCLUSION_RAINB_RGB_LOGO.jpg",
+    "url": "https://www.conclusion.nl/",
     "jobOffers": [
       {
-        "title": "Altijd op zoek",
+        "title": "Onze drive",
         "description": [
-          "4NG is altijd op zoek naar nieuw talent! Neem een kijkje op onze website en wie weet staat jouw droombaan ertussen."
+          "Als je mensen hoort praten over hun samenwerking met Conclusion dan gebruiken ze al snel termen als ‘anders’, ‘opvallend’ en ‘ongebruikelijk’. Dat komt niet alleen door onze andere aanpak in partnerships, maar juist ook door onze mensen. Ons onderscheid zit in de natuurlijke drive van onze mensen om voor elk probleem tot de beste oplossing te komen. Omdat het kan. Omdat het erin zit. Omdat het eruit moet.",
+          "Wij geloven dat je moet doen waar je goed in bent, vanuit je eigen kracht en expertise. Wil jij ook vertrouwen voelen en vrijheid krijgen om het op jouw manier te doen?",
+          "Check <a href=https://www.conclusion.nl/werken-bij target=\"_blank\">hier</a> onze website voor openstaande vacatures en verhalen van oud-stagiairs en trainees."
         ],
-        "url": "https://werkenbij.4ng.nl/"
+        "url": "https://www.conclusion.nl/werken-bij"
       }
     ]
   },
