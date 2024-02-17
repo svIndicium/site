@@ -3,9 +3,10 @@
     "slug": "conclusion",
     "title": "Conclusion",
     "description": [
-      "<a href=https://www.conclusion.nl/ target=\"_blank\">Conclusion</a> is een uniek ecosysteem voor Business Transformatie en IT Services met meer dan 25 zelfstandige bedrijven en circa 2.500 collega’s.",
+      "<style>.iframe-container { position: relative; width: 100%; padding-top: 56.25%; overflow: hidden; }.iframe-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class=\"iframe-container button rounded primary\"><iframe src=\"https://www.youtube.com/embed/pZiwVWIBASA?autoplay=1&mute=1\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe></div>",
+      "<a href=\"https://www.conclusion.nl/\" target=\"_blank\">Conclusion</a> is een uniek ecosysteem voor Business Transformatie en IT Services met meer dan 25 zelfstandige bedrijven en circa 2.500 collega’s.",
       "Bij Conclusion werk je samen met andere specialisten aan betekenisvolle, innovatieve en impactvolle projecten. Dat doe je met je collega’s, maar ook met de andere bedrijven binnen ons ecosysteem. Door onze expertise te bundelen en samen te werken zijn we van toegevoegde waarde voor onze klanten, of dat nu start-ups, groeiers of gerenommeerde organisaties zijn."
-      ],
+    ],
     "imgUrl": "CONCLUSION_RAINB_RGB_LOGO.jpg",
     "imgUrlDark": "CONCLUSION_RAINB_RGB_LOGO.jpg",
     "url": "https://www.conclusion.nl/",
