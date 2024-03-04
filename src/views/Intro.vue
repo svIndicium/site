@@ -4,7 +4,7 @@ import ContentContainer from '@/layouts/ContentContainer.vue';
 
 <template>
   <ContentContainer>
-    <img :src="'/assets/images/intro2022.jpeg'" alt="'Intro'" />
+    <img :src="'/assets/images/intro2022.webp'" alt="'Intro'" />
 
     <h1 class="big-title">Intro​duct​ie​kamp 2024</h1>
 

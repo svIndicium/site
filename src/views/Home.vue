@@ -11,7 +11,7 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel';
 import { mainPartner, premiumPartners, regularPartners } from '@/content/partners.json';
 import { stateStore } from '@/stores/state';
 const state = stateStore();
-const images = ['/assets/images/DSC_2456.JPG', '/assets/images/DSC_3982.JPG', '/assets/images/Introkamp-53.jpg'];
+const images = ['/assets/images/DSC_2456.webp', '/assets/images/DSC_3982.webp', '/assets/images/Introkamp-53.webp'];
 
 function gotoPartners() {
   window.location.href = '/partners';
