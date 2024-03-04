@@ -3,7 +3,7 @@ import ContentContainer from '@/layouts/ContentContainer.vue';
 import 'vue3-carousel/dist/carousel.css';
 import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel';
 
-const images = ['/assets/images/Karten-20.jpg', '/assets/images/Poolen-12.jpg', '/assets/images/DSC_2852.JPG'];
+const images = ['/assets/images/Karten-20.webp', '/assets/images/Poolen-12.webp', '/assets/images/DSC_2852.webp'];
 </script>
 
 <template>
