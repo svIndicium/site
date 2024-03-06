@@ -1,15 +1,16 @@
 <script setup lang="ts">
-  defineProps(['partner']);
+defineProps(['partner']);
 
-  function expandJobOffer(event: MouseEvent) {
-    const target = event.target as HTMLElement;
-    target.parentElement!.classList.toggle('open');
-  }
+function expandJobOffer(event: MouseEvent) {
+  const target = event.target as HTMLElement;
+  target.parentElement!.classList.toggle('open');
+}
 </script>
 
 <template>
   <div v-if="partner.jobOffers.length > 0" class="job-offers-container">
-    <h2>Vacatures bij {{ partner.title }}</h2>
+    <!-- Conclusion, hoofdpartner, wilt persee "werken bij" voor hun pagina -->
+    <h2>{{ partner.title == 'Conclusion' ? 'Werken bij' : 'Vacatures bij' }} {{ partner.title }}</h2>
     <div class="job-offers container">
       <div class="job-offer" v-for="jobOffer in partner.jobOffers">
         <h3 class="job-offer-title" @click="expandJobOffer">{{ jobOffer.title }}</h3>
