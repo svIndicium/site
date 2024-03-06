@@ -24,38 +24,6 @@
   },
   "premiumPartners": [
     {
-      "slug": "working-talent",
-      "title": "Working Talent",
-      "description": [
-        "<b>Een IT-traineeship bij Working Talent</b>",
-        "Jij weet dat je het in je hebt om succesvol te worden in de wereld van IT en bent nog niet uitgeleerd. Dan is een IT-traineeship van Working Talent dé way to go. In het IT-traineeship leg jij de verbinding tussen jouw studie en de arbeidsmarkt. Vanaf dag één ga jij werken met innovatieve technieken en tools, zodat jij vol vertrouwen start bij één van onze opdrachtgevers.",
-        "<b>Welke IT-traineeships kun je bij ons volgen?</b>",
-        "Onze IT-traineeships starten met een intensief bootcamp. In dit bootcamp richt jij je de eerste drie weken op de IT-fundamentals. Hierna ga jij je vijf weken lang specialiseren in een door jou gekozen richting die past bij jouw profiel. Denk aan: - Data - Software Development - DevOps Cloud - Business & IT (o.a. Applicatiebeheer, Low Code Development, Information Security)",
-        "<b>Na het bootcamp? Aan de slag!</b>",
-        "Onze opdrachtgevers zijn verspreid over heel Nederland en variëren van mkb tot de top 200-bedrijven. Samen gaan wij op zoek naar een interessante organisatie bij jou in de regio. Starten met werken kan in het begin even wennen zijn. Wij helpen je daarbij. Wij zorgen dat de interne begeleiding bij de opdrachtgever goed geregeld is. Groei en werkplezier staan bij ons centraal!",
-        "Wil je meer weten over Working Talent, de mogelijkheden die wij aanbieden of heb je andere vragen? Neem dan gerust contact op!",
-        "<a href=https://www.youtube.com/watch?v=OOu2Q2Vsyqw target=\"_blank\">Bekijk ook deze video</a>"
-      ],
-      "imgUrl": "working-talent.png",
-      "imgUrlDark": "wt-logo-white.png",
-      "url": "https://www.workingtalent.nl/",
-      "jobOffers": [
-        {
-          "title": "IT Traineeship",
-          "description": [
-            "<b>Hoe ziet het traineeship eruit?</b>",
-            "Je start het traineeship met een intensief IT-bootcamp van acht weken. Het IT-bootcamp wordt in een hybride vorm gegeven: deels op een centrale locatie in Nederland en deels via online thuisonderwijs. In het eerste deel van het bootcamp ga je gedurende drie weken aan de slag met fundamentele IT-onderwerpen zoals Agile & Scrum, networking, architectuur, security, modelleren, coderen, databases en cloud. Tijdens het tweede deel van het bootcamp, dat vijf weken duurt, kies je een specialisatie. Samen kijken we welke specialisatie het beste bij jou past. De verschillende specialisaties zijn:<ul><li>Data</li><li>DevOps Cloud</li><li>Software Development</li><li>Business & IT</li></ul>Persoonlijke ontwikkeling staat bij ons centraal, daarom volg je soft skills trainingen in onder andere mentale weerbaarheid, communicatie, feedback, samenwerken en beïnvloeden. Heb je het bootcamp doorlopen? Tijd voor het echte werk: aan de slag! Onze opdrachtgevers zijn verspreid over heel Nederland en variëren van mkb tot de top 200-bedrijven zoals Ahold Delhaize, PostNL, VDL, NN, Achmea, Alliander, Ordina, CJIB, Belastingdienst, UMC Utrecht en Erasmus MC. Samen gaan wij op zoek naar een interessante organisatie bij jou in de regio. Wij creëren de kansen, jij kiest de opdrachtgever die het beste bij jou past. Je stroomt in als trainee en wordt vanaf dag één begeleid door teamleden, collega's en Working Talent. Het uitgangspunt is dat je na 16 maanden in dienst treedt bij jouw opdrachtgever.",
-            "<b>Dit vragen wij van jou:</b>",
-            "<ul><li>Een afgeronde hbo- of wo-opleiding (een IT- of bèta studie is een pre)</li><li>Je bent initiatiefrijk, communicatief vaardig, analytisch en flexibel ingesteld</li><li>Vloeiende beheersing van de Nederlandse taal, in woord en geschrift</li></ul>",
-            "<b>Wat bieden wij jou?</b>",
-            "Jij staat bij ons centraal en krijgt dan ook volop de aandacht die jij verdient. Working Talent kenmerkt zich dan ook door een persoonsgerichte benadering. Én wat nog meer?",
-            "<ul><li>Een traineeship van 1,5 jaar met een contract voor onbepaalde tijd</li><li>Na 16 maanden treed je in dienst bij de opdrachtgever en ontvang je een goede upgrade in salaris</li><li>Diverse erkende certificaten en soft skills trainingen</li><li>Toegang tot een digitale leeromgeving gedurende het traineeship</li><li>Goede secundaire arbeidsvoorwaarden, zoals: 25 vakantiedagen, 8,33% vakantiegeld, een reiskostenvergoeding en een pensioenopbouw</li></ul>"
-          ],
-          "url": "https://workingtalent.nl/vacatures/it-traineeship-4-september-2023"
-        }
-      ]
-    },
-    {
       "slug": "yer",
       "title": "YER",
       "description": [
