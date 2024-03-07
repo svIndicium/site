@@ -1,8 +1,6 @@
 [
   { "name": "Website", "url": "/" },
   { "icon": "📋", "name": "Commissie Interesse", "url": "https://forms.gle/fVGrQf7KmZVH716WA" },
-  { "icon": "🪩", "name": "Indicium X Avanti valentijnsfeest", "url": "https://eventix.shop/uzrqx8yb  "},
-  { "icon": "🍻", "name": "Bierproeverij vandeStreek", "url": "https://forms.gle/ZUpwbrt2x4GoK9vR9" },
   { "icon": "📸", "name": "Instagram", "url": "https://www.instagram.com/svindicium/" },
   { "icon": "👥", "name": "Word Lid!", "url": "/lid-worden" },
   { "icon": "/assets/icons/discord.ico", "name": "Discord", "url": "/discord" },
