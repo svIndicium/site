@@ -11,30 +11,38 @@ const state = stateStore();
     <h1>Partners</h1>
     <div id="main-partner" class="container">
       <div class="details">
-        <img
-          class="partner-logo"
-          :src="
-            '/assets/partners/' +
-            (state.darkModeActive && mainPartner.imgUrlDark ? mainPartner.imgUrlDark : mainPartner.imgUrl)
-          "
-          :alt="'Logo' + mainPartner.title"
-        />
+        <a :href="mainPartner.url" target="_blank">
+          <img
+            class="partner-logo"
+            :src="
+              '/assets/partners/' +
+              (state.darkModeActive && mainPartner.imgUrlDark ? mainPartner.imgUrlDark : mainPartner.imgUrl)
+            "
+            :alt="'Logo' + mainPartner.title"
+          />
+        </a>
         <div class="description">
           <h3>Hoofdpartner: {{ mainPartner.title }}</h3>
           <p v-for="paragraph in mainPartner.description" v-html="paragraph"></p>
-          <RouterLink class="readMore button primary rounded" :to="'/partners/' + mainPartner.slug">Meer weten?</RouterLink>
+          <RouterLink class="readMore button primary rounded" :to="'/partners/' + mainPartner.slug"
+            >Meer weten?</RouterLink
+          >
         </div>
       </div>
-      <JobOffers :partner="mainPartner"/>
+      <JobOffers :partner="mainPartner" />
     </div>
     <hr class="dashed-line" />
     <h1>Premium partners</h1>
     <div class="partner" v-for="partner in premiumPartners">
-      <img
-        class="partner-logo"
-        :src="'/assets/partners/' + (state.darkModeActive && partner.imgUrlDark ? partner.imgUrlDark : partner.imgUrl)"
-        :alt="'Logo' + partner.title"
-      />
+      <a :href="partner.url" target="_blank">
+        <img
+          class="partner-logo"
+          :src="
+            '/assets/partners/' + (state.darkModeActive && partner.imgUrlDark ? partner.imgUrlDark : partner.imgUrl)
+          "
+          :alt="'Logo' + partner.title"
+        />
+      </a>
       <div class="details">
         <h3>{{ partner.title }}</h3>
         <p v-for="paragraph in partner.description" class="description" v-html="paragraph"></p>
@@ -46,15 +54,17 @@ const state = stateStore();
     <div class="regular-partners">
       <div class="regular-partner" v-for="partner in regularPartners">
         <RouterLink :to="'/partners/' + partner.slug" class="partner-logo">
-          <img
-            :src="
-              '/assets/partners/' + (state.darkModeActive && partner.imgUrlDark ? partner.imgUrlDark : partner.imgUrl)
-            "
-            :alt="'Logo' + partner.title"
-          />
+          <a :href="partner.url" target="_blank">
+            <img
+              :src="
+                '/assets/partners/' + (state.darkModeActive && partner.imgUrlDark ? partner.imgUrlDark : partner.imgUrl)
+              "
+              :alt="'Logo' + partner.title"
+            />
+          </a>
         </RouterLink>
-        <RouterLink class="readMore button primary rounded indi-green-1"
-                    :to="'/partners/' + partner.slug">{{partner.title }}
+        <RouterLink class="readMore button primary rounded indi-green-1" :to="'/partners/' + partner.slug"
+          >{{ partner.title }}
         </RouterLink>
       </div>
     </div>

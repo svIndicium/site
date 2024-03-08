@@ -25,19 +25,21 @@ watch(route, (newRoute, oldRoute) => {
     <h1>{{ partner.title }}</h1>
     <div id="partner" class="container">
       <div class="details">
-        <img
-          class="partner-logo"
-          :src="
-            '/assets/partners/' + (state.darkModeActive && partner.imgUrlDark ? partner.imgUrlDark : partner.imgUrl)
-          "
-          :alt="'Logo' + partner.title"
-        />
+        <a :href="partner.url" target="_blank">
+          <img
+            class="partner-logo"
+            :src="
+              '/assets/partners/' + (state.darkModeActive && partner.imgUrlDark ? partner.imgUrlDark : partner.imgUrl)
+            "
+            :alt="'Logo' + partner.title"
+          />
+        </a>
         <div class="description">
           <p v-for="paragraph in partner.description" v-html="paragraph"></p>
           <a v-if="partner.url" class="button primary rounded" :href="partner.url" target="_blank">Lees meer</a>
         </div>
       </div>
-      <JobOffers :partner="partner"/>
+      <JobOffers :partner="partner" />
     </div>
   </ContentContainer>
   <FourOFour v-else />
