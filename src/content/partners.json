@@ -119,6 +119,20 @@
       ]
     },
     {
+      "slug": "carrierebeurs",
+      "title": "IT Carrièrebeurs",
+      "description": [
+        "<strong>De IT Carrièrebeurs: hét IT carrière-event van 2024!</strong>",
+        "<p>Op 22 &amp; 23 maart is de RAI Amsterdam voor de 26e keer omgetoverd tot een carrière-walhalla. Ben jij student, starter of (young) professional en wil jij je oriënteren op de arbeidsmarkt, je (nieuwe) droombaan vinden in de IT sector en/of oneindig netwerken? Daar is De IT Carrièrebeurs dé plek voor.</p>",
+        "<p>Ontmoet op de 26e editie ruim 300 topwerkgevers, zoals onder andere Ordina, Calco, ChipSoft, Tesla, ProRail en CGI en verdiep je kennis bij één (of zoveel je wilt) van de 100 vakinhoudelijke workshops. Laat tussen het netwerken door je CV checken door één van de professionals en sluit je dag af met een gloednieuwe foto voor op je LinkedIn pagina, gemaakt door een ervaren fotograaf.</p>",
+        "<p>Download je <a href='https://www.carrierebeurs.nl/branchecongressen?branche=636' target='_blank'>gratis e-ticket</a> voor De IT Carrièrebeurs via <a href='https://www.carrierebeurs.nl/branchecongressen?branche=636' target='_blank'>itcarrierebeurs.nl</a> of download de <a href='https://apps.apple.com/us/app/carri%C3%A8rebeurs/id1611311433' target='_blank'>Carrièrebeurs app</a>.</p>"
+      ],
+      "imgUrl": "carrierebeurs_kleur.png",
+      "imgUrlDark": "carrierebeurs_dark.png",
+      "url": "https://www.carrierebeurs.nl/branchecongressen?branche=636",
+      "jobOffers": []
+    },
+    {
       "slug": "ortec",
       "title": "ORTEC",
       "description": [
