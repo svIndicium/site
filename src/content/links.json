@@ -1,8 +1,10 @@
 [
   { "name": "Website", "url": "/" },
-  { "icon": "📋", "name": "Commissie Interesse", "url": "https://forms.gle/fVGrQf7KmZVH716WA" },
+  { "icon": "👯", "name": "Verenigingsfeest", "url": "https://eventix.shop/27k4srrz" },
+  { "icon": "🧠", "name": "Pubquiz", "url": "https://shop.ikbenaanwezig.nl/tickets/event/pubquiz-borrel" },
   { "icon": "📸", "name": "Instagram", "url": "https://www.instagram.com/svindicium/" },
   { "icon": "👥", "name": "Word Lid!", "url": "/lid-worden" },
+  { "icon": "📋", "name": "Commissie Interesse", "url": "https://forms.gle/fVGrQf7KmZVH716WA" },
   { "icon": "/assets/icons/discord.ico", "name": "Discord", "url": "/discord" },
   { "icon": "📄", "name": "Over Indicium", "url": "/over-indicium" },
   { "icon": "🐱", "name": "GitHub", "url": "https://github.com/svIndicium/" },
