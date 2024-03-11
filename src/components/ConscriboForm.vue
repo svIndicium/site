@@ -46,6 +46,30 @@ fetchConscriboFormAndInjectFix(conscriboFormUrl);
         vertical-align: middle;
         accent-color: #a3cf9b;
       }
+
+      .mainContainer {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        .inputLabel {
+          order: 1;
+          margin-right: 10px;
+        }
+        
+        .inputLabel:not(:first-child)::before {
+          content: " / ";
+          margin-right: 5px;
+        }
+        
+        .inputDivWithLabel {
+          display: flex;
+          flex-direction: row;
+          align-items: right;
+          order: 2;
+          margin-left: 10px;
+        }
+      }
     }
   }
 
