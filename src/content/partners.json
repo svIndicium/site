@@ -49,6 +49,17 @@
   ],
   "regularPartners": [
     {
+      "slug": "dressme",
+      "title": "Dress Me",
+      "description": [
+        ""
+      ],
+      "imgUrl": "DressMe_Light.png",
+      "imgUrlDark": "DressMe_Dark.png",
+      "url": "https://dressme.nl/",
+      "jobOffers": []
+    },
+    {
       "slug": "chipsoft",
       "title": "ChipSoft",
       "description": [
