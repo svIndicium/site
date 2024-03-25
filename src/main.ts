@@ -5,11 +5,26 @@ import piniaPluginPersistedstate from 'pinia-plugin-persistedstate';
 import App from './App.vue';
 import 'viewerjs/dist/viewer.css';
 import VueViewer from 'v-viewer';
+
+// Sentry production error logger.
+import * as Sentry from '@sentry/vue';
+
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app';
 import { getAnalytics } from 'firebase/analytics';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
+
+// Vuetify
+import 'vuetify/styles';
+import { createVuetify } from 'vuetify';
+import * as components from 'vuetify/components';
+import * as directives from 'vuetify/directives';
+
+const vuetify = createVuetify({
+  components,
+  directives,
+});
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -68,11 +83,7 @@ const router = createRouter({
     { name: 'Home', path: '/', component: Home },
     // { name: 'Activiteiten', path: '/activiteiten', component: Activiteiten },
     { name: 'Over Indicium', path: '/over-indicium', component: OverIndicium },
-    {
-      name: 'Lid Worden',
-      path: '/lid-worden',
-      component: LidWorden,
-    },
+    { name: 'Lid Worden', path: '/lid-worden', component: LidWorden },
     { name: 'Bestuur', path: '/bestuur', component: Bestuur },
     { name: 'Intro', path: '/intro', component: Intro },
     { name: 'Oud Bestuur', path: '/besturen', component: Besturen },
@@ -102,6 +113,32 @@ const router = createRouter({
 });
 
 const app = createApp(App);
+
+// Init sentry after createApp(App) and before app.use(router);
+Sentry.init({
+  app,
+  dsn: 'https://2bfb847cd3d1d790b53925093b61a8f5@o4506729777594368.ingest.sentry.io/4506729846996992', // DSN is a public token!
+  integrations: [
+    // Add browser profiling integration to the list of integrations
+    Sentry.browserTracingIntegration(),
+    Sentry.browserProfilingIntegration(),
+  ],
+
+  // Set tracesSampleRate to 1.0 to capture 100%
+  // of transactions for performance monitoring.
+  // We recommend adjusting this value in production
+  tracesSampleRate: 1.0,
+  // Set `tracePropagationTargets` to control for which URLs distributed tracing should be enabled
+  tracePropagationTargets: ['localhost', /^https:\/\/svindicium\.nl\/api/],
+
+  // Set profilesSampleRate to 1.0 to profile every transaction.
+  // Since profilesSampleRate is relative to tracesSampleRate,
+  // the final profiling rate can be computed as tracesSampleRate * profilesSampleRate
+  // For example, a tracesSampleRate of 0.5 and profilesSampleRate of 0.5 would
+  // results in 25% of transactions being profiled (0.5*0.5=0.25)
+  profilesSampleRate: 1.0,
+});
+
 // Make sure to _use_ the router instance to make the
 // whole app router-aware.
 app.use(router);
@@ -118,4 +155,5 @@ const pinia = createPinia();
 pinia.use(piniaPluginPersistedstate);
 app.use(pinia);
 app.use(VueViewer);
+app.use(vuetify);
 app.mount('#app');

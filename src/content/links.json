@@ -1,13 +1,22 @@
 [
   { "name": "Website", "url": "/" },
-  { "icon": "📋", "name": "Commissie Interesse", "url": "https://forms.gle/fVGrQf7KmZVH716WA" },
-  { "icon": "✈️", "name": "Interesse peiling 2e reis", "url": "https://forms.gle/ZUpwbrt2x4GoK9vR9" },
-  { "icon": "🎤", "name": "Karaokeavond 2.0", "url": "https://shop.ikbenaanwezig.nl/tickets/event/karaokeavond-20"},
-  { "icon": "💕", "name": "Indicium X Avanti valentijnsborrel", "url": "https://shop.ikbenaanwezig.nl/tickets/event/valentijnsborrel"},
+  { "icon": "👯", "name": "Verenigingsfeest", "url": "https://eventix.shop/27k4srrz" },
+  {
+    "icon": "🏎️",
+    "name": "Ticket Racen & Borrel met YER",
+    "url": " https://shop.ikbenaanwezig.nl/tickets/event/racesquare"
+  },
+  {
+    "icon": "🏁",
+    "name": "Inschrijven Racen & Borrel met YER",
+    "url": "https://www.yer.nl/trainingen-en-evenementen/race-als-een-formule-1-coureur/"
+  },
+  { "icon": "🤵", "name": "De IT Carrièrebeurs", "url": "https://www.carrierebeurs.nl/branchecongressen?branche=636" },
   { "icon": "📸", "name": "Instagram", "url": "https://www.instagram.com/svindicium/" },
   { "icon": "👥", "name": "Word Lid!", "url": "/lid-worden" },
-  { "icon": "📄", "name": "Over Indicium", "url": "/over-indicium" },
+  { "icon": "📋", "name": "Commissie Interesse", "url": "https://forms.gle/fVGrQf7KmZVH716WA" },
   { "icon": "/assets/icons/discord.ico", "name": "Discord", "url": "/discord" },
+  { "icon": "📄", "name": "Over Indicium", "url": "/over-indicium" },
   { "icon": "🐱", "name": "GitHub", "url": "https://github.com/svIndicium/" },
   { "icon": "💼", "name": "LinkedIn", "url": "https://www.linkedin.com/company/s.v.indicium/" },
   { "icon": "📩", "name": "Contact", "url": "/contact" }
