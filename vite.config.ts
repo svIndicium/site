@@ -18,7 +18,7 @@ export default defineConfig({
       defaultImport: 'component',
     }),
     sentryVitePlugin({
-      org: 'indiciun-it', // TODO verander naar sv-indicium zodra support heeft geantwoord.
+      org: 'sv-indicium',
       project: 'frontend',
     }),
   ],
