@@ -83,19 +83,7 @@ const router = createRouter({
     { name: 'Home', path: '/', component: Home },
     // { name: 'Activiteiten', path: '/activiteiten', component: Activiteiten },
     { name: 'Over Indicium', path: '/over-indicium', component: OverIndicium },
-    {
-      name: 'Lid Worden',
-      path: '/lid-worden',
-      component: LidWorden,
-      beforeEnter: (to, from, next) => {
-        if (isMobile) {
-          // before enter is used so the page doesn't flicker on mobile
-          window.location.replace('https://leden.conscribo.nl/svIndicium/aanmeldenlidmaatschap');
-        } else {
-          next();
-        }
-      },
-    },
+    { name: 'Lid Worden', path: '/lid-worden', component: LidWorden },
     { name: 'Bestuur', path: '/bestuur', component: Bestuur },
     { name: 'Intro', path: '/intro', component: Intro },
     { name: 'Oud Bestuur', path: '/besturen', component: Besturen },
