@@ -73,6 +73,7 @@ import { isUAMobile } from '@/utils/userAgentData';
 import '@/assets/scss/variables.scss';
 import '@/assets/scss/main.scss';
 import '@/assets/scss/typography.scss';
+import Vcp from './views/Vcp.vue';
 
 // check now, retrieve later for maximum speed
 const isMobile = isUAMobile();
@@ -113,6 +114,7 @@ const router = createRouter({
     { name: 'Sandbox', path: '/sandbox', component: Sandbox },
     { name: "I'm a tea pot", path: '/418', component: FourEighteen },
     { name: 'Error', path: '/error', component: Error },
+    { name: 'Vertrouwens Contact Personen', path: '/vcp', component: Vcp},
     // quick links page for socials:
     { name: 'Links', path: '/links', component: Links },
     { name: 'Discord', path: '/discord', component: Discord },
