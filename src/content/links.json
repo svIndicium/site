@@ -1,15 +1,9 @@
 [
   { "name": "Website", "url": "/" },
-  { "icon": "👯", "name": "Verenigingsfeest", "url": "https://eventix.shop/27k4srrz" },
   {
-    "icon": "🏎️",
-    "name": "Ticket Racen & Borrel met YER",
-    "url": " https://shop.ikbenaanwezig.nl/tickets/event/racesquare"
-  },
-  {
-    "icon": "🏁",
-    "name": "Inschrijven Racen & Borrel met YER",
-    "url": "https://www.yer.nl/trainingen-en-evenementen/race-als-een-formule-1-coureur/"
+    "icon": "🎤",
+    "name": "Indicium x DEV Cantus",
+    "url": "https://shop.ikbenaanwezig.nl/tickets/event/devoice-of-indicium"
   },
   { "icon": "🤵", "name": "De IT Carrièrebeurs", "url": "https://www.carrierebeurs.nl/branchecongressen?branche=636" },
   { "icon": "📸", "name": "Instagram", "url": "https://www.instagram.com/svindicium/" },
