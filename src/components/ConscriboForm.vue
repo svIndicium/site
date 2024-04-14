@@ -68,6 +68,10 @@ fetchConscriboFormAndInjectFix(conscriboFormUrl);
           align-items: right;
           order: 2;
           margin-left: 10px;
+          
+          input, select {
+            background-color: white;
+          }
         }
       }
     }
