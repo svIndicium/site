@@ -11,6 +11,7 @@ fetchConscriboFormAndInjectFix(conscriboFormUrl);
 </template>
 
 <style lang="scss">
+@import '../assets/scss/variables.scss';
 // De CSS van Conscribo zelf, ter referentie.
 //@import 'https://leden.conscribo.nl/common_resources/css/WebForm.css';
 
@@ -23,7 +24,6 @@ fetchConscriboFormAndInjectFix(conscriboFormUrl);
 
   width: 100%;
   max-width: 1000px;
-  overflow-x: auto;
 
   table:first-of-type {
     width: 100%;
@@ -47,30 +47,53 @@ fetchConscriboFormAndInjectFix(conscriboFormUrl);
         accent-color: #a3cf9b;
       }
 
-      .mainContainer {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
+      input, select {
+        background-color: white;
+      }
 
-        .inputLabel {
-          order: 1;
-          margin-right: 10px;
-        }
-        
-        .inputLabel:not(:first-child)::before {
-          content: " / ";
-          margin-right: 5px;
-        }
-        
-        .inputDivWithLabel {
+      @media screen and (min-width: #{$bp-desktop-sm}) {
+        .mainContainer {
           display: flex;
           flex-direction: row;
-          align-items: right;
-          order: 2;
-          margin-left: 10px;
+          align-items: center;
+
+          .inputLabel {
+            order: 1;
+            margin-right: 10px;
+          }
           
-          input, select {
-            background-color: white;
+          .inputLabel:not(:first-child)::before {
+            content: " / ";
+            margin-right: 5px;
+          }
+          
+          .inputDivWithLabel {
+            display: flex;
+            flex-direction: row;
+            align-items: right;
+            order: 2;
+            margin-left: 10px;
+          }
+        }
+      }
+
+
+      @media screen and (min-width: #{$bp-mobile-sm}) and (max-width: #{$bp-desktop-sm}) {
+        input {
+          width: 100% !important;
+        }
+
+        .inputLabel {
+          text-align: center;
+        }
+
+        .accountTable {
+          display: flex;
+          flex-direction: column;
+
+          tr {
+            display: flex;
+            flex-direction: column;
           }
         }
       }
