@@ -36,7 +36,7 @@ watch(route, (newRoute, oldRoute) => {
         </a>
         <div class="description">
           <p v-for="paragraph in partner.description" v-html="paragraph"></p>
-          <a v-if="partner.url" class="button primary rounded" :href="partner.url" target="_blank">Lees meer</a>
+          <a v-if="partner.url" class="readMore button primary rounded" :href="partner.url" target="_blank">Lees meer</a>
         </div>
       </div>
       <JobOffers :partner="partner" />
@@ -46,7 +46,7 @@ watch(route, (newRoute, oldRoute) => {
 </template>
 
 <style scoped lang="scss">
-@import '@/assets/scss/variables.scss';
+@import '@/assets/scss/main.scss';
 .job-offer-description ul {
   list-style: circle;
 }

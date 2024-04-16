@@ -72,7 +72,8 @@ const state = stateStore();
 </template>
 
 <style scoped lang="scss">
-@import '@/assets/scss/variables.scss';
+@import '@/assets/scss/main.scss';
+
 
 .dashed-line {
   border: none;
@@ -171,7 +172,6 @@ const state = stateStore();
 .readMore {
   text-decoration: none;
   color: inherit;
-  display: inline-block;
   margin: 1em auto;
   padding: 0.7em;
   background-color: rgb(var(--indi-blue-1));
