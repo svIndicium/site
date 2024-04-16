@@ -7,7 +7,6 @@
 </template>
 <style>
 .content-container {
-  width: calc(100% - 50px);
   padding: 100px 25px 25px 25px;
 }
 </style>
