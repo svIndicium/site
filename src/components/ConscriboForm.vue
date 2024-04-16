@@ -166,5 +166,11 @@ fetchConscriboFormAndInjectFix(conscriboFormUrl);
       box-shadow: 0 0 0 2px rgba(114, 201, 225, 0.25);
     }
   }
+
+  @media screen and (min-width: #{$bp-mobile-sm}) and (max-width: #{$bp-desktop-sm}) {
+    .emptyCell {
+      display: none;
+    }
+  }
 }
 </style>
