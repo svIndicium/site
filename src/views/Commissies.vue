@@ -9,7 +9,7 @@ const [commissie] = commissies;
   <ContentContainer>
     <h1>Commissies</h1>
     <p id="intro">
-      Wil jij naast je studie actief bijdragen aan onze studievereniging meld je dan aan voor een van onze commissies.
+      Wil jij naast je studie actief bijdragen aan onze studievereniging? Meld je dan aan voor een van onze commissies.
       Naast dat dit super leuk is, staat dit ook goed op je CV!
     </p>
     <div class="commissie" v-for="(commissie, index) in commissies">
