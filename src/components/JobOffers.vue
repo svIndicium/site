@@ -18,7 +18,7 @@ function expandJobOffer(event: MouseEvent) {
           <p v-for="paragraph in jobOffer.description" v-html="paragraph"></p>
           <a
             v-if="jobOffer.url"
-            class="button primary rounded indi-green-1"
+            class="readMoreOutboundBtn button primary rounded indi-green-1"
             style="display: inline-block; margin-bottom: 1em"
             :href="jobOffer.url"
             target="_blank"
@@ -32,7 +32,7 @@ function expandJobOffer(event: MouseEvent) {
 </template>
 
 <style scoped lang="scss">
-@import '@/assets/scss/variables.scss';
+@import '@/assets/scss/main.scss';
 
 .job-offers-container {
   @media screen and (max-width: #{$bp-tablet-md}) {
