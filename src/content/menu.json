@@ -23,7 +23,7 @@
         {
           "title": "Dispuut",
           "url": "/dispuut"
-        }        
+        }
       ]
     },
     {
@@ -61,14 +61,12 @@
           "url": "/contact"
         },
         {
-          "title": "VertrouwensContactPersonen",
+          "title": "VCP",
           "url": "/vcp"
         }
       ]
     },
-    
-    
-    
+
     {
       "title": "Quick Links",
       "url": "/links"
@@ -77,6 +75,5 @@
       "title": "Lid worden",
       "url": "/lid-worden"
     }
-    
   ]
 }

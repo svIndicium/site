@@ -3,9 +3,9 @@
     "vcpMembers": [
       {
         "name": "Hanne",
-        "phonenumber":"06 46431597",
+        "phonenumber": "06 46431597",
         "status": "Indicium bestuur",
-        "aboutme": "Over mij: Ik woon in Vianen, ik ben 20 jaar en ben 4e jaars Open-ICT student. Ik specialiseer me in frontend development. Ik ben bestuur van Indicium en zit bij het kerngroepje van VICT. In mijn vrije tijd lees ik en kook ik veel.",
+        "aboutme": "Ik woon in Vianen, ik ben 20 jaar en ben 4e jaars Open-ICT student. Ik specialiseer me in frontend development. Ik ben bestuur van Indicium en zit bij het kerngroepje van VICT. In mijn vrije tijd lees ik en kook ik veel.",
         "photo": "vcp-hanne.jpeg",
         "funfact1": "Ik stoot me vaak tegen tafels en deuren.",
         "funfact2": "Ik lees boeken in 24 uur uit",
@@ -13,9 +13,9 @@
       },
       {
         "name": "Eva",
-        "phonenumber":"06 11789467",
+        "phonenumber": "06 11789467",
         "status": "Extern",
-        "aboutme": "Over mij: Ik ben 23 jaar, en zit in mijn laatste jaar van de opleiding ambulanceverpleegkundige. Ik woon in Utrecht en werk in Amsterdam maar ik kom oorspronkelijk uit Den Haag. In mijn vrije tijd reis en lees ik veel",
+        "aboutme": "Ik ben 23 jaar, en zit in mijn laatste jaar van de opleiding ambulanceverpleegkundige. Ik woon in Utrecht en werk in Amsterdam maar ik kom oorspronkelijk uit Den Haag. In mijn vrije tijd reis en lees ik veel",
         "photo": "vcp-eva.jpg",
         "funfact1": "Ik maak goeie pasta carbonara volgens Hanne.",
         "funfact2": "Ik was bestuur van Cambridgebar",
@@ -23,15 +23,14 @@
       },
       {
         "name": "Rick",
-        "phonenumber":"06 23270379",
+        "phonenumber": "06 23270379",
         "status": "Indicium lid",
-        "aboutme": "Over mij: Ik ben 23 jaar, woon in Hilversum en zit in m’n 1e jaar ICT. Hiervoor heb ik twee opleidingen gedaan. Ik verzamel instrumenten en vinyl platen die lastig te krijgen zijn. Ik speel piano en gitaar, ook gek op reizen!",
+        "aboutme": "Ik ben 23 jaar, woon in Hilversum en zit in m’n 1e jaar ICT. Hiervoor heb ik twee opleidingen gedaan. Ik verzamel instrumenten en vinyl platen die lastig te krijgen zijn. Ik speel piano en gitaar, ook gek op reizen!",
         "photo": "vcp-rick.jpg",
         "funfact1": "Ik heb met de brommer door heel Nederland gereden.",
         "funfact2": "Ik maak oude apparaten modern",
         "funfact3": "Ik vind warm fruit vies"
       }
-      
     ]
   }
 }
