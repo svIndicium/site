@@ -117,6 +117,7 @@ const state = stateStore();
   .partner-logo {
     max-width: 500px;
     width: 30vw;
+    height: auto;
   }
 
   @media screen and (max-width: #{$bp-tablet-lg}) {
@@ -164,6 +165,7 @@ const state = stateStore();
     .partner-logo {
       img {
         width: 20em;
+        height: auto;
       }
     }
   }

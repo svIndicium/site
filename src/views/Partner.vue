@@ -66,7 +66,7 @@ watch(route, (newRoute, oldRoute) => {
     }
 
     .partner-logo {
-      height: fit-content;
+      height: auto;
     }
 
     .description {
