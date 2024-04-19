@@ -39,12 +39,20 @@
           "url": "/partners/yer"
         },
         {
+          "title": "DressMe",
+          "url": "/partners/dressme"
+        },
+        {
           "title": "ChipSoft",
           "url": "/partners/chipsoft"
         },
         {
           "title": "Young_Coders",
           "url": "/partners/young-coders"
+        },
+        {
+          "title": "IT Carrièrebeurs",
+          "url": "/partners/carrierebeurs"
         },
         {
           "title": "ORTEC",
@@ -66,7 +74,6 @@
         }
       ]
     },
-
     {
       "title": "Quick Links",
       "url": "/links"

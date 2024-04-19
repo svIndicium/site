@@ -3,7 +3,7 @@
     "slug": "conclusion",
     "title": "Conclusion",
     "description": [
-      "<style>.iframe-container { position: relative; width: 100%; padding-top: 54.65%; overflow: hidden; }.iframe-container iframe { position: absolute; inset: 0; width: 100%; height: 100%; }</style><div class=\"iframe-container button rounded primary\"><iframe src=\"https://www.youtube.com/embed/pZiwVWIBASA?autoplay=1&mute=1\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe></div>",
+      "<style>.iframe-container { display: none; position: relative; width: 100%; padding-top: 54.65%; overflow: hidden; }.iframe-container iframe { position: absolute; inset: 0; width: 100%; height: 100%; }</style><div class=\"iframe-container button rounded primary\"><iframe src=\"https://www.youtube.com/embed/pZiwVWIBASA?autoplay=1&mute=1\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe></div>",
       "<a href=\"https://www.conclusion.nl/\" target=\"_blank\">Conclusion</a> is een uniek ecosysteem voor Business Transformatie en IT Services met meer dan 25 zelfstandige bedrijven en circa 2.500 collega’s.",
       "Bij Conclusion werk je samen met andere specialisten aan betekenisvolle, innovatieve en impactvolle projecten. Dat doe je met je collega’s, maar ook met de andere bedrijven binnen ons ecosysteem. Door onze expertise te bundelen en samen te werken zijn we van toegevoegde waarde voor onze klanten, of dat nu start-ups, groeiers of gerenommeerde organisaties zijn."
     ],
@@ -48,6 +48,19 @@
     }
   ],
   "regularPartners": [
+    {
+      "slug": "dressme",
+      "title": "DressMe",
+      "description": [
+        "DressMe, opgericht door de broers Martijn en Arjan Dresmé, begon als een bescheiden initiatief op een zolderkamer en is nu uitgegroeid tot een dynamisch bedrijf met vier vestigingen in Nijmegen, Utrecht, Groingen en Wageningen.",
+        "Ze zijn gespecialiseerd in het bedrukken en borduren van textiel en streven naar uitmuntende service.",
+        "Dit jaar verzorgt DressMe met trots de nieuwe T-shirts van onze vereniging, waarbij ze streven naar perfectie in elk detail."
+      ],
+      "imgUrl": "DressMe_Light.png",
+      "imgUrlDark": "DressMe_Dark.png",
+      "url": "https://dressme.nl/",
+      "jobOffers": []
+    },
     {
       "slug": "chipsoft",
       "title": "ChipSoft",

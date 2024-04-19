@@ -1,7 +1,11 @@
 [
   { "name": "Website", "url": "/" },
-  { "icon": "👯", "name": "Verenigingsfeest", "url": "https://eventix.shop/27k4srrz" },
-  { "icon": "🧠", "name": "Pubquiz", "url": "https://shop.ikbenaanwezig.nl/tickets/event/pubquiz-borrel" },
+  {
+    "icon": "🎤",
+    "name": "Indicium x DEV Cantus",
+    "url": "https://shop.ikbenaanwezig.nl/tickets/event/devoice-of-indicium"
+  },
+  { "icon": "🤵", "name": "De IT Carrièrebeurs", "url": "https://www.carrierebeurs.nl/branchecongressen?branche=636" },
   { "icon": "📸", "name": "Instagram", "url": "https://www.instagram.com/svindicium/" },
   { "icon": "👥", "name": "Word Lid!", "url": "/lid-worden" },
   { "icon": "📋", "name": "Commissie Interesse", "url": "https://forms.gle/fVGrQf7KmZVH716WA" },
