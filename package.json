@@ -21,8 +21,7 @@
     "v-viewer": "^3.0.13",
     "vue": "^3.4.23",
     "vue-router": "^4.3.2",
-    "vue3-carousel": "^0.3.3",
-    "vuetify": "^3.5.16"
+    "vue3-carousel": "^0.3.3"
   },
   "devDependencies": {
     "@types/canvas-confetti": "^1.6.4",
