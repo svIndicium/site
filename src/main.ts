@@ -44,7 +44,6 @@ const firebaseapp = initializeApp(firebaseConfig);
 const analytics = getAnalytics(firebaseapp);
 
 import Home from '@/views/Home.vue';
-import Activiteiten from '@/views/Activiteiten.vue';
 import OverIndicium from '@/views/OverIndicium.vue';
 import Sandbox from '@/views/Sandbox.vue';
 import Bestuur from '@/views/Bestuur.vue';
