@@ -165,7 +165,7 @@ function extractHourAndMinutes(timeString: string) {
     padding: 4px;
     background-color: var(--indi-green-2);
     border-radius: 5px;
-    max-height: 60px;
+    align-self: baseline;
 
     .day {
       font-size: 32px;
