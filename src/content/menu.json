@@ -62,7 +62,17 @@
     },
     {
       "title": "Contact",
-      "url": "/contact"
+      "url": "/contact",
+      "children": [
+        {
+          "title": "Contact",
+          "url": "/contact"
+        },
+        {
+          "title": "VCP",
+          "url": "/vcp"
+        }
+      ]
     },
     {
       "title": "Quick Links",
