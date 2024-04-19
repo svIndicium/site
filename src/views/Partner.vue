@@ -74,4 +74,8 @@ watch(route, (newRoute, oldRoute) => {
     }
   }
 }
+
+.readMore {
+  margin: 1em auto;
+}
 </style>
