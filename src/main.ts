@@ -15,17 +15,6 @@ import { getAnalytics } from 'firebase/analytics';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
-// Vuetify
-import 'vuetify/styles';
-import { createVuetify } from 'vuetify';
-import * as components from 'vuetify/components';
-import * as directives from 'vuetify/directives';
-
-const vuetify = createVuetify({
-  components,
-  directives,
-});
-
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
@@ -105,7 +94,7 @@ const router = createRouter({
     { name: 'Partner', path: '/partners/:partner', component: Partner },
     { name: 'Vacatures', path: '/vacatures', component: Placeholder },
     { name: 'Contact', path: '/contact', component: Contact },
-    { name: 'Vertrouwens Contact Personen', path: '/vcp', component: Vcp},
+    { name: 'Vertrouwens Contact Personen', path: '/vcp', component: Vcp },
     { name: 'Statuten', path: '/statuten', component: Statuten },
     { name: 'HR', path: '/hr', component: HR },
     { name: 'Privacy', path: '/privacyreglement', component: Privacy },
@@ -168,5 +157,4 @@ const pinia = createPinia();
 pinia.use(piniaPluginPersistedstate);
 app.use(pinia);
 app.use(VueViewer);
-app.use(vuetify);
 app.mount('#app');

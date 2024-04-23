@@ -26,7 +26,7 @@ const { darkModeActive } = storeToRefs(state);
 
         <add-to-calendar-button
           name="Indicium"
-          :startDate="new Date(new Date().setDate(new Date().getDate() - 1)).toISOString()"
+          :startDate="new Date(Date.now() - 86400000).toISOString().split('T')[0]"
           startTime="00:00"
           endTime="00:00"
           timeZone="Europe/Amsterdam"
@@ -39,6 +39,7 @@ const { darkModeActive } = storeToRefs(state);
           :lightMode="darkModeActive ? 'dark' : 'light'"
           language="nl"
           style="margin-block-end: 0.5em; --btn-shadow: unset; --btn-shadow-hover: unset"
+          hideBranding
         ></add-to-calendar-button>
       </div>
     </div>
