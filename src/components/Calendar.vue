@@ -147,15 +147,15 @@ function extractHourAndMinutes(timeString: string) {
       <div class="date">
         <span class="day">{{ event.start.toLocaleDateString('nl', { day: 'numeric' }) }}</span>
         <div v-if="event.multiday_end && !event.multimonth_end">
-          <span>t/m<br /></span>
-          <span class="day">{{ event.multiday_end.toLocaleDateString('nl', { day: 'numeric' }) }}</span>
+          <span class="t-m">t/m<br /></span>
+          <span class="day">{{ event.multiday_end.toLocaleDateString('nl', { day: 'numeric' }) }}<br /></span>
         </div>
 
         <br v-else />
         <span class="month">{{ event.start.toLocaleDateString('nl', { month: 'short' }) }}</span>
         <div v-if="event.multiday_end && event.multimonth_end">
-          <span>t/m</span>
-          <br />
+          <span class="t-m">t/m<br /></span>
+
           <span class="day">{{ event.multiday_end.toLocaleDateString('nl', { day: 'numeric' }) }}</span>
           <br />
           <span class="month">{{ event.multiday_end.toLocaleDateString('nl', { month: 'short' }) }}</span>
@@ -208,6 +208,7 @@ function extractHourAndMinutes(timeString: string) {
   display: grid;
   grid-template-columns: 63px 1fr;
   text-align: left;
+  line-height: 1.7;
 
   .date {
     display: block;
