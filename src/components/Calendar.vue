@@ -143,19 +143,14 @@ function extractHourAndMinutes(timeString: string) {
       <div class="date">
         <span class="day">{{ event.start.toLocaleDateString('nl', { day: 'numeric' }) }}</span>
         <div v-if="event.multiday_end && !event.multimonth_end">
-          <br />
-          <span>t/m</span>
-          <br />
-          <br />
+          <span>t/m<br /></span>
           <span class="day">{{ event.multiday_end.toLocaleDateString('nl', { day: 'numeric' }) }}</span>
         </div>
 
         <br v-else />
         <span class="month">{{ event.start.toLocaleDateString('nl', { month: 'short' }) }}</span>
         <div v-if="event.multiday_end && event.multimonth_end">
-          <br />
           <span>t/m</span>
-          <br />
           <br />
           <span class="day">{{ event.multiday_end.toLocaleDateString('nl', { day: 'numeric' }) }}</span>
           <br />
@@ -165,7 +160,13 @@ function extractHourAndMinutes(timeString: string) {
       <div class="details">
         <p class="title" style="font-weight: bold; margin-block-end: 0.2em">{{ event.summary }}</p>
         <p
-          v-if="extractHourAndMinutes('' + event.start) != '01:00' && extractHourAndMinutes('' + event.end) != '01:00'"
+          v-if="
+            !(
+              (extractHourAndMinutes('' + event.start) == '01:00' &&
+                extractHourAndMinutes('' + event.end) == '01:00') ||
+              (extractHourAndMinutes('' + event.start) == '02:00' && extractHourAndMinutes('' + event.end) == '02:00')
+            )
+          "
         >
           {{ extractHourAndMinutes('' + event.start) }} => {{ extractHourAndMinutes('' + event.end) }}
         </p>
