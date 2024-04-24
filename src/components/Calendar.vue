@@ -136,7 +136,7 @@ function extractHourAndMinutes(timeString: string) {
     <!-- note: startdate and times HAVE TO BE INCLUDED, :startDate will pick yesterday -->
     <add-to-calendar-button
       name="Indicium"
-      :startDate="new Date(new Date().setDate(new Date().getDate() - 1)).toISOString()"
+      :startDate="new Date(Date.now() - 86400000).toISOString().split('T')[0]"
       startTime="00:00"
       endTime="00:00"
       timeZone="Europe/Amsterdam"
@@ -149,6 +149,7 @@ function extractHourAndMinutes(timeString: string) {
       :lightMode="darkModeActive ? 'dark' : 'light'"
       language="nl"
       style="margin-block-end: 0.5em; --btn-shadow: unset; --btn-shadow-hover: unset"
+      hideBranding
     ></add-to-calendar-button>
   </div>
 </template>
@@ -165,7 +166,7 @@ function extractHourAndMinutes(timeString: string) {
     padding: 4px;
     background-color: var(--indi-green-2);
     border-radius: 5px;
-    max-height: 60px;
+    align-self: baseline;
 
     .day {
       font-size: 32px;

@@ -15,17 +15,6 @@ import { getAnalytics } from 'firebase/analytics';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
-// Vuetify
-import 'vuetify/styles';
-import { createVuetify } from 'vuetify';
-import * as components from 'vuetify/components';
-import * as directives from 'vuetify/directives';
-
-const vuetify = createVuetify({
-  components,
-  directives,
-});
-
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
@@ -44,7 +33,6 @@ const firebaseapp = initializeApp(firebaseConfig);
 const analytics = getAnalytics(firebaseapp);
 
 import Home from '@/views/Home.vue';
-import Activiteiten from '@/views/Activiteiten.vue';
 import OverIndicium from '@/views/OverIndicium.vue';
 import Sandbox from '@/views/Sandbox.vue';
 import Bestuur from '@/views/Bestuur.vue';
@@ -56,6 +44,7 @@ import Dispuut from '@/views/Dispuut.vue';
 import Partners from '@/views/Partners.vue';
 import Partner from '@/views/Partner.vue';
 import Contact from '@/views/Contact.vue';
+import Vcp from '@/views/Vcp.vue';
 import Statuten from '@/views/Statuten.vue';
 import Privacy from '@/views/Privacy.vue';
 import BetalingGelukt from '@/views/BetalingGelukt.vue';
@@ -83,7 +72,19 @@ const router = createRouter({
     { name: 'Home', path: '/', component: Home },
     // { name: 'Activiteiten', path: '/activiteiten', component: Activiteiten },
     { name: 'Over Indicium', path: '/over-indicium', component: OverIndicium },
-    { name: 'Lid Worden', path: '/lid-worden', component: LidWorden },
+    {
+      name: 'Lid Worden',
+      path: '/lid-worden',
+      component: LidWorden,
+      beforeEnter: (to, from, next) => {
+        if (isMobile) {
+          // before enter is used so the page doesn't flicker on mobile
+          window.location.replace('https://leden.conscribo.nl/svIndicium/aanmeldenlidmaatschap');
+        } else {
+          next();
+        }
+      },
+    },
     { name: 'Bestuur', path: '/bestuur', component: Bestuur },
     { name: 'Intro', path: '/intro', component: Intro },
     { name: 'Oud Bestuur', path: '/besturen', component: Besturen },
@@ -93,6 +94,7 @@ const router = createRouter({
     { name: 'Partner', path: '/partners/:partner', component: Partner },
     { name: 'Vacatures', path: '/vacatures', component: Placeholder },
     { name: 'Contact', path: '/contact', component: Contact },
+    { name: 'Vertrouwens Contact Personen', path: '/vcp', component: Vcp },
     { name: 'Statuten', path: '/statuten', component: Statuten },
     { name: 'HR', path: '/hr', component: HR },
     { name: 'Privacy', path: '/privacyreglement', component: Privacy },
@@ -155,5 +157,4 @@ const pinia = createPinia();
 pinia.use(piniaPluginPersistedstate);
 app.use(pinia);
 app.use(VueViewer);
-app.use(vuetify);
 app.mount('#app');
