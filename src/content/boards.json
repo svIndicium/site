@@ -1,70 +1,51 @@
 {
   "currentBoard": {
-    "year": "2022-2023",
-    "groupPhoto": "bestuur22-23.jpg",
+    "year": "2023-2024",
+    "groupPhoto": "bestuur23-24.jpg",
     "members": [
       {
-        "name": "Rowan Ross",
+        "name": "Igor Kettlitz",
         "function": "Voorzitter",
-        "introduction": "Als voorzitter van de vereniging is Rowan verantwoordelijk voor het leiden van zowel de vereniging als het bestuur. Daarnaast houdt hij zich bezig met de Indicium-communicatiekanalen en is hij al druk bezig met de organisatie van het introkamp.",
-        "photo": "Rowan.jpg"
+        "photo": "Igor.jpg"
       },
       {
-        "name": "Maurice Stoof",
+        "name": "Henk voor den Dag",
         "function": "Secretaris",
-        "introduction": "Maurice is onze secretaris en houdt zich bezig met het onderhouden van bestaande contacten en het leggen van nieuwe contacten. Hij is verantwoordelijk voor het onderhouden van contacten met onze sponsors, andere studieverenigingen en interne contacten binnen de school. Daarnaast is hij verantwoordelijk voor het organiseren van leuke activiteiten die dit jaar worden georganiseerd.",
-        "photo": "Maurice.jpg"
+        "photo": "Henk.jpg"
       },
       {
-        "name": "Oona Bertrums",
+        "name": "Jasper van den Bremer",
         "function": "Penningmeester",
-        "introduction": "Oona is onze penningmeester en is verantwoordelijk voor alle financiële zaken van de vereniging. Aan het begin van het jaar maakt ze een begroting om in te schatten wat het budget voor het jaar zal zijn. Vervolgens zorgt ze ervoor dat de vereniging binnen het vastgestelde budget blijft door de uitgaven bij te houden en te controleren.",
-        "photo": "Oona.jpeg"
+        "photo": "Jasper.jpg"
+      },
+      {
+        "name": "Seger van Vlijmen",
+        "function": "Vice-voorzitter",
+        "photo": "Seger.jpg"
+      },
+      {
+        "name": "Hanne de Deckere",
+        "function": "Algemeen commissaris",
+        "photo": "Hanne.jpg"
       }
     ]
   },
   "previousBoards": [
-    {
-      "year": "2023-2024",
-      "groupPhoto": "bestuur23-24.jpg",
-      "members": [
-        {
-          "name": "Igor Kettlitz",
-          "function": "voorzitter"
-        },
-        {
-          "name": "Henk van den Dag",
-          "function": "secretaris"
-        },
-        {
-          "name": "Jasper van den Bremer",
-          "function": "penningmeester"
-        },
-        {
-          "name": "Seger van Vlijmen",
-          "function": "vice-voorzitter"
-        },
-        {
-          "name": "Hanne de Deckere",
-          "function": "algemeen commissaris"
-        }
-      ]
-    },
     {
       "year": "2022-2023",
       "groupPhoto": "bestuur22-23.jpg",
       "members": [
         {
           "name": "Rowan Ross",
-          "function": "voorzitter"
+          "function": "Voorzitter"
         },
         {
           "name": "Maurice Stoof",
-          "function": "secretaris"
+          "function": "Secretaris"
         },
         {
           "name": "Oona Bertrums",
-          "function": "penningmeester"
+          "function": "Penningmeester"
         }
       ]
     },
@@ -74,19 +55,19 @@
       "members": [
         {
           "name": "Kevin de Meijer",
-          "function": "voorzitter"
+          "function": "Voorzitter"
         },
         {
           "name": "Jasper Nellestijn",
-          "function": "secretaris"
+          "function": "Secretaris"
         },
         {
           "name": "Yaïr Westmaas",
-          "function": "penningmeester"
+          "function": "Penningmeester"
         },
         {
           "name": "Jasper van Loon",
-          "function": "algemeen commissaris"
+          "function": "Algemeen commissaris"
         }
       ]
     },
@@ -96,7 +77,7 @@
       "members": [
         {
           "name": "Jasper Nellestijn",
-          "function": "voorzitter"
+          "function": "Voorzitter"
         },
         {
           "name": "Rick Holtman",
@@ -104,15 +85,15 @@
         },
         {
           "name": "Joost Lekkerkerker",
-          "function": "secretaris"
+          "function": "Secretaris"
         },
         {
           "name": "Stefanie Twisker",
-          "function": "penningmeester"
+          "function": "Penningmeester"
         },
         {
           "name": "Sebastiaan Saarloos",
-          "function": "algemeen commissaris"
+          "function": "Algemeen commissaris"
         }
       ]
     },
@@ -122,7 +103,7 @@
       "members": [
         {
           "name": "Jesper Obbes",
-          "function": "voorzitter"
+          "function": "Voorzitter"
         },
         {
           "name": "Rick Holtman",
@@ -130,15 +111,15 @@
         },
         {
           "name": "Simon Parmet",
-          "function": "secretaris"
+          "function": "Secretaris"
         },
         {
           "name": "Yasin Karapinar",
-          "function": "penningmeester"
+          "function": "Penningmeester"
         },
         {
           "name": "Joost Lekkerkerker",
-          "function": "algemeen commissaris"
+          "function": "Algemeen commissaris"
         }
       ]
     },
@@ -148,19 +129,19 @@
       "members": [
         {
           "name": "Lars van Scheijndel",
-          "function": "voorzitter"
+          "function": "Voorzitter"
         },
         {
           "name": "Robbert Schuurmans",
-          "function": "secretaris"
+          "function": "Secretaris"
         },
         {
           "name": "Sebastiaan Saarloos",
-          "function": "penningmeester"
+          "function": "Penningmeester"
         },
         {
           "name": "Jeroen van Hattem",
-          "function": "algemeen commissaris"
+          "function": "Algemeen commissaris"
         }
       ]
     },
@@ -171,27 +152,27 @@
       "members": [
         {
           "name": "William Loosman",
-          "function": "voorzitter"
+          "function": "Voorzitter"
         },
         {
           "name": "Nigel van Hattum",
-          "function": "secretaris"
+          "function": "Secretaris"
         },
         {
           "name": "Sander de Bruin",
-          "function": "penningmeester"
+          "function": "Penningmeester"
         },
         {
           "name": "Olivier Verwoerd",
-          "function": "algemeen commissaris (tot december 2017)"
+          "function": "Algemeen commissaris (tot december 2017)"
         },
         {
           "name": "Idris Janszen",
-          "function": "algemeen commissaris (vanaf december 2017)"
+          "function": "Algemeen commissaris (vanaf december 2017)"
         },
         {
           "name": "Samuel Vrieling",
-          "function": "algemeen commissaris (vanaf december 2017)"
+          "function": "Algemeen commissaris (vanaf december 2017)"
         }
       ]
     }

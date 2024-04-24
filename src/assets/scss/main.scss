@@ -76,6 +76,7 @@ img,
   text-decoration: none;
   color: inherit;
   transition: none !important;
+  display: inline-block;
 
   --button-fill: var(--indi-blue-2);
   --button-border: var(--indi-blue-1);
@@ -138,4 +139,8 @@ img,
   &:focus-within {
     background-color: var(--button-fill);
   }
+}
+
+.readMoreOutboundBtn {
+  margin: 1rem auto;
 }

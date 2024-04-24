@@ -139,6 +139,10 @@ function extractHourAndMinutes(timeString: string) {
 <template>
   <h2 class="title">Agenda</h2>
   <div class="events-container">
+    <article v-if="!visibleEvents.length">
+      <p>Voorlopig zijn er geen activiteiten.</p>
+      <p>Voeg de kalender toe aan je agenda om up-to-date te blijven!</p>
+    </article>
     <div class="event" v-for="event in visibleEvents" :key="event.id">
       <div class="date">
         <span class="day">{{ event.start.toLocaleDateString('nl', { day: 'numeric' }) }}</span>
@@ -181,7 +185,7 @@ function extractHourAndMinutes(timeString: string) {
     <!-- note: startdate and times HAVE TO BE INCLUDED, :startDate will pick yesterday -->
     <add-to-calendar-button
       name="Indicium"
-      :startDate="new Date(new Date().setDate(new Date().getDate() - 1)).toISOString()"
+      :startDate="new Date(Date.now() - 86400000).toISOString().split('T')[0]"
       startTime="00:00"
       endTime="00:00"
       timeZone="Europe/Amsterdam"
@@ -194,6 +198,7 @@ function extractHourAndMinutes(timeString: string) {
       :lightMode="darkModeActive ? 'dark' : 'light'"
       language="nl"
       style="margin-block-end: 0.5em; --btn-shadow: unset; --btn-shadow-hover: unset"
+      hideBranding
     ></add-to-calendar-button>
   </div>
 </template>
@@ -210,7 +215,7 @@ function extractHourAndMinutes(timeString: string) {
     padding: 4px;
     background-color: var(--indi-green-2);
     border-radius: 5px;
-    max-height: fit-content;
+    align-self: baseline;
 
     .day {
       font-size: 32px;

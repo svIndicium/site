@@ -23,6 +23,9 @@ function changeTheme(theme: string) {
           <li v-for="(menuItem, idx) in pages" :key="idx" ref="menuItemsRefs">
             <RouterLink :to="menuItem.url">{{ menuItem.title }}</RouterLink>
           </li>
+          <li>
+            <a href="/docx/Declaratieformulier_Indicium.docx">Declaratieformulier</a>
+          </li>
         </ul>
       </div>
 

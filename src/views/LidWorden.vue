@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue';
 import ContentContainer from '@/layouts/ContentContainer.vue';
 import confetti from 'canvas-confetti';
 
@@ -59,27 +58,6 @@ if (navigator.hardwareConcurrency <= 6) generateConfetti(locations, 100); // low
 else if (navigator.hardwareConcurrency <= 10)
   generateConfetti(locations, 200); // likely 6-core or modern big.little intel
 else generateConfetti(locations, 400); // likely 8-core or more, 200 looks fine so this is bonus
-
-function adjustContainerHeight() {
-  const signupContainer = document.querySelector('.signupContainer') as HTMLElement | null;
-  const iframe = document.querySelector('iframe') as HTMLIFrameElement | null;
-  if (signupContainer && iframe) {
-    const iframeBody = iframe.contentDocument?.body;
-    if (iframeBody) {
-      const height = Math.max(iframeBody.clientHeight, iframeBody.scrollHeight);
-      signupContainer.style.minHeight = `${height}px`;
-    }
-  }
-}
-
-onMounted(() => {
-  adjustContainerHeight();
-  window.addEventListener('resize', adjustContainerHeight);
-});
-
-onUnmounted(() => {
-  window.removeEventListener('resize', adjustContainerHeight);
-});
 </script>
 
 <template>
@@ -99,7 +77,10 @@ onUnmounted(() => {
     </details>
 
     <div class="signupContainer">
-      <iframe src="https://leden.conscribo.nl/svIndicium/aanmeldenlidmaatschap"></iframe>
+      <iframe
+        src="https://leden.conscribo.nl/svIndicium/aanmeldenlidmaatschap"
+        title="Lidmaadschap registratie"
+      ></iframe>
     </div>
     <div>
       Gaat er iets niet helemaal goed? Geen zorgen,
@@ -135,6 +116,26 @@ iframe {
   filter: var(--filter);
 }
 
+$breakpoints: (
+  large: 850px,
+  medium: 749px,
+  small-medium: 641px,
+  small: 500px,
+  extra-small: 411px,
+  extra-extra-small: 365px,
+  tiny: 277px,
+);
+
+$min-heights: (
+  large: 1000px,
+  medium: 1230px,
+  small-medium: 1320px,
+  small: 1380px,
+  extra-small: 1500px,
+  extra-extra-small: 1600px,
+  tiny: 1700px,
+);
+
 .signupContainer {
   background-color: var(--secondary-background-color);
   display: flex;
@@ -145,6 +146,15 @@ iframe {
   max-width: 1200px;
   border-radius: 4px;
   margin-bottom: 48px;
+
+  // because we can't access the height of the iframe using TS
+  @each $breakpoint, $width in $breakpoints {
+    $min-height: map-get($min-heights, $breakpoint);
+
+    @media screen and (max-width: $width) {
+      min-height: $min-height;
+    }
+  }
 }
 
 .newtab-button {

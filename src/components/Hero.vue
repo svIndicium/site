@@ -20,15 +20,13 @@ const { darkModeActive } = storeToRefs(state);
         <span class="extra-bold">studie</span>vereniging voor HBO-ICT van Hogeschool Utrecht
       </h1>
       <div class="subtitle-items">
-        <a class="button primary rounded" href="https://leden.conscribo.nl/svIndicium/aanmeldenlidmaatschap"
-          >Word lid</a
-        >
+        <router-link class="button primary rounded" to="/lid-worden">Word lid</router-link>
 
         <router-link class="button primary rounded indi-green-1" to="/links">Quick Links</router-link>
 
         <add-to-calendar-button
           name="Indicium"
-          :startDate="new Date(new Date().setDate(new Date().getDate() - 1)).toISOString()"
+          :startDate="new Date(Date.now() - 86400000).toISOString().split('T')[0]"
           startTime="00:00"
           endTime="00:00"
           timeZone="Europe/Amsterdam"
@@ -41,6 +39,7 @@ const { darkModeActive } = storeToRefs(state);
           :lightMode="darkModeActive ? 'dark' : 'light'"
           language="nl"
           style="margin-block-end: 0.5em; --btn-shadow: unset; --btn-shadow-hover: unset"
+          hideBranding
         ></add-to-calendar-button>
       </div>
     </div>

@@ -9,6 +9,10 @@
           "url": "/over-indicium"
         },
         {
+          "title": "Huidig bestuur",
+          "url": "/bestuur"
+        },
+        {
           "title": "Besturen Tijdlijn",
           "url": "/besturen"
         },
@@ -27,26 +31,48 @@
       "url": "/partners",
       "children": [
         {
-          "title": "PossibilIT",
-          "url": "/partners/4ng"
-        },
-        {
-          "title": "Working Talent",
-          "url": "/partners/working-talent"
+          "title": "Conclusion",
+          "url": "/partners/conclusion"
         },
         {
           "title": "YER",
           "url": "/partners/yer"
         },
         {
-          "title": "BPM Company",
-          "url": "/partners/bpm-company"
+          "title": "DressMe",
+          "url": "/partners/dressme"
+        },
+        {
+          "title": "ChipSoft",
+          "url": "/partners/chipsoft"
+        },
+        {
+          "title": "Young_Coders",
+          "url": "/partners/young-coders"
+        },
+        {
+          "title": "IT Carrièrebeurs",
+          "url": "/partners/carrierebeurs"
+        },
+        {
+          "title": "ORTEC",
+          "url": "/partners/ortec"
         }
       ]
     },
     {
       "title": "Contact",
-      "url": "/contact"
+      "url": "/contact",
+      "children": [
+        {
+          "title": "Contact",
+          "url": "/contact"
+        },
+        {
+          "title": "VCP",
+          "url": "/vcp"
+        }
+      ]
     },
     {
       "title": "Quick Links",

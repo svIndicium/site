@@ -12,7 +12,7 @@ if (props.link.icon === '' || props.link.icon === undefined) {
   props.link.icon = '/icon.svg'; // indicium logo
 }
 
-const filetypes = ['png', 'svg', 'jpg', 'jpeg', 'svg', 'bmp', 'webp', 'gif', 'apng', 'avif'];
+const filetypes = ['png', 'svg', 'jpg', 'jpeg', 'svg', 'bmp', 'webp', 'gif', 'apng', 'avif', 'ico'];
 const isImage = filetypes.some((filetype) => props.link.icon?.endsWith('.' + filetype));
 </script>
 
