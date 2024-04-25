@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { fetchConscriboFormAndInjectFix } from '@/utils/conscriboForm';
 
-const conscriboFormUrl = 'https://leden.conscribo.nl/svindicium/jsForm/load/aanmeldenlidmaatschap_kopie/cwfForm';
+const conscriboFormUrl = 'https://leden.conscribo.nl/svindicium/jsForm/load/aanmeldenlidmaatschap/cwfForm';
 
 fetchConscriboFormAndInjectFix(conscriboFormUrl);
 </script>
