@@ -10,6 +10,7 @@ $bp-desktop-md: 1280px;
 $bp-desktop-lg: 1536px;
 
 :root {
+  color-scheme: light;
   --nav-height: 90px;
 
   --text-color-raw: 51, 51, 51;
@@ -72,6 +73,7 @@ $bp-desktop-lg: 1536px;
 }
 
 [data-theme='dark'] {
+  color-scheme: dark;
   --text-color-raw: 242, 242, 242;
   --link-color-raw: 100, 200, 255;
   --root-background-color-raw: 11, 20, 22;

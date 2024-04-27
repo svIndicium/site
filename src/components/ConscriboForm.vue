@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { fetchConscriboFormAndInjectFix } from '@/utils/conscriboForm';
 
-const conscriboFormUrl = 'https://leden.conscribo.nl/svindicium/jsForm/load/aanmeldenlidmaatschap/cwfForm';
+const conscriboFormUrl = 'https://leden.conscribo.nl/svindicium/jsForm/load/aanmeldenlidmaatschap_v2/cwfForm';
 
 fetchConscriboFormAndInjectFix(conscriboFormUrl);
 </script>
@@ -33,25 +33,18 @@ fetchConscriboFormAndInjectFix(conscriboFormUrl);
     td {
       padding: 12px 15px;
       text-align: left;
-      border-bottom: 1px solid rgba(224, 224, 224, 1);
+      border-bottom: 1px solid rgba(var(--text-color-raw), 0.2);
     }
 
     td {
       // Make checkboxes bigger and color them
       input[type='checkbox'] {
-        width: fit-content;
         transform: scale(2); // Scale up the checkbox
         margin: 20px 10px;
-        vertical-align: middle;
         accent-color: #a3cf9b;
       }
 
-      input,
-      select {
-        background-color: white;
-      }
-
-      @media screen and (min-width: #{$bp-desktop-sm}) {
+      @media screen and (min-width: #{$bp-tablet-lg}) {
         .mainContainer {
           display: flex;
           flex-direction: row;
@@ -77,11 +70,35 @@ fetchConscriboFormAndInjectFix(conscriboFormUrl);
         }
       }
 
-      @media screen and (min-width: #{$bp-mobile-sm}) and (max-width: #{$bp-desktop-sm}) {
+      .accountTable:first-of-type td {
         border: 0;
+      }
+
+      @media screen and (max-width: #{$bp-tablet-lg}) {
+        // bankrekening
+        .accountTable:first-of-type td {
+          text-align: center;
+          padding: 0;
+
+          input {
+            margin-left: 0;
+          }
+        }
+
         input {
           width: 90% !important;
           margin-left: 5%;
+        }
+
+        input[type='checkbox'] {
+          margin: 20px 0;
+          margin-left: 5%;
+        }
+
+        select {
+          width: 90% !important;
+          margin-left: 5%;
+          text-align: center;
         }
 
         .inputLabel {
@@ -102,9 +119,38 @@ fetchConscriboFormAndInjectFix(conscriboFormUrl);
   }
 
   .date-input-container {
-    background-color: var(--root-background-color);
+    // uncomment below to always show the calendar
+    // display: block !important;
+    background-color: var(--secondary-background-color);
+    border-radius: 4px;
+    color: var(--text-color);
+
+    button {
+      padding: 5px 10px;
+    }
+
+    .calendarHeaderTable {
+      margin-top: 0;
+    }
+
     .calendarTable {
-      color: black; // doesn't allow theming
+      width: 100%;
+      color: black;
+
+      td:not(.calendarTableDayName) {
+        text-align: center;
+        border-radius: 4px;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+
+    .calendarTableDayName {
+      background-color: var(--indi-green-1);
+      color: var(--text-color);
+      text-align: center;
+      font-weight: bold;
     }
   }
 
@@ -146,23 +192,23 @@ fetchConscriboFormAndInjectFix(conscriboFormUrl);
     }
   }
 
-  button {
+  .submitButton {
     margin: 1rem calc(50% - 150px) 2rem;
     width: 300px;
-    background-color: var(--indi-green-1);
     padding: 10px 15px;
-    border: none;
+  }
+
+  button {
+    background-color: var(--indi-green-1);
+    border: 2px solid var(--indi-green-1);
     border-radius: 4px;
     cursor: pointer;
     font-size: 18px;
     color: var(--text-color);
     font-weight: bold;
-    /* &.submitButton {
-      display: none;
-    } */
 
     &:hover {
-      background-color: darken(#a3cf9b, 10%);
+      background-color: var(--indi-green-2);
     }
     &:focus {
       outline: none;

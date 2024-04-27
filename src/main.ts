@@ -76,8 +76,6 @@ const router = createRouter({
       name: 'Lid Worden',
       path: '/lid-worden',
       component: LidWorden,
-      // TODO: Deze regel verwijderen zodra het clientside formulier weer presentable is.
-      beforeEnter: () => { window.location.replace("https://leden.conscribo.nl/svIndicium/aanmeldenlidmaatschap") },
     },
     { name: 'Bestuur', path: '/bestuur', component: Bestuur },
     { name: 'Intro', path: '/intro', component: Intro },

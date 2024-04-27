@@ -108,7 +108,7 @@ setInterval(() => {
     <ConscriboForm />
     <p>
       Gaat er iets niet helemaal goed? Geen zorgen,
-      <a href="https://leden.conscribo.nl/svIndicium/aanmeldenlidmaatschap" target="_blank"
+      <a href="https://leden.conscribo.nl/svIndicium/aanmeldenlidmaatschap_v2" target="_blank"
         >open het formulier in een nieuw tabblad</a
       >
       en probeer het nog een keer. 🙂
@@ -134,26 +134,6 @@ details {
   margin: 10px;
 }
 
-$breakpoints: (
-  large: 850px,
-  medium: 749px,
-  small-medium: 641px,
-  small: 500px,
-  extra-small: 411px,
-  extra-extra-small: 365px,
-  tiny: 277px,
-);
-
-$min-heights: (
-  large: 1000px,
-  medium: 1230px,
-  small-medium: 1320px,
-  small: 1380px,
-  extra-small: 1500px,
-  extra-extra-small: 1600px,
-  tiny: 1700px,
-);
-
 @media screen and (max-width: #{$bp-tablet-lg}) {
   .content-container {
     padding-left: 0;
@@ -176,23 +156,5 @@ $min-heights: (
   max-width: 1200px;
   border-radius: 4px;
   margin-bottom: 48px;
-
-  // because we can't access the height of the iframe using TS
-  @each $breakpoint, $width in $breakpoints {
-    $min-height: map-get($min-heights, $breakpoint);
-
-    @media screen and (max-width: $width) {
-      min-height: $min-height;
-    }
-  }
-}
-
-.newtab-button {
-  background-color: var(--indi-blue-1);
-  padding: 8px;
-  margin-bottom: 16px;
-  border-radius: 8px;
-  color: var(--text-color);
-  font-weight: 600;
 }
 </style>
