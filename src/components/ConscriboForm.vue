@@ -24,6 +24,10 @@ fetchConscriboFormAndInjectFix(conscriboFormUrl);
   width: 100%;
   max-width: 1000px;
 
+  .formTable {
+    overflow: hidden; // needed or this element overflows on mobile
+  }
+
   table:first-of-type {
     width: 100%;
     border-collapse: collapse;
