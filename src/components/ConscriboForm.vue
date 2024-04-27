@@ -44,6 +44,13 @@ fetchConscriboFormAndInjectFix(conscriboFormUrl);
         accent-color: #a3cf9b;
       }
 
+      .invalidLabel {
+        transition: none;
+        text-align: center;
+        transform: translateY(-70%);
+      }
+
+      // desktop mode
       @media screen and (min-width: #{$bp-tablet-lg}) {
         .mainContainer {
           display: flex;
@@ -66,6 +73,25 @@ fetchConscriboFormAndInjectFix(conscriboFormUrl);
             align-items: right;
             order: 2;
             margin-left: 10px;
+
+            // error label handling desktop
+            position: relative;
+            > .invalidLabel {
+              position: absolute;
+              display: block;
+              width: max-content;
+              background: var(--indi-error);
+              color: var(--text-color);
+              padding: 5px;
+              height: fit-content;
+              border-radius: 4px;
+              transform: translateY(-100%) translateX(-50%);
+              left: 50%;
+            }
+
+            > .accountTable ~ .invalidLabel {
+              transform: translateX(-50%);
+            }
           }
         }
       }
