@@ -28,12 +28,19 @@ export default defineConfig({
     },
   },
   build: {
-    chunkSizeWarningLimit: 3000,
+    chunkSizeWarningLimit: 500,
     rollupOptions: {
       output: {
-        entryFileNames: `assets/[name].js`,
-        chunkFileNames: `assets/[name].js`,
-        assetFileNames: `assets/[name].[ext]`,
+        entryFileNames: `assets/[name]-[hash].js`,
+        chunkFileNames: `assets/[name]-[hash].js`,
+        assetFileNames: `assets/[name]-[hash].[ext]`,
+        manualChunks: {
+          'vue-chunk': ['vue'],
+          'sentry-chunk': ['@sentry/vue'],
+          // 'firebase-chunk': ['firebase/app', 'firebase/analytics'],
+          // 'ua-parser-js-chunk': ['ua-parser-js'],
+          'add-to-calender-chunk': ['add-to-calendar-button'],
+        },
       },
     },
     sourcemap: true,
