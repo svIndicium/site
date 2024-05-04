@@ -102,7 +102,7 @@ const router = createRouter({
       component: Statuten,
       beforeEnter: (to, from, next) => {
         if (messesUp) {
-          return window.location.replace('/pdf/statutenindicium.pdf');
+          window.location.href = '/pdf/statutenindicium.pdf';
         } else {
           return next();
         }
@@ -114,7 +114,7 @@ const router = createRouter({
       component: HR,
       beforeEnter: (to, from, next) => {
         if (messesUp) {
-          return window.location.replace('/pdf/Huishoudelijk_Reglement_Studievereniging_Indicium.pdf');
+          window.location.href = '/pdf/Huishoudelijk_Reglement_Studievereniging_Indicium.pdf';
         } else {
           return next();
         }
@@ -126,7 +126,7 @@ const router = createRouter({
       component: Privacy,
       beforeEnter: (to, from, next) => {
         if (messesUp) {
-          window.location.replace('/pdf/privacypolicy.pdf');
+          window.location.href = '/pdf/privacypolicy.pdf';
         } else {
           return next();
         }
