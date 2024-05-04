@@ -50,21 +50,30 @@ import Privacy from '@/views/Privacy.vue';
 import BetalingGelukt from '@/views/BetalingGelukt.vue';
 import BetalingMislukt from '@/views/BetalingMislukt.vue';
 import HR from '@/views/HR.vue';
-import Placeholder from '@/views/Placeholder.vue';
+const Placeholder = () => import('@/views/Placeholder.vue');
 import FourOFour from '@/views/404.vue';
 import FourEighteen from '@/views/418.vue';
 import Error from '@/views/error.vue';
 import Links from './views/Links.vue';
 import Discord from './views/Discord.vue';
 
-import { isUAMobile } from '@/utils/userAgentData';
+import { UAParser } from 'ua-parser-js';
 
 import '@/assets/scss/variables.scss';
 import '@/assets/scss/main.scss';
 import '@/assets/scss/typography.scss';
 
-// check now, retrieve later for maximum speed
-const isMobile = isUAMobile();
+// IIF check now, retrieve later for maximum speed
+const messesUp = (() => {
+  const { getDevice, getEngine, getOS, getBrowser } = new UAParser();
+
+  const isTouch = ['mobile', 'tablet'].includes(getDevice().type ?? '');
+  const isWebkit = getEngine().name === 'WebKit';
+  const isIOS = getOS().name === 'iOS';
+  const isSafari = getBrowser().name === 'Safari';
+
+  return isTouch && isWebkit && isIOS && isSafari;
+})();
 
 const router = createRouter({
   history: createWebHistory(),
@@ -87,15 +96,48 @@ const router = createRouter({
     { name: 'Vacatures', path: '/vacatures', component: Placeholder },
     { name: 'Contact', path: '/contact', component: Contact },
     { name: 'Vertrouwens Contact Personen', path: '/vcp', component: Vcp },
-    { name: 'Statuten', path: '/statuten', component: Statuten },
-    { name: 'HR', path: '/hr', component: HR },
-    { name: 'Privacy', path: '/privacyreglement', component: Privacy },
+    {
+      name: 'Statuten',
+      path: '/statuten',
+      component: Statuten,
+      beforeEnter: (to, from, next) => {
+        if (messesUp) {
+          return window.location.replace('/pdf/statutenindicium.pdf');
+        } else {
+          return next();
+        }
+      },
+    },
+    {
+      name: 'HR',
+      path: '/hr',
+      component: HR,
+      beforeEnter: (to, from, next) => {
+        if (messesUp) {
+          return window.location.replace('/pdf/Huishoudelijk_Reglement_Studievereniging_Indicium.pdf');
+        } else {
+          return next();
+        }
+      },
+    },
+    {
+      name: 'Privacy',
+      path: '/privacyreglement',
+      component: Privacy,
+      beforeEnter: (to, from, next) => {
+        if (messesUp) {
+          window.location.replace('/pdf/privacypolicy.pdf');
+        } else {
+          return next();
+        }
+      },
+    },
+
     { name: 'Betaling Gelukt', path: '/pay-success', component: BetalingGelukt },
     { name: 'Betaling Mislukt', path: '/pay-fail', component: BetalingMislukt },
     { name: 'Sandbox', path: '/sandbox', component: Sandbox },
     { name: "I'm a tea pot", path: '/418', component: FourEighteen },
     { name: 'Error', path: '/error', component: Error },
-    // quick links page for socials:
     { name: 'Links', path: '/links', component: Links },
     { name: 'Discord', path: '/discord', component: Discord },
     // and finally the default route, when none of the above matches:
@@ -112,24 +154,11 @@ const app = createApp(App);
 Sentry.init({
   app,
   dsn: 'https://2bfb847cd3d1d790b53925093b61a8f5@o4506729777594368.ingest.sentry.io/4506729846996992', // DSN is a public token!
-  integrations: [
-    // Add browser profiling integration to the list of integrations
-    Sentry.browserTracingIntegration(),
-    Sentry.browserProfilingIntegration(),
-  ],
+  integrations: [Sentry.browserTracingIntegration(), Sentry.browserProfilingIntegration()],
 
-  // Set tracesSampleRate to 1.0 to capture 100%
-  // of transactions for performance monitoring.
-  // We recommend adjusting this value in production
   tracesSampleRate: 1.0,
-  // Set `tracePropagationTargets` to control for which URLs distributed tracing should be enabled
   tracePropagationTargets: ['localhost', /^https:\/\/svindicium\.nl\/api/],
 
-  // Set profilesSampleRate to 1.0 to profile every transaction.
-  // Since profilesSampleRate is relative to tracesSampleRate,
-  // the final profiling rate can be computed as tracesSampleRate * profilesSampleRate
-  // For example, a tracesSampleRate of 0.5 and profilesSampleRate of 0.5 would
-  // results in 25% of transactions being profiled (0.5*0.5=0.25)
   profilesSampleRate: 1.0,
 });
 
