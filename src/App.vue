@@ -34,9 +34,11 @@ state.refreshTheme();
   font-family: 'Indicium-font';
   font-weight: 400;
   font-style: normal;
-  font-display: auto;
+  font-display: swap;
   unicode-range: U+000-5FF;
-  src: local('Constantia'), url('/fonts/constan.woff2') format('woff2');
+  src:
+    local('Constantia'),
+    url('/fonts/constan.woff2') format('woff2');
 }
 
 body {
