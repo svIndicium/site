@@ -18,6 +18,7 @@
     "firebase": "^10.11.0",
     "pinia": "^2.1.7",
     "pinia-plugin-persistedstate": "^3.2.1",
+    "ua-parser-js": "^1.0.37",
     "v-viewer": "^3.0.13",
     "vue": "^3.4.23",
     "vue-router": "^4.3.2",
@@ -26,6 +27,7 @@
   "devDependencies": {
     "@types/canvas-confetti": "^1.6.4",
     "@types/node": "^20.12.7",
+    "@types/ua-parser-js": "^0.7.39",
     "@vitejs/plugin-vue": "^5.0.4",
     "@vue/eslint-config-prettier": "^9.0.0",
     "eslint": "^9.0.0",
