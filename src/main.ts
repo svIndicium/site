@@ -70,7 +70,7 @@ const messesUp = (() => {
   const isTouch = ['mobile', 'tablet'].includes(getDevice().type ?? '');
   const isWebkit = getEngine().name === 'WebKit';
   const isIOS = getOS().name === 'iOS';
-  const isSafari = getBrowser().name === 'Safari';
+  const isSafari = getBrowser().name === 'Mobile Safari';
 
   return isTouch && isWebkit && isIOS && isSafari;
 })();
