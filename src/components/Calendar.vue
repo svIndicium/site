@@ -88,8 +88,8 @@ const events: Event<Date>[] = Array.isArray(calendarData.items)
   : [];
 
 const visibleEvents = computed<Event<Date>[]>(() => {
-  var enhancedEvents: Event<Date>[] = [];
-  for (var item of events) {
+  let enhancedEvents: Event<Date>[] = [];
+  for (let item of events) {
     if (
       new Date(item.end.getTime() - 14400000).toLocaleDateString('nl', { day: 'numeric' }) !=
       item.end.toLocaleDateString('nl', { day: 'numeric' })
@@ -120,6 +120,8 @@ function getLocationLink(location: string): string {
   const lowercaseLocation = location.toLowerCase().replaceAll(' ', '');
   if (lowercaseLocation in locationMappings) {
     return locationMappings[lowercaseLocation];
+  } else if (lowercaseLocation.startsWith('hl15')) {
+    return 'https://goo.gl/maps/fjbPzpTAYB6CMwSv5'
   } else {
     return `https://maps.google.com/?q=${encodeURIComponent(location)}`;
   }
@@ -155,7 +157,6 @@ function extractHourAndMinutes(timeString: string) {
         <span class="month">{{ event.start.toLocaleDateString('nl', { month: 'short' }) }}</span>
         <div v-if="event.multiday_end && event.multimonth_end">
           <span class="t-m">t/m<br /></span>
-
           <span class="day">{{ event.multiday_end.toLocaleDateString('nl', { day: 'numeric' }) }}</span>
           <br />
           <span class="month">{{ event.multiday_end.toLocaleDateString('nl', { month: 'short' }) }}</span>
