@@ -12,8 +12,8 @@ import ContentContainer from '@/layouts/ContentContainer.vue';
       <div class="warning">
         <p>
           Op dit moment zijn de inschrijvingen voor de introductie 2024 nog niet geopend. We zijn druk bezig met het
-          plannen van een onvergetelijke ervaring voor jullie allemaal. Zodra we een definitieve datum hebben, zullen we
-          dit op deze pagina bekend maken.
+          plannen van een onvergetelijke ervaring voor jullie allemaal. Zodra zodra de inschrijvingen open zijn, zullen
+          we dit op deze pagina bekend maken.
         </p>
       </div>
       <div>
@@ -23,16 +23,21 @@ import ContentContainer from '@/layouts/ContentContainer.vue';
           voor nieuwe vriendschappen, hebben we een speciaal introductiekamp in het leven geroepen.
         </p>
 
-        <!-- <p>
-          Dit introductiekamp zal plaatsvinden van <em class="datum">dinsdag 22 augustus</em> tot en met
-          <em class="datum">vrijdag 25 augustus</em>. De locaties zijn de prachtige stad Utrecht en een plek nabij
-          Geldermalsen. Hier krijg je de kans om je medestudenten beter te leren kennen en de unieke sfeer van onze
+        <p>
+          Dit introductiekamp zal plaatsvinden van <em class="datum">dinsdag 20 augustus</em> tot en met
+          <em class="datum">vrijdag 23 augustus</em>. De locaties zijn de prachtige stad Utrecht en een plek nabij
+          Doornspijk. Hier krijg je de kans om je medestudenten beter te leren kennen en de unieke sfeer van onze
           vereniging te ervaren. Er wachten je diverse activiteiten, variërend van spellen tot sportuitdagingen, en het
           geheel wordt afgesloten met een gezellig feest!
-        </p> -->
+        </p>
 
-        <!-- <p style="text-align: center">
+        <p style="text-align: center">
           Om deel uit te maken van dit geweldige introductiekamp, dien je jezelf hieronder te registreren.
+          <br />
+        </p>
+
+        <p class="warning" style="text-align: center; font-weight: bold">
+          Hoi introcom, de knoppen hieronder moeten linkjes krijgen.
         </p>
         <div class="buttons">
           <a class="button primary rounded indi-green-1 big heavy" href="https://forms.gle/RGBfuZSz34ao8UgF7"
@@ -47,7 +52,7 @@ import ContentContainer from '@/layouts/ContentContainer.vue';
           >
         </div>
 
-        <p style="text-align: center">Wees er snel bij want er zijn maar een beperkt aantal plekken!<br /></p> -->
+        <p style="text-align: center">Wees er snel bij want er zijn maar een beperkt aantal plekken!<br /></p>
 
         <p>
           Ons introductiekamp is de perfecte manier om helemaal op te gaan in de vereniging en nieuwe vriendschappen te
@@ -100,12 +105,13 @@ em {
     background-color: var(--secondary-background-color);
     border-radius: 8px;
     width: 100%;
-    max-width: 1000px;
+    max-width: 800px;
     padding: 0.5rem 1.5rem;
+    text-align: justify;
+  }
 
-    &.warning {
-      background-color: var(--indi-warning);
-    }
+  & .warning {
+    background-color: var(--indi-warning);
   }
 }
 
@@ -129,11 +135,16 @@ img {
 
   & > .big {
     padding: 16px 8px;
-    max-width: 300px;
+    max-width: 250px;
     font-size: 1.5rem;
+    transition: transform 0.2s !important;
 
     &.heavy {
       font-weight: 500;
+    }
+
+    &:hover {
+      transform: scale(1.05);
     }
   }
 }
