@@ -10,12 +10,12 @@
       "content": [
         {
           "title": "Over Indicium",
-          "description": "Wij zijn dé studievereniging voor HBO-ICT van Hogeschool Utrecht. We organiseren het hele jaar door activiteiten zoals bedrijfsbezoeken, kroegcolleges, gastcolleges, lunchlezingen, en nog veel meer over allerlei verschillende onderwerpen. Maar we organiseren natuurlijk ook activiteiten voor gezelligheid! Kom eens langs op onze borrels, LAN-party's of iets anders dat we organiseren!",
+          "description": "Wij zijn dé studievereniging voor HBO-ICT van Hogeschool Utrecht. We organiseren het hele jaar door activiteiten zoals bedrijfsbezoeken, kroegcolleges, gastcolleges, lunchlezingen en nog veel meer over allerlei verschillende onderwerpen. We organiseren natuurlijk ook activiteiten voor gezelligheid! Kom eens langs op onze borrels, LAN-party's of bij iets anders!",
           "type": "text-center"
         },
         {
           "title": "Lid zijn is meedoen!",
-          "description": "Een hoop activiteiten organiseren we voor iedereen. Maar als lid krijg je natuurlijk veel meer voordelen! Je krijgt dan korting bij activiteiten of je wordt uitgenodigd voor activiteiten die exclusief voor leden zijn. Ook kunnen we je helpen met het zoeken van een stage en kan je er altijd terecht als je ergens niet uitkomt. Interesse?",
+          "description": "Een hoop activiteiten organiseren we voor iedereen, maar als lid krijg je natuurlijk veel meer voordelen! Je krijgt dan korting bij activiteiten of je wordt uitgenodigd voor activiteiten die exclusief voor leden zijn. Ook kunnen we je helpen met het zoeken van een stage en kan je er altijd terecht als je ergens niet uitkomt. Dus meld je aan als lid!",
           "type": "text-center",
           "button": {
             "text": "Direct Inschrijven",
@@ -24,7 +24,7 @@
         },
         {
           "title": "Commissies?",
-          "description": "Lijkt je het leuk om de vereniging te helpen door het meeorganiseren van activiteiten, zoals borrels, feestjes, gastcolleges, lunchlezingen, reizen, of wil je je programmeerskills verbeteren? Neem eens een kijkje bij onze commissies, deze commissies bestaan uit enthousiaste leden die helpen om de vereniging draaiende te houden. Wil je meer informatie of wil je weten wat voor commissies er allemaal zijn?",
+          "description": "Lijkt je het leuk om de vereniging te helpen door het organiseren van activiteiten zoals borrels, feestjes, gastcolleges, lunchlezingen, reizen? Of wil je je programmeerskills verbeteren? Neem eens een kijkje bij onze commissies. Deze bestaan uit enthousiaste leden die helpen om de vereniging draaiende te houden. Wil je meer informatie of wil je weten wat voor commissies er allemaal zijn? Kijk dan op onze commissie pagina",
           "type": "text-center",
           "button": {
             "text": "Meer weten",
