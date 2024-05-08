@@ -35,17 +35,20 @@
 
     <!-- Twitter / X / Elon Meta Tags -->
     <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Fix flicker with root background to prefered colorscheme -->
+    <style>
+      @media (prefers-color-scheme: dark) {
+        body {
+          background-color: black;
+          color: white;
+        }
+      }
+    </style>
   </head>
   <body>
     <noscript>
       <style>
-        @media (prefers-color-scheme: dark) {
-          body {
-            background-color: black;
-            color: white;
-          }
-        }
-
         body {
           font-family:
             system-ui,
