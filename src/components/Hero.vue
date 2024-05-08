@@ -20,11 +20,13 @@ const { darkModeActive } = storeToRefs(state);
         <span class="extra-bold">studie</span>vereniging voor HBO-ICT van Hogeschool Utrecht
       </h1>
       <div class="subtitle-items">
-        <router-link class="button primary rounded" to="/lid-worden">Word lid</router-link>
+        <router-link class="button primary rounded" to="/intro">Introductiekamp</router-link>
 
-        <router-link class="button primary rounded indi-green-1" to="/links">Quick Links</router-link>
+        <router-link class="button secondary rounded indi-green-1" to="/lid-worden">Word lid</router-link>
 
-        <add-to-calendar-button
+        <router-link class="button secondary rounded indi-bluegreen-1" to="/links">Quick Links</router-link>
+
+        <!-- <add-to-calendar-button
           name="Indicium"
           :startDate="new Date(Date.now() - 86400000).toISOString().split('T')[0]"
           startTime="00:00"
@@ -40,7 +42,7 @@ const { darkModeActive } = storeToRefs(state);
           language="nl"
           style="margin-block-end: 0.5em; --btn-shadow: unset; --btn-shadow-hover: unset"
           hideBranding
-        ></add-to-calendar-button>
+        ></add-to-calendar-button> -->
       </div>
     </div>
   </div>

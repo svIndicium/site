@@ -9,13 +9,13 @@ import ContentContainer from '@/layouts/ContentContainer.vue';
     <h1 class="big-title">Intro​duct​ie​kamp 2024</h1>
 
     <section class="intro">
-      <div class="warning">
+      <!-- <div class="warning">
         <p>
           Op dit moment zijn de inschrijvingen voor de introductie 2024 nog niet geopend. We zijn druk bezig met het
           plannen van een onvergetelijke ervaring voor jullie allemaal. Zodra zodra de inschrijvingen open zijn, zullen
           we dit op deze pagina bekend maken.
         </p>
-      </div>
+      </div> -->
       <div>
         <p>
           Vanuit de Studievereniging Indicium zijn we blij om te zien dat je de keuze hebt gemaakt voor de HBO-ICT
@@ -36,18 +36,15 @@ import ContentContainer from '@/layouts/ContentContainer.vue';
           <br />
         </p>
 
-        <p class="warning" style="text-align: center; font-weight: bold">
-          Hoi introcom, de knoppen hieronder moeten linkjes krijgen.
-        </p>
         <div class="buttons">
-          <a class="button primary rounded indi-green-1 big heavy" href="https://forms.gle/RGBfuZSz34ao8UgF7"
+          <a class="button primary rounded indi-green-1 big heavy" href="https://forms.gle/V1j5WptJwaWScMZH9"
             >Aanmelden voor introkamp</a
           >
-          <a class="button secondary rounded indi-bluegreen-1 big" href="https://forms.gle/qfFeLTfoCGJaE3ou9">
+          <a class="button secondary rounded indi-bluegreen-1 big" href="https://forms.gle/6BWHiwWBfffUozk17">
             Inschrijvingen vol? Aanmelden wachtrij!</a
           >
 
-          <a class="button secondary rounded big" href="https://forms.gle/e9q3XpWcCJJSsveB9">
+          <a class="button secondary rounded big" href="https://forms.gle/rzZdgN2J65Hr6hDq9">
             Aanmelden voor Docenten HU</a
           >
         </div>
