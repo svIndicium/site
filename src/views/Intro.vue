@@ -1,10 +1,21 @@
 <script setup lang="ts">
+import { ref, onMounted } from 'vue';
 import ContentContainer from '@/layouts/ContentContainer.vue';
+
+const imageUrl = ref('/assets/images/intro2023lowres.webp');
+
+onMounted(() => {
+  const highResImg = new Image();
+  highResImg.src = '/assets/images/intro2023.webp';
+  highResImg.onload = () => {
+    imageUrl.value = highResImg.src;
+  };
+});
 </script>
 
 <template>
   <ContentContainer>
-    <img :src="'/assets/images/intro2022.webp'" alt="'Intro'" />
+    <img :src="imageUrl" alt="Intro" width="2500" loading="lazy" decoding="async" />
 
     <h1 class="big-title">Intro​duct​ie​kamp 2024</h1>
 
@@ -102,7 +113,8 @@ em {
     background-color: var(--secondary-background-color);
     border-radius: 8px;
     width: 100%;
-    max-width: 800px;
+    max-width: 840px;
+    box-sizing: border-box;
     padding: 0.5rem 1.5rem;
     text-align: justify;
   }
@@ -114,11 +126,16 @@ em {
 
 img {
   width: 80vw;
-  aspect-ratio: 1024/600; // resolution of the image (prevents content shift)
-  max-width: 600px;
   margin: 10px auto;
+  max-width: 840px;
   display: flex;
   border-radius: 5px;
+  aspect-ratio: 2500/1406;
+  transition: transform 0.2s !important;
+
+  &:hover {
+    transform: scale(1.05);
+  }
 }
 
 .buttons {
