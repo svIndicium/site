@@ -1,21 +1,32 @@
 <script setup lang="ts">
+import { ref, onMounted } from 'vue';
 import ContentContainer from '@/layouts/ContentContainer.vue';
+
+const imageUrl = ref('/assets/images/intro2023lowres.webp');
+
+onMounted(() => {
+  const highResImg = new Image();
+  highResImg.src = '/assets/images/intro2023.webp';
+  highResImg.onload = () => {
+    imageUrl.value = highResImg.src;
+  };
+});
 </script>
 
 <template>
   <ContentContainer>
-    <img :src="'/assets/images/intro2022.webp'" alt="'Intro'" />
+    <img :src="imageUrl" alt="Intro" width="2500" loading="lazy" decoding="async" />
 
     <h1 class="big-title">Intro​duct​ie​kamp 2024</h1>
 
     <section class="intro">
-      <div class="warning">
+      <!-- <div class="warning">
         <p>
           Op dit moment zijn de inschrijvingen voor de introductie 2024 nog niet geopend. We zijn druk bezig met het
           plannen van een onvergetelijke ervaring voor jullie allemaal. Zodra zodra de inschrijvingen open zijn, zullen
           we dit op deze pagina bekend maken.
         </p>
-      </div>
+      </div> -->
       <div>
         <p>
           Vanuit de Studievereniging Indicium zijn we blij om te zien dat je de keuze hebt gemaakt voor de HBO-ICT
@@ -36,18 +47,15 @@ import ContentContainer from '@/layouts/ContentContainer.vue';
           <br />
         </p>
 
-        <p class="warning" style="text-align: center; font-weight: bold">
-          Hoi introcom, de knoppen hieronder moeten linkjes krijgen.
-        </p>
         <div class="buttons">
-          <a class="button primary rounded indi-green-1 big heavy" href="https://forms.gle/RGBfuZSz34ao8UgF7"
+          <a class="button primary rounded indi-green-1 big heavy" href="https://forms.gle/V1j5WptJwaWScMZH9"
             >Aanmelden voor introkamp</a
           >
-          <a class="button secondary rounded indi-bluegreen-1 big" href="https://forms.gle/qfFeLTfoCGJaE3ou9">
+          <a class="button secondary rounded indi-bluegreen-1 big" href="https://forms.gle/6BWHiwWBfffUozk17">
             Inschrijvingen vol? Aanmelden wachtrij!</a
           >
 
-          <a class="button secondary rounded big" href="https://forms.gle/e9q3XpWcCJJSsveB9">
+          <a class="button secondary rounded big" href="https://forms.gle/rzZdgN2J65Hr6hDq9">
             Aanmelden voor Docenten HU</a
           >
         </div>
@@ -105,7 +113,8 @@ em {
     background-color: var(--secondary-background-color);
     border-radius: 8px;
     width: 100%;
-    max-width: 800px;
+    max-width: 840px;
+    box-sizing: border-box;
     padding: 0.5rem 1.5rem;
     text-align: justify;
   }
@@ -117,11 +126,16 @@ em {
 
 img {
   width: 80vw;
-  aspect-ratio: 1024/600; // resolution of the image (prevents content shift)
-  max-width: 600px;
   margin: 10px auto;
+  max-width: 840px;
   display: flex;
   border-radius: 5px;
+  aspect-ratio: 2500/1406;
+  transition: transform 0.2s !important;
+
+  &:hover {
+    transform: scale(1.05);
+  }
 }
 
 .buttons {
