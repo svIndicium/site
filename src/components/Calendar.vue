@@ -92,7 +92,8 @@ const visibleEvents = computed<Event<Date>[]>(() => {
   for (let item of events) {
     if (
       new Date(item.end.getTime() - 14400000).toLocaleDateString('nl', { day: 'numeric' }) !=
-      item.end.toLocaleDateString('nl', { day: 'numeric' })
+        item.end.toLocaleDateString('nl', { day: 'numeric' }) &&
+      item.end.getTime() - item.start.getTime() != 86400000
     ) {
       const mde = new Date(item.end.getTime() - 14400000);
       if (item.start.toLocaleDateString('nl', { month: 'short' }) != mde.toLocaleDateString('nl', { month: 'short' })) {
@@ -121,7 +122,7 @@ function getLocationLink(location: string): string {
   if (lowercaseLocation in locationMappings) {
     return locationMappings[lowercaseLocation];
   } else if (lowercaseLocation.startsWith('hl15')) {
-    return 'https://goo.gl/maps/fjbPzpTAYB6CMwSv5'
+    return 'https://goo.gl/maps/fjbPzpTAYB6CMwSv5';
   } else {
     return `https://maps.google.com/?q=${encodeURIComponent(location)}`;
   }
