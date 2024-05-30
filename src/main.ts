@@ -45,6 +45,15 @@ import Partners from '@/views/Partners.vue';
 import Partner from '@/views/Partner.vue';
 import Contact from '@/views/Contact.vue';
 import Vcp from '@/views/Vcp.vue';
+
+import DevcomPage   from '@/views/commissies/DevcomPage.vue';
+import InclucomPage from '@/views/commissies/InclucomPage.vue';
+import KascomPage   from '@/views/commissies/KascomPage.vue';
+import IntrocomPage from '@/views/commissies/IntrocomPage.vue';
+import PromocomPage from '@/views/commissies/PromocomPage.vue';
+import ActiecomPage from '@/views/commissies/ActiecomPage.vue';
+import ReiscomPage  from '@/views/commissies/ReiscomPage.vue';
+
 import Statuten from '@/views/Statuten.vue';
 import Privacy from '@/views/Privacy.vue';
 import BetalingGelukt from '@/views/BetalingGelukt.vue';
@@ -132,6 +141,14 @@ const router = createRouter({
         }
       },
     },
+
+    { name: 'Devcom Info',   path: '/commissies/devcom',    component: DevcomPage   },
+    { name: 'Inclucom Info', path: '/commissies/inclucom,', component: InclucomPage },
+    { name: 'Kascom Info',   path: '/commissies/kascom,',   component: KascomPage   },
+    { name: 'Introcom Info', path: '/commissies/introcom,', component: IntrocomPage },
+    { name: 'Promocom Info', path: '/commissies/promocom,', component: PromocomPage },
+    { name: 'Actiecom Info', path: '/commissies/actiecom,', component: ActiecomPage },
+    { name: 'Reiscom Info',  path: '/commissies/reiscom,',  component: ReiscomPage  },
 
     { name: 'Betaling Gelukt', path: '/pay-success', component: BetalingGelukt },
     { name: 'Betaling Mislukt', path: '/pay-fail', component: BetalingMislukt },
