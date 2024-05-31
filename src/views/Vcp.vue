@@ -20,18 +20,22 @@ import { currentVCP } from '@/content/vcp.json';
         width="400"
         height="500"
       />
-      <div class="member-info">
-        <h3>{{ member.name }}</h3>
-        <h4>{{ member.status }}</h4>
-        <p>{{ member.phonenumber }}</p>
+      <div class="member-entry">
+        <div class="member-contact-info">
+          <h3>{{ member.name }}</h3>
+          <h4>{{ member.status }}</h4>
+          <p>{{ member.phonenumber }}</p>
+        </div>
+        <div>
         <h4>Over mij</h4>
-        <p>{{ member.aboutme }}</p>
-        <h4>Feitjes over mij</h4>
-        <ul>
-          <li>{{ member.funfact1 }}</li>
-          <li>{{ member.funfact2 }}</li>
-          <li>{{ member.funfact3 }}</li>
-        </ul>
+          <p>{{ member.aboutme }}</p>
+          <h4>Feitjes over mij</h4>
+          <ul>
+            <li>{{ member.funfact1 }}</li>
+            <li>{{ member.funfact2 }}</li>
+            <li>{{ member.funfact3 }}</li>
+          </ul>
+        </div>
       </div>
     </div>
   </ContentContainer>
@@ -69,7 +73,10 @@ h1 {
   }
 }
 
-.member-info {
+.member-entry {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
   border-radius: 10px;
   padding: 1em 2em;
   background-color: var(--secondary-background-color);
@@ -85,6 +92,10 @@ h1 {
     margin-top: 0.5em;
     margin-left: 1em;
   }
+}
+
+.member-contact-info, h3 {
+  line-height: 0;
 }
 
 .member-photo {
@@ -105,8 +116,12 @@ h1 {
   .member {
     flex-direction: column;
     flex-wrap: wrap;
-    gap: 2em;
+    gap: 2rem;
     align-items: center;
+  }
+
+  .member-entry {
+    gap: 2rem;
   }
 }
 </style>
