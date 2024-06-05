@@ -91,11 +91,12 @@ const visibleEvents = computed<Event<Date>[]>(() => {
   let enhancedEvents: Event<Date>[] = [];
   for (let item of events) {
     if (
-      new Date(item.end.getTime() - 14400000).toLocaleDateString('nl', { day: 'numeric' }) !=
+      new Date(item.end.getTime() - 14400000).toLocaleDateString('nl', { day: 'numeric' }) != // is still same day 4 h back
         item.end.toLocaleDateString('nl', { day: 'numeric' }) &&
-      item.end.getTime() - item.start.getTime() != 86400000
+      item.end.getTime() - item.start.getTime() != 86400000 && // Not exactly full day
+      item.end.getTime() - item.start.getTime() < 21600000 // shorter than 6 H
     ) {
-      const mde = new Date(item.end.getTime() - 14400000);
+      const mde = new Date(item.end.getTime() - 14400000); // is still same day 4 h back
       if (item.start.toLocaleDateString('nl', { month: 'short' }) != mde.toLocaleDateString('nl', { month: 'short' })) {
         enhancedEvents.push({ ...item, multiday_end: mde, multimonth_end: true });
       } else {
