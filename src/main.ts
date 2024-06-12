@@ -88,6 +88,7 @@ const router = createRouter({
     },
     { name: 'Bestuur', path: '/bestuur', component: Bestuur },
     { name: 'Intro', path: '/intro', component: Intro },
+    { path: '/introkamp', redirect: '/intro' },
     { name: 'Oud Bestuur', path: '/besturen', component: Besturen },
     { name: 'Commissies', path: '/commissies', component: Commissies },
     { name: 'Dispuut', path: '/dispuut', component: Dispuut },
