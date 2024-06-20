@@ -49,7 +49,7 @@ import DataNotFound from '@/assets/icons/data-not-found.svg?component';
   }
 
   .img:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
     transition: transform 0.5s;
   }
 
