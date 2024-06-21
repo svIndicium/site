@@ -15,6 +15,17 @@ const [dispuut] = disputen;
       <div class="dispuut-info">
         <h2>{{ dispuut.title }}</h2>
         <p>{{ dispuut.description }}</p>
+        <a href="https://ebriusvespertina.nl/" target="_blank" rel="noopener noreferrer" class="button primary rounded"
+          >Website</a
+        >
+        <a
+          href="https://www.instagram.com/dispuutebriusvespertina/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="button primary indi-green-1 rounded"
+          style="margin-left: 1em"
+          >Instagram</a
+        >
       </div>
       <div v-if="index % 2 === 0" class="spacer"></div>
     </div>
