@@ -43,8 +43,8 @@ fetchConscriboFormAndInjectFix(conscriboFormUrl);
     td {
       // Make checkboxes bigger and color them
       input[type='checkbox'] {
-        transform: scale(2); // Scale up the checkbox
-        margin: 20px 10px;
+        width: 1.5em;
+        height: 1.5em;
         accent-color: #a3cf9b;
       }
 
@@ -109,25 +109,24 @@ fetchConscriboFormAndInjectFix(conscriboFormUrl);
         .accountTable:first-of-type td {
           text-align: center;
           padding: 0;
+        }
 
-          input {
-            margin-left: 0;
-          }
+        .inputDivWithLabel {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
         }
 
         input {
           width: 90% !important;
-          margin-left: 5%;
         }
 
         input[type='checkbox'] {
-          margin: 20px 0;
-          margin-left: 5%;
+          margin: 1em 0;
         }
 
         select {
           width: 90% !important;
-          margin-left: 5%;
           text-align: center;
         }
 
