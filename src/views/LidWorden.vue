@@ -108,7 +108,7 @@ setInterval(() => {
     <ConscriboForm />
     <p>
       Gaat er iets niet helemaal goed? Geen zorgen,
-      <a href="https://leden.conscribo.nl/svIndicium/aanmeldenlidmaatschap_v2" target="_blank"
+      <a href="https://leden.conscribo.nl/svIndicium/aanmeldenlidmaatschap" target="_blank"
         >open het formulier in een nieuw tabblad</a
       >
       en probeer het nog een keer. 🙂
