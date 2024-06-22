@@ -74,9 +74,12 @@ fetchConscriboFormAndInjectFix(conscriboFormUrl);
           .inputDivWithLabel {
             display: flex;
             flex-direction: row;
-            align-items: right;
             order: 2;
-            margin-left: 10px;
+            margin: 0 8px;
+
+            input[type='checkbox'] {
+              transform: translateY(25%);
+            }
 
             // error label handling desktop
             position: relative;
