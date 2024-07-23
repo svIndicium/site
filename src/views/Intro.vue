@@ -56,7 +56,7 @@ onMounted(() => {
           >
 
           <a class="button secondary rounded big" href="https://forms.gle/rzZdgN2J65Hr6hDq9">
-            Aanmelden voor Docenten HU</a
+            Aanmelden voor BBQ (Alumni/Docenten)</a
           >
         </div>
 
