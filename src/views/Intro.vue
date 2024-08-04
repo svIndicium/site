@@ -72,7 +72,7 @@ onMounted(() => {
       <div>
         <p>
           Heb je nog vragen over het introductiekamp of iets anders gerelateerd aan de vereniging? Aarzel niet om ons te
-          bereiken via <a class="" href="mailto://introcom@indicium.hu"> introcom@indicium.hu</a>. We staan altijd klaar
+          bereiken via <a class="" href="mailto://introkamp@indicium.hu"> introkamp@indicium.hu</a>. We staan altijd klaar
           om je te helpen.
         </p>
       </div>
