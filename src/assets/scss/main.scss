@@ -1,6 +1,11 @@
 @import 'variables';
 @import 'typography';
 
+// TODO: Verwijderen zodra er een hoofdpartner is
+#main-partner {
+  display: none;
+}
+
 body,
 div,
 nav,

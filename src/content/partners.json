@@ -1,26 +1,15 @@
 {
   "mainPartner": {
-    "slug": "conclusion",
-    "title": "Conclusion",
+    "slug": "hoofdpartner-tba",
+    "title": "Binnenkort!",
     "description": [
-      "<style>.iframe-container { display: none; position: relative; width: 100%; padding-top: 54.65%; overflow: hidden; }.iframe-container iframe { position: absolute; inset: 0; width: 100%; height: 100%; }</style><div class=\"iframe-container button rounded primary\"><iframe src=\"https://www.youtube.com/embed/pZiwVWIBASA?autoplay=1&mute=1\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe></div>",
-      "<a href=\"https://www.conclusion.nl/\" target=\"_blank\">Conclusion</a> is een uniek ecosysteem voor Business Transformatie en IT Services met meer dan 25 zelfstandige bedrijven en circa 2.500 collega’s.",
-      "Bij Conclusion werk je samen met andere specialisten aan betekenisvolle, innovatieve en impactvolle projecten. Dat doe je met je collega’s, maar ook met de andere bedrijven binnen ons ecosysteem. Door onze expertise te bundelen en samen te werken zijn we van toegevoegde waarde voor onze klanten, of dat nu start-ups, groeiers of gerenommeerde organisaties zijn."
+      "Wij zijn momenteel op zoek naar een hoofdpartner! Binnenkort zal die op deze plek verschijnen.",
+      "Misschien ben jij wel de partner die we zoeken! Neem contact op met het bestuur via onderstaande button of door te mailen naar <a href='mailto:secretaris@indicium.nl'>secretaris@indicium.nl</a>"
     ],
-    "imgUrl": "CONCLUSION_RAINB_RGB_LOGO.jpg",
-    "imgUrlDark": "CONCLUSION_RAINB_RGB_LOGO.jpg",
-    "url": "https://www.conclusion.nl/",
-    "jobOffers": [
-      {
-        "title": "Onze drive",
-        "description": [
-          "Als je mensen hoort praten over hun samenwerking met Conclusion dan gebruiken ze al snel termen als ‘anders’, ‘opvallend’ en ‘ongebruikelijk’. Dat komt niet alleen door onze andere aanpak in partnerships, maar juist ook door onze mensen. Ons onderscheid zit in de natuurlijke drive van onze mensen om voor elk probleem tot de beste oplossing te komen. Omdat het kan. Omdat het erin zit. Omdat het eruit moet.",
-          "Wij geloven dat je moet doen waar je goed in bent, vanuit je eigen kracht en expertise. Wil jij ook vertrouwen voelen en vrijheid krijgen om het op jouw manier te doen?",
-          "Check hier onze website voor openstaande vacatures en verhalen van oud-stagiairs en trainees."
-        ],
-        "url": "https://www.conclusion.nl/werken-bij"
-      }
-    ]
+    "imgUrl": "placeholder_indicium_logo.png",
+    "imgUrlDark": "placeholder_indicium_logo.png",
+    "url": "",
+    "jobOffers": [ ]
   },
   "premiumPartners": [
     {

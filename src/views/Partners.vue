@@ -24,8 +24,10 @@ const state = stateStore();
         <div class="description">
           <h3>Hoofdpartner: {{ mainPartner.title }}</h3>
           <p v-for="paragraph in mainPartner.description" v-html="paragraph"></p>
-          <RouterLink class="readMore button primary rounded" :to="'/partners/' + mainPartner.slug"
-            >Meer weten?</RouterLink
+<!--          <RouterLink class="readMore button primary rounded" :to="'/partners/' + mainPartner.slug"-->
+<!--            >Meer weten?</RouterLink-->
+          <a class="readMore button primary rounded" href="mailto:secretaris@indicium.nl"
+            >Neem contact op!</a
           >
         </div>
       </div>

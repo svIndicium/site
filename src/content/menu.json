@@ -31,10 +31,6 @@
       "url": "/partners",
       "children": [
         {
-          "title": "Conclusion",
-          "url": "/partners/conclusion"
-        },
-        {
           "title": "YER",
           "url": "/partners/yer"
         },
