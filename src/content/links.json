@@ -1,6 +1,7 @@
 [
   { "name": "Website", "url": "/" },
-  { "icon": "🏕️", "name": "introkamp", "url": "/intro" },
+  { "icon": "🎉", "name": "Welkomstborrel", "url": "https://ticketl.ink/T3AIX" },
+  { "icon": "🎱", "name": "Eerstejaars Poolen", "url": "https://ticketl.ink/BQnPr" },
   { "icon": "📸", "name": "Instagram", "url": "https://www.instagram.com/svindicium/" },
   { "icon": "👥", "name": "Word Lid!", "url": "/lid-worden" },
   { "icon": "📋", "name": "Commissie Interesse", "url": "https://forms.gle/fVGrQf7KmZVH716WA" },
