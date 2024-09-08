@@ -20,7 +20,7 @@
       },
       {
         "name": "Seger van Vlijmen",
-        "function": "Vice-voorzitter",
+        "function": "Vicevoorzitter",
         "photo": "Seger.jpg"
       },
       {
@@ -31,6 +31,36 @@
     ]
   },
   "previousBoards": [
+    {
+      "year": "2023-2024",
+      "groupPhoto": "bestuur23-24.webp",
+      "members": [
+        {
+          "name": "Igor Kettlitz",
+          "function": "Voorzitter"
+        },
+        {
+          "name": "Henk voor den Dag",
+          "function": "Secretaris"
+        },
+        {
+          "name": "Jasper van den Bremer",
+          "function": "Penningmeester"
+        },
+        {
+          "name": "Seger van Vlijmen",
+          "function": "Vicevoorzitter"
+        },
+        {
+          "name": "Hanne de Deckere",
+          "function": "Algemeen commissaris"
+        },
+        {
+          "name": "Maurice Stoof",
+          "function": "Secretaris extern"
+        }
+      ]
+    },
     {
       "year": "2022-2023",
       "groupPhoto": "bestuur22-23.jpg",
@@ -81,7 +111,7 @@
         },
         {
           "name": "Rick Holtman",
-          "function": "vice-voorzitter"
+          "function": "Vicevoorzitter"
         },
         {
           "name": "Joost Lekkerkerker",
@@ -107,7 +137,7 @@
         },
         {
           "name": "Rick Holtman",
-          "function": "vice-voorzitter"
+          "function": "Vicevoorzitter"
         },
         {
           "name": "Simon Parmet",
