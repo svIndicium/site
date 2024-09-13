@@ -12,6 +12,7 @@ import { currentBoard } from '@/content/boards.json';
         class="member-photo"
         :src="member.photo ? `/assets/boards/${member.photo}` : `https://cataas.com/cat/says/${member.name}`"
         :alt="member.name"
+        :title="member.figcaption ? member.figcaption : undefined"
       />
       <div class="member-info">
         <h3>{{ member.name }}</h3>
