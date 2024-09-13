@@ -5,7 +5,7 @@ import { currentBoard } from '@/content/boards.json';
 
 <template>
   <ContentContainer>
-    <h1>Bestuur v8.0</h1>
+    <h1>Bestuur 8</h1>
     <img id="group-photo" :src="`/assets/boards/${currentBoard.groupPhoto}`" alt="Groepsfoto 8e bestuur" />
     <div class="member" v-for="member in currentBoard.members">
       <img
