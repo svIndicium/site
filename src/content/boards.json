@@ -1,32 +1,33 @@
 {
   "currentBoard": {
-    "year": "2023-2024",
-    "groupPhoto": "bestuur23-24.jpg",
+    "year": "2024-2025",
+    "groupPhoto": "bestuur24-25.webp",
     "members": [
       {
-        "name": "Igor Kettlitz",
+        "name": "Ajiet Lihe Huizer",
         "function": "Voorzitter",
-        "photo": "Igor.jpg"
+        "photo": "ajiet_b8.webp"
       },
       {
-        "name": "Henk voor den Dag",
+        "name": "Siard IJpma",
         "function": "Secretaris",
-        "photo": "Henk.jpg"
+        "photo": "siard_b8.webp"
       },
       {
-        "name": "Jasper van den Bremer",
+        "name": "Jesse Mouris",
         "function": "Penningmeester",
-        "photo": "Jasper.jpg"
+        "photo": "jesse_b8.webp"
       },
       {
-        "name": "Seger van Vlijmen",
+        "name": "Carlijne Hagemans",
         "function": "Vicevoorzitter",
-        "photo": "Seger.jpg"
+        "photo": "carlijne_b8.webp",
+        "figcaption": "Foto door Rowan Ross"
       },
       {
-        "name": "Hanne de Deckere",
+        "name": "Raoul van Wijk",
         "function": "Algemeen commissaris",
-        "photo": "Hanne.jpg"
+        "photo": "raoul_b8.webp"
       }
     ]
   },
