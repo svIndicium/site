@@ -17,7 +17,9 @@ import ContentContainer from '@/layouts/ContentContainer.vue';
           <li><span class="medium">Lokaal</span>: HL15-4.092</li>
           <li><span class="medium">KVK</span>: 68788878</li>
         </ul>
-        <p>Of stuur direct een e-mail naar het bestuur:</p>
+        <p>Of stuur een e-mail aan onze secretaris. De secretaris is het eerste contactpersoon voor leden:</p>
+        <a href="mailto:secretaris@indicium.hu" class="btn l">secretaris@indicium.hu</a>
+        <p>Voor e-mails gericht aan het hele bestuur kun je mailen naar:</p>
         <a href="mailto:bestuur@indicium.hu" class="btn l">bestuur@indicium.hu</a>
       </div>
       <IndiciumMap class="map" />
@@ -29,7 +31,6 @@ import ContentContainer from '@/layouts/ContentContainer.vue';
 @import '@/assets/scss/variables.scss';
 
 .two-columns {
-  margin: 10px 0;
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
