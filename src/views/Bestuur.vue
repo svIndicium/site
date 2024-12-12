@@ -17,6 +17,7 @@ import { currentBoard } from '@/content/boards.json';
       <div class="member-info">
         <h3>{{ member.name }}</h3>
         <h4>{{ member.function }}</h4>
+        <address> <a href="mailto:{{ member.email }}">{{ member.email }}</a> </address>
         <!--<p>{{ member.introduction }}</p>-->
       </div>
     </div>
@@ -45,7 +46,7 @@ import { currentBoard } from '@/content/boards.json';
 
     &:nth-child(even) {
       flex-direction: row-reverse;
-      h3, h4 {
+      h3, h4, address {
         text-align: right;
       }
     }

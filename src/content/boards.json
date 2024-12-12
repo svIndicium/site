@@ -6,28 +6,35 @@
       {
         "name": "Ajiet Lihe Huizer",
         "function": "Voorzitter",
-        "photo": "ajiet_b8.webp"
+        "photo": "ajiet_b8.webp",
+        "email": "voorzitter@indicium.hu"
       },
       {
         "name": "Siard IJpma",
         "function": "Secretaris",
-        "photo": "siard_b8.webp"
+        "photo": "siard_b8.webp",
+        "email": "secretaris@indicium.hu"
+
       },
       {
         "name": "Jesse Mouris",
         "function": "Penningmeester",
-        "photo": "jesse_b8.webp"
+        "photo": "jesse_b8.webp",
+        "email": "penningmeester@indicium.hu"
+
       },
       {
         "name": "Carlijne Hagemans",
         "function": "Vicevoorzitter",
         "photo": "carlijne_b8.webp",
+        "email": "vicevoorzitter@indicium.hu",
         "figcaption": "Foto door Rowan Ross"
       },
       {
         "name": "Raoul van Wijk",
         "function": "Algemeen commissaris",
-        "photo": "raoul_b8.webp"
+        "photo": "raoul_b8.webp",
+        "email": "algemeencommissaris@indicium.hu"
       }
     ]
   },
