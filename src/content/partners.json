@@ -133,33 +133,6 @@
       "imgUrlDark": "carrierebeurs_dark.png",
       "url": "https://www.carrierebeurs.nl/branchecongressen?branche=636",
       "jobOffers": []
-    },
-    {
-      "slug": "ortec",
-      "title": "ORTEC",
-      "description": [
-        "<b>About ORTEC</b>",
-        "We are ORTEC, a purpose-driven organization changing businesses and society at large through the power of data-driven mathematical optimization. We make businesses more efficient, more predictable and more effective. Turning complex challenges into easy-to-use solutions.",
-        "ORTEC's products and services result in optimized fleet routing and dispatch, vehicle and pallet loading, workforce scheduling, delivery forecasting, logistics network planning and warehouse control. ORTEC offers stand-alone, custom-made and SAP® certified and embedded solutions, supported by strategic partnerships.",
-        "We serve clients in almost every industry. And with 17 offices strategically located across 4 continents, we can deliver solutions on a global scale. Always underpinned by local know-how and service.",
-        "<b>Working at ORTEC</b>",
-        "ORTEC is an ambitious organization. Since our founding in 1981, we have grown to employ over 1000 people at locations in Europe, the United States, Australia and Brazil. Most of our employees began working with us after completing their studies. The average ORTEC employee has a technical master's or bachelor's degree, a strongly developed capacity for analytical thinking and the drive to understand problems and then to solve them. The company's organizational structure is flat, with short lines of communication. The atmosphere is open and informal, which forms an excellent basis for a productive working environment.",
-        "You are invited to attend social activities organized by our employees' association, and the Friday afternoon drinks in our own ORTap. Furthermore, an excursion for your department or ORTEC as a whole is organized annually, such as the Christmas breakfast or a barbecue at one of the founders' homes. And in addition to the (Young) Professionals Development Program, each month Young ORTEC organizes activities to help develop your talent, increase your knowledge and expand your network.",
-        "Get to know our people by clicking <a href=\"https://careers.ortec.com/peopleortec/\" target=\"_blank\">this link</a>, or discover more about our company by clikcing the link below"
-      ],
-      "imgUrl": "ORTEC.png",
-      "imgUrlDark": "ORTEC.png",
-      "url": "https://ortec.com/",
-      "jobOffers": [
-        {
-          "title": "Students and starters",
-          "description": [
-            "We are always looking for ambitious students/starters who have affinity with IT, optimization and logistics. As a student you can do a graduation internship and as an graduate you can do an traineeship.",
-            "If you are interested in working at ORTEC, you can send your resume, motivation and grades list to <a href=\"mailto:recruitment@ortec.com\" target=\"_blank\">recruitment@ortec.com</a>. Give a clear indication about the period and specialization you are looking for in the (graduation) internship. For more information you can contact Anouk de Winter (Recruiter)."
-          ],
-          "url": "https://careers.ortec.com/"
-        }
-      ]
     }
   ]
 }
