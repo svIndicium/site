@@ -6,9 +6,12 @@ import constuctionsSVG from '@/assets/icons/underconstruction.svg?component';
 
 <template>
   <ContentContainer>
-    <constuctionsSVG />
-    <h1>Sorry. Deze pagina is nog effe niet af</h1>
-    <h2>Duurt lang? kom bij devcom!</h2>
+    <constuctionsSVG/>
+    <h1>Sorry. Deze pagina is nog niet af</h1>
+    <h2>
+      Duurt lang? Kom bij devcom!
+      Of <a href="https://github.com/svIndicium/site" target="_blank">stuur een pull request!</a>
+    </h2>
   </ContentContainer>
 </template>
 
@@ -18,6 +21,7 @@ import constuctionsSVG from '@/assets/icons/underconstruction.svg?component';
 }
 
 svg {
+  align-self: center;
   width: 300px;
   height: 300px;
 }
