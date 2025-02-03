@@ -34,6 +34,37 @@
           "url": "https://www.yer.nl/vacatures/"
         }
       ]
+    },
+    {
+      "slug": "chipsoft",
+      "title": "ChipSoft",
+      "description": [
+        "<strong>Wil jij meehelpen de zorg te verbeteren, maar zie jij jezelf niet direct aan het bed van een patiënt staan? Neem dan eens een kijkje bij ChipSoft.</strong>",
+        "Als toonaangevende leverancier van zorg-ICT voorziet ChipSoft veel Nederlandse en Belgische zorginstellingen van efficiënte, innovatieve softwareoplossingen. Geïntegreerde oplossingen binnen één systeem – HiX – die zorgen dat zorgverleners op het juiste moment de juiste zorg kunnen bieden.",
+        "Met gepassioneerde developers en consultants, die stuk voor stuk hart hebben voor de zorg, ontwikkelt het bedrijf vanuit Amsterdam, Antwerpen, Heerenveen en Hoogeveen oplossingen die de registratielast voor zorgverleners verminderen, de samenwerking tussen zorginstellingen verbeteren en de patiënt meer regie geven over zijn of haar behandeling. ChipSoft ontzorgt hiermee (grote academische) ziekenhuizen, maar ook huisartsen, GGZ- instellingen, zelfstandige klinieken, verpleeghuizen, verzorgingshuizen en thuiszorginstanties.",
+        "Met HiX als totaaloplossing voor de zorg zijn zorginstellingen van allerlei omvang altijd klaar voor nu én voor de toekomst. Daarin spelen digitale samenwerking en gegevensuitwisseling tussen alle partijen rondom de patiënt een steeds grotere rol.",
+        "Help jij graag mee de zorg verbeteren met slimme ICT? Stuur dan een mail naar <a href=\"mailto:recruitment@chipsoft.com\">recruitment@chipsoft.com</a>.",
+        "<ul><li><strong>Facebook</strong>: <a href=\"https://www.facebook.com/chipsoftbv/\" target=\"_blank\">https://www.facebook.com/chipsoftbv/</a></li> <li><strong>Linkedin</strong>: <a href=\"https://www.linkedin.com/company/chipsoft/\" target=\"_blank\">https://www.linkedin.com/company/chipsoft/</a></li> <li><strong>Instagram</strong>: <a href=\"https://www.instagram.com/chipsoftnederland/\" target=\"_blank\">https://www.instagram.com/chipsoftnederland/</a></li> <li><strong>Website</strong>: <a href=\"https://www.chipsoft.com/nl-NL/werken-bij\" target=\"_blank\"> Werken bij ChipSoft – Welkom</a></li></ul>"
+      ],
+      "imgUrl": "ChipSoft-light.svg",
+      "imgUrlDark": "ChipSoft-white.svg",
+      "url": "https://www.chipsoft.com/nl-NL/",
+      "jobOffers": [
+        {
+          "title": "Werken bij ChipSoft - Cloud Software Developer",
+          "description": [
+            "Als Cloud Software Developer ga je aan de slag met onze SaaS-dienst Zorgplatform, onze oplossing voor samenwerking en gegevensuitwisseling in de zorg. Voor de ontwikkeling hiervan gebruiken wij Microsoft-technologie. Zie jij dit als een uitdaging? Lees dan verder!"
+          ],
+          "url": "https://www.chipsoft.com/nl-nl/werken-bij/vacatures/cloud-software-developer/"
+        },
+        {
+          "title": "Werken bij ChipSoft - .NET Developer Zorg-ICT",
+          "description": [
+            "Wil jij met ChipSoft impact maken in de zorg met jouw technische kennis als Software Developer? En lijkt het jou uitdagend om innovatieve software te ontwikkelen met de laatste Microsoft-tools en technieken?"
+          ],
+          "url": "https://www.chipsoft.com/nl-nl/werken-bij/vacatures/net-developer-zorg-ict-amsterdam/"
+        }
+      ]
     }
   ],
   "regularPartners": [
@@ -49,34 +80,6 @@
       "imgUrlDark": "DressMe_Dark.png",
       "url": "https://dressme.nl/",
       "jobOffers": []
-    },
-    {
-      "slug": "chipsoft",
-      "title": "ChipSoft",
-      "description": [
-        "Wil jij meehelpen de zorg te verbeteren, maar zie jij jezelf niet direct aan het bed van een patiënt staan? Neem dan eens een kijkje bij ChipSoft, dat al jaren aan de top staat als het gaat om zorgautomatisering. ChipSoft heeft altijd plek voor developers en consultants met talent.",
-        "Als marktleider op het gebied van zorg-ICT voorziet ChipSoft veel Nederlandse en Belgische zorginstellingen van efficiënte, innovatieve softwareoplossingen. Geïntegreerde oplossingen binnen één systeem – HiX - die zorgen dat zorgverleners op het juiste moment de juiste zorg kunnen bieden.",
-        "Met gepassioneerde developers en consultants, die stuk voor stuk hart hebben voor de zorg, ontwikkelt het bedrijf vanuit Amsterdam, Antwerpen, Heerenveen en Hoogeveen oplossingen die de registratielast voor zorgverleners vermindert, de samenwerking tussen zorginstellingen verbetert en de patiënt meer regie geeft over zijn of haar behandeling. ChipSoft ontzorgt hiermee grote academische ziekenhuizen, maar ook voor huisartsen, GGZ-instellingen, zelfstandige klinieken, verpleeghuizen, verzorgingshuizen en thuiszorginstanties.",
-        "Met HiX als totaaloplossing voor de zorg zijn zorginstellingen van allerlei omvang altijd klaar voor nu én voor de toekomst. Daarin speelt digitale samenwerking en gegevensuitwisseling tussen alle partijen rondom de patiënt een steeds grotere rol.",
-        "Help jij graag mee de zorg verbeteren met slimme ICT? Stuur dan een mail naar <a href='mailto:recruitment@chipsoft.com'>recruitment@chipsoft.com</a>."
-      ],
-      "imgUrl": "ChipSoft-light.svg",
-      "imgUrlDark": "ChipSoft-white.svg",
-      "url": "https://www.chipsoft.com/nl-NL/",
-      "jobOffers": [
-        {
-          "title": "Mobile App Developer",
-          "description": [
-            "<strong>Gezocht: Gedreven Mobile App Ontwikkelaar!</strong> Heb jij een passie voor app ontwikkeling en ben je analytisch sterk? Kom ons Mobile-ontwikkelteam versterken!",
-            "<strong>Wat je doet:</strong> Ontwikkel innovatieve apps die aansluiten op onze ICT-totaaloplossing voor de zorg, HiX. Werk met de nieuwste versies van Visual Studio voor iOS, Android, en UWP. Je draagt bij aan het verbeteren van de zorg door middel van technologie.",
-            "<strong>Jouw team:</strong> Werk samen met creatieve en professionele developers in Amsterdam. Ons doel: de beste mobiele oplossingen bieden aan zorgprofessionals.",
-            "<strong>Jouw dag:</strong> Start met een stand-up meeting, werk aan projecten zoals het toegankelijk maken van medische dossiers via mobiele telefoons, en eindig de dag met een code review of het helpen van een collega met technische vraagstukken.",
-            "<strong>Wat wij zoeken:</strong> Iemand met WO/HBO niveau, teamspirit, en interesse in de zorgsector. Pluspunten voor ervaring met C#, XAML, Android/iOS, Visual Studio, Xamarin, en kennis van de Nederlandse taal.",
-            "<strong>Wat wij bieden:</strong> Aantrekkelijk salaris, uitstekende arbeidsvoorwaarden, opleidingsmogelijkheden, veel vrijheid, een informele werksfeer, en toegang tot onze sportschool."
-          ],
-          "url": "https://www.chipsoft.com/nl-NL/werken-bij/vacatures/409"
-        }
-      ]
     },
     {
       "slug": "carrierebeurs",
