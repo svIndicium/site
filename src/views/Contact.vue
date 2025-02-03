@@ -21,6 +21,10 @@ import ContentContainer from '@/layouts/ContentContainer.vue';
         <a href="mailto:secretaris@indicium.hu" class="btn l">secretaris@indicium.hu</a>
         <p>Voor e-mails gericht aan het hele bestuur kun je mailen naar:</p>
         <a href="mailto:bestuur@indicium.hu" class="btn l">bestuur@indicium.hu</a>
+        <div id="contact-external">
+          <p>Bedrijven en/of potenti&euml;le partners kunnen contact opnemen via:</p>
+          <a href="mailto:secretaris-extern@indicium.hu" class="btn l">secretaris-extern@indicium.hu</a>
+        </div>
       </div>
       <IndiciumMap class="map" />
     </div>
@@ -57,12 +61,26 @@ import ContentContainer from '@/layouts/ContentContainer.vue';
     padding: 16px 14px;
     flex-grow: 1;
     max-width: 400px;
-
     text-align: left;
+    position: relative;
+
+    p {
+      margin-top: 15px;
+      margin-bottom: 5px;
+    }
 
     h1 {
       margin-top: 0;
     }
+
+    #contact-external {
+      margin-top: 2.5rem;
+      p, a {
+        font-size: 16px;
+      }
+
+    }
+
   }
 }
 </style>
