@@ -174,10 +174,11 @@ const state = stateStore();
 }
 
 .readMore {
+  font-size: large;
   text-decoration: none;
   color: inherit;
   margin: 1em auto;
-  padding: 0.7em;
+  padding: 10px;
   background-color: rgb(var(--indi-blue-1));
   border-radius: 0.5em;
 }

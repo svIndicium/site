@@ -36,7 +36,7 @@ watch(route, (newRoute, oldRoute) => {
         </a>
         <div class="description">
           <p v-for="paragraph in partner.description" v-html="paragraph"></p>
-          <a v-if="partner.url" class="readMoreOutboundBtn button primary rounded" :href="partner.url" target="_blank">Lees meer</a>
+          <a v-if="partner.url" class="readMoreOutboundBtn button primary rounded" :href="partner.url" target="_blank">Naar de website</a>
         </div>
       </div>
       <JobOffers :partner="partner" />

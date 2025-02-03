@@ -23,7 +23,7 @@ function expandJobOffer(event: MouseEvent) {
             :href="jobOffer.url"
             target="_blank"
           >
-            Lees meer
+            Naar de vacature
           </a>
         </div>
       </div>
