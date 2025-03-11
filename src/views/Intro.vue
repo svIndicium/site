@@ -6,7 +6,7 @@ const imageUrl = ref('/assets/images/intro2023lowres.webp');
 
 onMounted(() => {
   const highResImg = new Image();
-  highResImg.src = '/assets/images/intro2023.webp';
+  highResImg.src = '/assets/images/intro_pagina_foto.JPG';
   highResImg.onload = () => {
     imageUrl.value = highResImg.src;
   };
@@ -17,7 +17,7 @@ onMounted(() => {
   <ContentContainer>
     <img :src="imageUrl" alt="Intro" width="2500" loading="lazy" decoding="async" />
 
-    <h1 class="big-title">Intro​duct​ie​kamp 2024</h1>
+    <h1 class="big-title">Intro​duct​ie​kamp 2025</h1>
 
     <section class="intro">
       <!-- <div class="warning">
@@ -29,38 +29,47 @@ onMounted(() => {
       </div> -->
       <div>
         <p>
-          Vanuit de Studievereniging Indicium zijn we blij om te zien dat je de keuze hebt gemaakt voor de HBO-ICT
+          Vanuit de Studievereniging Indicium zijn we blij om te zien dat je de keuze hebt gemaakt, of gaat maken, voor de HBO-ICT
           opleiding <em class="openict">(inclusief Open-ICT 💖)</em>. Om je een warm welkom te bieden en een startpunt
           voor nieuwe vriendschappen, hebben we een speciaal introductiekamp in het leven geroepen.
         </p>
 
         <p>
-          Dit introductiekamp zal plaatsvinden van <em class="datum">dinsdag 20 augustus</em> tot en met
-          <em class="datum">vrijdag 23 augustus</em>. De locaties zijn de prachtige stad Utrecht en een plek nabij
-          Doornspijk. Hier krijg je de kans om je medestudenten beter te leren kennen en de unieke sfeer van onze
+          Dit introductiekamp zal plaatsvinden van <em class="datum">dinsdag 19 augustus</em> tot en met
+          <em class="datum">vrijdag 22 augustus</em>. De locaties zijn de prachtige stad Utrecht en een plek nabij
+          Buren. Hier krijg je de kans om je medestudenten beter te leren kennen en de unieke sfeer van onze
           vereniging te ervaren. Er wachten je diverse activiteiten, variërend van spellen tot sportuitdagingen, en het
           geheel wordt afgesloten met een gezellig feest!
         </p>
-
+<!-- 
         <p style="text-align: center">
           Om deel uit te maken van dit geweldige introductiekamp, dien je jezelf hieronder te registreren.
+          <br />
+        </p> -->
+
+        
+        <p style="text-align: center">
+          Zou jij graag mee willen deze zomer? Registreer je hieronder voor de intresselijst. Let op, dit is nog niet de inschrijving voor het kamp.
           <br />
         </p>
 
         <div class="buttons">
-          <a class="button primary rounded indi-green-1 big heavy" href="https://forms.gle/V1j5WptJwaWScMZH9"
+          <!-- <a class="button primary rounded indi-green-1 big heavy" href="https://forms.gle/V1j5WptJwaWScMZH9"
             >Aanmelden voor introkamp</a
-          >
-          <a class="button secondary rounded indi-bluegreen-1 big" href="https://forms.gle/6BWHiwWBfffUozk17">
+          > -->
+          <!-- <a class="button secondary rounded indi-bluegreen-1 big" href="https://forms.gle/6BWHiwWBfffUozk17">
             Inschrijvingen vol? Aanmelden wachtrij!</a
+          > -->
+          <a class="button secondary rounded indi-bluegreen-1 big" href="https://forms.gle/sLS2xEVsv6oqUDpXA ">
+            Registreren intresselijst</a
           >
 
-          <a class="button secondary rounded big" href="https://forms.gle/rzZdgN2J65Hr6hDq9">
+          <!-- <a class="button secondary rounded big" href="https://forms.gle/rzZdgN2J65Hr6hDq9">
             Aanmelden voor BBQ (Alumni/Docenten)</a
-          >
+          > -->
         </div>
-
-        <p style="text-align: center">Wees er snel bij want er zijn maar een beperkt aantal plekken!<br /></p>
+<!-- 
+        <p style="text-align: center">Wees er snel bij want er zijn maar een beperkt aantal plekken!<br /></p> -->
 
         <p>
           Ons introductiekamp is de perfecte manier om helemaal op te gaan in de vereniging en nieuwe vriendschappen te
