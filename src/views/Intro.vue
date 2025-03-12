@@ -6,7 +6,7 @@ const imageUrl = ref('/assets/images/intro2023lowres.webp');
 
 onMounted(() => {
   const highResImg = new Image();
-  highResImg.src = '/assets/images/intro_pagina_foto.JPG';
+  highResImg.src = '/assets/images/Kamp_foto.jpeg';
   highResImg.onload = () => {
     imageUrl.value = highResImg.src;
   };
