@@ -1,40 +1,42 @@
 {
   "currentBoard": {
     "year": "2024-2025",
-    "groupPhoto": "bestuur24-25.webp",
+    "groupPhoto": "bestuur8_2425.jpg",
     "members": [
       {
         "name": "Ajiet Lihe Huizer",
         "function": "Voorzitter",
-        "photo": "ajiet_b8.webp",
-        "email": "voorzitter@indicium.hu"
+        "photo": "b8-1-voorzitter.jpg",
+        "email": "voorzitter@indicium.hu",
+        "figcaption": "Foto door Kevin de Meijer"
       },
       {
         "name": "Siard IJpma",
         "function": "Secretaris",
-        "photo": "siard_b8.webp",
-        "email": "secretaris@indicium.hu"
-
+        "photo": "b8-2-secretaris.jpg",
+        "email": "secretaris@indicium.hu",
+        "figcaption": "Foto door Kevin de Meijer"
       },
       {
         "name": "Jesse Mouris",
         "function": "Penningmeester",
-        "photo": "jesse_b8.webp",
-        "email": "penningmeester@indicium.hu"
-
+        "photo": "b8-3-penningmeester.jpg",
+        "email": "penningmeester@indicium.hu",
+        "figcaption": "Foto door Kevin de Meijer"
       },
       {
         "name": "Carlijne Hagemans",
         "function": "Vicevoorzitter",
-        "photo": "carlijne_b8.webp",
+        "photo": "b8-4-vicevoorzitter.jpg",
         "email": "vicevoorzitter@indicium.hu",
-        "figcaption": "Foto door Rowan Ross"
+        "figcaption": "Foto door Kevin de Meijer"
       },
       {
         "name": "Raoul van Wijk",
         "function": "Algemeen commissaris",
-        "photo": "raoul_b8.webp",
-        "email": "algemeencommissaris@indicium.hu"
+        "photo": "b8-5-algemeencommissaris.jpg",
+        "email": "algemeencommissaris@indicium.hu",
+        "figcaption": "Foto door Kevin de Meijer"
       }
     ]
   },
