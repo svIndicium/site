@@ -31,20 +31,16 @@
       "url": "/partners",
       "children": [
         {
+          "title": "ChipSoft",
+          "url": "/partners/chipsoft"
+        },
+        {
           "title": "YER",
           "url": "/partners/yer"
         },
         {
           "title": "DressMe",
           "url": "/partners/dressme"
-        },
-        {
-          "title": "ChipSoft",
-          "url": "/partners/chipsoft"
-        },
-        {
-          "title": "IT Carrièrebeurs",
-          "url": "/partners/carrierebeurs"
         }
       ]
     },
