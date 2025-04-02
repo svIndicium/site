@@ -19,11 +19,9 @@ const { darkModeActive } = storeToRefs(state);
         Wij zijn dé
         <span class="extra-bold">studie</span>vereniging voor HBO-ICT van Hogeschool Utrecht
       </h1>
-      <div class="subtitle-items">
-<!--        <router-link class="button primary rounded" to="/intro">Introductiekamp</router-link>-->
-
+      <div class="hero-buttons">
+        <router-link class="button primary rounded" to="/intro">Introductiekamp</router-link>
         <router-link class="button primary rounded indi-green-1" to="/lid-worden">Word lid</router-link>
-
         <router-link class="button secondary rounded indi-bluegreen-1" to="/links">Quick Links</router-link>
 
         <!-- <add-to-calendar-button
