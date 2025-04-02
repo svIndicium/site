@@ -23,24 +23,6 @@ const { darkModeActive } = storeToRefs(state);
         <router-link class="button primary rounded" to="/intro">Introductiekamp</router-link>
         <router-link class="button primary rounded indi-green-1" to="/lid-worden">Word lid</router-link>
         <router-link class="button secondary rounded indi-bluegreen-1" to="/links">Quick Links</router-link>
-
-        <!-- <add-to-calendar-button
-          name="Indicium"
-          :startDate="new Date(Date.now() - 86400000).toISOString().split('T')[0]"
-          startTime="00:00"
-          endTime="00:00"
-          timeZone="Europe/Amsterdam"
-          icsFile="https://calendar.google.com/calendar/ical/c_cb2b2ab9761bec69a9d24fd452f2d970d31755cf1c382272560d81fddca0e5e5%40group.calendar.google.com/public/basic.ics"
-          subscribe
-          iCalFileName="Indicium Activiteiten Kalender"
-          options="'Apple','Google','iCal','Outlook.com','Microsoft365','MicrosoftTeams'"
-          listStyle="modal"
-          label="Importeer agenda"
-          :lightMode="darkModeActive ? 'dark' : 'light'"
-          language="nl"
-          style="margin-block-end: 0.5em; --btn-shadow: unset; --btn-shadow-hover: unset"
-          hideBranding
-        ></add-to-calendar-button> -->
       </div>
     </div>
   </div>
@@ -108,10 +90,9 @@ const { darkModeActive } = storeToRefs(state);
       text-decoration: none;
     }
 
-    & .subtitle-items {
+    & .hero-buttons {
       margin-top: 1rem;
       & > * {
-        display: inline-block;
         margin: 0.5em;
       }
     }
