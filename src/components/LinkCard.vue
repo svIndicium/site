@@ -30,7 +30,6 @@ const isImage = filetypes.some((filetype) => props.link.icon?.endsWith('.' + fil
 </template>
 
 <style lang="scss">
-@import '@/assets/scss/variables.scss';
 
 .link {
   font-family: var(--text-font);

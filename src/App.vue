@@ -29,7 +29,7 @@ state.refreshTheme();
 </template>
 
 <style lang="scss">
-@import './assets/scss/variables.scss';
+
 @font-face {
   font-family: 'Indicium-font';
   font-weight: 400;

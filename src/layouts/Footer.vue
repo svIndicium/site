@@ -80,7 +80,6 @@ function changeTheme(theme: string) {
 </template>
 
 <style lang="scss" scoped>
-@import '@/assets/scss/variables.scss';
 
 a {
   text-decoration: none;

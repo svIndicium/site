@@ -14,7 +14,8 @@ import logo from '@/assets/logo/indicium-logo-icon.svg?component';
 </template>
 
 <style scoped lang="scss">
-@import '@/assets/scss/variables.scss';
+@use "sass:map";
+
 .logo-container {
   display: flex;
   align-items: center;
@@ -72,19 +73,19 @@ import logo from '@/assets/logo/indicium-logo-icon.svg?component';
     }
 
     @each $breakpoint in $logobreakpoints {
-      @media screen and (max-width: map-get($breakpoint, bp)) {
-        font-size: map-get($breakpoint, fontSize);
+      @media screen and (max-width: map.get($breakpoint, bp)) {
+        font-size: map.get($breakpoint, fontSize);
 
         &.small {
-          font-size: map-get($breakpoint, smallFontSize);
+          font-size: map.get($breakpoint, smallFontSize);
         }
       }
     }
   }
 
   svg {
-    width: '100%';
-    height: 'auto';
+    width: 100%;
+    height: auto;
   }
 }
 </style>

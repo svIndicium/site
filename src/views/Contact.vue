@@ -32,7 +32,6 @@ import ContentContainer from '@/layouts/ContentContainer.vue';
 </template>
 
 <style scoped lang="scss">
-@import '@/assets/scss/variables.scss';
 
 .two-columns {
   display: flex;

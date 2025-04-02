@@ -117,7 +117,6 @@ setInterval(() => {
 </template>
 
 <style scoped lang="scss">
-@import '../assets/scss/variables.scss';
 h1 {
   margin-bottom: 24px;
 }

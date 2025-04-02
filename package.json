@@ -34,11 +34,13 @@
     "eslint-plugin-vue": "^9.25.0",
     "firebase-tools": "^13.7.3",
     "prettier": "^3.2.5",
-    "sass": "^1.75.0",
+    "sass": "^1.86.1",
     "scss": "^0.2.4",
     "typescript": "~5.6.3",
-    "vite": "^5.2.9",
+    "vite": "^6.2.4",
     "vite-svg-loader": "^5.1.0",
+    "vue-loader": "^17.4.2",
+    "vue-template-compiler": "^0.1.0",
     "vue-tsc": "^2.0.0"
   }
 }

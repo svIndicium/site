@@ -33,7 +33,6 @@ const [dispuut] = disputen;
 </template>
 
 <style scoped lang="scss">
-@import '@/assets/scss/variables.scss';
 
 .dispuut {
   border-bottom: 3px solid var(--indi-blue-1);

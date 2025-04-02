@@ -46,7 +46,6 @@ watch(route, (newRoute, oldRoute) => {
 </template>
 
 <style scoped lang="scss">
-@import '@/assets/scss/main.scss';
 .job-offer-description ul {
   list-style: circle;
 }
@@ -60,7 +59,7 @@ watch(route, (newRoute, oldRoute) => {
     gap: 8%;
     align-items: center;
 
-    @media screen and (max-width: #{$bp-tablet-md}) {
+    @media screen and (max-width: #{$bp-desktop-lg}) {
       grid-template-columns: 1fr;
       gap: 2em;
     }

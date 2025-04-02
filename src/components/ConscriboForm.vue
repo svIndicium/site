@@ -11,7 +11,6 @@ fetchConscriboFormAndInjectFix(conscriboFormUrl);
 </template>
 
 <style lang="scss">
-@import '../assets/scss/variables.scss';
 // De CSS van Conscribo zelf, ter referentie.
 //@import 'https://leden.conscribo.nl/common_resources/css/WebForm.css';
 

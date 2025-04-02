@@ -25,7 +25,7 @@ import { currentBoard } from '@/content/boards.json';
 </template>
 
 <style scoped lang="scss">
-  @import '@/assets/scss/variables.scss';
+  ;
 
   .content-container {
     display: flex;

@@ -32,7 +32,6 @@ function expandJobOffer(event: MouseEvent) {
 </template>
 
 <style scoped lang="scss">
-@import '@/assets/scss/main.scss';
 
 .job-offers-container {
   @media screen and (max-width: #{$bp-tablet-md}) {
