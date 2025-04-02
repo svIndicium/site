@@ -84,8 +84,8 @@ import logo from '@/assets/logo/indicium-logo-icon.svg?component';
   }
 
   svg {
-    width: '100%';
-    height: 'auto';
+    width: 100%;
+    height: auto;
   }
 }
 </style>
