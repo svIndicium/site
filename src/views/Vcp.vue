@@ -47,7 +47,6 @@ import Placeholder from '@/views/Placeholder.vue';
 </template>
 
 <style scoped lang="scss">
-@import '@/assets/scss/main.scss';
 
 .content-container {
   display: flex;

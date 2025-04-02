@@ -22,6 +22,17 @@ export default defineConfig({
       project: 'frontend',
     }),
   ],
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `
+          @use '@/assets/scss/main' as *;
+          @use '@/assets/scss/variables' as *;
+          @use '@/assets/scss/typography' as *;
+          `
+      }
+    }
+  },
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),

@@ -41,13 +41,13 @@ onMounted(() => {
           vereniging te ervaren. Er wachten je diverse activiteiten, variërend van spellen tot sportuitdagingen, en het
           geheel wordt afgesloten met een gezellig feest!
         </p>
-<!-- 
+<!--
         <p style="text-align: center">
           Om deel uit te maken van dit geweldige introductiekamp, dien je jezelf hieronder te registreren.
           <br />
         </p> -->
 
-        
+
         <p style="text-align: center">
           Zou jij graag mee willen deze zomer? Registreer je hieronder voor de intresselijst. Let op, dit is nog niet de inschrijving voor het kamp.
           <br />
@@ -68,7 +68,7 @@ onMounted(() => {
             Aanmelden voor BBQ (Alumni/Docenten)</a
           > -->
         </div>
-<!-- 
+<!--
         <p style="text-align: center">Wees er snel bij want er zijn maar een beperkt aantal plekken!<br /></p> -->
 
         <p>
@@ -90,7 +90,6 @@ onMounted(() => {
 </template>
 
 <style scoped lang="scss">
-@import '@/assets/scss/variables.scss';
 @media screen and (max-width: #{$bp-mobile-lg}) {
   .big-title {
     font-size: 2.5rem;

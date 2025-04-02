@@ -27,7 +27,6 @@ import DataNotFound from '@/assets/icons/data-not-found.svg?component';
 </template>
 
 <style scoped lang="scss">
-@import '@/assets/scss/variables.scss';
 .board {
   border-bottom: 3px solid var(--indi-blue-1);
   max-width: 1200px;

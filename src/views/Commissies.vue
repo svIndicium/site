@@ -24,7 +24,6 @@ const [commissie] = commissies;
 </template>
 
 <style scoped lang="scss">
-@import '@/assets/scss/variables.scss';
 
 .commissie {
   max-width: 1200px;

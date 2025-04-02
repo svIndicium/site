@@ -29,7 +29,6 @@ const router = useRouter();
 </template>
 
 <style scoped lang="scss">
-@import '@/assets/scss/variables.scss';
 
 #link-page {
   display: grid;

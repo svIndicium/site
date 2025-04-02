@@ -1,5 +1,5 @@
-@import 'variables';
-@import 'typography';
+@use 'variables' as *;
+@use 'typography' as *;
 
 // TODO: Verwijderen zodra er een hoofdpartner is
 #main-partner {
@@ -23,7 +23,7 @@ body {
   overflow-x: hidden;
   background-color: var(--root-background-color);
 
-  @media screen and (max-width: #{bp-tablet-md}) {
+  @media screen and (max-width: #{$bp-tablet-md}) {
     padding-top: 0;
   }
 }

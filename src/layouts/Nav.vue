@@ -19,7 +19,6 @@ const items = content.items;
 </template>
 
 <style lang="scss" scoped>
-@import '../assets/scss/variables.scss';
 
 .nav {
   display: flex;

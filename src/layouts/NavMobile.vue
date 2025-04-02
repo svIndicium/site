@@ -177,7 +177,6 @@ router.afterEach(() => {
 </template>
 
 <style lang="scss" scoped>
-@import '../assets/scss/variables.scss';
 
 .mobile-nav {
   --navbar-height: 16vw;

@@ -59,9 +59,7 @@ import Discord from './views/Discord.vue';
 
 import { UAParser } from 'ua-parser-js';
 
-import '@/assets/scss/variables.scss';
-import '@/assets/scss/main.scss';
-import '@/assets/scss/typography.scss';
+// Note: SCSS imports moved to vite.config.ts css preprocessorOptions
 
 // IIF check now, retrieve later for maximum speed
 const messesUp = (() => {

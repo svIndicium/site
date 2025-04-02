@@ -12,7 +12,6 @@
 </template>
 
 <style lang="scss" scoped>
-@import '../assets/scss/variables.scss';
 
 .map {
   border-radius: 4px;

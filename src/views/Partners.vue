@@ -74,7 +74,6 @@ const state = stateStore();
 </template>
 
 <style scoped lang="scss">
-@import '@/assets/scss/main.scss';
 
 
 .dashed-line {

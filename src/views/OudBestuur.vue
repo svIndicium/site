@@ -40,7 +40,6 @@ import { previousBoards } from '@/content/boards.json';
 </template>
 
 <style scoped lang="scss">
-@import '@/assets/scss/variables.scss';
 
 .board {
   border-bottom: 3px solid var(--indi-blue-1);

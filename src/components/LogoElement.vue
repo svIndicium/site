@@ -14,7 +14,6 @@ import logo from '@/assets/logo/indicium-logo-icon.svg?component';
 </template>
 
 <style scoped lang="scss">
-@import '@/assets/scss/variables.scss';
 .logo-container {
   display: flex;
   align-items: center;

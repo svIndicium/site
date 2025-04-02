@@ -18,7 +18,6 @@ const router = useRouter();
 </template>
 
 <style scoped lang="scss">
-@import '../assets/scss/variables.scss';
 .logo-container {
   cursor: pointer;
   display: flex;
