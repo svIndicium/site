@@ -49,6 +49,7 @@ const { darkModeActive } = storeToRefs(state);
 </template>
 
 <style lang="scss" scoped>
+@use "sass:map";
 
 .hero {
   display: flex;
@@ -96,8 +97,8 @@ const { darkModeActive } = storeToRefs(state);
 
     h1 {
       @each $breakpoint in $h1-breakpoints {
-        @media screen and (max-width: map-get($breakpoint, bp)) {
-          font-size: map-get($breakpoint, fontSize);
+        @media screen and (max-width: map.get($breakpoint, bp)) {
+          font-size: map.get($breakpoint, fontSize);
         }
       }
     }
