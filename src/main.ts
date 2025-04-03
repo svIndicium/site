@@ -45,6 +45,7 @@ import Partners from '@/views/Partners.vue';
 import Partner from '@/views/Partner.vue';
 import Contact from '@/views/Contact.vue';
 import Vcp from '@/views/Vcp.vue';
+import Vacatures from '@/views/Vacatures.vue';
 import Statuten from '@/views/Statuten.vue';
 import Privacy from '@/views/Privacy.vue';
 import BetalingGelukt from '@/views/BetalingGelukt.vue';
@@ -92,7 +93,7 @@ const router = createRouter({
     { name: 'Dispuut', path: '/dispuut', component: Dispuut },
     { name: 'Partners', path: '/partners', component: Partners },
     { name: 'Partner', path: '/partners/:partner', component: Partner },
-    { name: 'Vacatures', path: '/vacatures', component: Placeholder },
+    { name: 'Vacatures', path: '/vacatures', component: Vacatures },
     { name: 'Contact', path: '/contact', component: Contact },
     { name: 'Vertrouwens Contact Personen', path: '/vcp', component: Vcp },
     {

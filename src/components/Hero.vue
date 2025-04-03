@@ -22,7 +22,10 @@ const { darkModeActive } = storeToRefs(state);
       <div class="hero-buttons">
         <router-link class="button primary rounded" to="/intro">Introductiekamp</router-link>
         <router-link class="button primary rounded indi-green-1" to="/lid-worden">Word lid</router-link>
-        <router-link class="button secondary rounded indi-bluegreen-1" to="/links">Quick Links</router-link>
+<!--        <router-link class="button secondary rounded indi-bluegreen-1" to="/links">Quick Links</router-link>-->
+      </div>
+      <div class="hero-buttons hero-buttons-2">
+        <router-link class="button secondary rounded indi-blue-2" to="/vacatures">Vacatures</router-link>
       </div>
     </div>
   </div>
@@ -95,6 +98,9 @@ const { darkModeActive } = storeToRefs(state);
       & > * {
         margin: 0.5em;
       }
+    }
+    & .hero-buttons-2 {
+      margin-top: 0;
     }
   }
 }
