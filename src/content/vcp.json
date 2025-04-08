@@ -2,14 +2,48 @@
   "currentVCP": {
     "vcpMembers": [
       {
-        "name": "",
-        "phonenumber": "",
-        "status": "",
-        "aboutme": "",
-        "photo": "",
-        "funfact1": "",
-        "funfact2": "",
-        "funfact3": ""
+        "name": "Arthur Provoost",
+        "phonenumber": "06 20451982",
+        "email": "placeholder@example.com",
+        "status": "VCP Extern",
+        "aboutme": "Ik ben inmiddels 30 jaar en studeer (nog altijd) Social Work aan de HU, waarin ik mijn 2e jaar herkans. Ben vrijwel alle weekdagen al wandelend, kletsend of van de ene naar de andere afspraak lopend, op of rond de campus te vinden. In mijn vrije tijd breng ik veel tijd door met mijn honden, oude nostalgische spelletjes spelen en filosoferen over het leven.",
+        "photo": "vcp_extern_arthur.jpg",
+        "funfact1": "Ik heb inmiddels 4 pups voor het buitenland helpen opvoeden.",
+        "funfact2": "Ik ben ooit in 2013 begonnen met studeren aan de HU, en sindsdien nooit opgehouden (maar ook nog niets afgerond).",
+        "funfact3": "Ik doe begin februari een nieuwe stoppoging met roken. Mijn 5e poging, waarbij de vorige 3 jaar geleden was en het toen 8 maanden volhield. Wish me luck!"
+      },
+      {
+        "name": "Tara Ghafouri",
+        "phonenumber": "06 47372938",
+        "email": "tara.ghafouri@indicium.hu",
+        "status": "VCP Intern",
+        "aboutme":  "Hoi! Ik ben Tara en ik ben momenteel 21 jaar. Ik zit in mijn tweede jaar van de opleiding HBO-ICT, waarbij ik mij richt op Business IT & Management. In mijn vrije tijd probeer ik zoveel mogelijk te doen met vriendinnen en anders zit ik lekker thuis te relaxen.",
+        "photo": "vcp_tara.jpg",
+        "funfact1": "Ik vind het heel leuk om voor vrienden te koken",
+        "funfact2": "Ik heb hiervoor een mbo in marketing en commerciële economie gedaan",
+        "funfact3": "Ik bak echt hele goeie brownies"
+      },
+      {
+        "name": "Seger van Vlijmen",
+        "phonenumber": "06 47472299",
+        "email": "seger.van.vlijmen@indicium.hu",
+        "status": "VCP Intern",
+        "aboutme": "Ik ben 21 jaar. Ik ben in het afgelopen jaar afgestudeerd van de richting Open-ICT. Ik woon in Weesp en werk nu bij ilionx in Utrecht. Ik doe in mijn vrije tijd graag aan hockey, gamen en karten.",
+        "photo": "vcp_seger.jpg",
+        "funfact1": "Ik ben bestuur geweest van Indicium",
+        "funfact2": "Ik heb een hockey wedstrijd gespeeld samen met hoofdklasse spelers",
+        "funfact3": "Ik ben groot fan van de F1 en sta regelmatig vroeg op om races te kijken"
+      },
+      {
+        "name": "Jari Fuijkschot",
+        "phonenumber": "06 41643886",
+        "email": "jari.fuijkschot@indicium.hu",
+        "status": "VCP Intern",
+        "aboutme": "Ik ben 25 jaar en zit al bijna 6 jaar bij Indicium. Ondertussen ben ik al afgestudeerd bij HBO-ICT met studierichting Technische Informatica. In September begin ik met de Master Computing Science aan de Universiteit Utrecht, en daarna mogelijk een PhD wil behalen. Ik ben geboren en getogen in Geldermalsen, waar ik nu nog steeds woon. Buiten mijn studie vind ik het leuk om te gamen, met vrienden een biertje te drinken en naar festivals te gaan.",
+        "photo": "vcp_jari.jpg",
+        "funfact1": "Ik speel al bijna 18 jaar World of Warcraft, sinds mijn 7de",
+        "funfact2": "Ik was voorzitter van het oprichtende bestuur van Dispuut Ebrius Vespertina",
+        "funfact3": "Ik heb 12 weken in Japan gewoond voor mijn minor"
       }
     ]
   }
