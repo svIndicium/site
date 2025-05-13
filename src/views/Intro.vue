@@ -41,32 +41,32 @@ onMounted(() => {
           vereniging te ervaren. Er wachten je diverse activiteiten, variërend van spellen tot sportuitdagingen, en het
           geheel wordt afgesloten met een gezellig feest!
         </p>
-<!--
+
         <p style="text-align: center">
           Om deel uit te maken van dit geweldige introductiekamp, dien je jezelf hieronder te registreren.
           <br />
-        </p> -->
+        </p>
 
-
+<!-- 
         <p style="text-align: center">
           Zou jij graag mee willen deze zomer? Registreer je hieronder voor de intresselijst. Let op, dit is nog niet de inschrijving voor het kamp.
           <br />
-        </p>
+        </p> -->
 
         <div class="buttons">
-          <!-- <a class="button primary rounded indi-green-1 big heavy" href="https://forms.gle/V1j5WptJwaWScMZH9"
+          <a class="button primary rounded indi-green-1 big heavy" href="https://forms.gle/Ad29Csfr92UtqNkb9"
             >Aanmelden voor introkamp</a
-          > -->
-          <!-- <a class="button secondary rounded indi-bluegreen-1 big" href="https://forms.gle/6BWHiwWBfffUozk17">
-            Inschrijvingen vol? Aanmelden wachtrij!</a
-          > -->
-          <a class="button secondary rounded indi-bluegreen-1 big" href="https://forms.gle/sLS2xEVsv6oqUDpXA ">
-            Registreren intresselijst</a
           >
-
-          <!-- <a class="button secondary rounded big" href="https://forms.gle/rzZdgN2J65Hr6hDq9">
-            Aanmelden voor BBQ (Alumni/Docenten)</a
+          <a class="button secondary rounded indi-bluegreen-1 big" href="https://forms.gle/XPwb9pdMSpXnZski9">
+            Inschrijvingen vol? Aanmelden wachtrij!</a
+          >
+          <!-- <a class="button secondary rounded indi-bluegreen-1 big" href="https://forms.gle/sLS2xEVsv6oqUDpXA ">
+            Registreren intresselijst</a
           > -->
+
+          <a class="button secondary rounded big" href="https://forms.gle/v4DG8gTFyZ78Ah1z8">
+            Aanmelden voor BBQ (Alumni/Docenten)</a
+          >
         </div>
 <!--
         <p style="text-align: center">Wees er snel bij want er zijn maar een beperkt aantal plekken!<br /></p> -->
