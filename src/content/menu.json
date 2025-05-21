@@ -45,6 +45,10 @@
       ]
     },
     {
+      "title": "Vacatures",
+      "url": "/vacatures"
+    },
+    {
       "title": "Contact",
       "url": "/contact",
       "children": [
