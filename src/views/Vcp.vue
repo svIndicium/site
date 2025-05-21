@@ -13,36 +13,32 @@ import Placeholder from '@/views/Placeholder.vue';
       vertrouwenscontactpersonen. Zij zijn er voor jou!
     </p>
 
-<!--    TODO: Remove when VCPs are updated-->
-    <Placeholder/>
-
-<!-- TODO: Uncomment when VCPs are updated -->
-<!--    <div class="member" v-for="member in currentVCP.vcpMembers">-->
-<!--      <img-->
-<!--        class="member-photo"-->
-<!--        :src="`/assets/vcpphotos/${member.photo}`"-->
-<!--        :alt="member.name"-->
-<!--        width="400"-->
-<!--        height="500"-->
-<!--      />-->
-<!--      <div class="member-entry">-->
-<!--        <div class="member-contact-info">-->
-<!--          <h3>{{ member.name }}</h3>-->
-<!--          <h4>{{ member.status }}</h4>-->
-<!--          <p>{{ member.phonenumber }}</p>-->
-<!--        </div>-->
-<!--        <div>-->
-<!--        <h4>Over mij</h4>-->
-<!--          <p>{{ member.aboutme }}</p>-->
-<!--          <h4>Feitjes over mij</h4>-->
-<!--          <ul>-->
-<!--            <li>{{ member.funfact1 }}</li>-->
-<!--            <li>{{ member.funfact2 }}</li>-->
-<!--            <li>{{ member.funfact3 }}</li>-->
-<!--          </ul>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
+    <div class="member" v-for="member in currentVCP.vcpMembers">
+      <img
+        class="member-photo"
+        :src="`/assets/vcpphotos/${member.photo}`"
+        :alt="member.name"
+        width="300"
+      />
+      <div class="member-entry">
+        <div class="member-contact-info">
+          <div class="member-name-status">
+            <h3>{{ member.name }}</h3> <span class="member-status">{{ member.status }}</span>
+          </div>
+          <p>{{ member.phonenumber }}</p>
+        </div>
+        <div>
+        <h4>Over mij</h4>
+          <p>{{ member.aboutme }}</p>
+          <h4>Feitjes over mij</h4>
+          <ul>
+            <li>{{ member.funfact1 }}</li>
+            <li>{{ member.funfact2 }}</li>
+            <li>{{ member.funfact3 }}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </ContentContainer>
 </template>
 
@@ -102,6 +98,16 @@ h1 {
   line-height: 0;
 }
 
+.member-contact-info, h3::after {
+  content: " |";
+}
+
+.member-name-status {
+  display: flex;
+  gap: 0.5em;
+  align-items: center;
+}
+
 .member-photo {
   flex-shrink: 0;
   border-radius: 10px;
@@ -127,5 +133,15 @@ h1 {
   .member-entry {
     gap: 2rem;
   }
+
+  .member-name-status {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .member-contact-info, h3::after {
+    content: none;
+  }
+
 }
 </style>
