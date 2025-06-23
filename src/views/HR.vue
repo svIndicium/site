@@ -4,11 +4,11 @@ import ContentContainer from '@/layouts/ContentContainer.vue';
 <template>
   <ContentContainer>
     <div class="center-container">
-      <a class="button primary rounded indi-green-1" href="/pdf/Huishoudelijk_Reglement_Studievereniging_Indicium.pdf"
+      <a class="button primary rounded indi-green-1" href="/pdf/2025_Huishoudelijk_Reglement_Indicium.pdf"
         >Open in nieuw tablad</a
       >
 
-      <iframe title="HR" src="/pdf/Huishoudelijk_Reglement_Studievereniging_Indicium.pdf" width="100%" height="800px" />
+      <iframe title="HR" src="/pdf/2025_Huishoudelijk_Reglement_Indicium.pdf" width="100%" height="800px" />
     </div>
   </ContentContainer>
 </template>

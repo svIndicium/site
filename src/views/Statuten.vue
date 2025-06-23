@@ -5,9 +5,9 @@ import ContentContainer from '@/layouts/ContentContainer.vue';
 <template>
   <ContentContainer>
     <div class="center-container">
-      <a class="button primary rounded indi-green-1" href="/pdf/statutenindicium.pdf">Open in nieuw tablad</a>
+      <a class="button primary rounded indi-green-1" href="/pdf/Afschrift_Akte_Statutenwijziging_Indicium.pdf">Open in nieuw tablad</a>
 
-      <iframe title="Statuten" src="/pdf/statutenindicium.pdf" width="100%" height="800px" />
+      <iframe title="Statuten" src="/pdf/Afschrift_Akte_Statutenwijziging_Indicium.pdf" width="100%" height="800px" />
     </div>
   </ContentContainer>
 </template>
