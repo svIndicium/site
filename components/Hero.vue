@@ -29,7 +29,7 @@ const { darkModeActive } = storeToRefs(state);
 </template>
 
 <style lang="scss" scoped>
-@use "sass:map";
+@use 'sass:map';
 
 .hero {
   display: flex;

@@ -6,11 +6,11 @@ import constuctionsSVG from '@/assets/icons/underconstruction.svg?component';
 
 <template>
   <ContentContainer>
-    <constuctionsSVG/>
+    <constuctionsSVG />
     <h1>Sorry. Deze pagina is nog niet af</h1>
     <h2>
-      Duurt lang? Kom bij devcom!
-      Of <a href="https://github.com/svIndicium/site" target="_blank">stuur een pull request!</a>
+      Duurt lang? Kom bij devcom! Of
+      <a href="https://github.com/svIndicium/site" target="_blank">stuur een pull request!</a>
     </h2>
   </ContentContainer>
 </template>

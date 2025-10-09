@@ -11,7 +11,7 @@ import { previousBoards } from '@/content/boards.json';
 <template>
   <ContentContainer>
     <h1>Oud Besturen</h1>
-    <div class="board" v-for="board in previousBoards">
+    <div v-for="board in previousBoards" class="board">
       <div
         :style="
           'background: url(https://photojournal.jpl.nasa.gov/archive/PIA25889_MAIN_fullres.jpg ), background: url(' +
@@ -40,7 +40,6 @@ import { previousBoards } from '@/content/boards.json';
 </template>
 
 <style scoped lang="scss">
-
 .board {
   border-bottom: 3px solid var(--indi-blue-1);
   max-width: 1200px;

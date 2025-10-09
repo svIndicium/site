@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Link as socialLinks } from '../content/links';
+import type { Link as socialLinks } from '../content/links';
 
 const props = defineProps({
   link: {
@@ -30,7 +30,6 @@ const isImage = filetypes.some((filetype) => props.link.icon?.endsWith('.' + fil
 </template>
 
 <style lang="scss">
-
 .link {
   font-family: var(--text-font);
   color: var(--text-color);

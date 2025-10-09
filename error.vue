@@ -2,8 +2,8 @@
 import ContentContainer from '@/layouts/ContentContainer.vue';
 
 const urlParams = new URLSearchParams(window.location.search);
-var code = urlParams.get('code');
-var error = urlParams.get('error');
+let code = urlParams.get('code');
+let error = urlParams.get('error');
 
 if (!code) {
   code = '406';

@@ -12,7 +12,7 @@ const [commissie] = commissies;
       Wil jij naast je studie actief bijdragen aan onze studievereniging? Meld je dan aan voor een van onze commissies.
       Naast dat dit super leuk is, staat dit ook goed op je CV!
     </p>
-    <div class="commissie" v-for="(commissie, index) in commissies">
+    <div v-for="(commissie, index) in commissies" class="commissie">
       <img class="foto" :src="commissie.imgUrl" />
       <div class="commissie-info">
         <h3>{{ commissie.title }}</h3>
@@ -24,7 +24,6 @@ const [commissie] = commissies;
 </template>
 
 <style scoped lang="scss">
-
 .commissie {
   max-width: 1200px;
   margin: 4em auto;

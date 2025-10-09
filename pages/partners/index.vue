@@ -24,18 +24,16 @@ const state = stateStore();
         <div class="description">
           <h3>Hoofdpartner: {{ mainPartner.title }}</h3>
           <p v-for="paragraph in mainPartner.description" v-html="paragraph"></p>
-<!--          <RouterLink class="readMore button primary rounded" :to="'/partners/' + mainPartner.slug"-->
-<!--            >Meer weten?</RouterLink-->
-          <a class="readMore button primary rounded" href="mailto:secretaris@indicium.nl"
-            >Neem contact op!</a
-          >
+          <!--          <RouterLink class="readMore button primary rounded" :to="'/partners/' + mainPartner.slug"-->
+          <!--            >Meer weten?</RouterLink-->
+          <a class="readMore button primary rounded" href="mailto:secretaris@indicium.nl">Neem contact op!</a>
         </div>
       </div>
       <JobOffers :partner="mainPartner" />
     </div>
     <hr class="dashed-line" />
     <h1>Premium partners</h1>
-    <div class="partner" v-for="partner in premiumPartners">
+    <div v-for="partner in premiumPartners" class="partner">
       <a :href="partner.url" target="_blank">
         <img
           class="partner-logo"
@@ -54,7 +52,7 @@ const state = stateStore();
     <hr class="dashed-line" />
     <h1>Reguliere partners</h1>
     <div class="regular-partners">
-      <div class="regular-partner" v-for="partner in regularPartners">
+      <div v-for="partner in regularPartners" class="regular-partner">
         <RouterLink :to="'/partners/' + partner.slug" class="partner-logo">
           <a :href="partner.url" target="_blank">
             <img
@@ -74,8 +72,6 @@ const state = stateStore();
 </template>
 
 <style scoped lang="scss">
-
-
 .dashed-line {
   border: none;
   height: 2px;

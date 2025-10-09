@@ -50,7 +50,7 @@ router.afterEach(() => {
     <div class="mobile-container flex">
       <NavLogo />
 
-      <div class="nav-toggle" v-bind:class="{ rotated: state.state.navLevel }" @click="toggleNavLevel">
+      <div class="nav-toggle" :class="{ rotated: state.state.navLevel }" @click="toggleNavLevel">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="30"
@@ -60,16 +60,16 @@ router.afterEach(() => {
           stroke-width="2"
           stroke-linecap="square"
         >
-          <line v-bind:class="{ green: state.state.navLevel > 2 }" x1="7.5" y1="10" x2="22.5" y2="10"></line>
-          <line v-bind:class="{ bluegreen: state.state.navLevel > 1 }" x1="7.5" y1="15" x2="22.5" y2="15"></line>
-          <line v-bind:class="{ blue: state.state.navLevel > 0 }" x1="7.5" y1="20" x2="22.5" y2="20"></line>
+          <line :class="{ green: state.state.navLevel > 2 }" x1="7.5" y1="10" x2="22.5" y2="10"></line>
+          <line :class="{ bluegreen: state.state.navLevel > 1 }" x1="7.5" y1="15" x2="22.5" y2="15"></line>
+          <line :class="{ blue: state.state.navLevel > 0 }" x1="7.5" y1="20" x2="22.5" y2="20"></line>
         </svg>
       </div>
     </div>
 
-    <div class="mobile-menu" v-bind:class="{ visible: state.state.navLevel }">
-      <div class="menubar blue" v-bind:class="{ visible: state.state.navLevel > 0 }" @click.self="setCurrentLevel(1)">
-        <div class="menu level-1" v-bind:class="{ visible: state.state.navLevel > 0 }">
+    <div class="mobile-menu" :class="{ visible: state.state.navLevel }">
+      <div class="menubar blue" :class="{ visible: state.state.navLevel > 0 }" @click.self="setCurrentLevel(1)">
+        <div class="menu level-1" :class="{ visible: state.state.navLevel > 0 }">
           <ul>
             <li v-for="item in items" :key="item.title + item.url + item.children">
               <a v-if="item.url.startsWith('http')" :href="item.url" target="_blank">
@@ -85,23 +85,23 @@ router.afterEach(() => {
                 title="Goto submenu"
                 class="sub-menu-toggle"
                 @click="setCurrentLevel(2, item.title)"
-              >‌‌ ‌‌ ‌‌▸‌‌ ‌‌ ‌‌‌‌ ‌‌‌
+                >‌‌ ‌‌ ‌‌▸‌‌ ‌‌ ‌‌‌‌ ‌‌‌
               </a>
 
               <div
                 class="menubar bluegreen"
-                v-bind:class="{ visible: item.title == currentLevel2 }"
+                :class="{ visible: item.title == currentLevel2 }"
                 @click.self="setCurrentLevel(2)"
               >
-                <div class="menu level-2" v-bind:class="{ visible: item.title == currentLevel2 }">
+                <div class="menu level-2" :class="{ visible: item.title == currentLevel2 }">
                   <ul class="sub-menu">
                     <li>
                       <a @click="setCurrentLevel(1)"> .. </a>
                     </li>
                     <li
-                      class="sub-menu-li"
                       v-for="child in item.children"
                       :key="child.title + child.url + child.children"
+                      class="sub-menu-li"
                     >
                       <a
                         v-if="child.url.startsWith('http')"
@@ -121,17 +121,17 @@ router.afterEach(() => {
                         title="Goto sub-submenu"
                         class="sub-menu-toggle"
                         @click="setCurrentLevel(3, child.title)"
-                      >‌‌ ‌‌ ‌‌▸‌‌ ‌‌ ‌‌‌‌ ‌‌‌
+                        >‌‌ ‌‌ ‌‌▸‌‌ ‌‌ ‌‌‌‌ ‌‌‌
                       </a>
 
                       <div
                         class="menubar green"
-                        v-bind:class="{ visible: child.title == currentLevel3 }"
+                        :class="{ visible: child.title == currentLevel3 }"
                         @click.self="state.state.navLevel = 3"
                       >
                         <div
                           class="menu level-3"
-                          v-bind:class="{
+                          :class="{
                             visible: child.title == currentLevel3,
                           }"
                         >
@@ -140,9 +140,9 @@ router.afterEach(() => {
                               <a @click="setCurrentLevel(2)"> .. </a>
                             </li>
                             <li
-                              class="sub-sub-menu-li"
                               v-for="grandchild in child.children"
                               :key="grandchild.title + grandchild.url"
+                              class="sub-sub-menu-li"
                             >
                               <a
                                 v-if="grandchild.url.startsWith('http')"
@@ -167,17 +167,12 @@ router.afterEach(() => {
           </ul>
         </div>
       </div>
-      <div
-        class="mobile-menu-shadow"
-        v-bind:class="{ hidden: !state.state.navLevel }"
-        @click="setCurrentLevel(0)"
-      ></div>
+      <div class="mobile-menu-shadow" :class="{ hidden: !state.state.navLevel }" @click="setCurrentLevel(0)"></div>
     </div>
   </nav>
 </template>
 
 <style lang="scss" scoped>
-
 .mobile-nav {
   --navbar-height: 16vw;
   --navbar-max-height: 68px;

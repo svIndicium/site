@@ -50,7 +50,9 @@ const router = useRouter();
 
   @media screen and (min-width: #{calc($bp-desktop-sm) + 1px}) {
     .logo {
-      transition: max-width 0.5s, max-height 0.5s;
+      transition:
+        max-width 0.5s,
+        max-height 0.5s;
     }
   }
 }

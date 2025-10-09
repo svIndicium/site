@@ -52,24 +52,24 @@ function changeTheme(theme: string) {
             <input
               id="auto-mode"
               type="radio"
-              @change="changeTheme('auto')"
               :checked="state.settings.theme == 'auto'"
+              @change="changeTheme('auto')"
             />
             <label for="auto-mode">Auto</label>
             <br />
             <input
               id="light-mode"
               type="radio"
-              @change="changeTheme('light')"
               :checked="state.settings.theme == 'light'"
+              @change="changeTheme('light')"
             />
             <label for="light-mode">Light</label>
             <br />
             <input
               id="dark-mode"
               type="radio"
-              @change="changeTheme('dark')"
               :checked="state.settings.theme == 'dark'"
+              @change="changeTheme('dark')"
             />
             <label for="dark-mode">Dark</label>
           </div>
@@ -80,7 +80,6 @@ function changeTheme(theme: string) {
 </template>
 
 <style lang="scss" scoped>
-
 a {
   text-decoration: none;
   color: inherit;

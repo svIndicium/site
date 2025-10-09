@@ -7,7 +7,7 @@ fetchConscriboFormAndInjectFix(conscriboFormUrl);
 </script>
 
 <template>
-  <div class="cwfForm" id="cwfForm">Formulier wordt geladen ...</div>
+  <div id="cwfForm" class="cwfForm">Formulier wordt geladen ...</div>
 </template>
 
 <style lang="scss">

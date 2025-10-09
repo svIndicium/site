@@ -88,8 +88,8 @@ const events: Event<Date>[] = Array.isArray(calendarData.items)
   : [];
 
 const visibleEvents = computed<Event<Date>[]>(() => {
-  let enhancedEvents: Event<Date>[] = [];
-  for (let item of events) {
+  const enhancedEvents: Event<Date>[] = [];
+  for (const item of events) {
     if (
       new Date(item.end.getTime() - 14400000).toLocaleDateString('nl', { day: 'numeric' }) != // is still same day 4 h back
         item.end.toLocaleDateString('nl', { day: 'numeric' }) &&
@@ -147,7 +147,7 @@ function extractHourAndMinutes(timeString: string) {
       <p>Voorlopig zijn er geen activiteiten.</p>
       <p>Voeg de kalender toe aan je agenda om up-to-date te blijven!</p>
     </article>
-    <div class="event" v-for="event in visibleEvents" :key="event.id">
+    <div v-for="event in visibleEvents" :key="event.id" class="event">
       <div class="date">
         <span class="day">{{ event.start.toLocaleDateString('nl', { day: 'numeric' }) }}</span>
         <div v-if="event.multiday_end && !event.multimonth_end">
@@ -182,26 +182,26 @@ function extractHourAndMinutes(timeString: string) {
         </a>
       </div>
     </div>
-    <a class="button" v-if="events.length > 7" @click="showMoreEvents">laat meer zien</a>
+    <a v-if="events.length > 7" class="button" @click="showMoreEvents">laat meer zien</a>
   </div>
   <div class="button-container">
     <!-- note: startdate and times HAVE TO BE INCLUDED, :startDate will pick yesterday -->
     <add-to-calendar-button
       name="Indicium"
-      :startDate="new Date(Date.now() - 86400000).toISOString().split('T')[0]"
-      startTime="00:00"
-      endTime="00:00"
-      timeZone="Europe/Amsterdam"
-      icsFile="https://calendar.google.com/calendar/ical/c_cb2b2ab9761bec69a9d24fd452f2d970d31755cf1c382272560d81fddca0e5e5%40group.calendar.google.com/public/basic.ics"
+      :start-date="new Date(Date.now() - 86400000).toISOString().split('T')[0]"
+      start-time="00:00"
+      end-time="00:00"
+      time-zone="Europe/Amsterdam"
+      ics-file="https://calendar.google.com/calendar/ical/c_cb2b2ab9761bec69a9d24fd452f2d970d31755cf1c382272560d81fddca0e5e5%40group.calendar.google.com/public/basic.ics"
       subscribe
-      iCalFileName="Indicium Activiteiten Kalender"
+      i-cal-file-name="Indicium Activiteiten Kalender"
       options="'Apple','Google','iCal','Outlook.com','Microsoft365','MicrosoftTeams'"
-      listStyle="modal"
+      list-style="modal"
       label="Importeer agenda in je kalender"
-      :lightMode="darkModeActive ? 'dark' : 'light'"
+      :light-mode="darkModeActive ? 'dark' : 'light'"
       language="nl"
       style="margin-block-end: 0.5em; --btn-shadow: unset; --btn-shadow-hover: unset"
-      hideBranding
+      hide-branding
     ></add-to-calendar-button>
   </div>
 </template>

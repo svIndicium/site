@@ -4,7 +4,7 @@
 // https://codepen.io/jenniesyip/pen/GWqJyR
 import HeroCircuit from '@/assets/icons/hero.svg?component';
 
-var backgroundStyle =
+const backgroundStyle =
   ' transform: translate(' +
   (-10 + Math.floor(Math.random() * 20)) +
   '%, ' +

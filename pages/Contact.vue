@@ -32,7 +32,6 @@ import ContentContainer from '@/layouts/ContentContainer.vue';
 </template>
 
 <style scoped lang="scss">
-
 .two-columns {
   display: flex;
   flex-wrap: wrap;
@@ -74,12 +73,11 @@ import ContentContainer from '@/layouts/ContentContainer.vue';
 
     #contact-external {
       margin-top: 2.5rem;
-      p, a {
+      p,
+      a {
         font-size: 16px;
       }
-
     }
-
   }
 }
 </style>

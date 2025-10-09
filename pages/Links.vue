@@ -29,7 +29,6 @@ const router = useRouter();
 </template>
 
 <style scoped lang="scss">
-
 #link-page {
   display: grid;
   justify-items: center;

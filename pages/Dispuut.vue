@@ -10,7 +10,7 @@ const [dispuut] = disputen;
   <ContentContainer>
     <h1>Disputen</h1>
     <p id="intro"></p>
-    <div class="dispuut" v-for="(dispuut, index) in disputen">
+    <div v-for="(dispuut, index) in disputen" class="dispuut">
       <img alt="dispuutfoto" class="foto" :src="dispuut.imgUrl" />
       <div class="dispuut-info">
         <h2>{{ dispuut.title }}</h2>
@@ -33,7 +33,6 @@ const [dispuut] = disputen;
 </template>
 
 <style scoped lang="scss">
-
 .dispuut {
   border-bottom: 3px solid var(--indi-blue-1);
   max-width: 1100px;

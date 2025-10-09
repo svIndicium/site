@@ -12,7 +12,6 @@
 </template>
 
 <style lang="scss" scoped>
-
 .map {
   border-radius: 4px;
   position: relative;

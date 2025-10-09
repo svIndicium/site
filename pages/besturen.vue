@@ -12,7 +12,7 @@ import DataNotFound from '@/assets/icons/data-not-found.svg?component';
 <template>
   <ContentContainer>
     <h1>Indicium Besturen</h1>
-    <div class="board" v-for="board in previousBoards">
+    <div v-for="board in previousBoards" class="board">
       <img v-if="board.groupPhoto" :src="'/assets/boards/' + board.groupPhoto" alt="Groepsfoto" class="img" />
       <DataNotFound v-else class="img" />
       <div class="board-info">

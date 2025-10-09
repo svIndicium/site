@@ -14,7 +14,7 @@ import logo from '@/assets/logo/indicium-logo-icon.svg?component';
 </template>
 
 <style scoped lang="scss">
-@use "sass:map";
+@use 'sass:map';
 
 .logo-container {
   display: flex;

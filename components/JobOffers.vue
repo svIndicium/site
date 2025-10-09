@@ -12,7 +12,7 @@ function expandJobOffer(event: MouseEvent) {
     <!-- Conclusion, hoofdpartner, wilt persee "werken bij" voor hun pagina -->
     <h2>{{ partner.title == 'Conclusion' ? 'Werken bij' : 'Vacatures bij' }} {{ partner.title }}</h2>
     <div class="job-offers container">
-      <div class="job-offer" v-for="jobOffer in partner.jobOffers">
+      <div v-for="jobOffer in partner.jobOffers" class="job-offer">
         <h3 class="job-offer-title" @click="expandJobOffer">{{ jobOffer.title }}</h3>
         <div class="job-offer-description">
           <p v-for="paragraph in jobOffer.description" v-html="paragraph"></p>
@@ -32,7 +32,6 @@ function expandJobOffer(event: MouseEvent) {
 </template>
 
 <style scoped lang="scss">
-
 .job-offers-container {
   @media screen and (max-width: #{$bp-tablet-md}) {
     // TODO: Make job offers wider on narrow screens

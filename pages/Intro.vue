@@ -29,17 +29,17 @@ onMounted(() => {
       </div> -->
       <div>
         <p>
-          Vanuit de Studievereniging Indicium zijn we blij om te zien dat je de keuze hebt gemaakt, of gaat maken, voor de HBO-ICT
-          opleiding <em class="openict">(inclusief Open-ICT 💖)</em>. Om je een warm welkom te bieden en een startpunt
-          voor nieuwe vriendschappen, hebben we een speciaal introductiekamp in het leven geroepen.
+          Vanuit de Studievereniging Indicium zijn we blij om te zien dat je de keuze hebt gemaakt, of gaat maken, voor
+          de HBO-ICT opleiding <em class="openict">(inclusief Open-ICT 💖)</em>. Om je een warm welkom te bieden en een
+          startpunt voor nieuwe vriendschappen, hebben we een speciaal introductiekamp in het leven geroepen.
         </p>
 
         <p>
           Dit introductiekamp zal plaatsvinden van <em class="datum">dinsdag 19 augustus</em> tot en met
           <em class="datum">vrijdag 22 augustus</em>. De locaties zijn de prachtige stad Utrecht en een plek nabij
-          Buren. Hier krijg je de kans om je medestudenten beter te leren kennen en de unieke sfeer van onze
-          vereniging te ervaren. Er wachten je diverse activiteiten, variërend van spellen tot sportuitdagingen, en het
-          geheel wordt afgesloten met een gezellig feest!
+          Buren. Hier krijg je de kans om je medestudenten beter te leren kennen en de unieke sfeer van onze vereniging
+          te ervaren. Er wachten je diverse activiteiten, variërend van spellen tot sportuitdagingen, en het geheel
+          wordt afgesloten met een gezellig feest!
         </p>
 
         <p style="text-align: center">
@@ -47,7 +47,7 @@ onMounted(() => {
           <br />
         </p>
 
-<!-- 
+        <!-- 
         <p style="text-align: center">
           Zou jij graag mee willen deze zomer? Registreer je hieronder voor de intresselijst. Let op, dit is nog niet de inschrijving voor het kamp.
           <br />
@@ -68,7 +68,7 @@ onMounted(() => {
             Aanmelden voor BBQ (Alumni/Docenten)</a
           >
         </div>
-<!--
+        <!--
         <p style="text-align: center">Wees er snel bij want er zijn maar een beperkt aantal plekken!<br /></p> -->
 
         <p>
@@ -81,8 +81,8 @@ onMounted(() => {
       <div>
         <p>
           Heb je nog vragen over het introductiekamp of iets anders gerelateerd aan de vereniging? Aarzel niet om ons te
-          bereiken via <a class="" href="mailto://introkamp@indicium.hu"> introkamp@indicium.hu</a>. We staan altijd klaar
-          om je te helpen.
+          bereiken via <a class="" href="mailto://introkamp@indicium.hu"> introkamp@indicium.hu</a>. We staan altijd
+          klaar om je te helpen.
         </p>
       </div>
     </section>

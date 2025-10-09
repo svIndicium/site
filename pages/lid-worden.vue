@@ -61,7 +61,8 @@ const locations = [
 // So its safe to assume that 10 or more is a laptop or desktop device.
 // The browser may adjust this number based on capability.
 
-if (navigator.hardwareConcurrency <= 6) generateConfetti(locations, 100); // low-end, some phones
+if (navigator.hardwareConcurrency <= 6)
+  generateConfetti(locations, 100); // low-end, some phones
 else if (navigator.hardwareConcurrency <= 10)
   generateConfetti(locations, 200); // likely 6-core or modern big.little intel
 else generateConfetti(locations, 400); // likely 8-core or more, 200 looks fine so this is bonus

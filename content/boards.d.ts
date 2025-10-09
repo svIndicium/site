@@ -17,8 +17,8 @@ type Board<MemberType> = {
 };
 
 declare module '@/content/boards.json' {
-  currentBoard: Board<MemberWithInfo>;
-  previousBoards: Array<Board<SimpleMember>>;
+  Board<MemberWithInfo>;
+  Array<Board<SimpleMember>>;
 }
 
 export = '@/content/boards.json';

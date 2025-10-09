@@ -37,7 +37,7 @@ export function fetchConscriboFormAndInjectFix(src_url: string) {
         (match) => `${match}.setClassName('date-input-container')`,
       );
 
-      let conscriboFormElement = document.createElement('script');
+      const conscriboFormElement = document.createElement('script');
       conscriboFormElement.innerHTML = formScript;
       document.body.appendChild(conscriboFormElement);
     })
