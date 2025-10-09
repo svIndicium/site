@@ -1,0 +1,7 @@
+onlyBuiltDependencies:
+  - '@parcel/watcher'
+  - '@sentry/cli'
+  - esbuild
+  - protobufjs
+  - re2
+  - vue-demi
