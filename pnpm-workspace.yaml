@@ -1,4 +1,5 @@
 onlyBuiltDependencies:
+  - '@firebase/util'
   - '@parcel/watcher'
   - '@sentry/cli'
   - esbuild
