@@ -90,7 +90,7 @@ export default defineNuxtConfig({
 
   // Nitro configuration for static site generation
   nitro: {
-    preset: 'firebase',
+    preset: 'static',
     prerender: {
       crawlLinks: true,
       routes: ['/'],

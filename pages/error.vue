@@ -1,17 +1,9 @@
 <script setup lang="ts">
 import ContentContainer from '@/layouts/ContentContainer.vue';
 
-const urlParams = new URLSearchParams(window.location.search);
-let code = urlParams.get('code');
-let error = urlParams.get('error');
-
-if (!code) {
-  code = '406';
-}
-
-if (!error) {
-  error = 'No idea what went wrong ';
-}
+const route = useRoute();
+const code = (route.query.code as string) || '406';
+const error = (route.query.error as string) || 'Geen idee wat er mis ging ';
 
 const imageurl = 'https://httpcats.com/' + code + '.jpg';
 </script>
@@ -19,7 +11,7 @@ const imageurl = 'https://httpcats.com/' + code + '.jpg';
 <template>
   <ContentContainer>
     <div style="display: grid; justify-content: center">
-      <img :src="imageurl" style="height: 400px; max-height: 50vw" />
+      <img :src="imageurl" :alt="`HTTP Error ${code}`" style="height: 400px; max-height: 50vw" />
     </div>
     <h1>{{ error }}</h1>
     <p>Als je denkt dat dit niet klopt. Ben je meer dan welkom om ons te helpen bij de DEVCOM!</p>

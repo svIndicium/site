@@ -61,46 +61,48 @@ const locations = [
 // So its safe to assume that 10 or more is a laptop or desktop device.
 // The browser may adjust this number based on capability.
 
-if (navigator.hardwareConcurrency <= 6)
-  generateConfetti(locations, 100); // low-end, some phones
-else if (navigator.hardwareConcurrency <= 10)
-  generateConfetti(locations, 200); // likely 6-core or modern big.little intel
-else generateConfetti(locations, 400); // likely 8-core or more, 200 looks fine so this is bonus
+onMounted(() => {
+  if (navigator.hardwareConcurrency <= 6)
+    generateConfetti(locations, 100); // low-end, some phones
+  else if (navigator.hardwareConcurrency <= 10)
+    generateConfetti(locations, 200); // likely 6-core or modern big.little intel
+  else generateConfetti(locations, 400); // likely 8-core or more, 200 looks fine so this is bonus
 
-// Serieus confetti moment
-setInterval(() => {
-  if (document.querySelector('#cwfForm > p')?.innerHTML?.includes('formulier ontvangen')) {
-    if (navigator.hardwareConcurrency <= 6) {
-      generateConfetti([{ x: 0.5, y: -0.3 }], 25, 50, 180);
-    } // low-end, some phones
-    else if (navigator.hardwareConcurrency <= 10) {
-      generateConfetti([{ x: 0.5, y: -0.3 }], 50, 50, 180);
-      confetti({
-        particleCount: 100,
-        startVelocity: 30,
-        spread: 360,
-        origin: {
-          x: Math.random(),
-          // since they fall down, start a bit higher than random
-          y: Math.random() - 0.2,
-        },
-      });
-    } // likely 6-core or modern big.little intel
-    else {
-      generateConfetti([{ x: 0.5, y: -0.3 }], 100, 50, 180);
-      confetti({
-        particleCount: 100,
-        startVelocity: 30,
-        spread: 360,
-        origin: {
-          x: Math.random(),
-          // since they fall down, start a bit higher than random
-          y: Math.random() - 0.2,
-        },
-      });
-    } // likely 8-core or more, 200 looks fine so this is bonus
-  }
-}, 2000);
+  // Serieus confetti moment
+  setInterval(() => {
+    if (document.querySelector('#cwfForm > p')?.innerHTML?.includes('formulier ontvangen')) {
+      if (navigator.hardwareConcurrency <= 6) {
+        generateConfetti([{ x: 0.5, y: -0.3 }], 25, 50, 180);
+      } // low-end, some phones
+      else if (navigator.hardwareConcurrency <= 10) {
+        generateConfetti([{ x: 0.5, y: -0.3 }], 50, 50, 180);
+        confetti({
+          particleCount: 100,
+          startVelocity: 30,
+          spread: 360,
+          origin: {
+            x: Math.random(),
+            // since they fall down, start a bit higher than random
+            y: Math.random() - 0.2,
+          },
+        });
+      } // likely 6-core or modern big.little intel
+      else {
+        generateConfetti([{ x: 0.5, y: -0.3 }], 100, 50, 180);
+        confetti({
+          particleCount: 100,
+          startVelocity: 30,
+          spread: 360,
+          origin: {
+            x: Math.random(),
+            // since they fall down, start a bit higher than random
+            y: Math.random() - 0.2,
+          },
+        });
+      } // likely 8-core or more, 200 looks fine so this is bonus
+    }
+  }, 2000);
+});
 </script>
 
 <template>
