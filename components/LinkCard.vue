@@ -8,23 +8,21 @@ const props = defineProps({
   },
 });
 
-if (props.link.icon === '' || props.link.icon === undefined) {
-  props.link.icon = '/icon.svg'; // indicium logo
-}
+const linkIcon = props.link.icon === '' || props.link.icon === undefined ? '/icon.svg' : props.link.icon;
 
 const filetypes = ['png', 'svg', 'jpg', 'jpeg', 'svg', 'bmp', 'webp', 'gif', 'apng', 'avif', 'ico'];
-const isImage = filetypes.some((filetype) => props.link.icon?.endsWith('.' + filetype));
+const isImage = filetypes.some((filetype) => linkIcon?.endsWith('.' + filetype));
 </script>
 
 <template>
   <a v-if="!link.url.startsWith('/')" class="link" :href="link.url" target="_blank" rel="noopener noreferrer">
-    <img v-if="link.icon && isImage" :src="link.icon" :alt="link.name" />
-    <span v-else-if="link.icon" class="emoji">{{ link.icon }}</span>
+    <img v-if="linkIcon && isImage" :src="linkIcon" :alt="link.name" />
+    <span v-else-if="linkIcon" class="emoji">{{ linkIcon }}</span>
     <p>{{ link.name }}</p>
   </a>
   <RouterLink v-else :to="link.url" class="link">
-    <img v-if="link.icon && isImage" :src="link.icon" :alt="link.name" />
-    <span v-else-if="link.icon" class="emoji">{{ link.icon }}</span>
+    <img v-if="linkIcon && isImage" :src="linkIcon" :alt="link.name" />
+    <span v-else-if="linkIcon" class="emoji">{{ linkIcon }}</span>
     <p>{{ link.name }}</p>
   </RouterLink>
 </template>

@@ -3,6 +3,7 @@ import ContentContainer from '@/layouts/ContentContainer.vue';
 import { mainPartner, premiumPartners, regularPartners } from '@/content/partners.json';
 import { stateStore } from '@/stores/state';
 import JobOffers from '@/components/JobOffers.vue';
+
 const state = stateStore();
 </script>
 
@@ -23,9 +24,8 @@ const state = stateStore();
         </a>
         <div class="description">
           <h3>Hoofdpartner: {{ mainPartner.title }}</h3>
-          <p v-for="paragraph in mainPartner.description" v-html="paragraph"></p>
-          <!--          <RouterLink class="readMore button primary rounded" :to="'/partners/' + mainPartner.slug"-->
-          <!--            >Meer weten?</RouterLink-->
+          <!-- eslint-disable-next-line vue/no-v-html -->
+          <p v-for="(paragraph, index) in mainPartner.description" :key="index" v-html="paragraph"></p>
           <a class="readMore button primary rounded" href="mailto:secretaris@indicium.nl">Neem contact op!</a>
         </div>
       </div>
@@ -33,7 +33,7 @@ const state = stateStore();
     </div>
     <hr class="dashed-line" />
     <h1>Premium partners</h1>
-    <div v-for="partner in premiumPartners" class="partner">
+    <div v-for="partner in premiumPartners" :key="partner.slug" class="partner">
       <a :href="partner.url" target="_blank">
         <img
           class="partner-logo"
@@ -45,14 +45,15 @@ const state = stateStore();
       </a>
       <div class="details">
         <h3>{{ partner.title }}</h3>
-        <p v-for="paragraph in partner.description" class="description" v-html="paragraph"></p>
+        <!-- eslint-disable-next-line vue/no-v-html -->
+        <p v-for="(paragraph, index) in partner.description" :key="index" class="description" v-html="paragraph"></p>
         <RouterLink class="readMore button primary rounded" :to="'/partners/' + partner.slug">Meer weten?</RouterLink>
       </div>
     </div>
     <hr class="dashed-line" />
     <h1>Reguliere partners</h1>
     <div class="regular-partners">
-      <div v-for="partner in regularPartners" class="regular-partner">
+      <div v-for="partner in regularPartners" :key="partner.slug" class="regular-partner">
         <RouterLink :to="'/partners/' + partner.slug" class="partner-logo">
           <a :href="partner.url" target="_blank">
             <img

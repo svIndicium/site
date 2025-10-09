@@ -1,9 +1,4 @@
 <script setup lang="ts">
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-
-// this reference line is needed for TS and svg loader. Copy and past where needed
-/// <reference types="vite-svg-loader" />
 import ContentContainer from '@/layouts/ContentContainer.vue';
 import { previousBoards } from '@/content/boards.json';
 </script>
@@ -11,7 +6,7 @@ import { previousBoards } from '@/content/boards.json';
 <template>
   <ContentContainer>
     <h1>Oud Besturen</h1>
-    <div v-for="board in previousBoards" class="board">
+    <div v-for="(board, boardIndex) in previousBoards" :key="boardIndex" class="board">
       <div
         :style="
           'background: url(https://photojournal.jpl.nasa.gov/archive/PIA25889_MAIN_fullres.jpg ), background: url(' +
@@ -19,19 +14,9 @@ import { previousBoards } from '@/content/boards.json';
           ');'
         "
       />
-      <!-- <img
-        :src="
-          board.groupPhoto
-            ? '/assets/boards/' + board.groupPhoto
-            : 'https://cataas.com/cat/says/Heb%20jij%20een%20goede%20foto%20van%20' +
-              board.year +
-              '%3F%0AStuur%20hem%20op%20naar%20bestuur%40indicium,hu%21?width=680&height=450'
-        "
-        alt="Groepsfoto"
-      /> -->
       <div class="board-info">
         <h2 class="board-year">{{ board.year }}</h2>
-        <p v-for="member in board.members">
+        <p v-for="(member, memberIndex) in board.members" :key="memberIndex">
           <b>{{ member.name }}</b> - <span class="function">{{ member.function }}</span>
         </p>
       </div>

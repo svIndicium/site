@@ -17,6 +17,7 @@ onMounted(() => {
   <ContentContainer>
     <img :src="imageUrl" alt="Intro" width="2500" loading="lazy" decoding="async" />
 
+    <!-- eslint-disable-next-line no-irregular-whitespace -->
     <h1 class="big-title">Intro​duct​ie​kamp 2025</h1>
 
     <section class="intro">

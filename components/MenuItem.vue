@@ -85,6 +85,7 @@ export default {
 <template>
   <li ref="menuItem" class="menu-item" @mouseover="mouseOver">
     <router-link :to="item.url" class="navlink" :class="getLinkClass(item.url)">{{ item.title }}</router-link>
+    <!-- eslint-disable-next-line vue/no-v-html -->
     <span v-if="item.children" :class="`${dropdownClass} arrow`" v-html="arrowHTML" />
     <ul v-if="item.children && shouldDisplayDropdown" :class="`dropdown ${dropdownClass}`" :data-depth="depth % 3">
       <MenuItem

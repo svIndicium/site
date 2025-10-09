@@ -2,15 +2,13 @@
 import ContentContainer from '@/layouts/ContentContainer.vue';
 import disputen from '@/content/dispuut.json';
 /// <reference types="vite-svg-loader" />
-
-const [dispuut] = disputen;
 </script>
 
 <template>
   <ContentContainer>
     <h1>Disputen</h1>
     <p id="intro"></p>
-    <div v-for="(dispuut, index) in disputen" class="dispuut">
+    <div v-for="(dispuut, index) in disputen" :key="index" class="dispuut">
       <img alt="dispuutfoto" class="foto" :src="dispuut.imgUrl" />
       <div class="dispuut-info">
         <h2>{{ dispuut.title }}</h2>

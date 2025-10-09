@@ -1,5 +1,16 @@
 <script setup lang="ts">
-defineProps(['partner']);
+interface Partner {
+  title: string;
+  jobOffers: Array<{
+    title: string;
+    description: string[];
+    url?: string;
+  }>;
+}
+
+defineProps<{
+  partner: Partner;
+}>();
 
 function expandJobOffer(event: MouseEvent) {
   const target = event.target as HTMLElement;
@@ -12,10 +23,11 @@ function expandJobOffer(event: MouseEvent) {
     <!-- Conclusion, hoofdpartner, wilt persee "werken bij" voor hun pagina -->
     <h2>{{ partner.title == 'Conclusion' ? 'Werken bij' : 'Vacatures bij' }} {{ partner.title }}</h2>
     <div class="job-offers container">
-      <div v-for="jobOffer in partner.jobOffers" class="job-offer">
+      <div v-for="(jobOffer, index) in partner.jobOffers" :key="index" class="job-offer">
         <h3 class="job-offer-title" @click="expandJobOffer">{{ jobOffer.title }}</h3>
         <div class="job-offer-description">
-          <p v-for="paragraph in jobOffer.description" v-html="paragraph"></p>
+          <!-- eslint-disable-next-line vue/no-v-html -->
+          <p v-for="(paragraph, pIndex) in jobOffer.description" :key="pIndex" v-html="paragraph"></p>
           <a
             v-if="jobOffer.url"
             class="readMoreOutboundBtn button primary rounded indi-green-1"

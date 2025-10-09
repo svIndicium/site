@@ -1,11 +1,6 @@
 <script setup lang="ts">
-/// <reference types="vite-svg-loader" />
 import logo from '@/components/LogoElement.vue';
 import HeroBackground from './HeroBackground.vue';
-import { storeToRefs } from 'pinia';
-import { stateStore } from '@/stores/state';
-const state = stateStore();
-const { darkModeActive } = storeToRefs(state);
 </script>
 
 <template>

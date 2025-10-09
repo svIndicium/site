@@ -1,5 +1,4 @@
 <script setup lang="ts">
-/// <reference types="vite-svg-loader" />
 import logo from '@/assets/logo/indicium-logo-icon.svg?component';
 </script>
 
@@ -65,12 +64,6 @@ import logo from '@/assets/logo/indicium-logo-icon.svg?component';
         smallFontSize: 1em,
       )
     );
-
-    // default
-    &.small {
-      color: #878787;
-      font-size: 2.1em;
-    }
 
     @each $breakpoint in $logobreakpoints {
       @media screen and (max-width: map.get($breakpoint, bp)) {

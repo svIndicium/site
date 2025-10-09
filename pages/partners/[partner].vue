@@ -32,7 +32,8 @@ const partner = computed(() => {
           />
         </a>
         <div class="description">
-          <p v-for="paragraph in partner.description" v-html="paragraph"></p>
+          <!-- eslint-disable-next-line vue/no-v-html -->
+          <p v-for="(paragraph, index) in partner.description" :key="index" v-html="paragraph"></p>
           <a v-if="partner.url" class="readMoreOutboundBtn button primary rounded" :href="partner.url" target="_blank"
             >Naar de website</a
           >

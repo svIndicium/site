@@ -1,7 +1,4 @@
 <script setup lang="ts">
-/// <reference types="vite-svg-loader" />
-import { ref } from 'vue';
-import ContentContainer from '@/layouts/ContentContainer.vue';
 import logo from '@/assets/logo/indicium-logo-icon.svg?component';
 import content from '@/content/links.json';
 import linkCard from '@/components/LinkCard.vue';

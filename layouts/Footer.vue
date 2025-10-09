@@ -6,10 +6,10 @@ import footerContent from '@/content/footer.json';
 const state = stateStore();
 const pages = ref<{ title: string; url: string }[]>(footerContent.items);
 const socialPages = ref<{ title: string; url: string }[]>(footerContent.socialMediaItems);
-const contact = ref<{}>(footerContent.contactItems);
+const contact = ref<Record<string, unknown>>(footerContent.contactItems);
 
 function changeTheme(theme: string) {
-  state.settings.theme = theme;
+  state.settings.theme = theme as 'auto' | 'light' | 'dark';
   state.refreshTheme();
 }
 </script>

@@ -12,7 +12,7 @@ import { currentVCP } from '@/content/vcp.json';
       vertrouwenscontactpersonen. Zij zijn er voor jou!
     </p>
 
-    <div v-for="member in currentVCP.vcpMembers" class="member">
+    <div v-for="member in currentVCP.vcpMembers" :key="member.name" class="member">
       <img class="member-photo" :src="`/assets/vcpphotos/${member.photo}`" :alt="member.name" width="300" />
       <div class="member-entry">
         <div class="member-contact-info">

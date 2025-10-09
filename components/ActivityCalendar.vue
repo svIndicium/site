@@ -3,6 +3,7 @@ import { ref, computed } from 'vue';
 import { storeToRefs } from 'pinia';
 import { stateStore } from '@/stores/state';
 import 'add-to-calendar-button';
+
 const state = stateStore();
 const { darkModeActive } = storeToRefs(state);
 const maxCalEvents = ref(7);

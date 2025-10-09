@@ -1,6 +1,4 @@
 <script setup lang="ts">
-/// <reference types="vite-svg-loader" />
-import { ref } from 'vue';
 import logo from '@/assets/logo/indicium-logo-icon.svg?component';
 import { useRouter } from 'vue-router';
 

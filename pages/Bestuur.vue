@@ -7,7 +7,7 @@ import { currentBoard } from '@/content/boards.json';
   <ContentContainer>
     <h1>Bestuur 8</h1>
     <img id="group-photo" :src="`/assets/boards/${currentBoard.groupPhoto}`" alt="Groepsfoto 8e bestuur" />
-    <div v-for="member in currentBoard.members" class="member">
+    <div v-for="(member, index) in currentBoard.members" :key="index" class="member">
       <img
         class="member-photo"
         :src="member.photo ? `/assets/boards/${member.photo}` : `https://cataas.com/cat/says/${member.name}`"
@@ -20,7 +20,7 @@ import { currentBoard } from '@/content/boards.json';
         <address>
           <a href="mailto:{{ member.email }}">{{ member.email }}</a>
         </address>
-        <!--<p>{{ member.introduction }}</p>-->
+        >
       </div>
     </div>
   </ContentContainer>

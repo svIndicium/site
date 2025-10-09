@@ -17,8 +17,9 @@ type Board<MemberType> = {
 };
 
 declare module '@/content/boards.json' {
-  Board<MemberWithInfo>;
-  Array<Board<SimpleMember>>;
+  const currentBoard: Board<MemberWithInfo>;
+  const oldBoards: Array<Board<SimpleMember>>;
+  export { currentBoard, oldBoards };
 }
 
 export = '@/content/boards.json';
