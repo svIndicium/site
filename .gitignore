@@ -7,25 +7,37 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
-*.local
+# Node modules
+node_modules/
 
 # Editor directories and files
 .vscode/*
-!.vscode/extensions.json
-.idea
-.DS_Store
+!.vscode/extensions.json # Keep vscode extensions settings related to this project
+.idea/
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
-tsconfig.node.tsbuildinfo
 
 # Firebase
 .firebase/
 
-# Sentry Config File
+# Sentry config file (for build plugin)
 .env.sentry-build-plugin
+
+# Nuxt dev/build outputs
+.output/
+.data/
+.nuxt/
+.nitro/
+.cache/
+dist/
+
+# Miscellaneous
+.DS_Store
+
+# Local environment files
+.env
+.env.*
+!.env.example  # Keep env.example for reference
