@@ -1,0 +1,14 @@
+# Generated files
+.nuxt/
+dist/
+node_modules/
+.output/
+
+# Lock files
+pnpm-lock.yaml
+package-lock.json
+yarn.lock
+
+# Build artifacts
+*.min.js
+*.min.css
