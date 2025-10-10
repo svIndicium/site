@@ -52,6 +52,7 @@ function changeTheme(theme: string) {
             <input
               id="auto-mode"
               type="radio"
+              name="theme"
               :checked="state.settings.theme == 'auto'"
               @change="changeTheme('auto')"
             />
@@ -60,6 +61,7 @@ function changeTheme(theme: string) {
             <input
               id="light-mode"
               type="radio"
+              name="theme"
               :checked="state.settings.theme == 'light'"
               @change="changeTheme('light')"
             />
@@ -68,6 +70,7 @@ function changeTheme(theme: string) {
             <input
               id="dark-mode"
               type="radio"
+              name="theme"
               :checked="state.settings.theme == 'dark'"
               @change="changeTheme('dark')"
             />

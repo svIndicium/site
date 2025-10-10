@@ -5,4 +5,5 @@ onlyBuiltDependencies:
   - esbuild
   - protobufjs
   - re2
+  - unrs-resolver
   - vue-demi
