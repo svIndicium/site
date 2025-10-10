@@ -9,7 +9,7 @@
     "imgUrl": "placeholder_indicium_logo.png",
     "imgUrlDark": "placeholder_indicium_logo.png",
     "url": "",
-    "jobOffers": [ ]
+    "jobOffers": []
   },
   "premiumPartners": [
     {
@@ -80,6 +80,28 @@
       "imgUrlDark": "DressMe_Dark.png",
       "url": "https://dressme.nl/",
       "jobOffers": []
+    },
+    {
+      "slug": "vibe-academy",
+      "title": "Vibe Academy",
+      "description": [
+        "Vibe Academy staat klaar om jouw carrière in IT een kickstart te geven. Met onze traineeships kom je in aanmerking voor exclusieve rollen bij Top 200 bedrijven zoals Schiphol, Enexis, Rabobank of Thales. Vibe Academy organiseert complexe en exclusieve traineeships voor hoogopgeleide graduates binnen de IT. Vibe Academy is onderdeel van de Vibe Group, een IT kennishuis dat al meer dan 10.000 IT-engineers en 3.000 klanten heeft verbonden. Jij wordt in 18 maanden opgeleid tot een expert. Jij wordt voor jouw start gekoppeld aan een project bij een van onze partners, daardoor kunnen wij vanaf dag één direct gefocust van start met jouw opleiding."
+      ],
+      "imgUrl": "vibe-academy-light.png",
+      "imgUrlDark": "vibe-academy-dark.png",
+      "url": "https://vibeacademy.nl/",
+      "jobOffers": [
+        {
+          "title": "IT Traineeship",
+          "description": [
+            "Je weet voor je start al precies waar je gaat werken en in welke rol. De traineeships zijn altijd specialistisch én gericht op de specifieke behoefte van onze partners. Je wordt bijvoorbeeld opgeleid tot cyber security engineer, data engineer, ERP-consultant of functioneel beheerder. Aan de hand van een dynamische mix van workshops, praktische cases en zelfstudie maken wij je in een korte tijd project-ready om vervolgens knallend van start te kunnen gaan bij jouw opdrachtgever.",
+            "<strong>Zijn wij jouw match?</strong><ul><li>Een (bijna) afgeronde bachelor of master</li><li>Interesse in data of software engineering</li><li>Je beschikt over een analytisch en procesmatig denkvermogen</li><li>Je bent gemotiveerd en jij wilt er echt voor gaan</li></ul>",
+            "<strong>Wat krijg jij ervoor terug?</strong><ul><li>1 maand bootcamp + opdracht voor 18 maanden</li><li>Verklein het gat tussen de universiteit en jouw toekomstige carrière</li><li>Mix van workshops, cases en certificaten</li><li>Toegang tot een exclusief netwerk van bedrijven</li><li>Persoonlijke 1-op-1 begeleiding van een expert</li><li>€3.000 - €3.500 + ongelimiteerd trainingsbudget</li><li>Begeleiding gedurende het sollicitatieproces</li></ul>",
+            "Meer info? Bekijk onze website: <a href=\"https://vibeacademy.nl/\" target=\"_blank\">vibeacademy.nl</a>.<br><strong>Interesse?</strong><br>Neem contact op via:<br>Jade Saffrie<br>Recruitment Manager<br><a href=\"tel:0641554012\">06 41 55 40 12</a><br><a href=\"mailto:jsaffrie@vibegroup.com\">jsaffrie@vibegroup.com</a>"
+          ],
+          "url": "https://vibeacademy.nl/"
+        }
+      ]
     }
   ]
 }
