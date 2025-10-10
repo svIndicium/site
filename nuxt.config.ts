@@ -2,10 +2,11 @@
 export default defineNuxtConfig({
   // Modules
   modules: [
-    '@pinia/nuxt',
     // '@nuxtjs/sentry', // TODO: Temporarily disabled - needs Nuxt 4 compatible version
     'nuxt-svgo',
     '@nuxt/eslint',
+    '@vueuse/nuxt',
+    '@nuxtjs/color-mode',
   ],
 
   // SSG mode for static generation
@@ -124,9 +125,13 @@ export default defineNuxtConfig({
     },
   },
 
-  // Pinia configuration
-  pinia: {
-    storesDirs: ['./stores/**'],
+  // Color mode configuration
+  colorMode: {
+    preference: 'system', // default value of $colorMode.preference
+    fallback: 'light', // fallback value if not system preference found
+    classSuffix: '-mode', // adds class like .dark-mode, .light-mode to <html>
+    dataValue: 'theme', // adds data-theme="dark" or "light" to <html>
+    storageKey: 'nuxt-color-mode', // localStorage key
   },
 
   // SVGO configuration for SVG optimization

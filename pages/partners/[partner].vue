@@ -2,10 +2,9 @@
 import ContentContainer from '@/layouts/ContentContainer.vue';
 import JobOffers from '@/components/JobOffers.vue';
 import { mainPartner, premiumPartners, regularPartners } from '@/content/partners.json';
-import { stateStore } from '@/stores/state';
 import { computed } from 'vue';
 
-const state = stateStore();
+const { isDark } = useTheme();
 
 const route = useRoute();
 const partners = [...premiumPartners, ...regularPartners, mainPartner];
@@ -25,9 +24,7 @@ const partner = computed(() => {
         <a :href="partner.url" target="_blank">
           <img
             class="partner-logo"
-            :src="
-              '/assets/partners/' + (state.darkModeActive && partner.imgUrlDark ? partner.imgUrlDark : partner.imgUrl)
-            "
+            :src="'/assets/partners/' + (isDark && partner.imgUrlDark ? partner.imgUrlDark : partner.imgUrl)"
             :alt="'Logo' + partner.title"
           />
         </a>

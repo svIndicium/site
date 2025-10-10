@@ -1,16 +1,14 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { stateStore } from '@/stores/state';
 import footerContent from '@/content/footer.json';
 
-const state = stateStore();
+const { preference } = useTheme();
 const pages = ref<{ title: string; url: string }[]>(footerContent.items);
 const socialPages = ref<{ title: string; url: string }[]>(footerContent.socialMediaItems);
 const contact = ref<Record<string, unknown>>(footerContent.contactItems);
 
-function changeTheme(theme: string) {
-  state.settings.theme = theme as 'auto' | 'light' | 'dark';
-  state.refreshTheme();
+function changeTheme(theme: 'system' | 'light' | 'dark') {
+  preference.value = theme;
 }
 </script>
 
@@ -53,8 +51,8 @@ function changeTheme(theme: string) {
               id="auto-mode"
               type="radio"
               name="theme"
-              :checked="state.settings.theme == 'auto'"
-              @change="changeTheme('auto')"
+              :checked="preference == 'system'"
+              @change="changeTheme('system')"
             />
             <label for="auto-mode">Auto</label>
             <br />
@@ -62,7 +60,7 @@ function changeTheme(theme: string) {
               id="light-mode"
               type="radio"
               name="theme"
-              :checked="state.settings.theme == 'light'"
+              :checked="preference == 'light'"
               @change="changeTheme('light')"
             />
             <label for="light-mode">Light</label>
@@ -71,7 +69,7 @@ function changeTheme(theme: string) {
               id="dark-mode"
               type="radio"
               name="theme"
-              :checked="state.settings.theme == 'dark'"
+              :checked="preference == 'dark'"
               @change="changeTheme('dark')"
             />
             <label for="dark-mode">Dark</label>

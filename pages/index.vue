@@ -7,9 +7,8 @@ import Calendar from '~/components/ActivityCalendar.vue';
 import 'vue3-carousel/dist/carousel.css';
 import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel';
 import { mainPartner, premiumPartners, regularPartners } from '@/content/partners.json';
-import { stateStore } from '@/stores/state';
 
-const state = stateStore();
+const { isDark } = useTheme();
 const images = ['/assets/images/DSC_2456.webp', '/assets/images/DSC_3982.webp', '/assets/images/Introkamp-53.webp'];
 
 function gotoPartners() {
@@ -79,21 +78,21 @@ function gotoPartners() {
           <img
             style="height: 100px; margin-top: 0"
             class="partner-logo"
-            :src="'/assets/partners/' + (state.darkModeActive ? mainPartner.imgUrlDark : mainPartner.imgUrl)"
+            :src="'/assets/partners/' + (isDark ? mainPartner.imgUrlDark : mainPartner.imgUrl)"
             :alt="'Logo' + mainPartner.title"
           />
           <img
             v-for="partner in premiumPartners"
             :key="partner.title"
             class="partner-logo"
-            :src="'/assets/partners/' + (state.darkModeActive ? partner.imgUrlDark : partner.imgUrl)"
+            :src="'/assets/partners/' + (isDark ? partner.imgUrlDark : partner.imgUrl)"
             :alt="'Logo' + partner.title"
           />
           <img
             v-for="partner in regularPartners"
             :key="partner.title"
             class="partner-logo"
-            :src="'/assets/partners/' + (state.darkModeActive ? partner.imgUrlDark : partner.imgUrl)"
+            :src="'/assets/partners/' + (isDark ? partner.imgUrlDark : partner.imgUrl)"
             :alt="'Logo' + partner.title"
           />
         </div>

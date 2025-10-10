@@ -1,7 +1,6 @@
 <script setup lang="ts">
 /// <reference types="vite-svg-loader" />
 import { ref } from 'vue';
-import { stateStore } from '@/stores/state';
 import content from '@/content/menu.json';
 import NavLogo from '@/components/NavLogo.vue';
 import { useRouter } from 'vue-router';
@@ -9,14 +8,12 @@ import { useRouter } from 'vue-router';
 const currentLevel2 = ref<string>('');
 const currentLevel3 = ref<string>('');
 
-const state = stateStore();
+const { navLevel, toggleNav, setNavLevel, closeNav } = useNavState();
 const items = content.items;
 
 function toggleNavLevel() {
-  if (state.state.navLevel) {
-    state.state.navLevel = 0;
-  } else {
-    state.state.navLevel = 1;
+  toggleNav();
+  if (navLevel.value === 1) {
     setCurrentLevel(1);
   }
 }
@@ -36,12 +33,12 @@ function setCurrentLevel(level: 0 | 1 | 2 | 3, name?: string) {
   if (level < 2) {
     currentLevel2.value = '';
   }
-  state.state.navLevel = level;
+  setNavLevel(level);
 }
 
 const router = useRouter();
 router.afterEach(() => {
-  state.state.navLevel = 0;
+  closeNav();
 });
 </script>
 
@@ -50,7 +47,7 @@ router.afterEach(() => {
     <div class="mobile-container flex">
       <NavLogo />
 
-      <div class="nav-toggle" :class="{ rotated: state.state.navLevel }" @click="toggleNavLevel">
+      <div class="nav-toggle" :class="{ rotated: navLevel }" @click="toggleNavLevel">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="30"
@@ -60,16 +57,16 @@ router.afterEach(() => {
           stroke-width="2"
           stroke-linecap="square"
         >
-          <line :class="{ green: state.state.navLevel > 2 }" x1="7.5" y1="10" x2="22.5" y2="10"></line>
-          <line :class="{ bluegreen: state.state.navLevel > 1 }" x1="7.5" y1="15" x2="22.5" y2="15"></line>
-          <line :class="{ blue: state.state.navLevel > 0 }" x1="7.5" y1="20" x2="22.5" y2="20"></line>
+          <line :class="{ green: navLevel > 2 }" x1="7.5" y1="10" x2="22.5" y2="10"></line>
+          <line :class="{ bluegreen: navLevel > 1 }" x1="7.5" y1="15" x2="22.5" y2="15"></line>
+          <line :class="{ blue: navLevel > 0 }" x1="7.5" y1="20" x2="22.5" y2="20"></line>
         </svg>
       </div>
     </div>
 
-    <div class="mobile-menu" :class="{ visible: state.state.navLevel }">
-      <div class="menubar blue" :class="{ visible: state.state.navLevel > 0 }" @click.self="setCurrentLevel(1)">
-        <div class="menu level-1" :class="{ visible: state.state.navLevel > 0 }">
+    <div class="mobile-menu" :class="{ visible: navLevel }">
+      <div class="menubar blue" :class="{ visible: navLevel > 0 }" @click.self="setCurrentLevel(1)">
+        <div class="menu level-1" :class="{ visible: navLevel > 0 }">
           <ul>
             <li v-for="item in items" :key="item.title + item.url + item.children">
               <a v-if="item.url.startsWith('http')" :href="item.url" target="_blank">
@@ -127,7 +124,7 @@ router.afterEach(() => {
                       <div
                         class="menubar green"
                         :class="{ visible: child.title == currentLevel3 }"
-                        @click.self="state.state.navLevel = 3"
+                        @click.self="setNavLevel(3)"
                       >
                         <div
                           class="menu level-3"
@@ -167,7 +164,7 @@ router.afterEach(() => {
           </ul>
         </div>
       </div>
-      <div class="mobile-menu-shadow" :class="{ hidden: !state.state.navLevel }" @click="setCurrentLevel(0)"></div>
+      <div class="mobile-menu-shadow" :class="{ hidden: !navLevel }" @click="setCurrentLevel(0)"></div>
     </div>
   </nav>
 </template>

@@ -1,10 +1,9 @@
 <script setup lang="ts">
 import ContentContainer from '@/layouts/ContentContainer.vue';
 import { mainPartner, premiumPartners, regularPartners } from '@/content/partners.json';
-import { stateStore } from '@/stores/state';
 import JobOffers from '@/components/JobOffers.vue';
 
-const state = stateStore();
+const { isDark } = useTheme();
 </script>
 
 <template>
@@ -16,8 +15,7 @@ const state = stateStore();
           <img
             class="partner-logo"
             :src="
-              '/assets/partners/' +
-              (state.darkModeActive && mainPartner.imgUrlDark ? mainPartner.imgUrlDark : mainPartner.imgUrl)
+              '/assets/partners/' + (isDark && mainPartner.imgUrlDark ? mainPartner.imgUrlDark : mainPartner.imgUrl)
             "
             :alt="'Logo' + mainPartner.title"
           />
@@ -37,9 +35,7 @@ const state = stateStore();
       <a :href="partner.url" target="_blank">
         <img
           class="partner-logo"
-          :src="
-            '/assets/partners/' + (state.darkModeActive && partner.imgUrlDark ? partner.imgUrlDark : partner.imgUrl)
-          "
+          :src="'/assets/partners/' + (isDark && partner.imgUrlDark ? partner.imgUrlDark : partner.imgUrl)"
           :alt="'Logo' + partner.title"
         />
       </a>
@@ -57,9 +53,7 @@ const state = stateStore();
         <RouterLink :to="'/partners/' + partner.slug" class="partner-logo">
           <a :href="partner.url" target="_blank">
             <img
-              :src="
-                '/assets/partners/' + (state.darkModeActive && partner.imgUrlDark ? partner.imgUrlDark : partner.imgUrl)
-              "
+              :src="'/assets/partners/' + (isDark && partner.imgUrlDark ? partner.imgUrlDark : partner.imgUrl)"
               :alt="'Logo' + partner.title"
             />
           </a>

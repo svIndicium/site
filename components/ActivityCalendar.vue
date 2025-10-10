@@ -1,11 +1,8 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue';
-import { storeToRefs } from 'pinia';
-import { stateStore } from '@/stores/state';
 import 'add-to-calendar-button';
 
-const state = stateStore();
-const { darkModeActive } = storeToRefs(state);
+const { isDark } = useTheme();
 const maxCalEvents = ref(7);
 /**
  * There's a bunch more data, but we don't need it
@@ -199,7 +196,7 @@ function extractHourAndMinutes(timeString: string) {
       options="'Apple','Google','iCal','Outlook.com','Microsoft365','MicrosoftTeams'"
       list-style="modal"
       label="Importeer agenda in je kalender"
-      :light-mode="darkModeActive ? 'dark' : 'light'"
+      :light-mode="isDark ? 'dark' : 'light'"
       language="nl"
       style="margin-block-end: 0.5em; --btn-shadow: unset; --btn-shadow-hover: unset"
       hide-branding

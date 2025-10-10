@@ -1,12 +1,6 @@
 <script setup lang="ts">
-import { stateStore } from '@/stores/state';
-
-const state = stateStore();
-
-// Only run theme refresh on client side after mount to avoid SSR hydration mismatch
-onMounted(() => {
-  state.refreshTheme();
-});
+// No manual theme management needed!
+// @nuxtjs/color-mode handles everything automatically
 </script>
 
 <template>
