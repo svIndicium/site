@@ -3,7 +3,9 @@ import ContentContainer from '@/layouts/ContentContainer.vue';
 import { mainPartner, premiumPartners, regularPartners } from '@/content/partners.json';
 import JobOffers from '@/components/JobOffers.vue';
 
-const { isDark } = useTheme();
+const mainPartnerLogo = usePartnerLogo(mainPartner);
+const premiumLogos = premiumPartners.map((p) => ({ partner: p, logo: usePartnerLogo(p) }));
+const regularLogos = regularPartners.map((p) => ({ partner: p, logo: usePartnerLogo(p) }));
 </script>
 
 <template>
@@ -12,13 +14,7 @@ const { isDark } = useTheme();
     <div id="main-partner" class="container">
       <div class="details">
         <a :href="mainPartner.url" target="_blank">
-          <img
-            class="partner-logo"
-            :src="
-              '/assets/partners/' + (isDark && mainPartner.imgUrlDark ? mainPartner.imgUrlDark : mainPartner.imgUrl)
-            "
-            :alt="'Logo' + mainPartner.title"
-          />
+          <img class="partner-logo" :src="mainPartnerLogo" :alt="'Logo' + mainPartner.title" />
         </a>
         <div class="description">
           <h3>Hoofdpartner: {{ mainPartner.title }}</h3>
@@ -31,13 +27,9 @@ const { isDark } = useTheme();
     </div>
     <hr class="dashed-line" />
     <h1>Premium partners</h1>
-    <div v-for="partner in premiumPartners" :key="partner.slug" class="partner">
+    <div v-for="{ partner, logo } in premiumLogos" :key="partner.slug" class="partner">
       <a :href="partner.url" target="_blank">
-        <img
-          class="partner-logo"
-          :src="'/assets/partners/' + (isDark && partner.imgUrlDark ? partner.imgUrlDark : partner.imgUrl)"
-          :alt="'Logo' + partner.title"
-        />
+        <img class="partner-logo" :src="logo.value" :alt="'Logo' + partner.title" />
       </a>
       <div class="details">
         <h3>{{ partner.title }}</h3>
@@ -49,13 +41,10 @@ const { isDark } = useTheme();
     <hr class="dashed-line" />
     <h1>Reguliere partners</h1>
     <div class="regular-partners">
-      <div v-for="partner in regularPartners" :key="partner.slug" class="regular-partner">
+      <div v-for="{ partner, logo } in regularLogos" :key="partner.slug" class="regular-partner">
         <RouterLink :to="'/partners/' + partner.slug" class="partner-logo">
           <a :href="partner.url" target="_blank">
-            <img
-              :src="'/assets/partners/' + (isDark && partner.imgUrlDark ? partner.imgUrlDark : partner.imgUrl)"
-              :alt="'Logo' + partner.title"
-            />
+            <img :src="logo.value" :alt="'Logo' + partner.title" />
           </a>
         </RouterLink>
         <RouterLink class="readMore button primary rounded indi-green-1" :to="'/partners/' + partner.slug"

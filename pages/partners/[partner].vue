@@ -4,15 +4,17 @@ import JobOffers from '@/components/JobOffers.vue';
 import { mainPartner, premiumPartners, regularPartners } from '@/content/partners.json';
 import { computed } from 'vue';
 
-const { isDark } = useTheme();
-
 const route = useRoute();
 const partners = [...premiumPartners, ...regularPartners, mainPartner];
 
-// Use Nuxt's route params instead of location.pathname
 const partner = computed(() => {
   const partnerSlug = route.params.partner as string;
   return partners.find((p) => p.slug === partnerSlug);
+});
+
+const partnerLogo = computed(() => {
+  if (!partner.value) return '';
+  return usePartnerLogo(partner.value).value;
 });
 </script>
 
@@ -22,11 +24,7 @@ const partner = computed(() => {
     <div id="partner" class="container">
       <div class="details">
         <a :href="partner.url" target="_blank">
-          <img
-            class="partner-logo"
-            :src="'/assets/partners/' + (isDark && partner.imgUrlDark ? partner.imgUrlDark : partner.imgUrl)"
-            :alt="'Logo' + partner.title"
-          />
+          <img class="partner-logo" :src="partnerLogo" :alt="'Logo' + partner.title" />
         </a>
         <div class="description">
           <!-- eslint-disable-next-line vue/no-v-html -->

@@ -1,8 +1,3 @@
-<script setup lang="ts">
-// No manual theme management needed!
-// @nuxtjs/color-mode handles everything automatically
-</script>
-
 <template>
   <div>
     <NuxtLayout>
@@ -61,7 +56,7 @@ html {
   min-height: calc(100vh - 400px);
 }
 
-// Dark mode variables
+// Brand colors (theme-independent)
 :root {
   --indi-blue-1: #001f3d;
   --indi-blue-2: #003666;
@@ -71,23 +66,6 @@ html {
   --indi-orange-hover: #ff8533;
 }
 
-// Light mode
-@media (prefers-color-scheme: light) {
-  :root {
-    --bg-primary: #ffffff;
-    --bg-secondary: #f5f5f5;
-    --text-primary: #000000;
-    --text-secondary: #666666;
-  }
-}
-
-// Dark mode
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg-primary: #000000;
-    --bg-secondary: #1a1a1a;
-    --text-primary: #ffffff;
-    --text-secondary: #cccccc;
-  }
-}
+// Note: Theme colors are handled by variables.scss using [data-theme] attribute
+// This respects user preference set in footer, not just system preference
 </style>

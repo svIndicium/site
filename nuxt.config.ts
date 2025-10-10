@@ -53,14 +53,35 @@ export default defineNuxtConfig({
       ],
       script: [],
       style: [
-        // Fix flicker with root background to preferred colorscheme
+        // Anti-flicker script - prevents flash of wrong theme on page load
+        // Matches colors from variables.scss for consistency
         {
           innerHTML: `
+            :root { 
+              color-scheme: light;
+              background-color: rgb(255, 255, 255);
+              color: rgb(51, 51, 51);
+            }
+            
             @media (prefers-color-scheme: dark) {
-              body {
-                background-color: black;
-                color: white;
+              :root {
+                color-scheme: dark;
+                background-color: rgb(11, 20, 22);
+                color: rgb(242, 242, 242);
               }
+            }
+            
+            /* Respect user preference stored in localStorage */
+            [data-theme='dark'] {
+              color-scheme: dark;
+              background-color: rgb(11, 20, 22) !important;
+              color: rgb(242, 242, 242) !important;
+            }
+            
+            [data-theme='light'] {
+              color-scheme: light;
+              background-color: rgb(255, 255, 255) !important;
+              color: rgb(51, 51, 51) !important;
             }
           `,
         },

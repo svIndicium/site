@@ -5,7 +5,10 @@ import 'vue3-carousel/dist/carousel.css';
 import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel';
 import { mainPartner, premiumPartners, regularPartners } from '@/content/partners.json';
 
-const { isDark } = useTheme();
+const mainPartnerLogo = usePartnerLogo(mainPartner);
+const premiumLogos = premiumPartners.map((p) => ({ partner: p, logo: usePartnerLogo(p) }));
+const regularLogos = regularPartners.map((p) => ({ partner: p, logo: usePartnerLogo(p) }));
+
 const images = ['/assets/images/DSC_2456.webp', '/assets/images/DSC_3982.webp', '/assets/images/Introkamp-53.webp'];
 
 function gotoPartners() {
@@ -75,21 +78,21 @@ function gotoPartners() {
           <img
             style="height: 100px; margin-top: 0"
             class="partner-logo"
-            :src="'/assets/partners/' + (isDark ? mainPartner.imgUrlDark : mainPartner.imgUrl)"
+            :src="mainPartnerLogo"
             :alt="'Logo' + mainPartner.title"
           />
           <img
-            v-for="(partner, index) in premiumPartners"
+            v-for="({ partner, logo }, index) in premiumLogos"
             :key="`premium-${index}`"
             class="partner-logo"
-            :src="'/assets/partners/' + (isDark ? partner.imgUrlDark : partner.imgUrl)"
+            :src="logo.value"
             :alt="'Logo' + partner.title"
           />
           <img
-            v-for="(partner, index) in regularPartners"
+            v-for="({ partner, logo }, index) in regularLogos"
             :key="`regular-${index}`"
             class="partner-logo"
-            :src="'/assets/partners/' + (isDark ? partner.imgUrlDark : partner.imgUrl)"
+            :src="logo.value"
             :alt="'Logo' + partner.title"
           />
         </div>
