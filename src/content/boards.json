@@ -1,46 +1,92 @@
 {
   "currentBoard": {
-    "year": "2024-2025",
-    "groupPhoto": "bestuur8_2425.jpg",
+    "year": "2025-2026",
+    "groupPhoto": "bestuur9-25-26.jpg",
     "members": [
       {
-        "name": "Ajiet Lihe Huizer",
+        "name": "Alberto van Eckeveld",
         "function": "Voorzitter",
-        "photo": "b8-1-voorzitter.jpg",
+        "photo": "b9-1-voorzitter.jpg",
         "email": "voorzitter@indicium.hu",
+        "commissies": [
+          "Activiteitencommissie",
+          "Partnerscommissie"
+        ],
         "figcaption": "Foto door Kevin de Meijer"
       },
       {
-        "name": "Siard IJpma",
+        "name": "Krista Schouwstra",
         "function": "Secretaris",
-        "photo": "b8-2-secretaris.jpg",
+        "photo": "b9-2-secretaris.jpg",
         "email": "secretaris@indicium.hu",
+        "commissies": [
+          "Developmentcommissie",
+          "Feestcommissie OTTT"
+        ],
         "figcaption": "Foto door Kevin de Meijer"
       },
       {
-        "name": "Jesse Mouris",
+        "name": "Luuc Wingelaar",
         "function": "Penningmeester",
-        "photo": "b8-3-penningmeester.jpg",
+        "photo": "b9-3-penningmeester.jpg",
         "email": "penningmeester@indicium.hu",
+        "commissies": [
+          "Kascommissie",
+          "Lustrumcommissie"
+        ],
         "figcaption": "Foto door Kevin de Meijer"
       },
       {
-        "name": "Carlijne Hagemans",
+        "name": "Tristan de Bree",
         "function": "Vicevoorzitter",
-        "photo": "b8-4-vicevoorzitter.jpg",
+        "photo": "b9-4-vicevoorzitter.jpg",
         "email": "vicevoorzitter@indicium.hu",
+        "commissies": [
+          "Promotiecommissie",
+          "Introductiecommissie"
+        ],
         "figcaption": "Foto door Kevin de Meijer"
       },
       {
-        "name": "Raoul van Wijk",
+        "name": "Hidde Weide",
         "function": "Algemeen commissaris",
-        "photo": "b8-5-algemeencommissaris.jpg",
+        "photo": "b9-5-algemeencommissaris.jpg",
         "email": "algemeencommissaris@indicium.hu",
+        "commissies": [
+          "Alumnicommissie",
+          "Reiscommissie"
+        ],
         "figcaption": "Foto door Kevin de Meijer"
       }
     ]
   },
   "previousBoards": [
+    {
+      "year": "2024-2025",
+      "groupPhoto": "bestuur8_2425.jpg",
+      "members": [
+        {
+          "name": "Ajiet Lihe Huizer",
+          "function": "Voorzitter"
+        },
+        {
+          "name": "Siard IJpma",
+          "function": "Secretaris"
+        },
+        {
+          "name": "Jesse Mouris",
+          "function": "Penningmeester"
+        },
+        {
+          "name": "Carlijne Hagemans",
+          "function": "Vicevoorzitter"
+        },
+        {
+          "name": "Raoul van Wijk",
+          "function": "Algemeen commissaris"
+        }
+      ]
+    },
     {
       "year": "2023-2024",
       "groupPhoto": "bestuur23-24.webp",
