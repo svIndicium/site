@@ -5,8 +5,8 @@ import { currentBoard } from '@/content/boards.json';
 
 <template>
   <ContentContainer>
-    <h1>Bestuur 8</h1>
-    <img id="group-photo" :src="`/assets/boards/${currentBoard.groupPhoto}`" alt="Groepsfoto 8e bestuur" />
+    <h1>Bestuur 9</h1>
+    <img id="group-photo" :src="`/assets/boards/${currentBoard.groupPhoto}`" alt="Groepsfoto 9e bestuur" />
     <div class="member" v-for="member in currentBoard.members">
       <img
         class="member-photo"
@@ -17,8 +17,9 @@ import { currentBoard } from '@/content/boards.json';
       <div class="member-info">
         <h3>{{ member.name }}</h3>
         <h4>{{ member.function }}</h4>
-        <address> <a href="mailto:{{ member.email }}">{{ member.email }}</a> </address>
-        <!--<p>{{ member.introduction }}</p>-->
+        <address> <a href="mailto:{{ member.email }}">{{ member.email }}</a> </address><br>
+        <h5>Bestuursverantwoordelijke voor:</h5>
+        <h5 v-if="member.commissies && member.commissies.length > 0">{{ member.commissies.join(', ') }}</h5>
       </div>
     </div>
   </ContentContainer>
@@ -46,7 +47,7 @@ import { currentBoard } from '@/content/boards.json';
 
     &:nth-child(even) {
       flex-direction: row-reverse;
-      h3, h4, address {
+      h3, h4, address, h5 {
         text-align: right;
       }
     }
@@ -70,12 +71,12 @@ import { currentBoard } from '@/content/boards.json';
       margin: 2em auto;
 
       &:nth-child(even) {
-        h3, h4 {
+        h3, h4, address, h5 {
           text-align: center;
         }
       }
     }
-    h3, h4 {
+    h3, h4, address, h5 {
       text-align: center;
     }
   }
@@ -85,6 +86,7 @@ import { currentBoard } from '@/content/boards.json';
       gap: 0;
     }
   }
+  
   #group-photo {
     display: block;
     margin: 2em auto;
