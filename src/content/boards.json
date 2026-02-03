@@ -63,6 +63,7 @@
   "previousBoards": [
     {
       "year": "2024-2025",
+      "boardNumber": "Bestuur 8",
       "groupPhoto": "bestuur8_2425.jpg",
       "members": [
         {
@@ -89,6 +90,7 @@
     },
     {
       "year": "2023-2024",
+      "boardNumber": "Bestuur 7",
       "groupPhoto": "bestuur23-24.webp",
       "members": [
         {
@@ -119,6 +121,7 @@
     },
     {
       "year": "2022-2023",
+      "boardNumber": "Bestuur 6",
       "groupPhoto": "bestuur22-23.jpg",
       "members": [
         {
@@ -137,6 +140,7 @@
     },
     {
       "year": "2021-2022",
+      "boardNumber": "Bestuur 5",
       "groupPhoto": "",
       "members": [
         {
@@ -159,6 +163,7 @@
     },
     {
       "year": "2020-2021",
+      "boardNumber": "Bestuur 4",
       "groupPhoto": "bestuur20-21.jpg",
       "members": [
         {
@@ -185,6 +190,7 @@
     },
     {
       "year": "2019-2020",
+      "boardNumber": "Bestuur 3",
       "groupPhoto": "bestuur19-20.jpg",
       "members": [
         {
@@ -211,6 +217,7 @@
     },
     {
       "year": "2018-2019",
+      "boardNumber": "Bestuur 2",
       "groupPhoto": "bestuur18-19.jpg",
       "members": [
         {
@@ -233,6 +240,7 @@
     },
     {
       "year": "(2016-)2017-2018",
+      "boardNumber": "Bestuur 1",
       "groupPhoto": "bestuur17-18.jpg",
       "caption": "Indicium is officieel opgericht op 18 mei 2017, daarvoor was het oprichtend bestuur al wel bezig met het vormen van de vereniging zoals jullie die kennen",
       "members": [

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import ContentContainer from '@/layouts/ContentContainer.vue';
-import { mainPartner, premiumPartners, regularPartners } from '@/content/partners.json';
+import { mainPartner, premiumPartners, regularPartners, collaborations } from '@/content/partners.json';
 import { stateStore } from '@/stores/state';
 import JobOffers from '@/components/JobOffers.vue';
 const state = stateStore();
@@ -69,12 +69,32 @@ const state = stateStore();
           >{{ partner.title }}
         </RouterLink>
       </div>
+      
+    </div>
+    <hr class="dashed-line" />
+    <h1>Samenwerkingen</h1>
+    <div class="regular-partners">
+      <div class="regular-partner" v-for="partner in collaborations">
+        <RouterLink :to="'/partners/' + partner.slug" class="partner-logo">
+          <a :href="partner.url" target="_blank">
+            <img
+              :src="
+                '/assets/partners/' + (state.darkModeActive && partner.imgUrlDark ? partner.imgUrlDark : partner.imgUrl)
+              "
+              :alt="'Logo' + partner.title"
+            />
+          </a>
+        </RouterLink>
+        <RouterLink class="readMore button primary rounded indi-green-1" :to="'/partners/' + partner.slug"
+          >{{ partner.title }}
+        </RouterLink>
+      </div>
+      
     </div>
   </ContentContainer>
 </template>
 
 <style scoped lang="scss">
-
 
 .dashed-line {
   border: none;

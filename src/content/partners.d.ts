@@ -18,4 +18,5 @@ declare module '@/content/partners.json' {
   export const mainPartner: Partner;
   export const premiumPartners: Array<Partner>;
   export const regularPartners: Array<Partner>;
+  export const collaborations: Array<Partner>;
 }

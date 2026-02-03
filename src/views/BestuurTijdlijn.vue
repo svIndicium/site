@@ -16,7 +16,7 @@ import DataNotFound from '@/assets/icons/data-not-found.svg?component';
       <img v-if="board.groupPhoto" :src="'/assets/boards/' + board.groupPhoto" alt="Groepsfoto" class="img" />
       <DataNotFound v-else class="img" />
       <div class="board-info">
-        <h2 class="board-year">{{ board.year }}</h2>
+        <h2 class="board-year">{{ board.boardNumber }} | {{ board.year }}</h2>
         <i v-if="board.caption" class="board-caption">{{ board.caption }}</i>
         <p v-for="member in board.members">
           <b>{{ member.name }}</b> - <span class="function">{{ member.function }}</span>
