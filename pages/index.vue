@@ -15,9 +15,17 @@ const mainPartners = computed(() => (mainPartner.value ? [mainPartner.value] : [
 const premiumPartnerList = computed(() => premiumPartners.value ?? []);
 const regularPartnerList = computed(() => regularPartners.value ?? []);
 
-const hasAnyPartners = computed(
-  () => mainPartners.value.length + premiumPartnerList.value.length + regularPartnerList.value.length > 0,
+const totalPartnersCount = computed(
+  () => mainPartners.value.length + premiumPartnerList.value.length + regularPartnerList.value.length,
 );
+
+const allPartners = computed(() => [
+  ...mainPartners.value.map((p) => ({ ...p, _tier: 'main' })),
+  ...premiumPartnerList.value.map((p) => ({ ...p, _tier: 'premium' })),
+  ...regularPartnerList.value.map((p) => ({ ...p, _tier: 'regular' })),
+]);
+
+const hasAnyPartners = computed(() => totalPartnersCount.value > 0);
 </script>
 
 <template>
@@ -128,25 +136,45 @@ const hasAnyPartners = computed(
     <div v-if="hasAnyPartners" class="partners-section">
       <NuxtLink to="/partners" class="partners-inner">
         <p class="partners-label">Onze partners</p>
-        <div class="partners-row">
-          <span
-            v-for="partner in mainPartners"
-            :key="`main-${partner.slug}`"
-            class="partners-row__item partners-row__item--main"
-          >
-            <PartnerLogo :partner="partner" />
-          </span>
-          <span
-            v-for="partner in premiumPartnerList"
-            :key="`premium-${partner.slug}`"
-            class="partners-row__item partners-row__item--premium"
-          >
-            <PartnerLogo :partner="partner" />
-          </span>
-          <span v-for="partner in regularPartnerList" :key="`regular-${partner.slug}`" class="partners-row__item">
-            <PartnerLogo :partner="partner" />
-          </span>
-        </div>
+
+        <template v-if="totalPartnersCount <= 5">
+          <div class="partners-row">
+            <span
+              v-for="partner in mainPartners"
+              :key="`main-${partner.slug}`"
+              class="partners-row__item partners-row__item--main"
+            >
+              <PartnerLogo :partner="partner" />
+            </span>
+            <span
+              v-for="partner in premiumPartnerList"
+              :key="`premium-${partner.slug}`"
+              class="partners-row__item partners-row__item--premium"
+            >
+              <PartnerLogo :partner="partner" />
+            </span>
+            <span v-for="partner in regularPartnerList" :key="`regular-${partner.slug}`" class="partners-row__item">
+              <PartnerLogo :partner="partner" />
+            </span>
+          </div>
+        </template>
+        <template v-else>
+          <div class="partners-carousel">
+            <div class="partners-carousel__track">
+              <span
+                v-for="(partner, i) in [...allPartners, ...allPartners]"
+                :key="`carousel-${i}-${partner.slug}`"
+                class="partners-row__item"
+                :class="{
+                  'partners-row__item--main': partner._tier === 'main',
+                  'partners-row__item--premium': partner._tier === 'premium',
+                }"
+              >
+                <PartnerLogo :partner="partner" />
+              </span>
+            </div>
+          </div>
+        </template>
       </NuxtLink>
     </div>
   </div>
@@ -235,8 +263,9 @@ const hasAnyPartners = computed(
   gap: 12px 16px;
 
   &__item {
-    min-width: 160px;
-    min-height: 84px;
+    flex-shrink: 0;
+    min-width: 220px;
+    height: 96px;
     padding: 16px 20px;
     border-radius: 10px;
     border: 1px solid rgba(var(--indi-blue-1-raw), 0.2);
@@ -251,30 +280,54 @@ const hasAnyPartners = computed(
       object-fit: contain;
       display: block;
     }
+  }
+}
 
-    :deep(.theme-logo-wrapper) {
-      display: flex;
-      align-items: center;
+.partners-carousel {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  /* Fade left and right edges */
+  mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+
+  &:hover .partners-carousel__track {
+    animation-play-state: paused;
+  }
+
+  &__track {
+    display: flex;
+    width: max-content;
+    align-items: center;
+    gap: 16px;
+    padding: 12px 0;
+    animation: partner-ticker 30s linear infinite;
+
+    @media (max-width: 900px) {
+      animation: partner-ticker 20s linear infinite;
     }
 
-    &--main {
-      min-width: 200px;
-      min-height: 96px;
-
-      :deep(img) {
-        height: 60px;
-        max-width: 200px;
-      }
+    @media (max-width: 390px) {
+      animation: partner-ticker 15s linear infinite;
     }
 
-    &--premium {
-      min-width: 180px;
-
-      :deep(img) {
-        height: 54px;
-        max-width: 175px;
-      }
+    @media (prefers-reduced-motion: reduce) {
+      animation: none;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 100%;
+      padding: 12px;
     }
+  }
+}
+
+@keyframes partner-ticker {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    /* Translate half of the track, accounting for the 16px gap (8px offset) */
+    transform: translateX(calc(-50% - 8px));
   }
 }
 
