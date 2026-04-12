@@ -21,6 +21,8 @@ items:
         url: '/partners/dressme'
       - title: 'Vibe Academy'
         url: '/partners/vibe-academy'
+      - title: 'Axians'
+        url: '/partners/axians'
       - title: 'Hogeschool Utrecht'
         url: '/partners/hogeschool-utrecht'
   - title: 'Contact'
