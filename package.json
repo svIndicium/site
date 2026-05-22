@@ -21,7 +21,7 @@
     "canvas-confetti": "^1.9.4",
     "embla-carousel-vue": "^8.6.0",
     "firebase": "^12.13.0",
-    "nuxt": "^4.4.4",
+    "nuxt": "^4.4.6",
     "nuxt-svgo": "^4.2.6",
     "ua-parser-js": "^2.0.9",
     "vue": "^3.5.34"
