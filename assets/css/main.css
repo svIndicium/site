@@ -1,8 +1,16 @@
+/* Page background (single source of truth): the footer/brand blue is the base
+   (shown past the content on over-scroll), with a 1px blue fade at the very
+   bottom of the page turning up to the root (white/light) color. */
+:root {
+  background-color: var(--indi-blue-3);
+  background-image: linear-gradient(to top, var(--indi-blue-3), var(--root-background-color) 1px);
+  background-repeat: no-repeat;
+}
+
 body {
   font-family: 'Roboto', sans-serif;
   color: var(--text-color);
   overflow-x: hidden;
-  background-color: var(--root-background-color);
 }
 
 h1 {

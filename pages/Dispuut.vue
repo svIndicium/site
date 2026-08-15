@@ -34,7 +34,7 @@ const { data: disputen } = await useAsyncData('dispuut', () => queryCollection('
 </template>
 
 <style scoped>
-.disputen-card {
+.dispuut-card {
   border-bottom: 3px solid var(--indi-blue-1);
   padding: 2em 0;
   max-width: 1100px;
@@ -42,13 +42,16 @@ const { data: disputen } = await useAsyncData('dispuut', () => queryCollection('
   &:last-child {
     border: none;
   }
+}
 
-  :deep(img) {
-    min-width: 320px;
-    height: 100%;
-    width: auto;
-    background-image: linear-gradient(to bottom right, var(--indi-blue-1), var(--indi-blue-2));
-  }
+/* :deep() must be top-level (not nested) so it compiles to
+   .dispuut-card[data-v-…] img — nested puts the scope attr on a separate
+   element that doesn't exist between the card and the slot img. */
+.dispuut-card :deep(img) {
+  min-width: 320px;
+  height: 100%;
+  width: auto;
+  background-image: linear-gradient(to bottom right, var(--indi-blue-1), var(--indi-blue-2));
 }
 
 .instagram-btn {
