@@ -8,7 +8,7 @@ const { navLevel, toggleNav, setNavLevel, closeNav } = useNavState();
 
 // Query navigation collection
 const { data: navData } = await useAsyncData('navigation-mobile', () => queryCollection('navigation').first());
-const items = navData.value?.meta?.items || [];
+const items = navData.value?.items || [];
 
 function toggleNavLevel() {
   toggleNav();

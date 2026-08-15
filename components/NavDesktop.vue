@@ -1,7 +1,7 @@
 <script setup lang="ts">
 // Query navigation collection
 const { data: navData } = await useAsyncData('navigation', () => queryCollection('navigation').first());
-const items = navData.value?.meta?.items || [];
+const items = navData.value?.items || [];
 </script>
 
 <template>

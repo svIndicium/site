@@ -3,9 +3,9 @@ const { preference } = useTheme();
 
 // Query footer collection
 const { data: footerData } = await useAsyncData('footer', () => queryCollection('footer').first());
-const pages = ref<{ title: string; url: string }[]>(footerData.value?.meta?.items || []);
-const socialPages = ref<{ title: string; url: string }[]>(footerData.value?.meta?.socialMediaItems || []);
-const contact = ref<Record<string, unknown>>(footerData.value?.meta?.contactItems || {});
+const pages = ref<{ title: string; url: string }[]>(footerData.value?.items || []);
+const socialPages = ref<{ title: string; url: string }[]>(footerData.value?.socialMediaItems || []);
+const contact = ref<Record<string, unknown>>(footerData.value?.contactItems || {});
 
 function changeTheme(theme: 'system' | 'light' | 'dark') {
   preference.value = theme;
