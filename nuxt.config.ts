@@ -224,8 +224,13 @@ export default defineNuxtConfig({
   studio: {
     editor: {
       components: {
+        // Prose* components are @nuxt/content's markdown renderers (e.g. ProseH1
+        // renders a `# heading`), globally registered and surfaced by Studio as
+        // insertable components. They're redundant with Studio's native heading
+        // commands, so exclude them from the editor's component list.
+        exclude: ['Prose*'],
         // Group the homepage MDC components under a single labelled group in the
-        // editor's component list, and omit every other (non-content) component.
+        // editor's component list.
         groups: [
           {
             label: 'Home',
