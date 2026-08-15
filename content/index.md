@@ -3,10 +3,10 @@ title: Indicium
 description: Dé studievereniging voor HBO-ICT van Hogeschool Utrecht
 ---
 
-::hero-section
-::
+:hero-section
 
 ::home-grid
+#default
   :::home-main
     ::::home-image-carousel
     ---
@@ -17,27 +17,37 @@ description: Dé studievereniging voor HBO-ICT van Hogeschool Utrecht
     ---
     ::::
 
-    ::::home-text-block{title="Over Indicium" cta-label="Lees meer over Indicium →" cta-url="/over-indicium"}
+    ::::home-text-block
+    ---
+    cta-label: Lees meer over Indicium →
+    cta-url: /over-indicium
+    title: Over Indicium
+    ---
     Wij zijn dé studievereniging voor HBO-ICT van Hogeschool Utrecht. We organiseren het hele jaar door activiteiten zoals bedrijfsbezoeken, kroegcolleges, gastcolleges, lunchlezingen en nog veel meer over allerlei verschillende onderwerpen. We organiseren natuurlijk ook activiteiten voor gezelligheid! Kom eens langs op onze borrels, LAN-party's of bij iets anders!
     ::::
 
-    ::::home-text-block{title="Lid zijn is meedoen" cta-label="Word lid →" cta-url="/lid-worden"}
+    ::::home-text-block
+    ---
+    cta-label: Word lid →
+    cta-url: /lid-worden
+    title: Lid zijn is meedoen
+    ---
     Een hoop activiteiten organiseren we voor iedereen, maar als lid krijg je natuurlijk veel meer voordelen! Je krijgt dan korting bij activiteiten of je wordt uitgenodigd voor activiteiten die exclusief voor leden zijn. Ook kunnen we je helpen met het zoeken van een stage en kan je er altijd terecht als je ergens niet uitkomt.
     ::::
 
-    ::::home-text-block{title="Commissies" cta-label="Bekijk de commissies →" cta-url="/commissies"}
+    ::::home-text-block
+    ---
+    cta-label: Bekijk de commissies →
+    cta-url: /commissies
+    title: Commissies
+    ---
     Lijkt je het leuk om de vereniging te helpen door het organiseren van activiteiten zoals borrels, feestjes, gastcolleges, lunchlezingen, reizen? Of wil je je programmeerskills verbeteren? Neem eens een kijkje bij onze commissies — enthousiaste leden die de vereniging draaiende houden.
     ::::
   :::
 
   :::home-aside
-    ::::activity-calendar
-    ::::
+  :activity-calendar
 
-    ::::social-sidebar
-    ::::
+  :social-sidebar
   :::
-::
-
-::home-partners
 ::

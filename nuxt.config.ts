@@ -219,4 +219,46 @@ export default defineNuxtConfig({
   svgo: {
     defaultImport: 'component',
   },
+
+  // Nuxt Studio configuration
+  studio: {
+    editor: {
+      components: {
+        // Group the homepage MDC components under a single labelled group in the
+        // editor's component list, and omit every other (non-content) component.
+        groups: [
+          {
+            label: 'Home',
+            include: ['HeroSection', 'Home*', 'ActivityCalendar', 'SocialSidebar'],
+          },
+        ],
+        ungrouped: 'omit',
+      },
+    },
+  },
+
+  // Globally register the homepage MDC components so Nuxt Studio lists them in
+  // the visual editor's component picker (the '/' slash command). MDC block
+  // components are resolved by name, so only global components are insertable.
+  hooks: {
+    'components:extend': (components) => {
+      const mdcContentComponents: Record<string, true> = {
+        HeroSection: true,
+        HomeGrid: true,
+        HomeMain: true,
+        HomeAside: true,
+        HomeImageCarousel: true,
+        HomeTextBlock: true,
+        HomePartners: true,
+        ActivityCalendar: true,
+        SocialSidebar: true,
+      };
+
+      components
+        .filter((component) => component.pascalName in mdcContentComponents)
+        .forEach((component) => {
+          component.global = true;
+        });
+    },
+  },
 });
