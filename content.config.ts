@@ -1,4 +1,4 @@
-import { defineContentConfig, defineCollection } from '@nuxt/content';
+import { defineContentConfig, defineCollection, property } from '@nuxt/content';
 import { z } from 'zod';
 
 export default defineContentConfig({
@@ -12,6 +12,14 @@ export default defineContentConfig({
     home: defineCollection({
       source: 'index.md',
       type: 'page',
+      schema: z.object({
+        title: z.string(),
+        description: property(z.string()).editor({
+          input: 'textarea',
+          label: 'Description',
+          description: 'Shown in search results and social shares',
+        }),
+      }),
     }),
 
     contact: defineCollection({

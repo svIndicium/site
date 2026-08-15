@@ -12,7 +12,7 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "@nuxt/content": "3.11.2",
+    "@nuxt/content": "3.15.2",
     "@nuxt/eslint": "^1.17.0",
     "@nuxtjs/color-mode": "3.5.2",
     "@vueuse/nuxt": "13.9.0",

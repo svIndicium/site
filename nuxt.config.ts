@@ -240,6 +240,15 @@ export default defineNuxtConfig({
         ungrouped: 'omit',
       },
     },
+    // Pin the repository so prod builds (e.g. local `pnpm generate`) resolve
+    // it without relying on CI env vars. Matches the deployed repo; CI env
+    // detection still takes precedence when set.
+    repository: {
+      provider: 'github',
+      owner: 'svIndicium',
+      repo: 'site',
+      branch: 'main',
+    },
   },
 
   // Globally register the homepage MDC components so Nuxt Studio lists them in

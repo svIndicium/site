@@ -6,7 +6,6 @@ description: Dé studievereniging voor HBO-ICT van Hogeschool Utrecht
 :hero-section
 
 ::home-grid
-#default
   :::home-main
     ::::home-image-carousel
     ---

@@ -310,6 +310,8 @@ Written by {{ $doc.author }} on {{ $doc.publishDate }}.
 Current version: **{{ $doc.version }}**
 ```
 
+Bindings resolve from (in order) the YAML frontmatter, a component's YAML props block, or the `data` prop passed to `<ContentRenderer>`. Use a default fallback: `{{ $doc.customVariable || 'defaultValue' }}`.
+
 ## Code Blocks
 
 ### Basic Syntax Highlighting
@@ -620,14 +622,14 @@ This ensures predictable routing behavior and prevents 404 errors on the root pa
 Key patterns learned while refactoring this Indicium site:
 
 ### Component Location
-- MDC block components (`::component-name`) go in `components/home/` (NOT `components/content/` — that's for Prose overrides)
-- Components in `components/` are auto-imported and available as `::kebab-case-name`
-- Original components that already work in MDC should be used directly (e.g., `::hero-section`, `::social-sidebar`, `::activity-calendar`)
+- Indicium homepage MDC block components live in `components/content/` (`HomeGrid`, `HomeMain`, `HomeAside`, `HomeImageCarousel`, `HomeTextBlock`, `HomePartners`) and root `components/` (`HeroSection`, `ActivityCalendar`, `SocialSidebar`)
+- `components/content/` components are auto-available in markdown; the root `components/` block components are additionally registered global (see Nuxt Studio section)
+- Referenced in MDC by kebab-case name: `::hero-section`, `::home-grid`, `::home-image-carousel`, `::activity-calendar`, `::social-sidebar`, etc.
 
 ### Array/JSON Props
-- YAML block props (`---\nkey:\n  - val\n---`) inside `::component` DO NOT parse in Nuxt Content v3
-- Use colon-prefixed inline JSON: `{:images='["path1","path2"]'}`
-- The `:` prefix marks it as a JS expression; single quotes wrap the JSON to avoid conflicts
+- The YAML props block (`---\nkey:\n  - val\n---`) IS valid MDC (the official "YAML method") and parses correctly — verified in the minimark cache, e.g. `home-image-carousel`'s YAML `images:` list becomes a `:images` JS-expression prop that Nuxt Content evaluates into an array. Use it for readable multi-line/complex values.
+- Colon-prefixed inline JSON is a valid compact alternative: `{:images='["path1","path2"]'}`
+- The `:` prefix marks a JS expression; single quotes wrap the JSON so it can use double quotes.
 
 ### Slot Content
 - Markdown content in slots is auto-wrapped in `<p>` tags by the Nuxt Content renderer
@@ -643,3 +645,15 @@ Key patterns learned while refactoring this Indicium site:
 - Single-file collections use `source: 'filename.md'` in `content.config.ts`
 - Example: `home: defineCollection({ source: 'index.md', type: 'page' })`
 - Query with `queryCollection('collectionName').first()`
+- A `schema` (zod) drives Studio's Form Editor. Annotate fields with `property(z.string()).editor({ input: 'textarea' })`, importing `property` from `@nuxt/content` (zod v4 needs the `property()` wrapper — see Validators section).
+- @nuxt/content is pinned at 3.15.2; it bundles zod v3 internally while the project pins zod v4.4.3 (import `z` from `zod` = v4).
+
+### Nuxt Studio (validators & editor metadata)
+- `@nuxt/content` supports zod v3, zod v4, and valibot collection schemas. `property(...).editor({ input: 'media' | 'icon' | 'textarea', label, description, tooltip, iconLibraries })` enriches fields for Studio's form editor.
+- **`.editor()` directly on `z.string()` only works with zod v3** — @nuxt/content patches *its own* zod v3 `ZodType.prototype.editor`. With the project's zod v4, use `property(z.string()).editor({ ... })` (import `property` from `@nuxt/content`).
+- MDC components must be **globally registered** for Studio's `/` slash command to list them. `nuxt.config.ts` uses a `hooks['components:extend']` hook that sets `component.global = true` for the 9 homepage components (via a `Record<string, true>` allowlist).
+- `studio.editor.components` in `nuxt.config.ts`:
+  - `exclude: ['Prose*']` — removes `@nuxt/content`'s markdown renderers (`ProseH1` etc.), which Studio otherwise surfaces redundantly alongside its native heading commands.
+  - `groups: [{ label: 'Home', include: ['HeroSection','Home*','ActivityCalendar','SocialSidebar'] }]` + `ungrouped: 'omit'` — the list is filtered by `component.name` (= pascalName), so patterns are pascal-case/globs.
+- `studio.repository: { provider: 'github', owner: 'svIndicium', repo: 'site', branch: 'main' }` lets local `pnpm generate` build without CI env vars; otherwise nuxt-studio throws `Repository owner and repository name are required` (it only auto-detects from CI env).
+- Verify Studio's component list without auth by starting `nuxt dev` and curling `/__nuxt_studio/meta` — `components.list` should contain exactly the 9 home components.
