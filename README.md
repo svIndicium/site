@@ -50,7 +50,7 @@ Voor de planning en roadmap, bekijk het [project board](https://github.com/orgs/
    pnpm dev
    ```
 
-   De applicatie is nu bereikbaar op `http://localhost:5173`
+   De applicatie is nu bereikbaar op het adres in je terminal. Meer commandos vind je in de `./package.json`
 
 ### Beschikbare Scripts
 
@@ -58,6 +58,26 @@ Voor de planning en roadmap, bekijk het [project board](https://github.com/orgs/
 - `pnpm host` - Start de development server en maak deze beschikbaar op het netwerk
 - `pnpm build` - Bouw de productie versie
 - `pnpm preview` - Preview de productie build lokaal
+
+### Dependencies updaten met Taze
+
+We gebruiken [taze](https://github.com/antfu-collective/taze) om dependencies up-to-date te houden. Taze is een
+devDependency, dus de CLI is direct beschikbaar via `pnpm exec taze`.
+
+Update-policy staat in [`taze.config.js`](./taze.config.js):
+
+- Het Nuxt/Vue-gedeelte staat vast op `minor` (majors zijn breaking en moeten expliciet)
+- `better-sqlite3`, `firebase` en `esbuild` majors worden overgeslagen
+- GitHub Actions in `.github/workflows` worden meegenomen (tag-stijl)
+
+```bash
+pnpm exec taze              # preview - laat zien wat er zou veranderen (schrijft niets)
+pnpm exec taze -w           # schrijf de veilige (minor/patch) updates naar package.json
+pnpm exec taze major -w     # inclusief majors en locked versies - eerst reviewen!
+```
+
+Zonder `-w` verandert taze niets; het toont alleen wat er beschikbaar is. Bij majors: controleer de breaking changes
+voordat je ze merge. Taze respecteert ook `pnpm-workspace.yaml` instellingen zoals `update.ignoreDeps`.
 
 ## 🛠️ Tech Stack
 
