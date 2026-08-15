@@ -1,6 +1,32 @@
 <script setup lang="ts">
 const { preference } = useTheme();
 
+// Sync the radio UI from the stored preference BEFORE Vue hydrates, so the SSR
+// default (auto checked) doesn't mismatch the client state. Without JS this
+// script never runs; the SSR auto-checked state + CSS :has() fallback in
+// variables.css handle the theme instead.
+useHead({
+  script: [
+    {
+      innerHTML: `(() => {
+        try {
+          const p = localStorage.getItem('nuxt-color-mode');
+          const target = p === 'dark' ? 'dark-mode' : p === 'light' ? 'light-mode' : 'auto-mode';
+          document.querySelectorAll('footer input[name="theme"]').forEach((r) => {
+            // set/remove the content attribute (not .checked): Vue's hydration
+            // check compares attributes, and .checked only sets the property.
+            if (r.id === target) r.setAttribute('checked', '');
+            else r.removeAttribute('checked');
+          });
+        } catch (e) {}
+      })();`,
+      // Runs at end of <body>, after the radios are parsed but before the
+      // deferred Nuxt entry module hydrates.
+      tagPosition: 'bodyClose',
+    },
+  ],
+});
+
 // Query footer collection
 const { data: footerData } = await useAsyncData('footer', () => queryCollection('footer').first());
 const pages = ref<{ title: string; url: string }[]>(footerData.value?.items || []);
@@ -44,43 +70,44 @@ function changeTheme(theme: 'system' | 'light' | 'dark') {
       </div>
       <div class="column">
         <h2>Options</h2>
-        <ClientOnly>
-          <fieldset class="footer-menu options">
-            <legend>Thema</legend>
-            <div class="toggle dark-mode">
-              <div class="toggle-row">
-                <input
-                  id="auto-mode"
-                  type="radio"
-                  name="theme"
-                  :checked="preference == 'system'"
-                  @change="changeTheme('system')"
-                />
-                <label for="auto-mode">Systeem</label>
-              </div>
-              <div class="toggle-row">
-                <input
-                  id="light-mode"
-                  type="radio"
-                  name="theme"
-                  :checked="preference == 'light'"
-                  @change="changeTheme('light')"
-                />
-                <label for="light-mode">Licht</label>
-              </div>
-              <div class="toggle-row">
-                <input
-                  id="dark-mode"
-                  type="radio"
-                  name="theme"
-                  :checked="preference == 'dark'"
-                  @change="changeTheme('dark')"
-                />
-                <label for="dark-mode">Donker</label>
-              </div>
+        <!-- Radios are plain form controls: they work without JS (CSS :has()
+             in variables.css applies the theme) and with JS (@change drives
+             Nuxt Color Mode's data-theme). -->
+        <fieldset class="footer-menu options">
+          <legend>Thema</legend>
+          <div class="toggle dark-mode">
+            <div class="toggle-row">
+              <input
+                id="auto-mode"
+                type="radio"
+                name="theme"
+                :checked="preference == 'system'"
+                @change="changeTheme('system')"
+              />
+              <label for="auto-mode">Systeem</label>
             </div>
-          </fieldset>
-        </ClientOnly>
+            <div class="toggle-row">
+              <input
+                id="light-mode"
+                type="radio"
+                name="theme"
+                :checked="preference == 'light'"
+                @change="changeTheme('light')"
+              />
+              <label for="light-mode">Licht</label>
+            </div>
+            <div class="toggle-row">
+              <input
+                id="dark-mode"
+                type="radio"
+                name="theme"
+                :checked="preference == 'dark'"
+                @change="changeTheme('dark')"
+              />
+              <label for="dark-mode">Donker</label>
+            </div>
+          </div>
+        </fieldset>
       </div>
     </div>
   </footer>
