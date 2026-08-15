@@ -1,14 +1,8 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   // Modules
-  modules: [
-    // '@nuxtjs/sentry', // TODO: Temporarily disabled - needs Nuxt 4 compatible version
-    'nuxt-svgo',
-    '@nuxt/eslint',
-    '@vueuse/nuxt',
-    '@nuxtjs/color-mode',
-    '@nuxt/content',
-  ],
+  modules: [// '@nuxtjs/sentry', // TODO: Temporarily disabled - needs Nuxt 4 compatible version
+  'nuxt-svgo', '@nuxt/eslint', '@vueuse/nuxt', '@nuxtjs/color-mode', '@nuxt/content', 'nuxt-studio'],
 
   // SSG mode for static generation
   ssr: true,
@@ -170,11 +164,7 @@ export default defineNuxtConfig({
   },
 
   // CSS configuration
-  css: [
-    '~/assets/css/variables.css',
-    '~/assets/css/typography.css',
-    '~/assets/css/main.css',
-  ],
+  css: ['~/assets/css/variables.css', '~/assets/css/typography.css', '~/assets/css/main.css'],
 
   // Vue configuration for custom elements
   vue: {
@@ -197,7 +187,11 @@ export default defineNuxtConfig({
   },
 
   // Vite configuration
-  vite: {},
+  vite: {
+    optimizeDeps: {
+      include: ['firebase/app', 'firebase/analytics', 'ua-parser-js', 'add-to-calendar-button', 'embla-carousel-vue'],
+    },
+  },
 
   // TypeScript configuration
   typescript: {

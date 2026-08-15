@@ -21,7 +21,8 @@
     "canvas-confetti": "^1.9.4",
     "embla-carousel-vue": "^8.6.0",
     "firebase": "^12.13.0",
-    "nuxt": "^4.4.4",
+    "nuxt": "^4.5.0",
+    "nuxt-studio": "1.7.0",
     "nuxt-svgo": "^4.2.6",
     "ua-parser-js": "^2.0.9",
     "vue": "^3.5.34"
@@ -39,5 +40,5 @@
     "typescript": "~5.9.3",
     "zod": "^4.4.3"
   },
-  "packageManager": "pnpm@11.15.1"
+  "packageManager": "pnpm@11.21.0+sha512.521705bce689924eac72f5a3587122f362689ef6571e55ba80076fd637c11132ecffada26fad4ea79c485bfddbfd3d5a2a5b05805a77e893de71ec8a6cca3bb1"
 }

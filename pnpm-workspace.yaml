@@ -5,6 +5,7 @@ allowBuilds:
   esbuild: true
   protobufjs: true
   re2: true
+  sharp: true
   unrs-resolver: true
 onlyBuiltDependencies:
   - '@firebase/util'
