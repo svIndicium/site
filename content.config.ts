@@ -101,9 +101,7 @@ export default defineContentConfig({
       type: 'page',
       schema: z.object({
         year: z.string(), // e.g. '2024-2025'
-        boardNumber: z.number(), // 1 = founding board
-        isCurrent: z.boolean().optional(),
-        isFoundingBoard: z.boolean().optional(),
+        boardNumber: z.number(), // 1 = founding board, max = current board
         groupPhoto: z.string().optional(),
         members: z.array(
           z.object({

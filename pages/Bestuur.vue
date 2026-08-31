@@ -1,7 +1,8 @@
 <script setup lang="ts">
-// Query only the current board from collection
+// The current board is derived: the newest one (highest boardNumber), so
+// editors never maintain an isCurrent flag.
 const { data: currentBoard } = await useAsyncData('currentBoard', () =>
-  queryCollection('boards').where('isCurrent', '=', true).first(),
+  queryCollection('boards').order('boardNumber', 'DESC').first(),
 );
 </script>
 

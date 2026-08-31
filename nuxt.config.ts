@@ -151,6 +151,11 @@ export default defineNuxtConfig({
     },
   },
 
+  // Redirect for Nuxt Studio UX
+  routeRules: {
+    '/boards/**': { redirect: '/besturen' },
+  },
+
   // Globally register the homepage MDC components so Nuxt Studio lists them in
   // the visual editor's component picker (the '/' slash command). MDC block
   // components are resolved by name, so only global components are insertable.
