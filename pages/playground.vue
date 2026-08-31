@@ -46,7 +46,7 @@ const entries: Entry[] = [
     key: 'link-card',
     label: 'LinkCard',
     description:
-      'Link row card. Currently uses a viewport @media (max-width: 562px) — it does NOT react to container width yet (candidate for conversion).',
+      'Link row card. Uses a container query (@container max-width: 562px) — the icon/padding shrink when the card itself is narrow, not the viewport.',
     component: LinkCard,
     fields: [
       { key: 'name', label: 'Name' },
@@ -60,7 +60,7 @@ const entries: Entry[] = [
     key: 'job-offers',
     label: 'JobOffers',
     description:
-      'Accordion list of job offers. Currently uses viewport @media — it does NOT react to container width yet (candidate for conversion).',
+      'Accordion list of job offers. Uses a container query (@container max-width: 768px) — offers fill the column when the container is narrow; the outer wrapper still full-bleeds on small viewports.',
     component: JobOffers,
     fields: [{ key: 'offers', label: 'Offers (JSON array)', type: 'json' }],
     defaults: {

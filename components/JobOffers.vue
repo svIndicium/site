@@ -40,6 +40,10 @@ function expandJobOffer(event: MouseEvent) {
 </template>
 
 <style scoped>
+.job-offers-container {
+  container-type: inline-size;
+}
+
 .job-offers {
   .job-offer {
     display: flex;
@@ -51,12 +55,6 @@ function expandJobOffer(event: MouseEvent) {
     padding: 0 2em;
     background-color: rgba(255, 255, 255, 0.15);
     border-radius: 1.5em;
-
-    @media screen and (max-width: 768px) {
-      width: 100%;
-      padding: 0 1em;
-      margin: 0.5em auto;
-    }
 
     .job-offer-title {
       display: flex;
@@ -95,7 +93,21 @@ function expandJobOffer(event: MouseEvent) {
   }
 }
 
+/* Container query (top-level — nested @container is dropped in Vue dev): the
+   offer fills its column when the container is narrow, not the viewport.
+   Specificity matches the base (.job-offers .job-offer) and comes after it, so
+   it wins when the query matches. */
+@container (max-width: 768px) {
+  .job-offers .job-offer {
+    width: 100%;
+    padding: 0 1em;
+    margin: 0.5em auto;
+  }
+}
+
 .job-offers-container {
+  /* Viewport full-bleed (page-level): bleed the offers to the screen edge on
+     small screens. Offer width/padding is handled by the container query. */
   @media screen and (max-width: 768px) {
     margin: 3em 0;
 
@@ -103,11 +115,6 @@ function expandJobOffer(event: MouseEvent) {
       --added-padding: 4em;
       margin: 0 calc(-1 * var(--added-padding));
       width: calc(100% + 2 * var(--added-padding));
-
-      .job-offer {
-        padding: 0 1em;
-        margin: 0.5em auto;
-      }
     }
   }
 }

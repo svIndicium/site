@@ -15,19 +15,26 @@ const isImage = filetypes.some((filetype) => linkIcon?.endsWith('.' + filetype))
 </script>
 
 <template>
-  <a v-if="!link.url.startsWith('/')" class="link" :href="link.url" target="_blank" rel="noopener noreferrer">
-    <img v-if="linkIcon && isImage" :src="linkIcon" :alt="link.name" />
-    <span v-else-if="linkIcon" class="emoji">{{ linkIcon }}</span>
-    <p>{{ link.name }}</p>
-  </a>
-  <RouterLink v-else :to="link.url" class="link">
-    <img v-if="linkIcon && isImage" :src="linkIcon" :alt="link.name" />
-    <span v-else-if="linkIcon" class="emoji">{{ linkIcon }}</span>
-    <p>{{ link.name }}</p>
-  </RouterLink>
+  <!-- .link-card is the container: the card responds to its own width, not the viewport -->
+  <div class="link-card">
+    <a v-if="!link.url.startsWith('/')" class="link" :href="link.url" target="_blank" rel="noopener noreferrer">
+      <img v-if="linkIcon && isImage" :src="linkIcon" :alt="link.name" />
+      <span v-else-if="linkIcon" class="emoji">{{ linkIcon }}</span>
+      <p>{{ link.name }}</p>
+    </a>
+    <RouterLink v-else :to="link.url" class="link">
+      <img v-if="linkIcon && isImage" :src="linkIcon" :alt="link.name" />
+      <span v-else-if="linkIcon" class="emoji">{{ linkIcon }}</span>
+      <p>{{ link.name }}</p>
+    </RouterLink>
+  </div>
 </template>
 
 <style scoped>
+.link-card {
+  container-type: inline-size;
+}
+
 .link {
   font-family: var(--text-font);
   color: var(--text-color);
@@ -71,7 +78,9 @@ const isImage = filetypes.some((filetype) => linkIcon?.endsWith('.' + filetype))
   }
 }
 
-@media screen and (max-width: 562px) {
+/* Container query (top-level — nested @container is dropped in Vue dev): shrink
+   the icon/padding when the CARD is narrow, not the viewport. */
+@container (max-width: 562px) {
   .link {
     grid-template-columns: 48px 1fr;
     padding: 0.5rem 1rem;
