@@ -173,5 +173,19 @@ export default defineContentConfig({
         instagram: z.string().optional(),
       }),
     }),
+
+    // Agenda short labels (ActivityCalendar.vue).
+    locations: defineCollection({
+      source: 'agenda-locations.yml',
+      type: 'data',
+      schema: z.object({
+        locations: z.array(
+          z.object({
+            match: z.string(),
+            short: z.string(),
+          }),
+        ),
+      }),
+    }),
   },
 });

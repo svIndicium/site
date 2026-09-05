@@ -151,6 +151,12 @@ export default defineNuxtConfig({
     },
   },
 
+  // Studio is only needed in dev/editing; keep it out of the static prod
+  // build (also silences the "setup authentication" warning on generate).
+  $production: {
+    studio: false,
+  },
+
   // Redirect for Nuxt Studio UX
   routeRules: {
     '/boards/**': { redirect: '/besturen' },

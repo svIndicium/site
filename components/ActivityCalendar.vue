@@ -1,252 +1,228 @@
 <!-- eslint-disable vue/attribute-hyphenation -->
 <!-- the add to calendar button does't work with kebab-case attributes -->
 <script setup lang="ts">
-import { ref, computed, onMounted, nextTick } from 'vue';
+import { ref, computed, watch, onMounted, nextTick } from 'vue';
 import 'add-to-calendar-button';
+import {
+  AGENDA_DEFAULT_LOCATION_ENTRIES,
+  AGENDA_ICS_URL,
+  AGENDA_MAX_CONSECUTIVE_SAME,
+  AGENDA_PAGE_SIZE,
+  AGENDA_TIME_ZONE,
+  agendaEndYear,
+  buildAgendaUrl,
+  chunkEvents,
+  dedupeConsecutiveEvents,
+  formatAgendaDay,
+  formatAgendaMonth,
+  formatAgendaTime,
+  getAgendaLocationLink,
+  matchAgendaShortName,
+  parseAgendaEvents,
+  sanitizeAgendaPageSize,
+  totalAgendaPages,
+  type AgendaEvent,
+  type AgendaLocationEntry,
+  type AgendaRawEvent,
+} from '~/composables/useAgenda';
 
-const defaultMaxCalEvents = 5;
-const maxCalEvents = ref(defaultMaxCalEvents);
+// Embed-settable (e.g. `:activity-calendar{:page-size="3"}`); calendar ID + API key stay constants.
+const props = withDefaults(
+  defineProps<{
+    title?: string;
+    pageSize?: number;
+    maxPages?: number;
+  }>(),
+  { title: 'Agenda' },
+);
 
-// Fix calendar button width in shadow DOM, since the library doesn't support it out of the box and we want it to be full width
+const effectivePageSize = computed(() =>
+  sanitizeAgendaPageSize(props.pageSize ?? AGENDA_PAGE_SIZE),
+);
+const maxPageCount = computed(() =>
+  props.maxPages == null ? Number.POSITIVE_INFINITY : Math.max(1, Math.floor(props.maxPages)),
+);
+
+// Full-width fix for the button shadow DOM; re-apply after atcb_cleanup wipes styles (e.g. theme toggle).
 const calendarButton = ref<HTMLElement | null>(null);
-onMounted(async () => {
-  if (import.meta.client) {
-    await customElements.whenDefined('add-to-calendar-button');
-    await nextTick();
+const colorMode = useColorMode();
+async function injectCalendarButtonWidth(): Promise<void> {
+  if (!import.meta.client) return;
+  await nextTick();
+  const shadowRoot = calendarButton.value?.shadowRoot;
+  if (shadowRoot && !shadowRoot.getElementById('activity-calendar-button-width-style')) {
+    const style = document.createElement('style');
+    style.id = 'activity-calendar-button-width-style';
+    style.textContent = `
+      :host {
+        display: block;
+        width: 100%;
+      }
 
-    const shadowRoot = calendarButton.value?.shadowRoot;
-    if (shadowRoot && !shadowRoot.getElementById('activity-calendar-button-width-style')) {
-      const style = document.createElement('style');
-      style.id = 'activity-calendar-button-width-style';
-      style.textContent = `
-        :host {
-          display: block;
-          width: 100%;
-        }
+      .atcb-initialized {
+        display: block;
+        position: relative;
+        width: 100% !important;
+      }
 
-        .atcb-initialized {
-          display: block;
-          position: relative;
-          width: 100% !important;
-        }
+      .atcb-button-wrapper {
+        display: block;
+        width: 100%;
+      }
 
-        .atcb-button-wrapper {
-          display: block;
-          width: 100%;
-        }
-
-        .atcb-button {
-          width: -moz-available;
-          width: -webkit-fill-available;
-          width: stretch;
-          max-width: none;
-          box-sizing: border-box;
-        }
-      `;
-      shadowRoot.prepend(style);
-    }
+      .atcb-button {
+        width: -moz-available;
+        width: -webkit-fill-available;
+        width: stretch;
+        max-width: none;
+        box-sizing: border-box;
+      }
+    `;
+    shadowRoot.prepend(style);
   }
+}
+onMounted(() => {
+  void injectCalendarButtonWidth();
+});
+watch(
+  () => colorMode.value,
+  () => {
+    void injectCalendarButtonWidth();
+  },
+);
+
+// Throw on HTTP errors so failures render the error state instead of "geen activiteiten".
+const {
+  data: calendarData,
+  error: calendarError,
+} = await useAsyncData<{ items: AgendaRawEvent[] }>('activity-calendar', async () => {
+  const res = await fetch(buildAgendaUrl(new Date()));
+  if (!res.ok) throw new Error(`Agenda laden mislukt (${res.status})`);
+  return res.json();
 });
 
-/**
- * There's a bunch more data, but we don't need it
- * Documentation can be found at https://developers.google.com/calendar/api/v3/reference/events/list
- */
-type Event<DateTimeFormat extends Date | string> = {
-  id: string;
-  status: 'confirmed' | string;
-  summary: string;
-  location: string;
-  start: DateTimeFormat extends Date
-    ? Date
-    :
-        | {
-            dateTime: string;
-          }
-        | {
-            date: string;
-          };
-  end: DateTimeFormat extends Date
-    ? Date
-    :
-        | {
-            dateTime: string;
-          }
-        | {
-            date: string;
-          };
-  multiday_end?: DateTimeFormat extends Date
-    ? Date
-    :
-        | {
-            dateTime: string;
-          }
-        | {
-            date: string;
-          };
-  multimonth_end?: boolean;
-};
-
-const { data: calendarData } = await useAsyncData<{ items: Event<string>[] }>('activity-calendar', async () => {
-  try {
-    return await fetch(
-      'https://www.googleapis.com/calendar/v3/calendars/c_cb2b2ab9761bec69a9d24fd452f2d970d31755cf1c382272560d81fddca0e5e5@group.calendar.google.com/events?key=AIzaSyBo4AYTvUouRsZbG4KiopyeIng_1UOdNyc&orderBy=startTime&singleEvents=true&timeMin=' +
-        new Date().toISOString(),
-    ).then((res) => res.json());
-  } catch (err) {
-    console.error(err);
-    return { items: [] };
-  }
-});
-
-const events = computed<Event<Date>[]>(() => {
+const events = computed<AgendaEvent[]>(() => {
   const items = Array.isArray(calendarData.value?.items) ? calendarData.value.items : [];
-
-  return items
-    .filter((event) => event.status === 'confirmed')
-    .map((event) => {
-      let tempEvent: Event<string | Date> = event;
-      if ('date' in event.start) {
-        tempEvent = {
-          ...tempEvent,
-          start: new Date(event.start.date),
-        };
-      } else {
-        tempEvent = {
-          ...tempEvent,
-          start: new Date(event.start.dateTime),
-        };
-      }
-      if ('date' in event.end) {
-        tempEvent = {
-          ...tempEvent,
-          end: new Date(event.end.date),
-        };
-      } else {
-        tempEvent = {
-          ...tempEvent,
-          end: new Date(event.end.dateTime),
-        };
-      }
-      return tempEvent;
-    });
+  // Fresh "now" per evaluation so served static pages drop already-ended events.
+  return parseAgendaEvents(items, Date.now());
 });
 
-const visibleEvents = computed<Event<Date>[]>(() => {
-  const enhancedEvents: Event<Date>[] = [];
-  for (const item of events.value) {
-    const endMinusFourHours = new Date(item.end.getTime() - 14400000); // is still same day 4 h back
-    const isShortEvent = item.end.getTime() - item.start.getTime() < 21600000; // shorter than 6 H
-    const isNotExactlyFullDay = item.end.getTime() - item.start.getTime() !== 86400000; // Not exactly full day
-    const needsMultidayEnd =
-      endMinusFourHours.toLocaleDateString('nl', { day: 'numeric' }) !==
-        item.end.toLocaleDateString('nl', { day: 'numeric' }) &&
-      isNotExactlyFullDay &&
-      isShortEvent;
+const dedupedEvents = computed<AgendaEvent[]>(() =>
+  dedupeConsecutiveEvents(events.value, AGENDA_MAX_CONSECUTIVE_SAME),
+);
 
-    if (needsMultidayEnd) {
-      const hasDifferentMonth =
-        item.start.toLocaleDateString('nl', { month: 'short' }) !==
-        endMinusFourHours.toLocaleDateString('nl', { month: 'short' });
+// Shortnames editable via content/agenda-locations.yml; defaults cover tests/previews.
+const { data: locationMapping } = await useAsyncData('agenda-locations', () =>
+  queryCollection('locations').first(),
+);
+const locationEntries = computed<AgendaLocationEntry[]>(() => {
+  const fromContent = locationMapping.value?.locations;
+  return Array.isArray(fromContent) && fromContent.length > 0
+    ? fromContent.map((entry) => ({ match: entry.match, short: entry.short }))
+    : AGENDA_DEFAULT_LOCATION_ENTRIES;
+});
+function locationLabel(location: string): string {
+  return matchAgendaShortName(location, locationEntries.value);
+}
 
-      enhancedEvents.push({
-        ...item,
-        multiday_end: endMinusFourHours,
-        multimonth_end: hasDifferentMonth,
-      });
-    } else {
-      enhancedEvents.push({ ...item });
-    }
-  }
+const cappedEvents = computed<AgendaEvent[]>(() =>
+  dedupedEvents.value.slice(0, effectivePageSize.value * maxPageCount.value),
+);
 
-  return Array.from(enhancedEvents.values()).slice(0, maxCalEvents.value);
+const page = ref(1);
+const totalPages = computed(() => totalAgendaPages(cappedEvents.value.length, effectivePageSize.value));
+// Stacked pages share one grid cell; hidden pages stay measured so the container fits the tallest.
+const pages = computed<AgendaEvent[][]>(() => chunkEvents(cappedEvents.value, effectivePageSize.value));
+watch(totalPages, (total) => {
+  if (page.value > total) page.value = total;
 });
 
-function getLocationLink(location: string): string {
-  const locationMappings: { [key: string]: string } = {
-    hideout: 'https://goo.gl/maps/jgiRSbRDpSzCqoiWA',
-    hl15: 'https://goo.gl/maps/fjbPzpTAYB6CMwSv5',
-    pl101: 'https://goo.gl/maps/UtboneV2dUFEmGeRA',
-    pl99: 'https://goo.gl/maps/q4CDYQcyiBYCwGkC7',
-    ucs: 'https://goo.gl/maps/MeUEBY4ahNgi6WmW8',
-  };
-
-  const lowercaseLocation = location.toLowerCase().replaceAll(' ', '');
-  if (lowercaseLocation in locationMappings) {
-    return locationMappings[lowercaseLocation] ?? '';
-  } else if (lowercaseLocation.startsWith('hl15')) {
-    return 'https://goo.gl/maps/fjbPzpTAYB6CMwSv5';
-  } else {
-    return `https://maps.google.com/?q=${encodeURIComponent(location)}`;
-  }
+function nextPage(): void {
+  page.value = Math.min(page.value + 1, totalPages.value);
 }
 
-const isExpanded = ref(false);
-
-function toggleEvents(): void {
-  isExpanded.value = !isExpanded.value;
-  maxCalEvents.value = isExpanded.value ? events.value.length : defaultMaxCalEvents;
+function prevPage(): void {
+  page.value = Math.max(page.value - 1, 1);
 }
 
-const hiddenCount = computed(() => Math.max(0, events.value.length - maxCalEvents.value));
-
-function extractHourAndMinutes(timeString: string) {
-  const regex = /(\d{2}:\d{2}):\d{2}/;
-  const match = timeString.match(regex);
-  return match ? match[1] : null;
+function endYear(event: AgendaEvent): string | null {
+  return event.multiday_end ? agendaEndYear(event.start, event.multiday_end) : null;
 }
 </script>
 
 <template>
-  <h2 class="title">Agenda</h2>
+  <h2 class="title">{{ props.title }}</h2>
   <ClientOnly>
     <div class="events-container">
-      <article v-if="!visibleEvents.length">
+      <article v-if="calendarError">
+        <p>De agenda kon niet geladen worden. Probeer het later opnieuw.</p>
+      </article>
+      <article v-else-if="!cappedEvents.length">
         <p>Voorlopig zijn er geen activiteiten.</p>
         <p>Voeg de kalender toe aan je agenda om up-to-date te blijven!</p>
       </article>
-      <div v-for="event in visibleEvents" :key="event.id" class="event">
-        <div class="date">
-          <span class="day">{{ event.start.toLocaleDateString('nl', { day: 'numeric' }) }}</span>
-          <div v-if="event.multiday_end && !event.multimonth_end">
-            <span class="t-m">t/m<br /></span>
-            <span class="day">{{ event.multiday_end.toLocaleDateString('nl', { day: 'numeric' }) }}<br /></span>
+      <div v-else class="events-pages">
+        <div
+          v-for="(pageEvents, index) in pages"
+          :key="index"
+          class="events-page"
+          :class="{ 'events-page--active': page === index + 1 }"
+          :aria-hidden="page === index + 1 ? undefined : 'true'"
+          :inert="page === index + 1 ? undefined : true"
+        >
+          <div v-for="event in pageEvents" :key="event.id" class="event">
+            <div class="date">
+              <span class="day">{{ formatAgendaDay(event.start) }}</span>
+              <template v-if="event.multiday_end && !event.multimonth_end">
+                <span class="t-m">t/m<br /></span>
+                <span class="day">{{ formatAgendaDay(event.multiday_end!) }}<br /></span>
+              </template>
+              <br v-else />
+              <span class="month">{{ formatAgendaMonth(event.start) }}</span>
+              <template v-if="event.multiday_end && event.multimonth_end">
+                <span class="t-m">t/m<br /></span>
+                <span class="day">{{ formatAgendaDay(event.multiday_end!) }}</span>
+                <br />
+                <span class="month">{{ formatAgendaMonth(event.multiday_end!) }}<template v-if="endYear(event)"> {{ endYear(event) }}</template></span>
+              </template>
+            </div>
+            <div class="details">
+              <p class="title" style="font-weight: bold; margin-block-end: 0.2em">{{ event.summary }}</p>
+              <p v-if="!event.isAllDay">{{ formatAgendaTime(event.start) }} => {{ formatAgendaTime(event.end) }}</p>
+              <a
+                v-if="event.location"
+                class="location"
+                :href="getAgendaLocationLink(event.location)"
+                target="_blank"
+                rel="noopener"
+              >
+                @{{ locationLabel(event.location) }}
+              </a>
+            </div>
           </div>
-
-          <br v-else />
-          <span class="month">{{ event.start.toLocaleDateString('nl', { month: 'short' }) }}</span>
-          <div v-if="event.multiday_end && event.multimonth_end">
-            <span class="t-m">t/m<br /></span>
-            <span class="day">{{ event.multiday_end.toLocaleDateString('nl', { day: 'numeric' }) }}</span>
-            <br />
-            <span class="month">{{ event.multiday_end.toLocaleDateString('nl', { month: 'short' }) }}</span>
-          </div>
-        </div>
-        <div class="details">
-          <p class="title" style="font-weight: bold; margin-block-end: 0.2em">{{ event.summary }}</p>
-          <p
-            v-if="
-              !(
-                (extractHourAndMinutes('' + event.start) == '01:00' &&
-                  extractHourAndMinutes('' + event.end) == '01:00') ||
-                (extractHourAndMinutes('' + event.start) == '02:00' && extractHourAndMinutes('' + event.end) == '02:00')
-              )
-            "
-          >
-            {{ extractHourAndMinutes('' + event.start) }} => {{ extractHourAndMinutes('' + event.end) }}
-          </p>
-          <a v-if="event.location" class="location" :href="getLocationLink(event.location)" target="_blank">
-            @{{ event.location }}
-          </a>
         </div>
       </div>
-      <button
-        v-if="events.length > defaultMaxCalEvents"
-        class="button primary rounded indi-green-1"
-        @click="toggleEvents"
-      >
-        {{ isExpanded ? `laat minder zien` : `laat ${hiddenCount} meer zien` }}
-      </button>
+      <nav v-if="totalPages > 1" class="pagination" aria-label="Agenda paginering">
+        <button
+          class="button primary rounded indi-green-1 pagination-button"
+          :class="{ 'pagination-button--hidden': page <= 1 }"
+          :disabled="page <= 1"
+          aria-label="Vorige agenda-pagina"
+          @click="prevPage"
+        >
+          ←
+        </button>
+        <span class="pagination-status" aria-live="polite"><span class="sr-only">Pagina {{ page }} van {{ totalPages }}: </span><span aria-hidden="true">{{ page }}/{{ totalPages }}</span></span>
+        <button
+          class="button primary rounded indi-green-1 pagination-button"
+          :class="{ 'pagination-button--hidden': page >= totalPages }"
+          :disabled="page >= totalPages"
+          aria-label="Volgende agenda-pagina"
+          @click="nextPage"
+        >
+          →
+        </button>
+      </nav>
     </div>
     <div class="button-container">
       <add-to-calendar-button
@@ -255,14 +231,14 @@ function extractHourAndMinutes(timeString: string) {
         :startDate="new Date(Date.now() - 86400000).toISOString().split('T')[0]"
         startTime="00:00"
         endTime="00:00"
-        timeZone="Europe/Amsterdam"
-        icsFile="https://calendar.google.com/calendar/ical/c_cb2b2ab9761bec69a9d24fd452f2d970d31755cf1c382272560d81fddca0e5e5%40group.calendar.google.com/public/basic.ics"
+        :timeZone="AGENDA_TIME_ZONE"
+        :icsFile="AGENDA_ICS_URL"
         subscribe
         iCalFileName="Indicium Activiteiten Kalender"
         options="'Apple','Google','iCal','Outlook.com','Microsoft365','MicrosoftTeams'"
         listStyle="modal"
         label="Importeer agenda"
-        :lightMode="$colorMode.value == 'dark' ? 'dark' : 'light'"
+        :lightMode="colorMode.value == 'dark' ? 'dark' : 'light'"
         language="nl"
         style="width: 100%; margin-block-end: 0.5em; --btn-shadow: unset; --btn-shadow-hover: unset"
         hideBranding
@@ -270,17 +246,17 @@ function extractHourAndMinutes(timeString: string) {
     </div>
     <template #fallback>
       <div class="events-container events-container--fallback" aria-hidden="true">
-        <div v-for="index in defaultMaxCalEvents" :key="index" class="event event--placeholder">
+        <div v-for="index in effectivePageSize" :key="index" class="event event--placeholder">
           <div class="date"></div>
           <div class="details">
             <p class="placeholder-line"></p>
             <p class="placeholder-line short"></p>
           </div>
         </div>
-        <span v-if="events.length > defaultMaxCalEvents" class="button button--placeholder">Laden...</span>
+        <span class="button button--placeholder">Laden...</span>
       </div>
       <div class="button-container" aria-hidden="true">
-        <span class="button button--placeholder-2 button--placeholder-2--loading">Importeer agenda in je kalender</span>
+        <span class="button button--placeholder-2">Importeer agenda in je kalender</span>
       </div>
     </template>
   </ClientOnly>
@@ -342,7 +318,23 @@ function extractHourAndMinutes(timeString: string) {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  min-height: 18rem;
+}
+
+/* Stacked pages share one grid cell; hidden pages stay measured and size the container. */
+.events-pages {
+  display: grid;
+}
+
+.events-page {
+  grid-area: 1 / 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  visibility: hidden;
+}
+
+.events-page--active {
+  visibility: visible;
 }
 
 .events-container--fallback {
@@ -377,6 +369,24 @@ function extractHourAndMinutes(timeString: string) {
   place-items: center;
   text-align: center;
   padding-top: 1em;
+  }
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  /* Pin to the container bottom so the arrows never ride up on short pages. */
+  margin-top: auto;
+
+  .pagination-button {
+    min-width: 2.75rem;
+  }
+
+  /* Fully hidden but space-preserving, so the status never shifts. */
+  .pagination-button--hidden {
+    visibility: hidden;
+  }
 }
 
 .button--placeholder {
@@ -390,6 +400,7 @@ function extractHourAndMinutes(timeString: string) {
   display: block;
   width: 100%;
   max-width: 100%;
+  min-height: 3.25rem;
   padding: 0.9rem 1.25rem;
   border-radius: 0.5rem;
   color: color-mix(in srgb, var(--text-color) 70%, transparent);
@@ -399,11 +410,19 @@ function extractHourAndMinutes(timeString: string) {
   pointer-events: none;
 }
 
-.button--placeholder-2--loading {
-  min-height: 3.25rem;
+h2.title {
+  margin: 1rem 0;
 }
 
-.title {
-  margin: 1rem 0;
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 </style>

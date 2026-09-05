@@ -72,11 +72,11 @@
        @container (min-width: var(--cq-md)) { ... } */
   --cq-3xs: 16rem; /* 256px */
   --cq-2xs: 18rem; /* 288px */
-  --cq-xs: 20rem;  /* 320px */
-  --cq-sm: 24rem;  /* 384px */
-  --cq-md: 28rem;  /* 448px */
-  --cq-lg: 32rem;  /* 512px */
-  --cq-xl: 36rem;  /* 576px */
+  --cq-xs: 20rem; /* 320px */
+  --cq-sm: 24rem; /* 384px */
+  --cq-md: 28rem; /* 448px */
+  --cq-lg: 32rem; /* 512px */
+  --cq-xl: 36rem; /* 576px */
   --cq-2xl: 42rem; /* 672px */
   --cq-3xl: 48rem; /* 768px */
   --cq-4xl: 56rem; /* 896px */
@@ -103,8 +103,8 @@
 
     --hero-bg-color-raw: 0, 0, 0;
     --pcb-trace-color-raw: 51, 51, 51;
-    --hero-bg-color: rgb(0, 0, 0);
-    --pcb-trace-color: rgb(51, 51, 51);
+    --hero-bg-color: rgb(var(--hero-bg-color-raw));
+    --pcb-trace-color: rgb(var(--pcb-trace-color-raw));
 
     --indi-blue-1-raw: 68, 120, 135;
     --indi-blue-2-raw: 47, 84, 94;
@@ -160,8 +160,8 @@
 
   --hero-bg-color-raw: 0, 0, 0;
   --pcb-trace-color-raw: 51, 51, 51;
-  --hero-bg-color: rgb(0, 0, 0);
-  --pcb-trace-color: rgb(51, 51, 51);
+  --hero-bg-color: rgb(var(--hero-bg-color-raw));
+  --pcb-trace-color: rgb(var(--pcb-trace-color-raw));
 
   --indi-blue-1-raw: 68, 120, 135;
   --indi-blue-2-raw: 47, 84, 94;

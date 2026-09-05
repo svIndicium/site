@@ -1,12 +1,37 @@
 <script setup lang="ts">
 import logo from '@/components/LogoElement.vue';
 import HeroBackground from './HeroBackground.vue';
+
+// MDX-editable passthrough to HeroBackground; unset falls back to themed colors.
+withDefaults(
+  defineProps<{
+    heroBackgroundColor?: string;
+    heroTraceColor?: string;
+    heroPrimaryColor?: string;
+    heroSecondaryColor?: string;
+    heroTertiaryColor?: string;
+    heroAnimated?: boolean;
+    heroFlowDurationSeconds?: number;
+  }>(),
+  {
+    heroAnimated: true,
+    heroFlowDurationSeconds: 12,
+  },
+);
 </script>
 
 <template>
   <div class="hero">
     <div class="bg-container">
-      <HeroBackground />
+      <HeroBackground
+        :background-color="heroBackgroundColor"
+        :trace-color="heroTraceColor"
+        :primary-color="heroPrimaryColor"
+        :secondary-color="heroSecondaryColor"
+        :tertiary-color="heroTertiaryColor"
+        :animated="heroAnimated"
+        :flow-duration-seconds="heroFlowDurationSeconds"
+      />
     </div>
     <div class="hero-content">
       <logo />

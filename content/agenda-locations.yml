@@ -1,0 +1,9 @@
+# Agenda location mapping. Paste names as shown; matching flattens
+# accents/whitespace/symbols on both sides before comparing.
+locations:
+  - match: Science Café HideOut
+    short: HideOut
+  - match: HideOut
+    short: HideOut
+  - match: Poolcafé Hart Van Utrecht
+    short: Poolcafé Hart
