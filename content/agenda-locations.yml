@@ -1,9 +1,34 @@
-# Agenda location mapping. Paste names as shown; matching flattens
-# accents/whitespace/symbols on both sides before comparing.
 locations:
   - match: Science Café HideOut
     short: HideOut
+    query: Science Cafe Hideout
   - match: HideOut
     short: HideOut
+    query: Science Cafe Hideout
+  - match: Studentencafé Cambridgebar
+    short: Cambridgebar
+    query: Studentencafé Cambridgebar
+  - match: Cambridgebar
+    short: Cambridgebar
+    query: Studentencafé Cambridgebar
+  - match: cb
+    short: Cambridgebar
+    query: Studentencafé Cambridgebar
   - match: Poolcafé Hart Van Utrecht
     short: Poolcafé Hart
+    query: Poolcafé Hart Van Utrecht
+  - match: HL15
+    short: HL15
+    query: Heidelberglaan 15, Utrecht
+  - match: HL7
+    short: HL7
+    query: Heidelberglaan 7, Utrecht
+  - match: PL101
+    short: PL101
+    query: Padualaan 101, Utrecht
+  - match: PL99
+    short: PL99
+    query: Padualaan 99, Utrecht
+  - match: UCS
+    short: UCS
+    query: Utrecht Science Park

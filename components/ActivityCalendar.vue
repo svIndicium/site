@@ -1,14 +1,12 @@
 <!-- eslint-disable vue/attribute-hyphenation -->
 <!-- the add to calendar button does't work with kebab-case attributes -->
 <script setup lang="ts">
-import { ref, computed, watch, onMounted, nextTick } from 'vue';
-import 'add-to-calendar-button';
+import { ref, computed, watch } from 'vue';
+import AgendaCalendarButton from '~/components/AgendaCalendarButton.vue';
 import {
   AGENDA_DEFAULT_LOCATION_ENTRIES,
-  AGENDA_ICS_URL,
   AGENDA_MAX_CONSECUTIVE_SAME,
   AGENDA_PAGE_SIZE,
-  AGENDA_TIME_ZONE,
   agendaEndYear,
   buildAgendaUrl,
   chunkEvents,
@@ -16,9 +14,10 @@ import {
   formatAgendaDay,
   formatAgendaMonth,
   formatAgendaTime,
-  getAgendaLocationLink,
-  matchAgendaShortName,
+  getAgendaApiKey,
+  resolveAgendaLocation,
   parseAgendaEvents,
+  sanitizeAgendaMaxPages,
   sanitizeAgendaPageSize,
   totalAgendaPages,
   type AgendaEvent,
@@ -27,6 +26,10 @@ import {
 } from '~/composables/useAgenda';
 
 // Embed-settable (e.g. `:activity-calendar{:page-size="3"}`); calendar ID + API key stay constants.
+// SSG: static prerender shows the ClientOnly skeleton; the fetch below runs
+// client-side at hydration (`server: false`, `timeMin = now`) so served pages
+// never freeze build-time data. `events` re-evaluates `Date.now()` per
+// computation so already-ended events drop without a refetch.
 const props = withDefaults(
   defineProps<{
     title?: string;
@@ -39,67 +42,26 @@ const props = withDefaults(
 const effectivePageSize = computed(() =>
   sanitizeAgendaPageSize(props.pageSize ?? AGENDA_PAGE_SIZE),
 );
-const maxPageCount = computed(() =>
-  props.maxPages == null ? Number.POSITIVE_INFINITY : Math.max(1, Math.floor(props.maxPages)),
-);
+const maxPageCount = computed(() => sanitizeAgendaMaxPages(props.maxPages));
 
-// Full-width fix for the button shadow DOM; re-apply after atcb_cleanup wipes styles (e.g. theme toggle).
-const calendarButton = ref<HTMLElement | null>(null);
-const colorMode = useColorMode();
-async function injectCalendarButtonWidth(): Promise<void> {
-  if (!import.meta.client) return;
-  await nextTick();
-  const shadowRoot = calendarButton.value?.shadowRoot;
-  if (shadowRoot && !shadowRoot.getElementById('activity-calendar-button-width-style')) {
-    const style = document.createElement('style');
-    style.id = 'activity-calendar-button-width-style';
-    style.textContent = `
-      :host {
-        display: block;
-        width: 100%;
-      }
-
-      .atcb-initialized {
-        display: block;
-        position: relative;
-        width: 100% !important;
-      }
-
-      .atcb-button-wrapper {
-        display: block;
-        width: 100%;
-      }
-
-      .atcb-button {
-        width: -moz-available;
-        width: -webkit-fill-available;
-        width: stretch;
-        max-width: none;
-        box-sizing: border-box;
-      }
-    `;
-    shadowRoot.prepend(style);
-  }
-}
-onMounted(() => {
-  void injectCalendarButtonWidth();
-});
-watch(
-  () => colorMode.value,
-  () => {
-    void injectCalendarButtonWidth();
-  },
-);
 
 // Throw on HTTP errors so failures render the error state instead of "geen activiteiten".
+// Client-only: SSG prerender keeps the skeleton, hydration fetches fresh with
+// `timeMin = now` (build-time payload never reused). `status` gates the empty
+// branch so the in-flight window shows loading, not "geen activiteiten".
 const {
   data: calendarData,
   error: calendarError,
-} = await useAsyncData<{ items: AgendaRawEvent[] }>('activity-calendar', async () => {
-  const res = await fetch(buildAgendaUrl(new Date()));
-  if (!res.ok) throw new Error(`Agenda laden mislukt (${res.status})`);
-  return res.json();
-});
+  status: calendarStatus,
+} = await useAsyncData<{ items: AgendaRawEvent[] }>(
+  'activity-calendar',
+  async () => {
+    const res = await fetch(buildAgendaUrl(new Date(), undefined, getAgendaApiKey()));
+    if (!res.ok) throw new Error(`Agenda laden mislukt (${res.status})`);
+    return res.json();
+  },
+  { server: false },
+);
 
 const events = computed<AgendaEvent[]>(() => {
   const items = Array.isArray(calendarData.value?.items) ? calendarData.value.items : [];
@@ -111,18 +73,27 @@ const dedupedEvents = computed<AgendaEvent[]>(() =>
   dedupeConsecutiveEvents(events.value, AGENDA_MAX_CONSECUTIVE_SAME),
 );
 
-// Shortnames editable via content/agenda-locations.yml; defaults cover tests/previews.
+// Labels + Maps links editable via content/agenda-locations.yml (`match` → `short` + `query`);
+// compiled defaults cover tests/previews. Resolved once per row (see template).
 const { data: locationMapping } = await useAsyncData('agenda-locations', () =>
   queryCollection('locations').first(),
 );
 const locationEntries = computed<AgendaLocationEntry[]>(() => {
   const fromContent = locationMapping.value?.locations;
   return Array.isArray(fromContent) && fromContent.length > 0
-    ? fromContent.map((entry) => ({ match: entry.match, short: entry.short }))
+    ? fromContent.map((entry) => ({ match: entry.match, short: entry.short, query: entry.query }))
     : AGENDA_DEFAULT_LOCATION_ENTRIES;
 });
-function locationLabel(location: string): string {
-  return matchAgendaShortName(location, locationEntries.value);
+// Memoized per location string (entries invalidate); template calls this twice
+// per row (href + short), so uncached that would be 2 matches/row.
+const locationCache = new Map<string, { short: string; href: string }>();
+watch(locationEntries, () => locationCache.clear());
+function resolveLocation(location: string): { short: string; href: string } {
+  const cached = locationCache.get(location);
+  if (cached) return cached;
+  const resolved = resolveAgendaLocation(location, locationEntries.value);
+  locationCache.set(location, resolved);
+  return resolved;
 }
 
 const cappedEvents = computed<AgendaEvent[]>(() =>
@@ -157,6 +128,15 @@ function endYear(event: AgendaEvent): string | null {
       <article v-if="calendarError">
         <p>De agenda kon niet geladen worden. Probeer het later opnieuw.</p>
       </article>
+      <div v-else-if="calendarStatus === 'pending'" aria-hidden="true">
+        <div v-for="index in effectivePageSize" :key="index" class="event event--placeholder">
+          <div class="date"></div>
+          <div class="details">
+            <p class="placeholder-line"></p>
+            <p class="placeholder-line short"></p>
+          </div>
+        </div>
+      </div>
       <article v-else-if="!cappedEvents.length">
         <p>Voorlopig zijn er geen activiteiten.</p>
         <p>Voeg de kalender toe aan je agenda om up-to-date te blijven!</p>
@@ -175,28 +155,28 @@ function endYear(event: AgendaEvent): string | null {
               <span class="day">{{ formatAgendaDay(event.start) }}</span>
               <template v-if="event.multiday_end && !event.multimonth_end">
                 <span class="t-m">t/m<br /></span>
-                <span class="day">{{ formatAgendaDay(event.multiday_end!) }}<br /></span>
+                <span class="day">{{ event.multiday_end ? formatAgendaDay(event.multiday_end) : '' }}<br /></span>
               </template>
-              <br v-else />
+              <span v-else class="date-spacer" aria-hidden="true" />
               <span class="month">{{ formatAgendaMonth(event.start) }}</span>
               <template v-if="event.multiday_end && event.multimonth_end">
                 <span class="t-m">t/m<br /></span>
-                <span class="day">{{ formatAgendaDay(event.multiday_end!) }}</span>
+                <span class="day">{{ event.multiday_end ? formatAgendaDay(event.multiday_end) : '' }}</span>
                 <br />
-                <span class="month">{{ formatAgendaMonth(event.multiday_end!) }}<template v-if="endYear(event)"> {{ endYear(event) }}</template></span>
+                <span class="month">{{ event.multiday_end ? formatAgendaMonth(event.multiday_end) : '' }}<template v-if="endYear(event)"> {{ endYear(event) }}</template></span>
               </template>
             </div>
             <div class="details">
-              <p class="title" style="font-weight: bold; margin-block-end: 0.2em">{{ event.summary }}</p>
+              <p class="event-title">{{ event.summary }}</p>
               <p v-if="!event.isAllDay">{{ formatAgendaTime(event.start) }} => {{ formatAgendaTime(event.end) }}</p>
               <a
                 v-if="event.location"
                 class="location"
-                :href="getAgendaLocationLink(event.location)"
+                :href="resolveLocation(event.location).href"
                 target="_blank"
                 rel="noopener"
               >
-                @{{ locationLabel(event.location) }}
+                @{{ resolveLocation(event.location).short }}
               </a>
             </div>
           </div>
@@ -225,24 +205,7 @@ function endYear(event: AgendaEvent): string | null {
       </nav>
     </div>
     <div class="button-container">
-      <add-to-calendar-button
-        ref="calendarButton"
-        name="Indicium"
-        :startDate="new Date(Date.now() - 86400000).toISOString().split('T')[0]"
-        startTime="00:00"
-        endTime="00:00"
-        :timeZone="AGENDA_TIME_ZONE"
-        :icsFile="AGENDA_ICS_URL"
-        subscribe
-        iCalFileName="Indicium Activiteiten Kalender"
-        options="'Apple','Google','iCal','Outlook.com','Microsoft365','MicrosoftTeams'"
-        listStyle="modal"
-        label="Importeer agenda"
-        :lightMode="colorMode.value == 'dark' ? 'dark' : 'light'"
-        language="nl"
-        style="width: 100%; margin-block-end: 0.5em; --btn-shadow: unset; --btn-shadow-hover: unset"
-        hideBranding
-      ></add-to-calendar-button>
+      <AgendaCalendarButton />
     </div>
     <template #fallback>
       <div class="events-container events-container--fallback" aria-hidden="true">
@@ -252,6 +215,11 @@ function endYear(event: AgendaEvent): string | null {
             <p class="placeholder-line"></p>
             <p class="placeholder-line short"></p>
           </div>
+        </div>
+        <div class="pagination pagination--placeholder" aria-hidden="true">
+          <span class="button primary rounded pagination-button pagination-button--hidden">←</span>
+          <span class="pagination-status">1/1</span>
+          <span class="button primary rounded pagination-button pagination-button--hidden">→</span>
         </div>
         <span class="button button--placeholder">Laden...</span>
       </div>
@@ -284,6 +252,12 @@ function endYear(event: AgendaEvent): string | null {
     .month {
       font-size: 19px;
     }
+    /* Replaces the old `<br v-else />`: a br only breaks the line, so the
+    spacer takes no height — anything taller stretches the badge. */
+    .date-spacer {
+      display: block;
+      height: 0;
+    }
 
     .button {
       align-self: center;
@@ -296,9 +270,13 @@ function endYear(event: AgendaEvent): string | null {
     flex-direction: column;
     height: 100%;
     min-width: 0;
-
     & p {
       margin: 0;
+    }
+
+    .event-title {
+      font-weight: bold;
+      margin-block-end: 0.2em;
     }
 
     .location {

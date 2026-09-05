@@ -174,7 +174,8 @@ export default defineContentConfig({
       }),
     }),
 
-    // Agenda short labels (ActivityCalendar.vue).
+    // Agenda short labels + Maps queries (ActivityCalendar.vue). `query` overrides
+    // the Google Maps search string; defaults to `short ?? location`.
     locations: defineCollection({
       source: 'agenda-locations.yml',
       type: 'data',
@@ -183,6 +184,7 @@ export default defineContentConfig({
           z.object({
             match: z.string(),
             short: z.string(),
+            query: z.string().optional(),
           }),
         ),
       }),

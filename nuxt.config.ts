@@ -73,6 +73,17 @@ export default defineNuxtConfig({
     },
   },
 
+  // SSG: no server. Client fetches Google Calendar directly at hydration, so
+  // the key is public by design (it ships in the bundle either way).
+  // Override with NUXT_PUBLIC_AGENDA_API_KEY. Empty falls back to the
+  // placeholder in utils/agenda.ts so prerender never breaks. The sole real
+  // mitigation is a Google Cloud referrer restriction (user-side follow-up).
+  runtimeConfig: {
+    public: {
+      agendaApiKey: '',
+    },
+  },
+
   // Build configuration
   build: {},
   compatibilityDate: '2026-05-08',
@@ -153,6 +164,11 @@ export default defineNuxtConfig({
 
   // Studio is only needed in dev/editing; keep it out of the static prod
   // build (also silences the "setup authentication" warning on generate).
+  // Vitest runs with NODE_ENV=test where $production doesn't apply, so
+  // silence the same warning there too. Unrelated to agenda work.
+  $test: {
+    studio: false,
+  },
   $production: {
     studio: false,
   },
