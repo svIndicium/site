@@ -7,7 +7,6 @@
 - `components/HeroSection.vue:17-18` vs `HeroBackground.vue:29-30` — passthrough re-declares child defaults (`animated`, 12s) without the child's clamp; single-source them.
 - `utils/agenda.ts:9` — stale env comment (`NUXT_AGENDA_API_KEY` vs real `NUXT_PUBLIC_AGENDA_API_KEY`); fix when doing TD-014.
 - `package.json:36` — `@types/ua-parser-js` is a v1-era stub shadowed by ua-parser-js 2.x's bundled types; delete.
-- `package.json:42` — `firebase-tools` has no using script (deploys via FirebaseExtended action); drop or document manual-deploy use.
 - `components/ActivityCalendar.vue:131-136 vs :211-215` (+`:207-209` vs `:226-228`) — loading skeleton + placeholder buttons duplicated pending-vs-fallback; extract `CalendarSkeleton` row.
 - `layouts/minimal.vue` (used only by Links/Discord) inherits a different base-CSS subset than default-layout pages (see TD-027); check after unifying.
 - `content/vcp/*.md` — `status` stores redundant "VCP Intern/Extern" prefix that `Vcp.vue` strips; store bare status.

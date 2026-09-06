@@ -4,8 +4,8 @@ Review: 7 read-only partition scans (components, content-components+CSS, pages+l
 
 | ID | Title | Severity | Impact | Effort | Area | File(s) |
 |----|-------|----------|--------|--------|------|---------|
-| TD-001 | Vacatures page permanently empty (`jobOffers` key never exists) | HIGH | M | S | pages/content | `pages/Vacatures.vue`, `content.config.ts`, `content/partners/**` |
-| TD-002 | Firebase/GA analytics runs consent-free, zero consumers | HIGH | M | S-M | plugins/privacy | `plugins/firebase.client.ts`, `nuxt.config.ts`, `package.json` |
+| TD-001 | Vacatures page dead (empty-by-construction + orphaned; offers live on partner pages) — DONE 2026-09-06 (deleted) | LOW | S | S | pages/content | `pages/Vacatures.vue` (deleted) |
+| TD-002 | Firebase/GA analytics runs consent-free, zero consumers — DONE 2026-09-06 (plugin + SDK removed) | HIGH | M | S-M | plugins/privacy | `plugins/firebase.client.ts` (deleted), `nuxt.config.ts`, `package.json` |
 | TD-010 | Nav implemented twice (NavMobile hand-rolls MenuItem recursion) + 4-file breakpoint stack | MED | M | M | components | `components/NavMobile.vue`, `components/MenuItem.vue`, `components/NavDesktop.vue`, `layouts/default.vue` |
 | TD-011 | INDICIUM wordmark markup ×3 | LOW | S | M | components | `components/NavLogo.vue`, `components/LogoElement.vue`, `pages/Links.vue` |
 | TD-012 | Partner hero block + job-offer query copy-pasted across partner pages | LOW | S | M | pages | `pages/partners/index.vue`, `pages/partners/[partner].vue`, `composables/usePartners.ts` |
@@ -62,6 +62,6 @@ Review: 7 read-only partition scans (components, content-components+CSS, pages+l
 - HeroBackground `:deep` coupling to hero.svg — documented with magic-number comment; leave.
 - Plain-CSS breakpoint literals (768/900/944px…) — `@media`/`@container` cannot consume `var()`; literals are correct per convention. (The `--cq-*` tokens + doc example claiming otherwise are the bug — TD-055.)
 - Bestuur vs besturen routes, `[...slug]` vs `partners/[partner]` — deliberate, non-conflicting splits; only shared logic needs extraction (TD-013).
-- firebase, ua-parser-js, canvas-confetti, embla, add-to-calendar-button, nuxt-svgo, color-mode, zod, better-sqlite3 — all verified used; keep.
+- ua-parser-js, canvas-confetti, embla, add-to-calendar-button, nuxt-svgo, color-mode, zod, better-sqlite3 — all verified used; keep. (`firebase` + `@nuxtjs/sentry` removed 2026-09-06; Firebase Hosting config kept.)
 - `useNavState`, `ConscriboForm.client`, HuMap, PdfViewer, ErrorDisplay — all have live consumers.
 - Case-mixed page filenames (Bestuur vs besturen), Links/Discord on minimal layout — work as-is; churn without payoff.
