@@ -88,13 +88,6 @@ export default defineContentConfig({
 
     // --- Page collections ---
 
-    // "Over Indicium" page. NOTE: source `over-indicium.md` has no matching file and the page
-    // (pages/over-indicium.vue) renders hardcoded content, so this collection is unused.
-    about: defineCollection({
-      source: 'over-indicium.md',
-      type: 'page',
-    }),
-
     // Board years (pages/Bestuur.vue = current, pages/besturen.vue = timeline).
     boards: defineCollection({
       source: 'boards/*.md',

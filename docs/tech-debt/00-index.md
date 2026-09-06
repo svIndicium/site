@@ -22,15 +22,15 @@ Review: 7 read-only partition scans (components, content-components+CSS, pages+l
 | TD-026 | Partners nav submenu hand-maintained, links to deleted DressMe | MED | M | S-M | content | `content/navigation.yml`, `content/partners/*`, `pages/partners/[partner].vue` |
 | TD-027 | Global CSS duplicated/conflicting between app.vue and default.vue | MED | S | S | css/layouts | `app.vue`, `layouts/default.vue` |
 | TD-030 | playground.vue ships dev sandbox to prod | LOW | S | S | pages | `pages/playground.vue` |
-| TD-031 | Three overlapping error surfaces, none reads Nuxt error prop | MED | M | M | pages | `error.vue`, `pages/error.vue`, `pages/[...slug].vue` |
-| TD-032 | LoadingState.vue orphaned (zero consumers) | LOW | S | S | components | `components/LoadingState.vue` |
+| TD-031 | Three overlapping error surfaces, none reads Nuxt error prop — DONE 2026-09-06 | MED | M | M | pages | `error.vue` (rewritten), `pages/error.vue` (deleted), `pages/[...slug].vue` |
+| TD-032 | LoadingState.vue orphaned (zero consumers) — DONE 2026-09-06 (deleted) | LOW | S | S | components | `components/LoadingState.vue` (deleted) |
 | TD-033 | useTheme wrapper adds dead sugar over useColorMode | LOW | S | S | logic | `composables/useAppState.ts`, `components/AppFooter.vue` |
-| TD-034 | Dead config trio: `about` collection, links.d.ts, src/ dirs | LOW | S | S | config/content | `content.config.ts`, `content/links.d.ts`, `src/content`, `src/views` |
-| TD-035 | @vueuse/nuxt unused (zero app-code hits) | LOW | S | S | config | `package.json`, `nuxt.config.ts`, `taze.config.js` |
+| TD-034 | Dead config trio: `about` collection, links.d.ts, src/ dirs — DONE 2026-09-06 (deleted) | LOW | S | S | config/content | `content.config.ts`, `content/links.d.ts` (deleted), `src/` dirs (deleted) |
+| TD-035 | @vueuse/nuxt unused (zero app-code hits) — KEPT per owner (planned future use) | LOW | S | S | config | `package.json`, `nuxt.config.ts`, `taze.config.js` |
 | TD-036 | ~500KB unreferenced logo binaries (assets/logo vs public) | LOW | S | S | assets | `assets/logo/`, `public/logo/`, `public/logo.png` |
 | TD-037 | HomePartners: zero consumers, tier rendering triplicated | LOW | S | S | components | `components/content/HomePartners.vue`, `nuxt.config.ts` |
-| TD-038 | pnpm-10 `onlyBuiltDependencies` dead under pinned pnpm 11 | LOW | S | S | config | `pnpm-workspace.yaml` |
-| TD-039 | Stray `# test` heading live on chipsoft partner page | LOW | S | S | content | `content/partners/chipsoft/index.md` |
+| TD-038 | pnpm-10 `onlyBuiltDependencies` dead under pinned pnpm 11 — DONE 2026-09-06 (deleted) | LOW | S | S | config | `pnpm-workspace.yaml` |
+| TD-039 | Stray `# test` heading live on chipsoft partner page — DONE 2026-09-06 (deleted) | LOW | S | S | content | `content/partners/chipsoft/index.md` |
 | TD-040 | router.client title hack races useSeoMeta | MED | M | S-M | plugins | `plugins/router.client.ts`, `nuxt.config.ts` |
 | TD-041 | Desktop submenus hover-only, keyboard/AT-unreachable | MED | M | S-M | components | `components/MenuItem.vue` |
 | TD-042 | No page reads useAsyncData error/pending; silent blank pages | MED | M | S-M | pages | `pages/*.vue` (15 collection pages) |

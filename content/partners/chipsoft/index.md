@@ -28,4 +28,3 @@ Help jij graag mee de zorg verbeteren met slimme ICT? Stuur dan een mail naar <r
 - **Instagram**: <https://www.instagram.com/chipsoftnederland/>
 - **Website**: [Werken bij ChipSoft](https://www.chipsoft.com/nl-NL/werken-bij)
 
-# test

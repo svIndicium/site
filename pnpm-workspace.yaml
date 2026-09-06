@@ -7,11 +7,3 @@ allowBuilds:
   re2: true
   sharp: true
   unrs-resolver: true
-onlyBuiltDependencies:
-  - '@parcel/watcher'
-  - better-sqlite3
-  - esbuild
-  - protobufjs
-  - re2
-  - unrs-resolver
-  - vue-demi
