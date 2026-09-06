@@ -1,8 +1,7 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
+import { defineNuxtConfig } from 'nuxt/config';
+
 export default defineNuxtConfig({
-  // Modules
   modules: [
-    // '@nuxtjs/sentry', // TODO: Temporarily disabled - needs Nuxt 4 compatible version
     'nuxt-svgo',
     '@nuxt/eslint',
     '@vueuse/nuxt',
@@ -100,7 +99,7 @@ export default defineNuxtConfig({
   // Vite configuration
   vite: {
     optimizeDeps: {
-      include: ['firebase/app', 'firebase/analytics', 'ua-parser-js', 'add-to-calendar-button', 'embla-carousel-vue'],
+      include: ['ua-parser-js', 'add-to-calendar-button', 'embla-carousel-vue'],
     },
   },
 

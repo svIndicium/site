@@ -87,13 +87,6 @@ voordat je ze merge. Taze respecteert ook `pnpm-workspace.yaml` instellingen zoa
 - **State Management:** Pinia
 - **Routing:** Vue Router
 - **Backend/Hosting:** Firebase
-- **Monitoring:** Sentry
-
-## ⚠️ Belangrijke Opmerkingen
-
-**Let op:** Gebruik bij voorkeur pnpm als package manager. Als je een andere package manager (npm, yarn) gebruikt, komen
-de dependency en lock bestanden niet overeen met die van pnpm. Dit kan leiden tot bugs en inconsistenties die anderen
-niet ervaren.
 
 ## 🤝 Bijdragen
 
@@ -105,20 +98,6 @@ release op main.
 
 Dit project is eigendom van Studievereniging Indicium. Als je commits doet sta jij je code af aan de vereniging.
 
-## 💖 Sponsors
-
 <p align="center">
-  <a href="https://sentry.io/?utm_source=github&utm_medium=logo" target="_blank">
-    <img src="https://sentry-brand.storage.googleapis.com/sentry-wordmark-dark-280x84.png" alt="Sentry" width="280" height="84">
-  </a>
-</p>
-
-Veel dank aan [Sentry](https://sentry.io/) voor het sponsoren van ons account! Als studenten maken we soms fouten. We
-gebruiken Sentry om alle errors in productie op te vangen zodat we kunnen blijven verbeteren. Wil je sneller code fixen
-of zeker weten dat alles goed gaat in productie? Probeer Sentry uit.
-
----
-
-<p align="center">
-  Gemaakt met ❤️ door het Indicium Web Commissie team
+  Gemaakt met ❤️ door de Indicium Development Commissie.
 </p>

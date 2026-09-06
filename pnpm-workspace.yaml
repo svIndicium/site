@@ -8,9 +8,7 @@ allowBuilds:
   sharp: true
   unrs-resolver: true
 onlyBuiltDependencies:
-  - '@firebase/util'
   - '@parcel/watcher'
-  - '@sentry/cli'
   - better-sqlite3
   - esbuild
   - protobufjs

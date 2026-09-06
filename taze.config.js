@@ -18,7 +18,7 @@ export default defineConfig({
   },
 
   // Block surprise majors from build-affecting deps.
-  exclude: ['better-sqlite3@^13', 'firebase@^13', 'esbuild'],
+  exclude: ['better-sqlite3@^13', 'esbuild'],
 
   // Only offer versions published >= 7 days ago (supply-chain cooldown).
   maturityPeriod: 7,
