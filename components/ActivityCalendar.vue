@@ -4,7 +4,6 @@
 import { ref, computed, watch } from 'vue';
 import AgendaCalendarButton from '~/components/AgendaCalendarButton.vue';
 import {
-  AGENDA_DEFAULT_LOCATION_ENTRIES,
   AGENDA_MAX_CONSECUTIVE_SAME,
   AGENDA_PAGE_SIZE,
   agendaEndYear,
@@ -73,17 +72,18 @@ const dedupedEvents = computed<AgendaEvent[]>(() =>
   dedupeConsecutiveEvents(events.value, AGENDA_MAX_CONSECUTIVE_SAME),
 );
 
-// Labels + Maps links editable via content/agenda-locations.yml (`match` → `short` + `query`);
-// compiled defaults cover tests/previews. Resolved once per row (see template).
-const { data: locationMapping } = await useAsyncData('agenda-locations', () =>
+// Labels + Maps links come ONLY from content/agenda-locations.yml. No
+// fallback: a missing/empty collection throws so the error state renders
+// instead of silently degrading to stale mappings.
+const { data: locationMapping, error: locationsError } = await useAsyncData('agenda-locations', () =>
   queryCollection('locations').first(),
 );
-const locationEntries = computed<AgendaLocationEntry[]>(() => {
-  const fromContent = locationMapping.value?.locations;
-  return Array.isArray(fromContent) && fromContent.length > 0
-    ? fromContent.map((entry) => ({ match: entry.match, short: entry.short, query: entry.query }))
-    : AGENDA_DEFAULT_LOCATION_ENTRIES;
-});
+const rawLocations = locationMapping.value?.locations;
+if (!Array.isArray(rawLocations) || rawLocations.length === 0)
+  throw new Error('Agenda-locaties ontbreken (content/agenda-locations.yml)');
+const locationEntries = computed<AgendaLocationEntry[]>(() =>
+  rawLocations.map((entry) => ({ match: entry.match, short: entry.short, query: entry.query })),
+);
 // Memoized per location string (entries invalidate); template calls this twice
 // per row (href + short), so uncached that would be 2 matches/row.
 const locationCache = new Map<string, { short: string; href: string }>();
@@ -125,7 +125,7 @@ function endYear(event: AgendaEvent): string | null {
   <h2 class="title">{{ props.title }}</h2>
   <ClientOnly>
     <div class="events-container">
-      <article v-if="calendarError">
+      <article v-if="calendarError || locationsError">
         <p>De agenda kon niet geladen worden. Probeer het later opnieuw.</p>
       </article>
       <div v-else-if="calendarStatus === 'pending'" aria-hidden="true">

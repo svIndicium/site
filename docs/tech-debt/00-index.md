@@ -11,7 +11,7 @@ Review: 7 read-only partition scans (components, content-components+CSS, pages+l
 | TD-012 | Partner hero block + job-offer query copy-pasted across partner pages | LOW | S | M | pages | `pages/partners/index.vue`, `pages/partners/[partner].vue`, `composables/usePartners.ts` |
 | TD-013 | "Current board" derived two different ways on two pages | LOW | S | S | pages | `pages/Bestuur.vue`, `pages/besturen.vue` |
 | TD-014 | Agenda dual import path via `useAgenda` re-export shim | MED | S | S | logic | `composables/useAgenda.ts`, `utils/agenda.ts` |
-| TD-015 | Agenda TS location fallback contradicts canonical YML (wrong-city links) | MED | M | S | logic/content | `utils/agenda.ts`, `content/agenda-locations.yml` |
+| TD-015 | Agenda TS location fallback contradicts canonical YML (wrong-city links) — DONE 2026-09-06 (fallback deleted, YML only) | MED | M | S | logic/content | `utils/agenda.ts`, `content/agenda-locations.yml` |
 | TD-016 | Contact/socials data in 3 places, URLs already drifted | MED | S-M | M | content | `content/contact.yml`, `content/footer.yml`, `content/links.yml`, `components/SocialSidebar.vue` |
 | TD-017 | Boards/commissies frontmatter redundancy + dead fields + title drift | MED | M | S-M | content | `content/boards/*.md`, `content/commissies/*.md`, `content.config.ts` |
 | TD-018 | Partner `description` duplicated verbatim as body lead (8 files) | MED | M | S | content | `content/partners/**/*.md` |

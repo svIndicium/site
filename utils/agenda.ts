@@ -185,22 +185,6 @@ export interface AgendaLocationEntry {
   query?: string;
 }
 
-// Fallback when the content collection is unreachable (tests, previews).
-// Canonical mapping lives in content/agenda-locations.yml and wins; keep this
-// list in sync with the YML so previews match production.
-export const AGENDA_DEFAULT_LOCATION_ENTRIES: AgendaLocationEntry[] = [
-  { match: 'Science Café HideOut', short: 'HideOut', query: 'Science Cafe Hideout' },
-  { match: 'HideOut', short: 'HideOut', query: 'Science Cafe Hideout' },
-  {
-    match: 'Poolcafé Hart Van Utrecht',
-    short: 'Poolcafé Hart',
-    query: 'Poolcafé Hart Van Utrecht, Ganzenmarkt 16B, 3512 GD Utrecht, Nederland',
-  },
-  { match: 'HL15', short: 'HL15', query: 'HL15 Leuven' },
-  { match: 'PL101', short: 'PL101', query: 'PL101 Leuven' },
-  { match: 'PL99', short: 'PL99', query: 'PL99 Leuven' },
-  { match: 'UCS', short: 'UCS', query: 'UCS Leuven' },
-];
 
 const LOCATION_DELIMITERS = [',', '-', '.', '/', '('];
 
@@ -228,12 +212,10 @@ export function matchAgendaShortName(location: string, entries: AgendaLocationEn
   return matchAgendaEntry(location, entries)?.short ?? location;
 }
 
-// Single location source: `entries` (YML) drive both label and link.
-// `entries` defaults to the compiled fallback so pure tests keep working.
-export function getAgendaLocationLink(
-  location: string,
-  entries: AgendaLocationEntry[] = AGENDA_DEFAULT_LOCATION_ENTRIES,
-): string {
+// Single location source: `entries` from content/agenda-locations.yml drive
+// both label and link. No compiled fallback: a missing collection is a real
+// failure and must surface, never silently degrade to stale mappings.
+export function getAgendaLocationLink(location: string, entries: AgendaLocationEntry[]): string {
   const entry = matchAgendaEntry(location, entries);
   const query = entry?.query ?? entry?.short ?? location.trim();
   return `https://maps.google.com/?q=${encodeURIComponent(query)}`;
@@ -242,7 +224,7 @@ export function getAgendaLocationLink(
 /** Resolve label + href with a single prefix match. */
 export function resolveAgendaLocation(
   location: string,
-  entries: AgendaLocationEntry[] = AGENDA_DEFAULT_LOCATION_ENTRIES,
+  entries: AgendaLocationEntry[],
 ): { short: string; href: string } {
   const entry = matchAgendaEntry(location, entries);
   const query = entry?.query ?? entry?.short ?? location.trim();

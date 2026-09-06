@@ -1,3 +1,16 @@
+import { mockNuxtImport } from '@nuxt/test-utils/runtime';
+// Locations are required (no fallback): provide the collection in tests.
+mockNuxtImport('queryCollection', () => {
+  return () => ({
+    first: async () => ({
+      locations: [
+        { match: 'Science Café HideOut', short: 'HideOut', query: 'Science Cafe Hideout' },
+        { match: 'HideOut', short: 'HideOut', query: 'Science Cafe Hideout' },
+      ],
+    }),
+  });
+});
+
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { mountSuspended } from '@nuxt/test-utils/runtime';
 import { clearNuxtData } from '#app';

@@ -205,11 +205,11 @@ describe('locations', () => {
   });
 
   it('links known rooms, queries the rest', () => {
-    expect(getAgendaLocationLink('HideOut')).toContain('maps.google.com');
-    expect(getAgendaLocationLink('HL15.0.12')).toContain('HL15');
-    expect(getAgendaLocationLink('PL101, some address')).toContain('PL101');
-    expect(getAgendaLocationLink('Somewhere Else')).toBe('https://maps.google.com/?q=Somewhere%20Else');
-    expect(getAgendaLocationLink('toString')).toBe('https://maps.google.com/?q=toString');
+    expect(getAgendaLocationLink('HideOut', entries)).toContain('maps.google.com');
+    expect(getAgendaLocationLink('HL15.0.12', entries)).toContain('HL15');
+    expect(getAgendaLocationLink('PL101, some address', entries)).toContain('PL101');
+    expect(getAgendaLocationLink('Somewhere Else', entries)).toBe('https://maps.google.com/?q=Somewhere%20Else');
+    expect(getAgendaLocationLink('toString', entries)).toBe('https://maps.google.com/?q=toString');
   });
 });
 
