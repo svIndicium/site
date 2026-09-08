@@ -1,7 +1,7 @@
 <script setup lang="ts">
 // Query navigation collection
 const { data: navData } = await useAsyncData('navigation', () => queryCollection('navigation').first());
-const items = navData.value?.meta?.items || [];
+const items = navData.value?.items || [];
 </script>
 
 <template>
@@ -15,7 +15,7 @@ const items = navData.value?.meta?.items || [];
   </nav>
 </template>
 
-<style lang="scss" scoped>
+<style scoped>
 .nav {
   display: flex;
   justify-content: space-between;
@@ -34,7 +34,7 @@ const items = navData.value?.meta?.items || [];
   left: 0;
   width: inherit;
 
-  // consistent style as on the home page (navbar shadow)
+
   &::after {
     content: '';
     position: absolute;
@@ -42,10 +42,9 @@ const items = navData.value?.meta?.items || [];
     left: 0;
     right: 0;
     height: 10px;
-    background: linear-gradient(to bottom, rgba(grey, 0.25) 0%, rgba(0, 0, 0, 0) 100%);
+    background: linear-gradient(to bottom, rgba(128, 128, 128, 0.25) 0%, rgba(0, 0, 0, 0) 100%);
   }
 
-  // make nav items fill the width
   * ul {
     display: flex;
     align-items: center;
@@ -55,7 +54,7 @@ const items = navData.value?.meta?.items || [];
     list-style: none;
     height: 100%;
 
-    a {
+    & a {
       &:hover {
         text-decoration: underline;
         cursor: pointer;
@@ -67,7 +66,7 @@ const items = navData.value?.meta?.items || [];
       }
     }
 
-    li {
+    & li {
       position: relative;
       display: flex;
       flex-grow: 1;
@@ -78,7 +77,7 @@ const items = navData.value?.meta?.items || [];
     }
   }
 
-  @media screen and (max-width: #{$bp-tablet-lg}) {
+  @media screen and (max-width: 768px) {
     display: block;
     visibility: hidden;
   }
@@ -86,9 +85,6 @@ const items = navData.value?.meta?.items || [];
 
 .container {
   height: var(--nav-height);
-  max-width: 1084px !important;
-  margin: 0 auto;
-  padding: 0 24px;
 }
 
 .flex {

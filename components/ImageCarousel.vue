@@ -163,7 +163,7 @@ onUnmounted(() => {
   </section>
 </template>
 
-<style scoped lang="scss">
+<style scoped>
 .image-carousel {
   position: relative;
   height: var(--carousel-height);

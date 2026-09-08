@@ -1,14 +1,16 @@
 <script setup lang="ts">
 import DataNotFound from '@/assets/icons/data-not-found.svg?component';
 
-// Query all boards from collection sorted by year descending
+// Query all boards newest-first (boardNumber is the chronological order).
+// The current board is derived — the highest boardNumber — so editors never
+// maintain an isCurrent flag.
 const { data: allBoards } = await useAsyncData('allBoards', () =>
-  queryCollection('boards').order('year', 'DESC').all(),
+  queryCollection('boards').order('boardNumber', 'DESC').all(),
 );
 
-// Separate current and previous boards
-const currentBoard = computed(() => allBoards.value?.find((b) => b.isCurrent));
-const previousBoards = computed(() => allBoards.value?.filter((b) => !b.isCurrent) || []);
+const currentBoardNumber = computed(() =>
+  Math.max(0, ...(allBoards.value?.map((b) => b.boardNumber) ?? [])),
+);
 </script>
 
 <template>
@@ -16,43 +18,25 @@ const previousBoards = computed(() => allBoards.value?.filter((b) => !b.isCurren
     <h1>Indicium Besturen</h1>
 
     <div class="timeline">
-      <!-- Current board -->
-      <div v-if="currentBoard" class="timeline-entry current">
-        <div class="timeline-marker">
-          <div class="timeline-dot" />
-        </div>
-        <div class="timeline-image">
-          <img v-if="currentBoard.groupPhoto" :src="'/assets/boards/' + currentBoard.groupPhoto" alt="Huidig Bestuur" />
-          <DataNotFound v-else class="placeholder" />
-        </div>
-        <div class="timeline-content">
-          <span class="badge">Huidig Bestuur</span>
-          <h2 class="board-year">{{ currentBoard.year }}</h2>
-          <ContentRenderer v-if="currentBoard.body" :value="currentBoard" />
-          <ul class="members">
-            <li v-for="member in currentBoard.members" :key="member.name">
-              <strong>{{ member.name }}</strong>
-              <span class="function">{{ member.function }}</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Previous boards -->
       <div
-        v-for="(board, index) in previousBoards"
+        v-for="(board, index) in allBoards"
         :key="board.year"
         class="timeline-entry"
-        :class="{ reverse: index % 2 === 0 }"
+        :class="{ reverse: index % 2 === 1 }"
       >
         <div class="timeline-marker">
           <div class="timeline-dot" />
         </div>
         <div class="timeline-image">
-          <img v-if="board.groupPhoto" :src="'/assets/boards/' + board.groupPhoto" alt="Groepsfoto" />
+          <img
+            v-if="board.groupPhoto"
+            :src="'/assets/boards/' + board.groupPhoto"
+            :alt="board.boardNumber === currentBoardNumber ? 'Huidig Bestuur' : 'Groepsfoto'"
+          />
           <DataNotFound v-else class="placeholder" />
         </div>
         <div class="timeline-content">
+          <span v-if="board.boardNumber === currentBoardNumber" class="badge">Huidig Bestuur</span>
           <h2 class="board-year">{{ board.year }}</h2>
           <ContentRenderer v-if="board.body" :value="board" />
           <ul class="members">
@@ -67,7 +51,7 @@ const previousBoards = computed(() => allBoards.value?.filter((b) => !b.isCurren
   </ContentContainer>
 </template>
 
-<style scoped lang="scss">
+<style scoped>
 /* ── Timeline container with central vertical line ── */
 .timeline {
   position: relative;
@@ -155,8 +139,8 @@ const previousBoards = computed(() => allBoards.value?.filter((b) => !b.isCurren
   grid-column: 1;
   grid-row: 1;
 
-  img,
-  .placeholder {
+  & img,
+  & .placeholder {
     width: 100%;
     aspect-ratio: 3 / 2;
     object-fit: cover;
@@ -166,7 +150,7 @@ const previousBoards = computed(() => allBoards.value?.filter((b) => !b.isCurren
     transition: transform 0.3s ease;
   }
 
-  img:hover {
+  & img:hover {
     transform: scale(1.03);
   }
 }
@@ -202,7 +186,7 @@ const previousBoards = computed(() => allBoards.value?.filter((b) => !b.isCurren
   flex-direction: column;
   gap: 0.4rem;
 
-  li {
+  & li {
     display: flex;
     flex-direction: column;
   }
@@ -214,7 +198,7 @@ const previousBoards = computed(() => allBoards.value?.filter((b) => !b.isCurren
 }
 
 /* ── Mobile: single column, timeline on the left ── */
-@media screen and (max-width: #{$bp-tablet-lg}) {
+@media screen and (max-width: 944px) {
   .timeline {
     &::before {
       left: 15px;

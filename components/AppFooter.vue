@@ -1,11 +1,37 @@
 <script setup lang="ts">
 const { preference } = useTheme();
 
+// Sync the radio UI from the stored preference BEFORE Vue hydrates, so the SSR
+// default (auto checked) doesn't mismatch the client state. Without JS this
+// script never runs; the SSR auto-checked state + CSS :has() fallback in
+// variables.css handle the theme instead.
+useHead({
+  script: [
+    {
+      innerHTML: `(() => {
+        try {
+          const p = localStorage.getItem('nuxt-color-mode');
+          const target = p === 'dark' ? 'dark-mode' : p === 'light' ? 'light-mode' : 'auto-mode';
+          document.querySelectorAll('footer input[name="theme"]').forEach((r) => {
+            // set/remove the content attribute (not .checked): Vue's hydration
+            // check compares attributes, and .checked only sets the property.
+            if (r.id === target) r.setAttribute('checked', '');
+            else r.removeAttribute('checked');
+          });
+        } catch (e) {}
+      })();`,
+      // Runs at end of <body>, after the radios are parsed but before the
+      // deferred Nuxt entry module hydrates.
+      tagPosition: 'bodyClose',
+    },
+  ],
+});
+
 // Query footer collection
 const { data: footerData } = await useAsyncData('footer', () => queryCollection('footer').first());
-const pages = ref<{ title: string; url: string }[]>(footerData.value?.meta?.items || []);
-const socialPages = ref<{ title: string; url: string }[]>(footerData.value?.meta?.socialMediaItems || []);
-const contact = ref<Record<string, unknown>>(footerData.value?.meta?.contactItems || {});
+const pages = ref<{ title: string; url: string }[]>(footerData.value?.items || []);
+const socialPages = ref<{ title: string; url: string }[]>(footerData.value?.socialMediaItems || []);
+const contact = ref<Record<string, unknown>>(footerData.value?.contactItems || {});
 
 function changeTheme(theme: 'system' | 'light' | 'dark') {
   preference.value = theme;
@@ -42,51 +68,52 @@ function changeTheme(theme: 'system' | 'light' | 'dark') {
           <li v-for="(value, key) in contact" :key="key">{{ value }}</li>
         </ul>
       </div>
-      <div class="colum">
+      <div class="column">
         <h2>Options</h2>
-        <ClientOnly>
-          <fieldset class="footer-menu options">
-            <legend>Thema</legend>
-            <div class="toggle dark-mode">
-              <div class="toggle-row">
-                <input
-                  id="auto-mode"
-                  type="radio"
-                  name="theme"
-                  :checked="preference == 'system'"
-                  @change="changeTheme('system')"
-                />
-                <label for="auto-mode">Systeem</label>
-              </div>
-              <div class="toggle-row">
-                <input
-                  id="light-mode"
-                  type="radio"
-                  name="theme"
-                  :checked="preference == 'light'"
-                  @change="changeTheme('light')"
-                />
-                <label for="light-mode">Licht</label>
-              </div>
-              <div class="toggle-row">
-                <input
-                  id="dark-mode"
-                  type="radio"
-                  name="theme"
-                  :checked="preference == 'dark'"
-                  @change="changeTheme('dark')"
-                />
-                <label for="dark-mode">Donker</label>
-              </div>
+        <!-- Radios are plain form controls: they work without JS (CSS :has()
+             in variables.css applies the theme) and with JS (@change drives
+             Nuxt Color Mode's data-theme). -->
+        <fieldset class="footer-menu options">
+          <legend>Thema</legend>
+          <div class="toggle dark-mode">
+            <div class="toggle-row">
+              <input
+                id="auto-mode"
+                type="radio"
+                name="theme"
+                :checked="preference == 'system'"
+                @change="changeTheme('system')"
+              />
+              <label for="auto-mode">Systeem</label>
             </div>
-          </fieldset>
-        </ClientOnly>
+            <div class="toggle-row">
+              <input
+                id="light-mode"
+                type="radio"
+                name="theme"
+                :checked="preference == 'light'"
+                @change="changeTheme('light')"
+              />
+              <label for="light-mode">Licht</label>
+            </div>
+            <div class="toggle-row">
+              <input
+                id="dark-mode"
+                type="radio"
+                name="theme"
+                :checked="preference == 'dark'"
+                @change="changeTheme('dark')"
+              />
+              <label for="dark-mode">Donker</label>
+            </div>
+          </div>
+        </fieldset>
       </div>
     </div>
   </footer>
 </template>
 
-<style lang="scss" scoped>
+<style scoped>
 a {
   text-decoration: none;
   color: inherit;
@@ -102,7 +129,7 @@ fieldset {
   padding: 0;
   margin: 0;
 
-  legend {
+  & legend {
     padding: 0;
     margin-bottom: 4px;
   }
@@ -117,14 +144,14 @@ fieldset {
       gap: 8px;
       min-height: 32px;
 
-      input[type='radio'] {
+      & input[type='radio'] {
         width: 18px;
         height: 18px;
         flex-shrink: 0;
         cursor: pointer;
       }
 
-      label {
+      & label {
         cursor: pointer;
         flex: 1;
       }
@@ -139,7 +166,7 @@ footer {
   margin-top: 16px;
   border-top: 2px solid var(--indi-blue-1);
 
-  h2 {
+  & h2 {
     font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
     font-size: 1.2rem;
     font-weight: bold;
@@ -147,9 +174,6 @@ footer {
   }
 
   .container {
-    max-width: 1084px;
-    margin: 0 auto;
-    padding: 0 24px;
     display: flex;
     justify-content: space-between;
     flex-direction: row;
@@ -159,18 +183,18 @@ footer {
         columns: 2;
       }
 
-      li {
+      & li {
         line-height: 1.6;
       }
     }
   }
 
-  fieldset.options {
+  & fieldset.options {
     margin-top: 1rem;
   }
 }
 
-@media screen and (max-width: #{$bp-desktop-sm}) {
+@media screen and (max-width: 1120px) {
   footer {
     padding: 12px;
 

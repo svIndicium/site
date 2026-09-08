@@ -1,12 +1,37 @@
 <script setup lang="ts">
 import logo from '@/components/LogoElement.vue';
 import HeroBackground from './HeroBackground.vue';
+
+// MDX-editable passthrough to HeroBackground; unset falls back to themed colors.
+withDefaults(
+  defineProps<{
+    heroBackgroundColor?: string;
+    heroTraceColor?: string;
+    heroPrimaryColor?: string;
+    heroSecondaryColor?: string;
+    heroTertiaryColor?: string;
+    heroAnimated?: boolean;
+    heroFlowDurationSeconds?: number;
+  }>(),
+  {
+    heroAnimated: true,
+    heroFlowDurationSeconds: 12,
+  },
+);
 </script>
 
 <template>
   <div class="hero">
     <div class="bg-container">
-      <HeroBackground />
+      <HeroBackground
+        :background-color="heroBackgroundColor"
+        :trace-color="heroTraceColor"
+        :primary-color="heroPrimaryColor"
+        :secondary-color="heroSecondaryColor"
+        :tertiary-color="heroTertiaryColor"
+        :animated="heroAnimated"
+        :flow-duration-seconds="heroFlowDurationSeconds"
+      />
     </div>
     <div class="hero-content">
       <logo />
@@ -23,8 +48,7 @@ import HeroBackground from './HeroBackground.vue';
   </div>
 </template>
 
-<style lang="scss" scoped>
-@use 'sass:map';
+<style scoped>
 
 .hero {
   display: flex;
@@ -32,6 +56,7 @@ import HeroBackground from './HeroBackground.vue';
   position: relative;
   width: inherit;
   overflow: hidden;
+  padding-top: var(--nav-height);
 
   .bg-container {
     position: absolute;
@@ -52,28 +77,17 @@ import HeroBackground from './HeroBackground.vue';
       max-width: 800px;
       padding: 0 16px;
       font-weight: 500;
-    }
 
-    $h1-breakpoints: (
-      (
-        bp: $bp-desktop-sm,
-        fontSize: 2em,
-      ),
-      (
-        bp: $bp-tablet-sm,
-        fontSize: 1.5em,
-      ),
-      (
-        bp: $bp-mobile-lg,
-        fontSize: 1.2em,
-      )
-    );
+      @media screen and (max-width: 1120px) {
+        font-size: 2em;
+      }
 
-    h1 {
-      @each $breakpoint in $h1-breakpoints {
-        @media screen and (max-width: map.get($breakpoint, bp)) {
-          font-size: map.get($breakpoint, fontSize);
-        }
+      @media screen and (max-width: 562px) {
+        font-size: 1.5em;
+      }
+
+      @media screen and (max-width: 414px) {
+        font-size: 1.2em;
       }
     }
 

@@ -5,7 +5,7 @@
     <slot></slot>
   </div>
 </template>
-<style>
+<style scoped>
 .content-container {
   padding: 100px 25px 25px 25px;
 }

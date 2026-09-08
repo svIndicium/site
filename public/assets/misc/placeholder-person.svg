@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" fill="none">
+  <rect width="400" height="500" fill="var(--secondary-background-color, #f2f2f2)" rx="10"/>
+  <circle cx="200" cy="180" r="80" fill="var(--indi-blue-3, #e2f4f9)"/>
+  <path d="M80 380c0-66 54-120 120-120s120 54 120 120" fill="var(--indi-blue-3, #e2f4f9)"/>
+</svg>

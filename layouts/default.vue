@@ -9,7 +9,7 @@
   </div>
 </template>
 
-<style lang="scss">
+<style>
 body {
   .nav {
     display: block;
@@ -21,7 +21,7 @@ body {
   background-color: var(--root-background-color);
 }
 
-@media screen and (max-width: #{$bp-tablet-lg}) {
+@media screen and (max-width: 768px) {
   body {
     &::-webkit-scrollbar {
       width: 1em;

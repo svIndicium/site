@@ -2,20 +2,8 @@
 import JobOffers from '@/components/JobOffers.vue';
 import PartnerLogo from '@/components/PartnerLogo.vue';
 
-// Query partners collection by tier
-const { data: mainPartner } = await useAsyncData('mainPartner', () =>
-  queryCollection('partners').where('tier', '=', 'main').first(),
-);
+const { mainPartner, premiumPartners, regularPartners } = usePartners();
 
-const { data: premiumPartners } = await useAsyncData('premiumPartners', () =>
-  queryCollection('partners').where('tier', '=', 'premium').order('order', 'ASC').all(),
-);
-
-const { data: regularPartners } = await useAsyncData('regularPartners', () =>
-  queryCollection('partners').where('tier', '=', 'regular').order('order', 'ASC').all(),
-);
-
-// Query job offers for main partner
 const { data: mainPartnerJobOffers } = await useAsyncData('mainPartnerJobOffers', async () => {
   if (!mainPartner.value?.slug) return [];
   return await queryCollection('partners').where('partnerSlug', '=', mainPartner.value.slug).all();
@@ -59,10 +47,17 @@ const { data: mainPartnerJobOffers } = await useAsyncData('mainPartnerJobOffers'
     <h1>Reguliere partners</h1>
     <div class="regular-partners">
       <div v-for="partner in regularPartners || []" :key="partner.slug" class="regular-partner">
-        <RouterLink :to="`/partners/${partner.slug}`" class="partner-logo">
-          <a :href="partner.url" target="_blank">
-            <PartnerLogo :partner="partner" />
-          </a>
+        <a
+          v-if="partner.url"
+          :href="partner.url"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="partner-logo"
+        >
+          <PartnerLogo :partner="partner" />
+        </a>
+        <RouterLink v-else :to="`/partners/${partner.slug}`" class="partner-logo">
+          <PartnerLogo :partner="partner" />
         </RouterLink>
         <RouterLink class="readMore button primary rounded indi-green-1" :to="`/partners/${partner.slug}`">
           {{ partner.title }}
@@ -72,7 +67,7 @@ const { data: mainPartnerJobOffers } = await useAsyncData('mainPartnerJobOffers'
   </ContentContainer>
 </template>
 
-<style scoped lang="scss">
+<style scoped>
 .dashed-line {
   border: none;
   height: 2px;
@@ -100,16 +95,16 @@ const { data: mainPartnerJobOffers } = await useAsyncData('mainPartnerJobOffers'
     gap: 8%;
     align-items: center;
 
-    > :first-child {
+    & > :first-child {
       grid-column: 1;
       justify-self: start;
     }
 
-    @media screen and (max-width: #{$bp-tablet-md}) {
+    @media screen and (max-width: 768px) {
       grid-template-columns: 1fr;
       gap: 0;
 
-      > :first-child {
+      & > :first-child {
         grid-column: 1;
         grid-row: 1;
         display: flex;
@@ -150,7 +145,7 @@ const { data: mainPartnerJobOffers } = await useAsyncData('mainPartnerJobOffers'
     }
   }
 
-  @media screen and (max-width: #{$bp-tablet-lg}) {
+  @media screen and (max-width: 944px) {
     flex-wrap: wrap;
 
     .partner-logo-link {
@@ -168,24 +163,11 @@ const { data: mainPartnerJobOffers } = await useAsyncData('mainPartnerJobOffers'
 
 .regular-partners {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   flex-wrap: wrap;
   gap: 3em;
-  width: 95em;
   margin: 3em auto;
-
-  @media screen and (max-width: #{$bp-desktop-lg}) {
-    width: 70em;
-  }
-
-  @media screen and (max-width: #{$bp-desktop-sm}) {
-    width: 45em;
-  }
-
-  @media screen and (max-width: #{$bp-tablet-md}) {
-    width: 20em;
-    gap: 0;
-  }
+  max-width: 1200px;
 
   .regular-partner {
     display: flex;

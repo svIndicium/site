@@ -19,11 +19,11 @@ const shimHTML = `
       <td colspan="3" rowspan="1">
         <div class="mainContainer">
           <div class="inputLabel">Voornaam</div>
-          <div class="inputDivWithLabel"><input disabled type="text" class="textField" style="width: 100px;"></div>
+          <div class="inputDivWithLabel"><input disabled type="text" class="textField"></div>
           <div class="inputLabel">Tussenvoegsel</div>
-          <div class="inputDivWithLabel"><input disabled type="text" class="textField" style="width: 50px;"></div>
+          <div class="inputDivWithLabel"><input disabled type="text" class="textField"></div>
           <div class="inputLabel">Achternaam</div>
-          <div class="inputDivWithLabel"><input disabled type="text" class="textField" style="width: 200px;"></div>
+          <div class="inputDivWithLabel"><input disabled type="text" class="textField"></div>
         </div>
       </td>
       <td class="emptyCell"></td>
@@ -43,7 +43,7 @@ const shimHTML = `
       <td colspan="1" rowspan="1">
         <div class="mainContainer">
           <div class="inputLabel">E-mailadres</div>
-          <div class="inputDivWithLabel"><input disabled type="text" class="mailadresField" style="width: 440px;"></div>
+          <div class="inputDivWithLabel"><input disabled type="text" class="mailadresField"></div>
         </div>
       </td>
       <td class="emptyCell"></td>
@@ -54,7 +54,7 @@ const shimHTML = `
       <td colspan="1" rowspan="1">
         <div class="mainContainer">
           <div class="inputLabel">Telefoonnummer</div>
-          <div class="inputDivWithLabel"><input disabled type="text" class="numberField" style="width: 440px;"></div>
+          <div class="inputDivWithLabel"><input disabled type="text" class="numberField"></div>
         </div>
       </td>
       <td class="emptyCell"></td>
@@ -65,7 +65,7 @@ const shimHTML = `
       <td colspan="1" rowspan="1">
         <div class="mainContainer">
           <div class="inputLabel">Noodnummer<br>Niet verplicht; kan wel handig zijn, mocht er iets gebeuren tijdens activiteiten, reizen of excursies.</div>
-          <div class="inputDivWithLabel"><input disabled type="text" class="numberField" style="width: 400px;"></div>
+          <div class="inputDivWithLabel"><input disabled type="text" class="numberField"></div>
         </div>
       </td>
       <td class="emptyCell"></td>
@@ -76,11 +76,11 @@ const shimHTML = `
       <td colspan="3" rowspan="1">
         <div class="mainContainer">
           <div class="inputLabel">Postcode</div>
-          <div class="inputDivWithLabel"><input disabled type="text" class="textField" style="width: 100px;"></div>
+          <div class="inputDivWithLabel"><input disabled type="text" class="textField"></div>
           <div class="inputLabel">Plaatsnaam</div>
-          <div class="inputDivWithLabel"><input disabled type="text" class="textField" style="width: 200px;"></div>
+          <div class="inputDivWithLabel"><input disabled type="text" class="textField"></div>
           <div class="inputLabel">Huisnummer toevoeging</div>
-          <div class="inputDivWithLabel"><input disabled type="text" class="textField" style="width: 50px;"></div>
+          <div class="inputDivWithLabel"><input disabled type="text" class="textField"></div>
         </div>
       </td>
       <td class="emptyCell"></td>
@@ -89,9 +89,9 @@ const shimHTML = `
       <td colspan="2" rowspan="1">
         <div class="mainContainer">
           <div class="inputLabel">Straatnaam</div>
-          <div class="inputDivWithLabel"><input disabled type="text" class="textField" style="width: 200px;"></div>
+          <div class="inputDivWithLabel"><input disabled type="text" class="textField"></div>
           <div class="inputLabel">Huisnummer</div>
-          <div class="inputDivWithLabel"><input disabled type="text" class="numberField" style="width: 50px;"></div>
+          <div class="inputDivWithLabel"><input disabled type="text" class="numberField"></div>
         </div>
       </td>
       <td class="emptyCell"></td>
@@ -105,13 +105,13 @@ const shimHTML = `
             <table class="accountTable">
               <tr>
                 <td>IBAN: </td>
-                <td><input disabled type="text" style="width: 200px;" class="validValue"></td>
+                <td><input disabled type="text" class="validValue"></td>
                 <td>BIC: </td>
-                <td><input disabled type="text" style="width: 100px;"></td>
+                <td><input disabled type="text"></td>
               </tr>
               <tr>
                 <td>t.n.v.: </td>
-                <td colspan="3"><input disabled type="text" style="width: 200px;"></td>
+                <td colspan="3"><input disabled type="text"></td>
               </tr>
             </table>
           </div>
@@ -181,54 +181,27 @@ const shimHTML = `
 `;
 </script>
 
-<style scoped lang="scss">
+<style scoped>
 .cwfForm {
-  /* reuse overall form styles if needed */
   width: 100%;
   max-width: 1000px;
 }
+</style>
 
-/* skeleton elements */
-.shim-text,
-.shim-label,
-.shim-input,
-.shim-button {
-  background-color: color-mix(in srgb, var(--text-color) 18%, transparent);
-  border-radius: 4px;
-}
-
-.shim-text {
-  height: 1.5rem;
-  margin: 1rem 0;
-}
-
-.shim-row {
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-  padding: 0.5rem 0;
-}
-
-.shim-label {
-  width: 120px;
-  height: 1rem;
-}
-
-.shim-input {
-  flex: 1;
-  height: 1.5rem;
-}
-
-.shim-button {
+<style>
+.cwfForm .textField {
   width: 200px;
-  height: 2rem;
-  margin: 1rem 0;
 }
 
-.loadingState {
-  padding: 2rem;
-  text-align: center;
-  font-weight: bold;
-  color: var(--text-color);
+.cwfForm .numberField {
+  width: 440px;
+}
+
+.cwfForm .mailadresField {
+  width: 440px;
+}
+
+.cwfForm .accountTable input {
+  width: 200px;
 }
 </style>

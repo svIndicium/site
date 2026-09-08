@@ -1,141 +1,215 @@
 <script setup lang="ts">
-// Query VCP members collection sorted by order
 const { data: vcpMembers } = await useAsyncData('vcp', () => queryCollection('vcp').order('order', 'ASC').all());
+
+// Content stores e.g. "VCP Extern"; the pill only needs "Extern"/"Intern".
+function shortStatus(status: string): string {
+  return status.replace(/^VCP\s*/i, '');
+}
 </script>
 
-<!-- &#8203; is een zero-width-space, is nodig voor overflow op mobieltjes -->
 <template>
   <ContentContainer>
-    <h1>Vertrouwens&#8203;contact&#8203;personen</h1>
-    <p class="vcp-blerb">
+    <h1>Vertrouwenscontactpersonen</h1>
+    <p class="vcp-blurb">
       Heb je vragen, problemen of wil je gewoon even praten? Neem dan contact op met een van onze
       vertrouwenscontactpersonen. Zij zijn er voor jou!
     </p>
 
-    <div v-for="member in vcpMembers || []" :key="member._path" class="member">
-      <img class="member-photo" :src="`/assets/vcpphotos/${member.photo}`" :alt="member.name" width="300" />
-      <div class="member-entry">
-        <div class="member-contact-info">
-          <div class="member-name-status">
-            <h3>{{ member.name }}</h3>
-            <span class="member-status">{{ member.status }}</span>
-          </div>
-          <p>{{ member.phonenumber }}</p>
+    <div class="vcp-grid">
+      <article v-for="(member, idx) in vcpMembers || []" :key="idx" class="vcp-member">
+        <div class="vcp-member__photo">
+          <img
+            :src="`/assets/vcpphotos/${member.photo}`"
+            :alt="member.name"
+            loading="lazy"
+          />
+          <span class="vcp-member__status">{{ shortStatus(member.status) }}</span>
         </div>
-        <div>
-          <h4>Over mij</h4>
-          <ContentRenderer :value="member" />
-          <h4>Feitjes over mij</h4>
-          <ul>
-            <li v-for="(fact, idx) in member.funfacts" :key="idx">{{ fact }}</li>
-          </ul>
+
+        <div class="vcp-member__body">
+          <h3>{{ member.name }}</h3>
+          <p class="vcp-member__phone">{{ member.phonenumber }}</p>
+
+          <details class="vcp-member__section" :name="`vcp-${idx}`">
+            <summary>Over mij</summary>
+            <div class="vcp-member__bio">
+              <ContentRenderer :value="member" />
+            </div>
+          </details>
+
+          <details class="vcp-member__section" :name="`vcp-${idx}`">
+            <summary>Feitjes over mij</summary>
+            <ul class="vcp-member__facts">
+              <li v-for="(fact, factIdx) in member.funfacts" :key="factIdx">{{ fact }}</li>
+            </ul>
+          </details>
         </div>
-      </div>
+      </article>
     </div>
   </ContentContainer>
 </template>
 
-<style scoped lang="scss">
-.content-container {
-  display: flex;
-  flex-direction: column;
-}
-
-.vcp-blerb {
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: center;
-}
-
+<style scoped>
 h1 {
   text-align: center;
-  word-wrap: break-word;
+  hyphens: auto;
 }
 
-.member {
-  display: flex;
-  gap: 3em;
-  justify-content: center;
-  flex-wrap: nowrap;
+.vcp-blurb {
+  max-width: 800px;
+  margin: 0 auto 2rem;
+  text-align: center;
+  color: var(--text-color);
+}
+
+/* The grid picks its own column count from its available width:
+   ~1 column on mobile, 2 on tablet, 3 on widescreen. */
+.vcp-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+  gap: 24px;
   max-width: 1200px;
-  margin: 2em auto;
-
-  &:nth-child(even) {
-    flex-direction: row-reverse;
-  }
+  margin: 0 auto;
 }
 
-.member-entry {
+.vcp-member {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  border-radius: 10px;
-  padding: 1em 2em;
-  background-color: var(--secondary-background-color);
-  p {
-    margin-bottom: 1em;
-  }
-
-  h2 {
-    margin-top: 1em;
-  }
-
-  ul {
-    margin-top: 0.5em;
-    margin-left: 1em;
-  }
+  background: var(--secondary-background-color);
+  border-radius: 14px;
+  overflow: hidden;
+  /* Progressive enhancement: lets ::details-content animate `height: auto`.
+     `interpolate-size` is Chrome/Edge-only — Firefox/Safari ignore it and the
+     disclosure just snaps (still fully functional). Unsupported browsers ignore
+     the unknown property, so no @supports gate is needed. */
+  interpolate-size: allow-keywords;
 }
 
-.member-contact-info,
-h3 {
-  line-height: 0;
+.vcp-member__photo {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: var(--secondary-background-color);
 }
 
-.member-contact-info,
-h3::after {
-  content: ' |';
-}
-
-.member-name-status {
-  display: flex;
-  gap: 0.5em;
-  align-items: center;
-}
-
-.member-photo {
-  flex-shrink: 0;
-  border-radius: 10px;
-  transition: transform 0.2s;
+.vcp-member__photo img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  height: auto;
-  aspect-ratio: 4/5;
+  display: block;
+}
 
-  &:hover {
-    transform: scale(1.05);
-    transition: transform 0.2s;
+.vcp-member__body {
+  padding: 18px 22px 24px;
+}
+
+.vcp-member__body h3 {
+  margin: 0;
+  font-family: var(--indicium-font);
+  font-size: 1.45rem;
+  line-height: 1.2;
+  color: var(--text-color);
+}
+
+/* status pill overlaid on the photo (bottom-left) */
+.vcp-member__status {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-color);
+  background: var(--indi-blue-1);
+  border-radius: 999px;
+  padding: 3px 10px;
+  white-space: nowrap;
+}
+
+.vcp-member__phone {
+  margin: 8px 0 0;
+  font-weight: 600;
+  color: var(--text-color);
+  opacity: 0.85;
+}
+
+.vcp-member__section summary {
+  position: relative;
+  list-style: none;
+  cursor: pointer;
+  user-select: none;
+  margin: 1.4rem 0 0.5rem;
+  padding-bottom: 0.35rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-color);
+
+  &::-webkit-details-marker {
+    display: none;
+  }
+
+  /* blue accent underline */
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 2.2rem;
+    height: 3px;
+    border-radius: 2px;
+    background: var(--indi-blue-1);
+  }
+
+  /* chevron indicator: points right when closed, down when open */
+  &::after {
+    content: '';
+    position: absolute;
+    right: 4px;
+    top: 50%;
+    width: 6px;
+    height: 6px;
+    border-top: 2px solid currentColor;
+    border-right: 2px solid currentColor;
+    transform: translateY(-50%) rotate(45deg);
+    opacity: 0.7;
+    transition: transform 0.15s ease;
   }
 }
 
-@media (max-width: 1000px) {
-  .member {
-    flex-direction: column;
-    flex-wrap: wrap;
-    gap: 2rem;
-    align-items: center;
-  }
+.vcp-member__section[open] summary::after {
+  transform: translateY(-50%) rotate(135deg);
+}
 
-  .member-entry {
-    gap: 2rem;
-  }
+/* Animate the disclosure height via ::details-content. This is a progressive
+   enhancement: it animates where `interpolate-size` is supported (Chrome/Edge)
+   and snaps elsewhere (Firefox/Safari). No vertical padding here — it lives on
+   the inner content, so the animation doesn't jump at the start/end. */
+.vcp-member__section::details-content {
+  transition:
+    height 0.3s ease,
+    content-visibility 0.3s allow-discrete;
+  height: 0;
+  overflow: clip;
+}
 
-  .member-name-status {
-    flex-direction: column;
-    gap: 0;
-  }
+.vcp-member__section[open]::details-content {
+  height: auto;
+}
 
-  .member-contact-info,
-  h3::after {
-    content: none;
+/* ContentRenderer output (the bio) is slot content — :deep() must stay top-level. */
+.vcp-member__bio :deep(p) {
+  margin: 0;
+  line-height: 1.6;
+  color: var(--text-color);
+}
+
+.vcp-member__facts {
+  margin: 0.25rem 0 0;
+  padding-left: 1.1rem;
+  line-height: 1.6;
+  color: var(--text-color);
+
+  li {
+    margin-bottom: 0.35rem;
   }
 }
 </style>

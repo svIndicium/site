@@ -1,85 +1,65 @@
-<script lang="ts">
-import { ref, reactive, toRefs, onMounted } from 'vue';
-import type { Ref } from 'vue';
-
+<script setup lang="ts">
 interface MenuItem {
   title: string;
   url: string;
   children?: MenuItem[];
 }
 
-export default {
-  name: 'MenuItem',
-  props: {
-    item: {
-      type: Object as () => MenuItem,
-      required: true,
-    },
-    depth: {
-      type: Number,
-      default: 0,
-    },
-    first: {
-      type: Boolean,
-      default: false,
-    },
-  },
-  setup(props) {
-    const menuItem: Ref<HTMLElement | null> = ref(null);
-    const state = reactive({
-      shouldDisplayDropdown: false,
-      dropdownClass: '',
-      arrowHTML: '',
-    });
+const props = defineProps<{
+  item: MenuItem;
+  depth?: number;
+  first?: boolean;
+}>();
 
-    const mouseOver = () => {
-      state.shouldDisplayDropdown = true;
+const depth = props.depth ?? 0;
+const first = props.first ?? false;
 
-      if (!menuItem.value) return;
+const menuItem = ref<HTMLElement | null>(null);
+const shouldDisplayDropdown = ref(false);
+const dropdownClass = ref('');
+const arrowHTML = ref('');
 
-      const rect = menuItem.value.getBoundingClientRect();
-      const spaceRight = window.innerWidth - rect.right;
+function mouseOver() {
+  shouldDisplayDropdown.value = true;
 
-      if (props.first) {
-        state.dropdownClass = 'down';
-        state.arrowHTML = '&#x25BC;';
-      } else if (spaceRight < 200) {
-        state.dropdownClass = 'left';
-        state.arrowHTML = '&#x25C0;';
-      } else {
-        state.dropdownClass = 'right';
-        state.arrowHTML = '&#x25B6;';
-      }
-    };
+  if (!menuItem.value) return;
 
-    onMounted(() => {
-      if (!menuItem.value) return;
+  const rect = menuItem.value.getBoundingClientRect();
+  const spaceRight = window.innerWidth - rect.right;
 
-      // Ensure dropdown is hidden when mouse leaves the menu item.
-      menuItem.value.addEventListener('mouseleave', () => {
-        state.shouldDisplayDropdown = false;
-      });
-      menuItem.value.addEventListener('click', () => {
-        state.shouldDisplayDropdown = false;
-      });
+  if (first) {
+    dropdownClass.value = 'down';
+    arrowHTML.value = '&#x25BC;';
+  } else if (spaceRight < 200) {
+    dropdownClass.value = 'left';
+    arrowHTML.value = '&#x25C0;';
+  } else {
+    dropdownClass.value = 'right';
+    arrowHTML.value = '&#x25B6;';
+  }
+}
 
-      mouseOver();
-      state.shouldDisplayDropdown = false;
-    });
+function getLinkClass(url: string) {
+  return {
+    'button secondary rounded': url === '/links',
+    'button primary rounded': url === '/lid-worden',
+    'button rounded': url.startsWith('http'),
+  };
+}
 
-    return { ...toRefs(state), menuItem, mouseOver };
-  },
-  methods: {
-    getLinkClass(url: string) {
-      // returns custom classes for a url, for customization
-      return {
-        'button secondary rounded': url === '/links',
-        'button primary rounded': url === '/lid-worden',
-        'button rounded': url.startsWith('http'),
-      };
-    },
-  },
-};
+onMounted(() => {
+  if (!menuItem.value) return;
+
+  menuItem.value.addEventListener('mouseleave', () => {
+    shouldDisplayDropdown.value = false;
+  });
+  menuItem.value.addEventListener('click', () => {
+    shouldDisplayDropdown.value = false;
+  });
+
+  mouseOver();
+  shouldDisplayDropdown.value = false;
+});
 </script>
 
 <template>
@@ -90,7 +70,7 @@ export default {
     <ul v-if="item.children && shouldDisplayDropdown" :class="`dropdown ${dropdownClass}`" :data-depth="depth % 3">
       <MenuItem
         v-for="(child, index) in item.children"
-        :key="index + child.title + child.url"
+        :key="`${index}-${child.title}-${child.url}`"
         :item="child"
         :depth="depth + 1"
       />
@@ -98,7 +78,7 @@ export default {
   </li>
 </template>
 
-<style lang="scss" scoped>
+<style scoped>
 .dropdown {
   position: absolute;
   background: var(--root-background-color);
@@ -111,33 +91,31 @@ export default {
   padding: 0;
 }
 
-// matches index with a color, applies that.
-// FIX: issue with CSS cascading. If a child is hovered, the parent's color is also applied and causes a specificity/cascade error.
 [data-depth='0'] {
   box-shadow: inset 0 0 0 2px var(--indi-blue-green-1);
+}
 
-  & .menu-item a:hover,
-  & .menu-item a:focus-within {
-    background-color: var(--indi-blue-green-1);
-  }
+[data-depth='0'] .menu-item a:hover,
+[data-depth='0'] .menu-item a:focus-within {
+  background-color: var(--indi-blue-green-1);
 }
 
 [data-depth='1'] {
   box-shadow: inset 0 0 0 2px var(--indi-green-1);
+}
 
-  & .menu-item a:hover,
-  & .menu-item a:focus-within {
-    background-color: var(--indi-green-1);
-  }
+[data-depth='1'] .menu-item a:hover,
+[data-depth='1'] .menu-item a:focus-within {
+  background-color: var(--indi-green-1);
 }
 
 [data-depth='2'] {
   box-shadow: inset 0 0 0 2px var(--indi-blue-1);
+}
 
-  & .menu-item a:hover,
-  & .menu-item a:focus-within {
-    background-color: var(--indi-blue-1);
-  }
+[data-depth='2'] .menu-item a:hover,
+[data-depth='2'] .menu-item a:focus-within {
+  background-color: var(--indi-blue-1);
 }
 
 .menu-item {
@@ -147,27 +125,25 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-
-  & .navlink {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    color: var(--text-color);
-    padding-left: 1.6rem;
-    padding-right: 1.6rem;
-  }
 }
 
-.menu-item {
-  & a:hover:not(.button),
-  & a:hover:focus:not(.button),
-  & a:focus-within:not(.button) {
-    color: white;
-    text-decoration: none;
-    background-color: var(--indi-blue-1);
-  }
+.menu-item .navlink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  color: var(--text-color);
+  padding-left: 1.6rem;
+  padding-right: 1.6rem;
+}
+
+.menu-item a:hover:not(.button),
+.menu-item a:hover:focus:not(.button),
+.menu-item a:focus-within:not(.button) {
+  color: white;
+  text-decoration: none;
+  background-color: var(--indi-blue-1);
 }
 
 span.down {
@@ -178,26 +154,28 @@ span.down {
 .dropdown .menu-item .dropdown {
   position: absolute;
   top: 0;
-  &.right {
-    left: 100%;
-  }
-  &.left {
-    right: 100%;
-  }
+}
+
+.dropdown .menu-item .dropdown.right {
+  left: 100%;
+}
+
+.dropdown .menu-item .dropdown.left {
+  right: 100%;
 }
 
 .arrow {
   position: absolute;
   pointer-events: none;
   font-size: 0.6rem;
+}
 
-  &.right {
-    right: 8px;
-  }
+.arrow.right {
+  right: 8px;
+}
 
-  &.left {
-    left: 8px;
-  }
+.arrow.left {
+  left: 8px;
 }
 
 .menu-item .navlink.button {

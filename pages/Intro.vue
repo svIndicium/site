@@ -17,16 +17,9 @@ onMounted(() => {
     <img :src="imageUrl" alt="Intro" width="2500" loading="lazy" decoding="async" />
 
     <!-- eslint-disable-next-line no-irregular-whitespace -->
-    <h1 class="big-title">Intro​duct​ie​kamp 2025</h1>
+    <h1 class="big-title">Intro​duct​ie​kamp 2026</h1>
 
     <section class="intro">
-      <!-- <div class="warning">
-        <p>
-          Op dit moment zijn de inschrijvingen voor de introductie 2024 nog niet geopend. We zijn druk bezig met het
-          plannen van een onvergetelijke ervaring voor jullie allemaal. Zodra zodra de inschrijvingen open zijn, zullen
-          we dit op deze pagina bekend maken.
-        </p>
-      </div> -->
       <div>
         <p>
           Vanuit de Studievereniging Indicium zijn we blij om te zien dat je de keuze hebt gemaakt, of gaat maken, voor
@@ -35,41 +28,29 @@ onMounted(() => {
         </p>
 
         <p>
-          Dit introductiekamp zal plaatsvinden van <em class="datum">dinsdag 19 augustus</em> tot en met
-          <em class="datum">vrijdag 22 augustus</em>. De locaties zijn de prachtige stad Utrecht en een plek nabij
+          Dit introductiekamp zal plaatsvinden van <em class="datum">dinsdag 18 augustus</em> tot en met
+          <em class="datum">vrijdag 21 augustus</em>. De locaties zijn de prachtige stad Utrecht en een plek nabij
           Buren. Hier krijg je de kans om je medestudenten beter te leren kennen en de unieke sfeer van onze vereniging
           te ervaren. Er wachten je diverse activiteiten, variërend van spellen tot sportuitdagingen, en het geheel
           wordt afgesloten met een gezellig feest!
         </p>
 
-        <p style="text-align: center">
+        <p class="register-cta">
           Om deel uit te maken van dit geweldige introductiekamp, dien je jezelf hieronder te registreren.
           <br />
         </p>
 
-        <!-- 
-        <p style="text-align: center">
-          Zou jij graag mee willen deze zomer? Registreer je hieronder voor de intresselijst. Let op, dit is nog niet de inschrijving voor het kamp.
-          <br />
-        </p> -->
-
         <div class="buttons">
-          <a class="button primary rounded indi-green-1 big heavy" href="https://forms.gle/Ad29Csfr92UtqNkb9"
+          <a class="button primary rounded indi-green-1 big heavy" href="https://forms.gle/WCAUVZiQEUJwBoHX6"
             >Aanmelden voor introkamp</a
           >
-          <a class="button secondary rounded indi-bluegreen-1 big" href="https://forms.gle/XPwb9pdMSpXnZski9">
+          <a class="button secondary rounded indi-bluegreen-1 big" href="https://forms.gle/fc4BKh95kKH3vx8b8">
             Inschrijvingen vol? Aanmelden wachtrij!</a
           >
-          <!-- <a class="button secondary rounded indi-bluegreen-1 big" href="https://forms.gle/sLS2xEVsv6oqUDpXA ">
-            Registreren intresselijst</a
-          > -->
-
-          <a class="button secondary rounded big" href="https://forms.gle/v4DG8gTFyZ78Ah1z8">
+          <a class="button secondary rounded big" href="https://forms.gle/egBRQKEpWL1pFTCbA">
             Aanmelden voor BBQ (Alumni/Docenten)</a
           >
         </div>
-        <!--
-        <p style="text-align: center">Wees er snel bij want er zijn maar een beperkt aantal plekken!<br /></p> -->
 
         <p>
           Ons introductiekamp is de perfecte manier om helemaal op te gaan in de vereniging en nieuwe vriendschappen te
@@ -89,8 +70,8 @@ onMounted(() => {
   </ContentContainer>
 </template>
 
-<style scoped lang="scss">
-@media screen and (max-width: #{$bp-mobile-lg}) {
+<style scoped>
+@media screen and (max-width: 414px) {
   .big-title {
     font-size: 2.5rem;
     word-break: break-word;
@@ -173,5 +154,10 @@ img {
 
 h1 {
   margin: 0.5rem 0;
+  text-align: center;
+}
+
+.register-cta {
+  text-align: center;
 }
 </style>

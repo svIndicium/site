@@ -6,7 +6,7 @@
   </div>
 </template>
 
-<style lang="scss">
+<style>
 @font-face {
   font-family: 'Indicium-font';
   font-weight: 400;
@@ -23,15 +23,15 @@ body {
 
   &::-webkit-scrollbar {
     width: 0.6em;
-    background-color: var(--indi-blue-3);
+    background-color: var(--brand-navy-3);
   }
 
   &::-webkit-scrollbar-track {
-    background-color: var(--indi-blue-3);
+    background-color: var(--brand-navy-3);
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: var(--indi-orange);
+    background-color: var(--brand-orange);
   }
 }
 
@@ -55,17 +55,4 @@ html {
 .page-content {
   min-height: calc(100vh - 400px);
 }
-
-// Brand colors (theme-independent)
-:root {
-  --indi-blue-1: #001f3d;
-  --indi-blue-2: #003666;
-  --indi-blue-3: #004d8f;
-  --indi-blue-4: #0064b8;
-  --indi-orange: #ff6600;
-  --indi-orange-hover: #ff8533;
-}
-
-// Note: Theme colors are handled by variables.scss using [data-theme] attribute
-// This respects user preference set in footer, not just system preference
 </style>

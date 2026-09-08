@@ -1,13 +1,13 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
+import { defineNuxtConfig } from 'nuxt/config';
+
 export default defineNuxtConfig({
-  // Modules
   modules: [
-    // '@nuxtjs/sentry', // TODO: Temporarily disabled - needs Nuxt 4 compatible version
     'nuxt-svgo',
     '@nuxt/eslint',
     '@vueuse/nuxt',
     '@nuxtjs/color-mode',
     '@nuxt/content',
+    'nuxt-studio',
   ],
 
   // SSG mode for static generation
@@ -54,40 +54,6 @@ export default defineNuxtConfig({
         },
       ],
       script: [],
-      style: [
-        // Anti-flicker script - prevents flash of wrong theme on page load
-        // Matches colors from variables.scss for consistency
-        {
-          innerHTML: `
-            :root { 
-              color-scheme: light;
-              background-color: rgb(255, 255, 255);
-              color: rgb(51, 51, 51);
-            }
-            
-            @media (prefers-color-scheme: dark) {
-              :root {
-                color-scheme: dark;
-                background-color: rgb(11, 20, 22);
-                color: rgb(242, 242, 242);
-              }
-            }
-            
-            /* Respect user preference stored in localStorage */
-            [data-theme='dark'] {
-              color-scheme: dark;
-              background-color: rgb(11, 20, 22) !important;
-              color: rgb(242, 242, 242) !important;
-            }
-            
-            [data-theme='light'] {
-              color-scheme: light;
-              background-color: rgb(255, 255, 255) !important;
-              color: rgb(51, 51, 51) !important;
-            }
-          `,
-        },
-      ],
       noscript: [
         {
           innerHTML: 'JavaScript is required to use this website.',
@@ -97,12 +63,23 @@ export default defineNuxtConfig({
   },
 
   // CSS configuration
-  css: ['~/assets/scss/main.scss'],
+  css: ['~/assets/css/variables.css', '~/assets/css/typography.css', '~/assets/css/main.css'],
 
   // Vue configuration for custom elements
   vue: {
     compilerOptions: {
       isCustomElement: (tag) => tag.startsWith('add-'),
+    },
+  },
+
+  // SSG: no server. Client fetches Google Calendar directly at hydration, so
+  // the key is public by design (it ships in the bundle either way).
+  // Override with NUXT_PUBLIC_AGENDA_API_KEY. Empty falls back to the
+  // placeholder in utils/agenda.ts so prerender never breaks. The sole real
+  // mitigation is a Google Cloud referrer restriction (user-side follow-up).
+  runtimeConfig: {
+    public: {
+      agendaApiKey: '',
     },
   },
 
@@ -121,15 +98,8 @@ export default defineNuxtConfig({
 
   // Vite configuration
   vite: {
-    css: {
-      preprocessorOptions: {
-        scss: {
-          additionalData: `
-            @use '@/assets/scss/variables' as *;
-            @use '@/assets/scss/typography' as *;
-          `,
-        },
-      },
+    optimizeDeps: {
+      include: ['ua-parser-js', 'add-to-calendar-button', 'embla-carousel-vue'],
     },
   },
 
@@ -158,5 +128,77 @@ export default defineNuxtConfig({
   // SVGO configuration for SVG optimization
   svgo: {
     defaultImport: 'component',
+  },
+
+  // Nuxt Studio configuration
+  studio: {
+    editor: {
+      components: {
+        // Prose* components are @nuxt/content's markdown renderers (e.g. ProseH1
+        // renders a `# heading`), globally registered and surfaced by Studio as
+        // insertable components. They're redundant with Studio's native heading
+        // commands, so exclude them from the editor's component list.
+        exclude: ['Prose*'],
+        // Group the homepage MDC components under a single labelled group in the
+        // editor's component list.
+        groups: [
+          {
+            label: 'Home',
+            include: ['HeroSection', 'Home*', 'ActivityCalendar', 'SocialSidebar'],
+          },
+        ],
+        ungrouped: 'omit',
+      },
+    },
+    // Pin the repository so prod builds (e.g. local `pnpm generate`) resolve
+    // it without relying on CI env vars. Matches the deployed repo; CI env
+    // detection still takes precedence when set.
+    repository: {
+      provider: 'github',
+      owner: 'svIndicium',
+      repo: 'site',
+      branch: 'main',
+    },
+  },
+
+  // Studio is only needed in dev/editing; keep it out of the static prod
+  // build (also silences the "setup authentication" warning on generate).
+  // Vitest runs with NODE_ENV=test where $production doesn't apply, so
+  // silence the same warning there too. Unrelated to agenda work.
+  $test: {
+    studio: false,
+  },
+  $production: {
+    studio: false,
+  },
+
+  // Redirect for Nuxt Studio UX
+  routeRules: {
+    '/boards/**': { redirect: '/besturen' },
+  },
+
+  // Globally register the homepage MDC components so Nuxt Studio lists them in
+  // the visual editor's component picker (the '/' slash command). MDC block
+  // components are resolved by name, so only global components are insertable.
+  hooks: {
+    'components:extend': (components) => {
+      const mdcContentComponents: Record<string, true> = {
+        HeroSection: true,
+        HomeGrid: true,
+        HomeMain: true,
+        HomeAside: true,
+        HomeImageCarousel: true,
+        HomeTextBlock: true,
+        HomePartners: true,
+        ActivityCalendar: true,
+        SocialSidebar: true,
+      };
+
+      components
+        .filter((component) => component.pascalName in mdcContentComponents)
+        .forEach((component) => {
+          component.global = true;
+        });
+    },
   },
 });

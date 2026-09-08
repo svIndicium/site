@@ -12,9 +12,7 @@ import logo from '@/assets/logo/indicium-logo-icon.svg?component';
   </div>
 </template>
 
-<style scoped lang="scss">
-@use 'sass:map';
-
+<style scoped>
 .logo-container {
   display: flex;
   align-items: center;
@@ -24,59 +22,52 @@ import logo from '@/assets/logo/indicium-logo-icon.svg?component';
 
   .logo-icon {
     height: 111px;
-    @media screen and (max-width: #{$bp-mobile-lg}) {
-      & {
-        height: 96px;
-      }
+    @media screen and (max-width: 414px) {
+      height: 96px;
     }
   }
 
   .logo-text {
-    font-family: var(--indicium-font);
-    margin: 0px;
-
     font-size: 5.5em;
 
     &.small {
-      color: #878787;
       font-size: 2.1em;
     }
 
-    $logobreakpoints: (
-      (
-        bp: $bp-desktop-sm,
-        fontSize: 5em,
-        smallFontSize: 2em,
-      ),
-      (
-        bp: $bp-tablet-sm,
-        fontSize: 4em,
-        smallFontSize: 1.5em,
-      ),
-      (
-        bp: $bp-mobile-lg,
-        fontSize: 3em,
-        smallFontSize: 1.2em,
-      ),
-      (
-        bp: $bp-mobile-sm,
-        fontSize: 2em,
-        smallFontSize: 1em,
-      )
-    );
+    @media screen and (max-width: 1120px) {
+      font-size: 5em;
 
-    @each $breakpoint in $logobreakpoints {
-      @media screen and (max-width: map.get($breakpoint, bp)) {
-        font-size: map.get($breakpoint, fontSize);
+      &.small {
+        font-size: 2em;
+      }
+    }
 
-        &.small {
-          font-size: map.get($breakpoint, smallFontSize);
-        }
+    @media screen and (max-width: 562px) {
+      font-size: 4em;
+
+      &.small {
+        font-size: 1.5em;
+      }
+    }
+
+    @media screen and (max-width: 414px) {
+      font-size: 3em;
+
+      &.small {
+        font-size: 1.2em;
+      }
+    }
+
+    @media screen and (max-width: 321px) {
+      font-size: 2em;
+
+      &.small {
+        font-size: 1em;
       }
     }
   }
 
-  svg {
+  & svg {
     width: 100%;
     height: auto;
   }

@@ -26,31 +26,6 @@ export const useTheme = () => {
 };
 
 /**
- * Partner logo utility - handles light/dark logo switching
- * Returns both logo URLs to prevent hydration flash
- * @param partner - Partner object with imgUrl and optional imgUrlDark
- * @returns Object with light and dark logo paths
- */
-export const usePartnerLogo = (partner: { imgUrl?: string; imgUrlDark?: string } | null | undefined) => {
-  if (!partner) {
-    return {
-      light: '',
-      dark: '',
-      hasDarkVariant: false,
-    };
-  }
-
-  const lightLogo = partner.imgUrl ? `/assets/partners/${partner.imgUrl}` : '';
-  const darkLogo = partner.imgUrlDark ? `/assets/partners/${partner.imgUrlDark}` : lightLogo;
-
-  return {
-    light: lightLogo,
-    dark: darkLogo,
-    hasDarkVariant: !!partner.imgUrlDark,
-  };
-};
-
-/**
  * Navigation state for mobile menu
  * 0 = closed, 1-3 = different menu levels
  */
@@ -74,29 +49,5 @@ export const useNavState = () => {
     toggleNav,
     setNavLevel,
     closeNav,
-  };
-};
-
-/**
- * Authentication state with persistence
- * Using VueUse's useLocalStorage for automatic localStorage sync
- */
-export const useAuth = () => {
-  const auth = useLocalStorage('indicium-auth', {
-    loggedin: false,
-  });
-
-  const login = () => {
-    auth.value.loggedin = true;
-  };
-
-  const logout = () => {
-    auth.value.loggedin = false;
-  };
-
-  return {
-    isLoggedIn: computed(() => auth.value.loggedin),
-    login,
-    logout,
   };
 };

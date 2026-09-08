@@ -26,7 +26,7 @@ const doubled = computed(() => [...props.partners, ...props.partners]);
   </NuxtLink>
 </template>
 
-<style scoped lang="scss">
+<style scoped>
 .partner-ticker {
   display: block;
   overflow: hidden;

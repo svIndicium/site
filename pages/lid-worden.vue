@@ -126,7 +126,7 @@ onMounted(() => {
   </ContentContainer>
 </template>
 
-<style scoped lang="scss">
+<style scoped>
 h1 {
   margin-bottom: 24px;
 }
@@ -143,7 +143,7 @@ details {
   margin: 10px;
 }
 
-@media screen and (max-width: #{$bp-tablet-lg}) {
+@media screen and (max-width: 944px) {
   .content-container {
     padding-left: 0;
     padding-right: 0;

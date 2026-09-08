@@ -1,26 +1,16 @@
-@use 'variables' as *;
-@use 'typography' as *;
-
-body,
-div,
-nav,
-footer,
-svg,
-.button.primary {
-  transition-property: background-color, border-color, box-shadow, fill, stroke, opacity, transform;
-  transition-duration: 0.3s;
-  transition-timing-function: ease-in-out;
+/* Page background (single source of truth): the footer/brand blue is the base
+   (shown past the content on over-scroll), with a 1px blue fade at the very
+   bottom of the page turning up to the root (white/light) color. */
+:root {
+  background-color: var(--indi-blue-3);
+  background-image: linear-gradient(to top, var(--indi-blue-3), var(--root-background-color) 1px);
+  background-repeat: no-repeat;
 }
 
 body {
   font-family: 'Roboto', sans-serif;
   color: var(--text-color);
   overflow-x: hidden;
-  background-color: var(--root-background-color);
-
-  @media screen and (max-width: #{$bp-tablet-md}) {
-    padding-top: 0;
-  }
 }
 
 h1 {
@@ -38,7 +28,7 @@ img,
 }
 
 .container {
-  max-width: 1084px !important;
+  max-width: 1084px;
   margin: 0 auto;
   padding: 0 24px;
 
@@ -56,15 +46,12 @@ img,
 
 @keyframes fadeInUp {
   0% {
-    -webkit-transform: translate3d(0, 100%, 0);
-    opacity: 0;
     transform: translate3d(0, 100%, 0);
+    opacity: 0;
   }
-
   100% {
-    -webkit-transform: translateZ(0);
-    opacity: 1;
     transform: translateZ(0);
+    opacity: 1;
   }
 }
 
@@ -74,17 +61,15 @@ img,
   text-align: center;
   text-decoration: none;
   color: inherit;
-  transition: none !important;
   display: inline-block;
   cursor: pointer;
-
-  &button {
-    // reset <button> element defaults
-    background: none;
-    border: none;
-    font-family: inherit;
-    font-size: inherit;
-  }
+  transition-property: background-color, border-color, box-shadow;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in-out;
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: inherit;
 
   --button-fill: var(--indi-blue-2);
   --button-border: var(--indi-blue-1);
@@ -126,7 +111,7 @@ img,
 
   &.indi-bluegreen-3 {
     --button-fill: transparent;
-    --button-border: var(--indi-bluegreen-3);
+    --button-border: var(--indi-blue-green-3);
   }
 
   &.rounded {
@@ -153,4 +138,18 @@ img,
   font-size: large;
   margin: 1rem auto;
   padding: 10px;
+}
+
+.hover-scale {
+  transition: transform 0.2s;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    padding-top: 0;
+  }
 }

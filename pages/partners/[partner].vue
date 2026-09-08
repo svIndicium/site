@@ -1,19 +1,21 @@
 <script setup lang="ts">
-import JobOffers from '@/components/JobOffers.vue';
 import PartnerLogo from '@/components/PartnerLogo.vue';
 
 const route = useRoute();
-const partnerSlug = route.params.partner as string;
+const slug = route.params.partner as string;
 
-// Query the partner by slug
-const { data: partner } = await useAsyncData(`partner-${partnerSlug}`, () =>
-  queryCollection('partners').where('slug', '=', partnerSlug).where('tier', 'IS NOT NULL').first(),
+const { data: partner } = await useAsyncData(`partner-${slug}`, () =>
+  queryCollection('partners').where('slug', '=', slug).where('tier', 'IS NOT NULL').first(),
 );
 
-// Query job offers for this partner (items with partnerSlug matching)
-const { data: jobOffers } = await useAsyncData(`partner-jobs-${partnerSlug}`, () =>
-  queryCollection('partners').where('partnerSlug', '=', partnerSlug).all(),
+const { data: jobOffers } = await useAsyncData(`partner-jobs-${slug}`, () =>
+  queryCollection('partners').where('partnerSlug', '=', slug).all(),
 );
+
+useSeoMeta({
+  title: partner.value?.title || 'Partner',
+  description: partner.value?.description || `Informatie over ${partner.value?.title || 'deze partner'}`,
+});
 </script>
 
 <template>
@@ -42,11 +44,7 @@ const { data: jobOffers } = await useAsyncData(`partner-jobs-${partnerSlug}`, ()
   </ContentContainer>
 </template>
 
-<style scoped lang="scss">
-.job-offer-description ul {
-  list-style: circle;
-}
-
+<style scoped>
 #partner {
   margin: 2em auto;
 
@@ -56,7 +54,7 @@ const { data: jobOffers } = await useAsyncData(`partner-jobs-${partnerSlug}`, ()
     gap: 8%;
     align-items: center;
 
-    @media screen and (max-width: #{$bp-desktop-lg}) {
+    @media screen and (max-width: 768px) {
       grid-template-columns: 1fr;
       gap: 2em;
     }
@@ -72,7 +70,12 @@ const { data: jobOffers } = await useAsyncData(`partner-jobs-${partnerSlug}`, ()
 }
 
 .description {
-  // ContentRenderer output is outside this component scope, so :deep is used to pierce scoping.
+  :deep(h1) { font-size: 2rem; }
+  :deep(h2) { font-size: 1.75rem; }
+  :deep(h3) { font-size: 1.5rem; }
+  :deep(h4) { font-size: 1.25rem; }
+  :deep(h5) { font-size: 1.1rem; }
+  :deep(h6) { font-size: 1rem; }
   :deep(h1),
   :deep(h2),
   :deep(h3),
@@ -81,40 +84,8 @@ const { data: jobOffers } = await useAsyncData(`partner-jobs-${partnerSlug}`, ()
   :deep(h6) {
     margin: 1.2em 0 0.5em;
     line-height: 1.3;
-    font-family: Indicium-font;
-
-    // I have no idea why the default markdown renderer (sometimes) wraps headings in <a> tags, but this fixes the styling of those links.
-    & a {
-      color: var(--text-color);
-      text-decoration: none;
-    }
+    font-family: var(--indicium-font);
   }
-
-  // Page title already uses h1, so markdown h1 is visually demoted to section-heading size.
-  :deep(h1) {
-    font-size: 2rem;
-  }
-
-  :deep(h2) {
-    font-size: 1.75rem;
-  }
-
-  :deep(h3) {
-    font-size: 1.5rem;
-  }
-
-  :deep(h4) {
-    font-size: 1.25rem;
-  }
-
-  :deep(h5) {
-    font-size: 1.1rem;
-  }
-
-  :deep(h6) {
-    font-size: 1rem;
-  }
-
   :deep(h1:first-child),
   :deep(h2:first-child),
   :deep(h3:first-child),

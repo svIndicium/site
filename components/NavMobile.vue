@@ -8,7 +8,7 @@ const { navLevel, toggleNav, setNavLevel, closeNav } = useNavState();
 
 // Query navigation collection
 const { data: navData } = await useAsyncData('navigation-mobile', () => queryCollection('navigation').first());
-const items = navData.value?.meta?.items || [];
+const items = navData.value?.items || [];
 
 function toggleNavLevel() {
   toggleNav();
@@ -170,7 +170,7 @@ router.afterEach(() => {
   </nav>
 </template>
 
-<style lang="scss" scoped>
+<style scoped>
 .mobile-nav {
   --navbar-height: 16vw;
   --navbar-max-height: 68px;
@@ -178,11 +178,11 @@ router.afterEach(() => {
   --linespace: 3vw;
   --shadowspace: 6vw;
 
-  a {
+  & a {
     cursor: pointer;
   }
 
-  li {
+  & li {
     display: flex;
     justify-content: space-between;
   }
@@ -199,15 +199,12 @@ router.afterEach(() => {
     max-height: var(--navbar-max-height);
     box-shadow: inset 0 -2px 0 var(--indi-blue-1);
 
-    // visibility: hidden;
-
     .logo {
       position: relative;
 
-      img {
+      & img {
         transform: translateY(10%);
         position: relative;
-        // padding-top: 5%;
         padding-left: 10px;
         height: 12vw;
         max-height: 51px;
@@ -228,7 +225,7 @@ router.afterEach(() => {
       transition-delay: var(--transition-time);
       transition-property: transform;
 
-      svg {
+      & svg {
         display: block;
         width: 16vw;
         max-width: 68px;
@@ -236,7 +233,7 @@ router.afterEach(() => {
         max-height: 68px;
         transition: var(--transition-time) ease-in-out;
 
-        line {
+        & line {
           transition-property: stroke;
 
           &.blue {
@@ -268,9 +265,6 @@ router.afterEach(() => {
     position: fixed;
     overflow-x: hidden;
     overflow-y: auto;
-    // clamp doesn't support 0 without unit.
-    // compiler transfers 0px back to 0 thus rendering this broken.
-    // this is a know issue in css
     top: clamp(0.01px, 16vw, 68px);
     left: 0;
     height: 100%;
@@ -282,13 +276,13 @@ router.afterEach(() => {
       visibility: visible;
     }
 
-    a,
-    button {
+    & a,
+    & button {
       color: var(--text-color);
       font-weight: bold;
     }
 
-    button {
+    & button {
       background: none;
       border: none;
       font-family: inherit;
@@ -303,7 +297,7 @@ router.afterEach(() => {
       top: 0;
       left: 100%;
       height: 100%;
-      width: 100vw - var(--shadowspace); // 100%
+      width: 100vw - var(--shadowspace);
       transition: var(--transition-time) ease-in-out;
       transition-delay: var(--transition-time);
 
@@ -348,14 +342,14 @@ router.afterEach(() => {
         transition-delay: 0s;
         transition: var(--transition-time) ease-in-out;
 
-        ul {
+        & ul {
           list-style: none;
           padding: 0;
           margin: 0;
 
-          li {
-            a,
-            button:not(.sub-menu-toggle) {
+          & li {
+            & a,
+            & button:not(.sub-menu-toggle) {
               display: inline-block;
               padding: 1em;
               width: 100%;
@@ -374,8 +368,8 @@ router.afterEach(() => {
         &.level-1 {
           width: calc(100vw - calc(var(--linespace) * 2));
 
-          ul {
-            li {
+          & ul {
+            & li {
               border-bottom: solid 1px var(--indi-blue-1);
 
               .sub-menu-toggle {
@@ -389,8 +383,8 @@ router.afterEach(() => {
           position: absolute;
           width: calc(calc(100vw - var(--shadowspace)) - calc(var(--linespace) * 2));
 
-          ul {
-            li {
+          & ul {
+            & li {
               border-bottom: solid 1px var(--indi-blue-green-1);
 
               .sub-menu-toggle {
@@ -403,8 +397,8 @@ router.afterEach(() => {
         &.level-3 {
           position: absolute;
           width: calc(calc(100vw - var(--shadowspace)) - calc(var(--linespace) * 3));
-          ul {
-            li {
+          & ul {
+            & li {
               border-bottom: solid 1px var(--indi-green-1);
 
               .sub-menu-toggle {
@@ -419,7 +413,7 @@ router.afterEach(() => {
           transition-delay: var(--transition-time);
         }
 
-        @media screen and (min-width: #{calc($bp-tablet-lg + 1px)}) {
+        @media screen and (min-width: 945px) {
           display: block;
           visibility: hidden;
           width: 0;
@@ -445,7 +439,7 @@ router.afterEach(() => {
       }
     }
 
-    @media screen and (min-width: #{calc($bp-tablet-lg + 1px)}) {
+    @media screen and (min-width: 945px) {
       display: block;
       visibility: hidden;
       width: 0;
@@ -453,7 +447,7 @@ router.afterEach(() => {
     }
   }
 
-  @media screen and (min-width: #{calc($bp-tablet-lg + 1px)}) {
+  @media screen and (min-width: 945px) {
     display: block;
     visibility: hidden;
     width: 0;

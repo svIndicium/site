@@ -137,23 +137,18 @@ if (sadface === '🐍') excuus = 'Sorry, Peet zat in de server';
 
 <template>
   <ContentContainer>
-    <h1 class="face">{{ sadface }}</h1>
-    <h1>Sorry, deze pagina bestaat niet</h1>
-    <h2>404 - ODZ: "{{ excuus }}"</h2>
-    <p>Als je denkt dat dit niet klopt. Ben je meer dan welkom om ons te helpen bij de DEVCOM!</p>
+    <ErrorDisplay>
+      <h1 class="face">{{ sadface }}</h1>
+      <h1>Sorry, deze pagina bestaat niet</h1>
+      <h2>404 - ODZ: "{{ excuus }}"</h2>
+    </ErrorDisplay>
   </ContentContainer>
 </template>
 
-<style scoped lang="scss">
+<style scoped>
 svg {
   width: 300px;
   height: 300px;
-}
-
-h1,
-h2,
-p {
-  text-align: center;
 }
 
 .face {

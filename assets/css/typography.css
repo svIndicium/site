@@ -25,14 +25,6 @@ h1 {
   font-size: 3rem;
   font-weight: 700;
   margin-bottom: 0;
-
-  @media screen and (max-width: #{bp-tablet-md}) {
-    font-size: 2.75rem;
-  }
-
-  @media screen and (max-width: #{bp-mobile-lg}) {
-    font-size: 1.5rem;
-  }
 }
 
 h2 {
@@ -42,26 +34,10 @@ h2 {
   line-height: 140%;
   color: var(--text-color);
   margin-block-end: 0.2em;
-
-  @media screen and (max-width: #{bp-tablet-md}) {
-    font-size: 2.25rem;
-  }
-
-  @media screen and (max-width: #{bp-mobile-lg}) {
-    font-size: 2rem;
-  }
 }
 
 h3 {
   font-size: 2rem;
-
-  @media screen and (max-width: #{bp-tablet-md}) {
-    font-size: 1.75rem;
-  }
-
-  @media screen and (max-width: #{bp-mobile-lg}) {
-    font-size: 1.5rem;
-  }
 }
 
 h4 {
@@ -89,7 +65,13 @@ p {
   }
 
   &.logo-text {
+    font-family: var(--indicium-font);
+    margin: 0;
     line-height: 100%;
+
+    &.small {
+      color: #878787;
+    }
   }
 }
 
@@ -100,11 +82,9 @@ span {
   &.bold {
     font-weight: 700;
   }
-
   &.medium {
     font-weight: 500;
   }
-
   &.light {
     font-weight: 300;
   }
@@ -112,4 +92,28 @@ span {
 
 .center {
   text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+  h1 {
+    font-size: 2.75rem;
+  }
+  h2 {
+    font-size: 2.25rem;
+  }
+  h3 {
+    font-size: 1.75rem;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+  h2 {
+    font-size: 2rem;
+  }
+  h3 {
+    font-size: 1.5rem;
+  }
 }

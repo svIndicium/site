@@ -1,11 +1,13 @@
 ---
-slug: 'axians'
-title: 'Axians'
-tier: 'regular'
-imgUrl: 'axians.png'
-imgUrlDark: 'axians-white.png'
-url: 'https://werkenbijaxians.nl/vacatures?o=0&n=10&of=8493711&of=8492697&f=902&hl=0&hh=40#vacancy-overview'
+title: Axians
+description: The best of ICT with a human touch
+featured: false
+imgUrl: axians.png
+imgUrlDark: axians-white.png
 order: 2
+slug: axians
+tier: regular
+url: https://werkenbijaxians.nl/vacatures?o=0&n=10&of=8493711&of=8492697&f=902&hl=0&hh=40#vacancy-overview
 ---
 
 **The best of ICT with a human touch**

@@ -26,9 +26,7 @@ onMounted(async () => {
   </div>
 </template>
 
-<style lang="scss">
-// De CSS van Conscribo zelf, ter referentie.
-//@import 'https://leden.conscribo.nl/common_resources/css/WebForm.css';
+<style>
 
 .cwfForm {
   background: var(--root-background-color);
@@ -40,24 +38,23 @@ onMounted(async () => {
   max-width: 1000px;
 
   .formTable {
-    overflow: hidden; // needed or this element overflows on mobile
+    overflow: hidden;
   }
 
-  table:first-of-type {
+  & table:first-of-type {
     width: 100%;
     border-collapse: collapse;
     margin: 20px 0;
 
-    th,
-    td {
+    & th,
+    & td {
       padding: 12px 15px;
       text-align: left;
       border-bottom: 1px solid rgba(var(--text-color-raw), 0.2);
     }
 
-    td {
-      // Make checkboxes bigger and color them
-      input[type='checkbox'] {
+    & td {
+      & input[type='checkbox'] {
         width: 1.5em;
         height: 1.5em;
         accent-color: #a3cf9b;
@@ -69,8 +66,7 @@ onMounted(async () => {
         transform: translateY(-70%);
       }
 
-      // desktop mode
-      @media screen and (min-width: #{$bp-tablet-lg}) {
+      @media screen and (min-width: 768px) {
         .mainContainer {
           display: flex;
           flex-direction: row;
@@ -92,11 +88,10 @@ onMounted(async () => {
             order: 2;
             margin: 0 8px;
 
-            input[type='checkbox'] {
+            & input[type='checkbox'] {
               transform: translateY(25%);
             }
 
-            // error label handling desktop
             position: relative;
             > .invalidLabel {
               position: absolute;
@@ -122,8 +117,7 @@ onMounted(async () => {
         border: 0;
       }
 
-      @media screen and (max-width: #{$bp-tablet-lg}) {
-        // bankrekening
+      @media screen and (max-width: 768px) {
         .accountTable:first-of-type td {
           text-align: center;
           padding: 0;
@@ -135,15 +129,15 @@ onMounted(async () => {
           align-items: center;
         }
 
-        input {
+        & input {
           width: 90% !important;
         }
 
-        input[type='checkbox'] {
+        & input[type='checkbox'] {
           margin: 1em 0;
         }
 
-        select {
+        & select {
           width: 90% !important;
           text-align: center;
         }
@@ -156,7 +150,7 @@ onMounted(async () => {
           display: flex;
           flex-direction: column;
 
-          tr {
+          & tr {
             display: flex;
             flex-direction: column;
           }
@@ -166,13 +160,11 @@ onMounted(async () => {
   }
 
   .date-input-container {
-    // uncomment below to always show the calendar
-    // display: block !important;
     background-color: var(--secondary-background-color);
     border-radius: 4px;
     color: var(--text-color);
 
-    button {
+    & button {
       padding: 5px 10px;
     }
 
@@ -184,7 +176,7 @@ onMounted(async () => {
       width: 100%;
       color: black;
 
-      td:not(.calendarTableDayName) {
+      & td:not(.calendarTableDayName) {
         text-align: center;
         border-radius: 4px;
       }
@@ -206,15 +198,15 @@ onMounted(async () => {
     border: 1px solid red;
   }
 
-  label {
+  & label {
     color: rgba(0, 0, 0, 0.54);
     font-size: 16px;
     margin-bottom: 4px;
   }
 
-  input,
-  textarea,
-  select {
+  & input,
+  & textarea,
+  & select {
     width: 100%;
     padding: 10px;
     margin-top: 4px;
@@ -227,7 +219,6 @@ onMounted(async () => {
       border-color: rgb(114, 201, 225);
       box-shadow: 0 0 0 2px rgba(114, 201, 225, 0.25);
     }
-    // Make dropdowns bigger
     &.dropdown {
       transform: scale(1.1);
       -webkit-appearance: none;
@@ -242,7 +233,7 @@ onMounted(async () => {
     padding: 10px 15px;
   }
 
-  button {
+  & button {
     background-color: var(--indi-green-1);
     border: 2px solid var(--indi-green-1);
     border-radius: 4px;
@@ -265,7 +256,7 @@ onMounted(async () => {
     }
   }
 
-  @media screen and (min-width: #{$bp-mobile-sm}) and (max-width: #{$bp-desktop-sm}) {
+  @media screen and (min-width: 321px) and (max-width: 1120px) {
     .emptyCell {
       display: none;
     }
