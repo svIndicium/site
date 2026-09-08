@@ -26,16 +26,16 @@
     "nuxt-studio": "1.7.0",
     "nuxt-svgo": "^4.2.6",
     "ua-parser-js": "^2.0.10",
-    "vue": "^3.5.41"
+    "vue": "^3.5.42"
   },
   "devDependencies": {
     "@nuxt/test-utils": "^4.2.0",
     "@types/canvas-confetti": "^1.9.0",
-    "@types/node": "^26.2.0",
+    "@types/node": "^26.4.0",
     "@types/ua-parser-js": "^0.7.39",
     "@vue/eslint-config-prettier": "^10.2.0",
     "@vue/test-utils": "^2.5.0",
-    "eslint": "^10.8.1",
+    "eslint": "^10.9.1",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-vue": "^10.10.0",
     "happy-dom": "^20.14.0",
@@ -43,7 +43,7 @@
     "taze": "^21.1.0",
     "typescript": "~7.0.2",
     "vitest": "^4.1.11",
-    "zod": "^4.4.3"
+    "zod": "^4.5.4"
   },
-  "packageManager": "pnpm@11.21.0+sha512.521705bce689924eac72f5a3587122f362689ef6571e55ba80076fd637c11132ecffada26fad4ea79c485bfddbfd3d5a2a5b05805a77e893de71ec8a6cca3bb1"
+  "packageManager": "pnpm@12.3.4"
 }
