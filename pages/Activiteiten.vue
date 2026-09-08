@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import Calendar from '~/components/ActivityCalendar.vue';
-import { AGENDA_EMBED_URL } from '~/composables/useAgenda';
+import { AGENDA_EMBED_URL } from '~/utils/agenda';
 </script>
 
 <template>

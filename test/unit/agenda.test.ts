@@ -19,7 +19,7 @@ import {
   type AgendaEvent,
   type AgendaLocationEntry,
   type AgendaRawEvent,
-} from '../../composables/useAgenda';
+} from '../../utils/agenda';
 
 const NOW = new Date('2026-09-05T12:00:00+02:00').getTime();
 

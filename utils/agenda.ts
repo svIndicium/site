@@ -1,16 +1,29 @@
-// Agenda pure domain helpers + constants (no reactive state, no Nuxt APIs).
-// SSG-safe: everything here is pure/testable. Wiring (fetch, runtimeConfig,
-// content queries) lives in `composables/useAgenda.ts`, which re-exports this
-// module for backward compatibility.
+// Agenda pure domain helpers + constants (no reactive state) plus the
+// runtime key accessor. Everything is SSG-safe: the key is public by design
+// (ships in the bundle either way); the sole mitigation is a Google Cloud
+// referrer restriction (user-side follow-up).
 // Calendar wiring; rotate IDs here.
 export const AGENDA_CALENDAR_ID =
   'c_cb2b2ab9761bec69a9d24fd452f2d970d31755cf1c382272560d81fddca0e5e5@group.calendar.google.com';
 // Default placeholder so SSG prerender + client hydration work with no env set.
-// Real key comes from `runtimeConfig.public.agendaApiKey` (NUXT_AGENDA_API_KEY);
+// Real key comes from `runtimeConfig.public.agendaApiKey` (NUXT_PUBLIC_AGENDA_API_KEY);
 // rotation is a user-side Google Cloud Console step.
 export const AGENDA_API_KEY = 'AIzaSyBo4AYTvUouRsZbG4KiopyeIng_1UOdNyc';
 export const AGENDA_ICS_URL = `https://calendar.google.com/calendar/ical/${encodeURIComponent(AGENDA_CALENDAR_ID)}/public/basic.ics`;
 export const AGENDA_EMBED_URL = `https://calendar.google.com/calendar/embed?src=${encodeURIComponent(AGENDA_CALENDAR_ID)}&ctz=Europe%2FBrussels`;
+
+/** Config ergonomics only: `runtimeConfig.public.agendaApiKey`
+ * (`NUXT_PUBLIC_AGENDA_API_KEY`) overrides the placeholder below, but it is
+ * still serialized into the client bundle (pure SSG, no server). Only ever
+ * call this inside a Nuxt context (components, pages). */
+export function getAgendaApiKey(): string {
+  try {
+    const key = useRuntimeConfig().public.agendaApiKey as string | undefined;
+    return key || AGENDA_API_KEY;
+  } catch {
+    return AGENDA_API_KEY;
+  }
+}
 
 export const AGENDA_PAGE_SIZE = 5;
 export const AGENDA_MAX_CONSECUTIVE_SAME = 3;

@@ -22,7 +22,7 @@ import {
   type AgendaEvent,
   type AgendaLocationEntry,
   type AgendaRawEvent,
-} from '~/composables/useAgenda';
+} from '~/utils/agenda';
 
 // Embed-settable (e.g. `:activity-calendar{:page-size="3"}`); calendar ID + API key stay constants.
 // SSG: static prerender shows the ClientOnly skeleton; the fetch below runs
