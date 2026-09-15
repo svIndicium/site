@@ -110,10 +110,13 @@ export default defineNuxtConfig({
   build: {},
   compatibilityDate: '2026-05-08',
 
-  // Nitro configuration for static site generation
+  // Nitro configuration for Cloudflare Workers (Workers Builds runs
+  // `pnpm run build` then `wrangler deploy`; wrangler.jsonc provides main +
+  // assets, Nitro preset must emit .output/server/index.mjs, not static).
   nitro: {
-    preset: 'static',
+    preset: 'cloudflare_module',
     prerender: {
+      autoSubfolderIndex: false,
       crawlLinks: true,
       routes: ['/'],
     },

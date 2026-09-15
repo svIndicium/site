@@ -1,0 +1,13 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "site",
+  "main": "./.output/server/index.mjs",
+  "compatibility_date": "2026-09-15",
+  "observability": {
+    "enabled": true
+  },
+  "assets": {
+    "binding": "ASSETS",
+    "directory": "./.output/public/"
+  }
+}
