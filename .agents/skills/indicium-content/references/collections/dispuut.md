@@ -1,7 +1,7 @@
 # Collection: `dispuut`
 
 - **Source:** `content/dispuut/*.md` (one per fraternity) · **Type:** `page` · **Schema:** yes
-- **Used by:** fraternities page `/dispuut` — `pages/Dispuut.vue`.
+- **Used by:** the fraternity page (`/dispuut`).
 - **Query:** `queryCollection('dispuut').all()`.
 
 ## Schema fields

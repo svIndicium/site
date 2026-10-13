@@ -32,16 +32,34 @@ Wij zijn dé **studie**vereniging voor HBO-ICT van Hogeschool Utrecht
     ---
     ::::
 
-    ::::home-text-block{cta-label="Lees meer over Indicium →" cta-url="/over-indicium" title="Over Indicium"}
+    ::::home-text-block{cta-url="/over-indicium"}
     Wij zijn dé studievereniging voor HBO-ICT van Hogeschool Utrecht. We organiseren het hele jaar door activiteiten zoals bedrijfsbezoeken, kroegcolleges, gastcolleges, lunchlezingen en nog veel meer over allerlei verschillende onderwerpen. We organiseren natuurlijk ook activiteiten voor gezelligheid! Kom eens langs op onze borrels, LAN-party's of bij iets anders!
+
+    #title
+    Over Indicium
+
+    #cta
+    Lees meer over Indicium →
     ::::
 
-    ::::home-text-block{cta-label="Word lid →" cta-url="/lid-worden" title="Lid zijn is meedoen"}
+    ::::home-text-block{cta-url="/lid-worden"}
     Een hoop activiteiten organiseren we voor iedereen, maar als lid krijg je natuurlijk veel meer voordelen! Je krijgt dan korting bij activiteiten of je wordt uitgenodigd voor activiteiten die exclusief voor leden zijn. Ook kunnen we je helpen met het zoeken van een stage en kan je er altijd terecht als je ergens niet uitkomt.
+
+    #title
+    Lid zijn is meedoen
+
+    #cta
+    Word lid →
     ::::
 
-    ::::home-text-block{cta-label="Bekijk de commissies →" cta-url="/commissies" title="Commissies"}
+    ::::home-text-block{cta-url="/commissies"}
     Lijkt je het leuk om de vereniging te helpen door het organiseren van activiteiten zoals borrels, feestjes, gastcolleges, lunchlezingen, reizen? Of wil je je programmeerskills verbeteren? Neem eens een kijkje bij onze commissies — enthousiaste leden die de vereniging draaiende houden.
+
+    #title
+    Commissies
+
+    #cta
+    Bekijk de commissies →
     ::::
   :::
 
@@ -50,9 +68,32 @@ Wij zijn dé **studie**vereniging voor HBO-ICT van Hogeschool Utrecht
     ::::
 
     ::::social-sidebar
+    ---
+    links:
+      - label: Discord
+        sub: Praat mee
+        href: /discord
+        icon: discord
+      - label: Instagram
+        sub: '@svindicium'
+        href: https://www.instagram.com/svindicium/
+        icon: instagram
+        external: true
+      - label: GitHub
+        sub: Code van de website
+        href: https://github.com/svIndicium/site
+        icon: github
+        external: true
+      - label: Contact
+        sub: Voor vragen en meer
+        href: /contact
+        icon: contact
+    ---
     ::::
   :::
 ::
 
 ::home-partners
+#headline
+Onze partners
 ::

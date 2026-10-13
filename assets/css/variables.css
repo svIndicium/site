@@ -67,6 +67,15 @@
   --icon-green: #5e864e;
   --icon-bluegreen: #4f867d;
 
+  /* Social + inline-link colours. Folded into tokens so the OS, attribute and
+     no-JS footer-radio dark paths all flip together (TD-044) — no per-component
+     `html[data-theme='dark']` overrides or brightness filters. */
+  --social-discord: #5865f2;
+  --social-instagram: #e1306c;
+  --social-contact: #599db0;
+  --inline-link-color: #5291a2;
+  --inline-link-hover: #427583;
+
   /* Container queries: `@container (min-width: …)` conditions cannot take var(),
      so the breakpoint is a literal length in the component that needs one
      (e.g. 562px in LinkCard.vue). There are deliberately no --cq-* tokens (TD-055). */
@@ -117,6 +126,10 @@
     --icon-blue: #75cfe6;
     --icon-green: #bce6ac;
     --icon-bluegreen: #87e6d7;
+
+    --social-contact: var(--indi-blue-1);
+    --inline-link-color: #4e8a9b;
+    --inline-link-hover: #589caf;
 
     --indi-grey-raw: 239, 240, 240;
     --indi-success-raw: var(--indi-green-2);
@@ -175,6 +188,10 @@
   --icon-blue: #75cfe6;
   --icon-green: #bce6ac;
   --icon-bluegreen: #87e6d7;
+
+  --social-contact: var(--indi-blue-1);
+  --inline-link-color: #4e8a9b;
+  --inline-link-hover: #589caf;
 
   --indi-grey-raw: 239, 240, 240;
   --indi-success-raw: var(--indi-green-2);

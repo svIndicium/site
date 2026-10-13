@@ -10,17 +10,30 @@ const props = withDefaults(
     variant?: HeroButtonVariant;
     /** Button colour; `blue-1` is the base `.button` look. */
     color?: HeroButtonColor;
-    /** Renders nothing while keeping the node in the content file (e.g. a seasonal CTA). */
+    /** Hidden but kept mounted (e.g. a seasonal CTA), so editors can still see it in Studio. */
     hidden?: boolean;
   }>(),
   { variant: 'primary', color: 'blue-1', hidden: false },
 );
 
-const classes = computed(() => ['button', props.variant, 'rounded', props.color === 'blue-1' ? '' : `indi-${props.color}`]);
+// Static map (not a constructed `indi-${color}`) so the valid classes are greppable.
+const COLOR_CLASSES: Record<HeroButtonColor, string> = {
+  'blue-1': '',
+  'blue-2': 'indi-blue-2',
+  'blue-3': 'indi-blue-3',
+  'green-1': 'indi-green-1',
+  'green-2': 'indi-green-2',
+  'green-3': 'indi-green-3',
+  'bluegreen-1': 'indi-bluegreen-1',
+  'bluegreen-2': 'indi-bluegreen-2',
+  'bluegreen-3': 'indi-bluegreen-3',
+};
+
+const classes = computed(() => ['button', props.variant, 'rounded', COLOR_CLASSES[props.color]]);
 </script>
 
 <template>
-  <NuxtLink v-if="!hidden" :to="to" :class="classes">
-    <MDCSlot :use="$slots.default" unwrap="p" />
+  <NuxtLink v-show="!hidden" :to="to" :class="classes">
+    <MDCSlot name="default" :use="$slots.default" unwrap="p" />
   </NuxtLink>
 </template>

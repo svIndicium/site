@@ -41,6 +41,20 @@ export default defineContentConfig({
       }),
     }),
 
+    // About page (`/over-indicium`) frontmatter: title + SEO description (pages/over-indicium.vue).
+    about: defineCollection({
+      source: 'over-indicium.md',
+      type: 'page',
+      schema: z.object({
+        title: z.string(),
+        description: property(z.string()).editor({
+          input: 'textarea',
+          label: 'Description',
+          description: 'Shown in search results and social shares',
+        }),
+      }),
+    }),
+
     // Contact page (`/contact`) details (pages/Contact.vue).
     contact: defineCollection({
       source: 'contact.yml',

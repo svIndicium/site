@@ -1,7 +1,7 @@
 # Collection: `boards`
 
 - **Source:** `content/boards/*.md` (one file per board year) · **Type:** `page` · **Schema:** yes
-- **Used by:** `pages/Bestuur.vue` (current board: `order('boardNumber', 'DESC')`), `pages/besturen.vue` (timeline: `order('boardNumber', 'DESC')`).
+- **Used by:** the board pages: the current board and the historical timeline.
 - **Query:** `queryCollection('boards')...first()/all()`.
 
 ## Schema fields

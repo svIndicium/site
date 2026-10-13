@@ -9,7 +9,7 @@ tags: [vue3, transition-group, animation, performance, list, css-framework]
 # TransitionGroup Performance with Large Lists and CSS Frameworks
 
 **Impact: MEDIUM** - Vue's `<TransitionGroup>` can experience significant DOM update lag when animating list changes, particularly when:
-- Using CSS frameworks (Tailwind, Bootstrap, etc.)
+- Using CSS frameworks (Bootstrap, etc.)
 - Performing array operations like `slice()` that change multiple items
 - Working with larger lists
 

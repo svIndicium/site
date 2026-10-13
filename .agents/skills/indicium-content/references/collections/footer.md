@@ -1,7 +1,7 @@
 # Collection: `footer`
 
 - **Source:** `content/footer.yml` · **Type:** `data` · **Schema:** yes
-- **Used by:** site footer — `components/AppFooter.vue`.
+- **Used by:** the site footer.
 - **Query:** `queryCollection('footer').first()` → read `.items`, `.socialMediaItems`, `.contactItems` top level (not `.meta`).
 
 ## Schema fields
@@ -12,4 +12,4 @@
 | `socialMediaItems[]` | array `{ title, url }` | "Social media" column |
 
 ## Notes
-- `AppFooter.vue` was previously reading `.meta?.items` — must stay on top-level access (see `SKILL.md`).
+- The footer previously read `.meta?.items` — must stay on top-level access (see `SKILL.md`).

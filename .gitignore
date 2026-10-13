@@ -40,3 +40,4 @@ dist/
 .env.*
 !.env.example  # Keep env.example for reference
 nul
+.wrangler/*

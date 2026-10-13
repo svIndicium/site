@@ -1,7 +1,7 @@
 # Collection: `vcp`
 
 - **Source:** `content/vcp/*.md` (one per member) · **Type:** `page` · **Schema:** yes
-- **Used by:** VCP page `/vcp` — `pages/Vcp.vue`.
+- **Used by:** the VCP page (`/vcp`).
 - **Query:** `queryCollection('vcp').order('order', 'ASC').all()`.
 
 ## Schema fields

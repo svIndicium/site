@@ -12,11 +12,11 @@ Review: 7 read-only partition scans (components, content-components+CSS, pages+l
 | TD-013 | "Current board" derived two different ways on two pages | LOW | S | S | pages | `pages/Bestuur.vue`, `pages/besturen.vue` |
 | TD-014 | Agenda dual import path via `useAgenda` re-export shim — DONE 2026-09-06 (shim deleted) | MED | S | S | logic | `composables/useAgenda.ts` (deleted), `utils/agenda.ts` |
 | TD-015 | Agenda TS location fallback contradicts canonical YML (wrong-city links) — DONE 2026-09-06 (fallback deleted, YML only) | MED | M | S | logic/content | `utils/agenda.ts`, `content/agenda-locations.yml` |
-| TD-016 | Contact/socials data in 3 places, URLs already drifted | MED | S-M | M | content | `content/contact.yml`, `content/footer.yml`, `content/links.yml`, `components/SocialSidebar.vue` |
+| TD-016 | Contact/socials data in 3 places, URLs already drifted | MED | S-M | M | content | `content/contact.yml`, `content/footer.yml`, `content/links.yml`, `content/index.md`, `components/SocialSidebar.vue` |
 | TD-017 | Boards/commissies frontmatter redundancy + dead fields + title drift | MED | M | S-M | content | `content/boards/*.md`, `content/commissies/*.md`, `content.config.ts` |
 | TD-018 | Partner `description` duplicated verbatim as body lead (8 files) | MED | M | S | content | `content/partners/**/*.md` |
 | TD-019 | Dark palette copy-pasted twice in variables.css, already drifted | MED | M | M | css | `assets/css/variables.css` |
-| TD-020 | Partner marquee implemented twice (dead PartnerCarousel + HomePartners inline) — DONE 2026-09-13 (both deleted) | MED | M | S | components | `components/PartnerCarousel.vue`, `components/content/HomePartners.vue` |
+| TD-020 | Partner marquee implemented twice (dead PartnerCarousel + HomePartners inline) — DONE 2026-09-13 (PartnerCarousel deleted) but **REOPENED**: HomePartners reinstated 2026-09-13 (commit `7eeb800`), so the inline marquee is live again | MED | M | S | components | `components/PartnerCarousel.vue` (deleted), `components/content/HomePartners.vue` |
 | TD-021 | Carousel SSR-fallback wrapper duplicated (HomeImageCarousel vs over-indicium) — DONE 2026-09-13 (one SSR carousel, no fallback swap) | MED | M | S | components/pages | `components/content/HomeImageCarousel.vue`, `pages/over-indicium.vue` |
 | TD-024 | PDF-redirect middleware duplicates page paths, serves stale legal docs on iOS | MED | M | S | logic/pages | `middleware/pdf-redirect.global.ts`, `pages/Statuten.vue`, `pages/HR.vue` |
 | TD-026 | Partners nav submenu hand-maintained, links to deleted DressMe — PARTIAL 2026-09-13 (nav aligned; derivation/check open) | MED | M | S-M | content | `content/navigation.yml`, `content/partners/*`, `pages/partners/[partner].vue` |
@@ -28,14 +28,14 @@ Review: 7 read-only partition scans (components, content-components+CSS, pages+l
 | TD-034 | Dead config trio: `about` collection, links.d.ts, src/ dirs — DONE 2026-09-06 (deleted) | LOW | S | S | config/content | `content.config.ts`, `content/links.d.ts` (deleted), `src/` dirs (deleted) |
 | TD-035 | @vueuse/nuxt unused (zero app-code hits) — KEPT per owner (planned future use) | LOW | S | S | config | `package.json`, `nuxt.config.ts`, `taze.config.js` |
 | TD-036 | ~500KB unreferenced logo binaries (assets/logo vs public) — DONE 2026-09-13 (452KB→12KB) | LOW | S | S | assets | `assets/logo/`, `public/logo/`, `public/logo.png` |
-| TD-037 | HomePartners: zero consumers, tier rendering triplicated — DONE 2026-09-13 (deleted + deregistered) | LOW | S | S | components | `components/content/HomePartners.vue`, `nuxt.config.ts` |
+| TD-037 | HomePartners: zero consumers, tier rendering triplicated — PARTIAL 2026-09-13 (was deleted; **reinstated** on the homepage by commit `7eeb800`, registration re-added) and tier render collapsed to one `allPartners` v-for on 2026-09-21 | LOW | S | S | components | `components/content/HomePartners.vue`, `nuxt.config.ts` |
 | TD-038 | pnpm-10 `onlyBuiltDependencies` dead under pinned pnpm 11 — DONE 2026-09-06 (deleted) | LOW | S | S | config | `pnpm-workspace.yaml` |
 | TD-039 | Stray `# test` heading live on chipsoft partner page — DONE 2026-09-06 (deleted) | LOW | S | S | content | `content/partners/chipsoft/index.md` |
 | TD-040 | router.client title hack races useSeoMeta | MED | M | S-M | plugins | `plugins/router.client.ts`, `nuxt.config.ts` |
 | TD-041 | Desktop submenus hover-only, keyboard/AT-unreachable — PARTIAL 2026-09-13 (keyboard OK; expanded state not announced; mobile labels lost in the revert) | MED | M | S-M | components | `components/MenuItem.vue` |
 | TD-042 | No page reads useAsyncData error/pending; silent blank pages — PARTIAL 2026-09-13 (data awaited for SSR; errors unread) | MED | M | S-M | pages | `pages/*.vue` (15 collection pages) |
 | TD-043 | Conscribo vendor patches silent on drift, untestable monolith | MED | M | S-M | logic | `utils/conscriboForm.ts`, `components/ConscriboForm.client.vue` |
-| TD-044 | Component dark tweaks ignore no-JS radio path (wrong logo variant) | MED | M | S | components/css | `components/PartnerLogo.vue`, `components/content/HomeTextBlock.vue`, `assets/css/variables.css` |
+| TD-044 | Component dark tweaks ignore no-JS radio path (wrong logo variant) — PARTIAL 2026-09-21 (HomeTextBlock + SocialSidebar tokenized; PartnerLogo/Bestuur open) | MED | M | S | components/css | `components/PartnerLogo.vue`, `components/content/HomeTextBlock.vue`, `assets/css/variables.css` |
 | TD-045 | CI never runs tests or lint (no lint script at all) | MED | M | S | ci/test | `.github/workflows/*.yml`, `package.json`, `eslint.config.mjs`, `test/` |
 | TD-046 | CI overrides pnpm pin, floating action tags, no cache | MED | M | S | ci | `.github/workflows/*.yml`, `taze.config.js` |
 | TD-050 | Commissies/Dispuut identical card-list skeletons | LOW | S | S | pages | `pages/Commissies.vue`, `pages/Dispuut.vue` |

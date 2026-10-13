@@ -24,20 +24,20 @@ MDC (Markdown Components) extends standard Markdown with Vue component support. 
 ## Authoring components for content (props vs slots)
 Content lives in **named slots**; configuration lives in **props** — the pattern Docus uses for
 its hero (`::u-page-hero` with `#title` / `#description` / `#links`, each CTA a nested
-`:::u-button`). `::hero-section` follows it:
+`:::u-button`). Illustrative shape:
 
 ```markdown
-::hero-section
+::my-section
 #title
-Wij zijn dé **studie**vereniging voor HBO-ICT van Hogeschool Utrecht
+Some **markdown** title
 
 #buttons
-  :::hero-button{to="/intro"}
-  Introductiekamp
+  :::my-button{to="/example"}
+  A call to action
   :::
 
-  :::hero-button{to="/lid-worden" color="green"}
-  Word lid
+  :::my-button{to="/other" color="green-1"}
+  Another CTA
   :::
 ::
 ```
@@ -54,7 +54,7 @@ adding a button is adding a line.
   `{flow-duration-seconds="30"}` → `"30"`, which fails a `number` prop and is rejected by
   `Number.isFinite` guards. Declare `number | string` or coerce (`Number(v) || 30`).
 - Objects/arrays come from the YAML block; **inline props and a YAML block do combine** in one
-  block (verified with `::hero-section{hero-animated …}` + a `buttons:` YAML block), so the
+  block (verified with a block carrying both an inline prop and a YAML list), so the
   older "don't mix" note was too strict.
 
 ### Slots (`MDCSlot`)

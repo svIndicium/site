@@ -1,7 +1,7 @@
 # Collection: `contact`
 
 - **Source:** `content/contact.yml` · **Type:** `data` · **Schema:** yes
-- **Used by:** contact page `/contact` — `pages/Contact.vue`.
+- **Used by:** the contact page (`/contact`).
 - **Query:** `queryCollection('contact').first()` → read fields top level (e.g. `contact.address`; **not** `.meta`).
 
 ## Schema fields
@@ -13,5 +13,5 @@
 | `kvk` | string | Chamber of Commerce (KvK) number |
 
 ## Notes
-- `Contact.vue` reads these top-level fields directly.
-- Email addresses shown on the page are hardcoded in `Contact.vue`, not in this file.
+- The contact page reads these top-level fields directly.
+- Email addresses shown on the page are hardcoded in the page component, not in this file.

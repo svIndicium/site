@@ -24,7 +24,7 @@ import {
   type AgendaRawEvent,
 } from '~/utils/agenda';
 
-// Embed-settable (e.g. `:activity-calendar{:page-size="3"}`); calendar ID + API key stay constants.
+// Embed-settable (e.g. `::activity-calendar{page-size="3"}`); calendar ID + API key stay constants.
 // SSG: static prerender shows the ClientOnly skeleton; the fetch below runs
 // client-side at hydration (`server: false`, `timeMin = now`) so served pages
 // never freeze build-time data. `events` re-evaluates `Date.now()` per
@@ -64,8 +64,9 @@ const {
 
 const events = computed<AgendaEvent[]>(() => {
   const items = Array.isArray(calendarData.value?.items) ? calendarData.value.items : [];
-  // Fresh "now" per evaluation so served static pages drop already-ended events.
-  return parseAgendaEvents(items, Date.now());
+  // Filtered against the fetch/load time: the calendar loads once per page load,
+  // so an event that ends during an open session stays until the data is refetched.
+  return parseAgendaEvents(items);
 });
 
 const dedupedEvents = computed<AgendaEvent[]>(() =>
@@ -73,16 +74,22 @@ const dedupedEvents = computed<AgendaEvent[]>(() =>
 );
 
 // Labels + Maps links come ONLY from content/agenda-locations.yml. No
-// fallback: a missing/empty collection throws so the error state renders
-// instead of silently degrading to stale mappings.
-const { data: locationMapping, error: locationsError } = await useAsyncData('agenda-locations', () =>
-  queryCollection('locations').first(),
-);
-const rawLocations = locationMapping.value?.locations;
-if (!Array.isArray(rawLocations) || rawLocations.length === 0)
-  throw new Error('Agenda-locaties ontbreken (content/agenda-locations.yml)');
+// fallback: when the collection is missing/empty, `locationsMissing` drives
+// the dedicated error message instead of silently degrading to stale mappings.
+const {
+  data: locationMapping,
+  error: locationsError,
+  status: locationsStatus,
+} = await useAsyncData('agenda-locations', () => queryCollection('locations').first());
 const locationEntries = computed<AgendaLocationEntry[]>(() =>
-  rawLocations.map((entry) => ({ match: entry.match, short: entry.short, query: entry.query })),
+  (locationMapping.value?.locations ?? []).map((entry) => ({
+    match: entry.match,
+    short: entry.short,
+    query: entry.query,
+  })),
+);
+const locationsMissing = computed(
+  () => locationsStatus.value !== 'pending' && locationEntries.value.length === 0,
 );
 // Memoized per location string (entries invalidate); template calls this twice
 // per row (href + short), so uncached that would be 2 matches/row.
@@ -127,6 +134,9 @@ function endYear(event: AgendaEvent): string | null {
     <div class="events-container">
       <article v-if="calendarError || locationsError">
         <p>De agenda kon niet geladen worden. Probeer het later opnieuw.</p>
+      </article>
+      <article v-else-if="locationsMissing">
+        <p>De agenda is tijdelijk niet beschikbaar.</p>
       </article>
       <AgendaCalendarSkeleton v-else-if="calendarStatus === 'pending'" :rows="effectivePageSize" />
       <article v-else-if="!cappedEvents.length">

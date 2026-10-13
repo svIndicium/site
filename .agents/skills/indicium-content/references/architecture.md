@@ -1,12 +1,12 @@
 # Architecture & roadmap (handoff)
 
 ## Current architecture
-- **Framework:** Nuxt 4.5 (Vue 3), TypeScript strict, `@nuxt/content` 3.15.2, `nuxt-studio` pinned to a `main`-branch preview build (`pkg.pr.new/nuxt-studio@6a91693` — see TD-057), zod 4.5.4.
-- **Rendering:** SSG. `pnpm generate` (`nuxt generate`) prerenders to `.output/public` (79 routes, 2026-09-13). Deployed via GitHub Actions to **Firebase Hosting** (`firebase.json` serves `.output/public`, rewrites all → `/index.html`, project `svindicium-website`).
+- **Framework:** Nuxt 4 (Vue 3), TypeScript strict, `@nuxt/content` 3.x, `nuxt-studio` pinned to a preview build (see `package.json`; TD-057), zod v4.
+- **Rendering:** SSG. `pnpm generate` prerenders `.output/public`. Deployed via GitHub Actions to **Firebase Hosting** (`firebase.json` serves `.output/public`, rewrites all → `/index.html`).
 - **Content model:** `content/**/*.{md,yml}` → Nuxt Content collections (see `content.config.ts` and `references/collections/*`).
-- **Pages are shims.** Each route is a small `.vue` that queries a collection and renders it (e.g. `pages/index.vue` → `home`; `pages/Contact.vue` → `contact`). Content itself lives in Markdown/YAML.
+- **Pages are shims.** Each route is a small `.vue` that queries a collection and renders it. Content itself lives in Markdown/YAML.
 - **Assets/binaries:** currently committed under `public/` (e.g. `public/assets/images/*.webp`, logos, PDFs) and referenced via `/assets/...`.
-- **Custom MDC components:** `components/content/` (Home*) + root `components/` (HeroSection, ActivityCalendar, SocialSidebar), globally registered (see `nuxt-studio.md`).
+- **Custom MDC components:** live under `components/content/` and root `components/`; the ones used in Markdown are globally registered in `nuxt.config.ts` (see `nuxt-studio.md`). Read that config for the current set rather than trusting a list here.
 - **Styling:** global `assets/css/variables.css`, `typography.css`, `main.css` (design tokens + base), plus scoped styles per component/page.
 
 ## Target architecture (roadmap)
@@ -34,9 +34,9 @@
 1. **Migrate hosting → Cloudflare Pages** (replace Firebase). Keep `nuxt generate` output; wire CI (GitHub Actions or Pages build); retire `firebase.json`.
 2. **Cloudflare Worker as the Studio login gate** — secure the production Studio editor behind SSO/OAuth for authorized staff (not yet implemented).
 3. **Move binaries/images → R2 + Cloudflare Images** — migrate `public/assets/images/*`, logos, PDFs out of the repo; update `/assets/...` references (carousel images, board photos, partner logos, docx).
-4. **`/over-indicium` is a hardcoded page, not content** — the dead `about` collection was deleted 2026-09-06 (TD-034); the page itself still bypasses the content system. Make it a shim over a real content file when that page next changes.
+4. **Some pages are still hardcoded, not content** — convert them via the `make-content-editable` skill (slot-based MDC components + a `page` collection, page becomes a shim) when they next change. The current list is discoverable by scanning `pages/` for components that don't query a collection.
 5. **Styling refactor (incremental)** — reduce per-page scoped CSS; extract generic components / shared utility classes; use design tokens in `assets/css/variables.css`; keep specificity flat.
-6. **Verify Studio round-trip of the 3-level homepage MDC nesting** (`home-grid` → `home-main` → `home-text-block`); flatten if comark/remark-mdc round-trip is lossy.
+6. **Verify Studio round-trip of deeply nested homepage MDC**; flatten if the comark/remark-mdc round-trip is lossy. **Observed:** at deep nesting, repeated nested components with named slots are unreliable — the parser can swallow the closing fence and nest the next sibling incorrectly. Prefer a **props/YAML data prop for repeated children** and an explicit `#default` marker, and re-test manually in Studio whenever this area changes.
 
 ### Known issues
 - Local `pnpm generate` works without CI env (verified 2026-09-13); if it ever errors, try `GITHUB_ACTIONS=true GITHUB_REPOSITORY=svIndicium/site`.
@@ -46,6 +46,6 @@
 ## Fresh-agent handoff checklist
 1. Read `SKILL.md`, then `references/architecture.md`.
 2. `content.config.ts` = source of truth for collections/schemas; `references/collections/*` = per-collection usage.
-3. Establish baseline: `pnpm generate` → **79 routes**; grep `.output/public/index.html` for nav/footer strings.
+3. Establish a baseline: `pnpm generate` completes; grep the built HTML for a known nav/footer string (don't hardcode counts).
 4. Edit content in `content/**`, never in `.vue` shims; register any new MDC component per `references/nuxt-studio.md`.
 5. Follow styling rules (generic components/classes/tokens) over new per-page CSS.

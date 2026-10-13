@@ -25,29 +25,29 @@
     "better-sqlite3": "^12.11.1",
     "canvas-confetti": "^1.9.4",
     "embla-carousel-vue": "^8.6.0",
-    "nuxt": "^4.5.2",
+    "nuxt": "^4.6.0",
     "nuxt-studio": "https://pkg.pr.new/nuxt-studio@6a91693",
     "nuxt-svgo": "^4.2.6",
     "ua-parser-js": "^2.0.10",
-    "vue": "^3.5.42"
+    "vue": "^3.5.43"
   },
   "devDependencies": {
-    "@nuxt/test-utils": "^4.2.0",
+    "@nuxt/test-utils": "^4.3.3",
     "@types/canvas-confetti": "^1.9.0",
-    "@types/node": "^26.4.0",
+    "@types/node": "^26.6.4",
     "@types/ua-parser-js": "^0.7.39",
     "@vue/eslint-config-prettier": "^10.2.0",
-    "@vue/test-utils": "^2.5.0",
-    "eslint": "^10.9.1",
+    "@vue/test-utils": "^2.5.1",
+    "eslint": "^10.12.0",
     "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-vue": "^10.10.0",
-    "happy-dom": "^20.14.0",
-    "prettier": "^3.9.6",
-    "taze": "^21.1.0",
+    "eslint-plugin-vue": "^10.11.1",
+    "happy-dom": "^20.14.5",
+    "prettier": "^3.9.9",
+    "taze": "^21.3.0",
     "typescript": "~7.0.2",
     "vitest": "^4.1.11",
-    "wrangler": "^4.131.2",
-    "zod": "^4.5.4"
+    "wrangler": "^4.147.0",
+    "zod": "^4.6.5"
   },
-  "packageManager": "pnpm@12.3.4"
+  "packageManager": "pnpm@12.10.0"
 }

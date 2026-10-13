@@ -9,14 +9,14 @@ allowed-tools: Read, Write, Edit, Glob, Grep
 Repo `svIndicium/site`. **Content lives in Markdown/YAML under `content/`**, edited by non-technical staff via Nuxt Studio. Vue pages are thin shims that render that content. Prefer editing content over pages.
 
 ## Must-know conventions (read before touching anything)
-- **Pages are shims.** Content (copy, structure, images, links) goes in `content/**/*.{md,yml}`, not hardcoded in `.vue`.
+- **Pages are shims — or become editable.** Content (copy, structure, images, links) goes in `content/**/*.{md,yml}`, not hardcoded in `.vue`. Any page still hardcoded should be converted via the `make-content-editable` skill rather than extended; scan `pages/` for pages that don't query a collection for the current exceptions (see `references/architecture.md`).
 - **Data collections (`type: 'data'`) expose fields at the TOP level of the query result, NOT under `.meta`** — with a schema, `meta` is `{}`. Read `item.items`, `item.address`; **never** `item.meta?.items` (silently `undefined` → blank nav/footer, lost crawl routes). See `references/collections/*`.
 - **Page collections** (`type: 'page'`) get native `title`/`description`; schemas cover custom frontmatter only.
 - **MDC components used in Markdown must be globally registered** for Nuxt Studio's `/` command (see `references/nuxt-studio.md`).
 - **Styling:** reuse generic components / shared classes over per-page scoped CSS; avoid cascading overrides (see `references/architecture.md`).
 
 ## Tech stack
-Nuxt 4.5 (SSG `pnpm generate`), `@nuxt/content` 3.15.2, zod 4.5.4, `nuxt-studio` **pinned to a `main`-branch preview build** (`https://pkg.pr.new/nuxt-studio@6a91693`; the released 1.7.0 lacks nested drag handles — PR #490), Vue 3. Hosting: Firebase → migrating to Cloudflare Pages (see `references/architecture.md`).
+Nuxt 4 (Vue 3, SSG via `pnpm generate`), `@nuxt/content` 3.x with **zod v4** (the zod major matters for `property().editor()` — see `references/nuxt-studio.md`), and `nuxt-studio` **pinned to a preview build** (see `package.json`; released versions lack nested drag handles). Hosting: Firebase → migrating to Cloudflare (see `references/architecture.md`).
 
 > Generic, project-independent version of this knowledge lives in the managed skill
 > **`nuxt-content-studio-authoring`** (MDC props/slots patterns, Studio form metadata,
@@ -24,11 +24,10 @@ Nuxt 4.5 (SSG `pnpm generate`), `@nuxt/content` 3.15.2, zod 4.5.4, `nuxt-studio`
 > Indicium-specific companion (paths, collections, deployment).
 
 ## Project state & getting started (read this if picking up the project)
-- **All collections have schemas** in `content.config.ts` (they validate and drive Studio's Form Editor). `home.description` uses `property().editor({ input: 'textarea' })` — with zod v4, `.editor()` must be wrapped in `property()` (see `references/nuxt-studio.md`).
-- **Data collections expose fields at top level** (`.meta` gotcha) — consumers (`AppFooter`, `NavDesktop`, `NavMobile`, `Links.vue`) already read `.items`/`.links` etc. directly.
-- **`@nuxt/content` is 3.15.2** (upgraded from 3.11.2). Studio features that need `property().editor()` only work on this/newer.
-- **Studio editor configured**: 9 MDC components globally registered (`HeroSection`, `HeroButton`, `Home*`, `ActivityCalendar`, `SocialSidebar`); `Prose*` excluded; grouped under "Home"; `studio.editor.iconLibraries` locked to the installed `@iconify-json` collections; `studio.repository` pinned so local `generate` works.
-- To get oriented: read `content.config.ts` and the relevant `references/collections/<name>.md`; run `pnpm generate` and expect **79 prerendered routes**.
+- **Collections are schema-first** in `content.config.ts` (schemas validate and drive Studio's Form Editor). Use `property().editor({...})` for form metadata — with the installed zod major it must be wrapped (see `references/nuxt-studio.md`). That file is the authoritative, current list of collections/fields; don't duplicate it here.
+- **Data collections expose fields at top level** (`.meta` gotcha) — consumers already read `.items`/`.links` etc. directly.
+- **Studio**: MDC components used in content are globally registered and grouped in the editor; `Prose*` excluded; icon libraries locked to the installed set; the repository is pinned so local `generate` works. The exact component names/grouping live in `nuxt.config.ts` — read it there.
+- To get oriented: read `content.config.ts`, `nuxt.config.ts`, and the relevant `references/collections/<name>.md`; run `pnpm generate` and confirm it completes.
 - Open work and known issues live in `references/architecture.md` → "Open work & known issues".
 
 ## Sub-skills — read on demand (each is self-contained; do not load all up front)
@@ -38,23 +37,12 @@ Nuxt 4.5 (SSG `pnpm generate`), `@nuxt/content` 3.15.2, zod 4.5.4, `nuxt-studio`
 | Nuxt Studio editor integration, forms, validators, login gate | `references/nuxt-studio.md` |
 | Architecture, hosting, Cloudflare migration, styling conventions | `references/architecture.md` |
 | **Per-collection** docs (used where/how, fields, query) | `references/collections/<name>.md` |
+| Converting a hardcoded page into Studio-editable MDC components | project-local `make-content-editable` skill |
 
 ## Collections
-| Collection | Source | Type | Consumed by |
-|---|---|---|---|
-| `navigation` | `navigation.yml` | data | `NavDesktop.vue`, `NavMobile.vue` |
-| `home` | `index.md` | page | `pages/index.vue` |
-| `contact` | `contact.yml` | data | `pages/Contact.vue` |
-| `footer` | `footer.yml` | data | `AppFooter.vue` |
-| `links` | `links.yml` | data | `pages/Links.vue` |
-| `about` | `over-indicium.md` | page | **unused** (source file absent; page is hardcoded) |
-| `boards` | `boards/*.md` | page | `pages/Bestuur.vue`, `pages/besturen.vue` |
-| `partners` | `partners/**/*.md` | page | `pages/partners/*`, `usePartners` |
-| `commissies` | `commissies/*.md` | page | `pages/Commissies.vue` |
-| `vcp` | `vcp/*.md` | page | `pages/Vcp.vue` |
-| `dispuut` | `dispuut/*.md` | page | `pages/Dispuut.vue` |
+Collections are defined in `content.config.ts` (the source of truth). Two kinds: **`data`** collections (YAML, no body; fields sit at the top level of the query result) and **`page`** collections (Markdown + body; native `title`/`description`). Read `content.config.ts` for the current list, sources and schemas, and `references/collections/<name>.md` for how each is used — don't keep a duplicate inventory here.
 
 ## Verification recipes
-- Full build: `node .pnpm/…/nuxt.mjs generate` (or `pnpm generate` with repo env) → expect 79 prerendered routes (2026-09-13; the playground is intentionally among them).
-- Studio component list (no auth in dev): start `nuxt dev`, curl `/__nuxt_studio/meta` → `components.list` = exactly the 9 homepage components.
-- Confirm data renders: grep built `.output/public/index.html` for nav/footer strings after any schema/consumer change.
+- Full build: `pnpm generate` → confirm it finishes and prerenders without errors. Don't assert a fixed route count; it follows `pages/` and crawled links, so it changes whenever content/pages change.
+- Studio component list (no auth in dev): start `nuxt dev`, curl `/__nuxt_studio/meta` → the MDC components registered via `nuxt.config.ts` should appear. (Framework globals like `Icon` from `@nuxt/icon` also appear in the raw JSON; `ungrouped: 'omit'` keeps ungrouped components out of the editor UI, so the list isn't only your content components.)
+- Confirm data renders: grep the built HTML (e.g. `.output/public/index.html`) for a known nav/footer string after any schema/consumer change.

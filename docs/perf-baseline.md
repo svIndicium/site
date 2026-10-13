@@ -1,8 +1,9 @@
 # Perf baseline — 2026-09-08 (pre nav rework)
 
-> **Status 2026-09-13 — historical snapshot.** Numbers below are from that date; the site now
-> prerenders **79 routes** (2026-09-13, after deleting `/activiteiten` and the playground-era
-> dead files — the playground itself is intentionally kept). Corrections to the notes:
+> **Status 2026-09-21 — historical snapshot.** Numbers below are from that date; the site now
+> prerenders **77 routes** (2026-09-21; after deleting `/activiteiten` and the playground-era
+> dead files — the playground itself is intentionally kept. The 2026-09-13 figure of 79 was
+> Nuxt/Nitro version drift, not a route change). Corrections to the notes:
 > the dead `/partners/dressme` link was fixed (TD-026, 2026-09-13); the case-duplicate routes
 > (`/contact` + `/Contact`, …) are deliberate filenames, not a defect (see the tech-debt index's
 > "what NOT to fix"); the unreferenced-image audit is now tracked as TD-058 and needs an owner

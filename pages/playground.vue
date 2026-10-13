@@ -78,13 +78,13 @@ const entries: Entry[] = [
   {
     key: 'home-text-block',
     label: 'HomeTextBlock',
-    description: 'Text block with a title, body content and a CTA link (used on the homepage).',
+    description: 'Text block with a title slot, default body content and a CTA slot (used on the homepage).',
     component: HomeTextBlock,
     fields: [
-      { key: 'title', label: 'Title' },
-      { key: 'ctaLabel', label: 'CTA label' },
+      { key: 'title', label: 'Title (#title)' },
+      { key: 'ctaLabel', label: 'CTA label (#cta)' },
       { key: 'ctaUrl', label: 'CTA URL' },
-      { key: 'body', label: 'Body', type: 'textarea' },
+      { key: 'body', label: 'Body (default)', type: 'textarea' },
     ],
     defaults: {
       title: 'Over Indicium',
@@ -92,7 +92,7 @@ const entries: Entry[] = [
       ctaUrl: '/over-indicium',
       body: 'Wij zijn dé studievereniging voor HBO-ICT van Hogeschool Utrecht.',
     },
-    buildProps: (s) => ({ title: s.title, ctaLabel: s.ctaLabel, ctaUrl: s.ctaUrl }),
+    buildProps: (s) => ({ ctaUrl: s.ctaUrl }),
   },
 ];
 
@@ -180,7 +180,9 @@ function startResize(event: PointerEvent) {
               <h3>{{ currentState.heading }}</h3>
               <p>{{ currentState.body }}</p>
             </template>
-            <template v-else-if="current.key === 'home-text-block'" #default>
+            <template v-if="current.key === 'home-text-block'" #title>{{ currentState.title }}</template>
+            <template v-if="current.key === 'home-text-block'" #cta>{{ currentState.ctaLabel }}</template>
+            <template v-if="current.key === 'home-text-block'" #default>
               <p>{{ currentState.body }}</p>
             </template>
           </component>

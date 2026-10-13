@@ -1,7 +1,7 @@
 # Collection: `commissies`
 
 - **Source:** `content/commissies/*.md` (one per committee) · **Type:** `page` · **Schema:** yes
-- **Used by:** committees page `/commissies` — `pages/Commissies.vue`.
+- **Used by:** the committees page (`/commissies`).
 - **Query:** `queryCollection('commissies').order('order', 'ASC').all()`.
 
 ## Schema fields

@@ -1,7 +1,7 @@
 # Collection: `links`
 
 - **Source:** `content/links.yml` · **Type:** `data` · **Schema:** yes
-- **Used by:** links page `/links` (minimal layout) — `pages/Links.vue`.
+- **Used by:** the links page (`/links`, minimal layout).
 - **Query:** `queryCollection('links').first()` → read `.links` top level (not `.meta`).
 
 ## Schema fields

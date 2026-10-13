@@ -1,16 +1,19 @@
 <script setup lang="ts">
 defineProps<{
-  title: string;
-  ctaLabel: string;
+  /** Target route or external URL for the CTA link. */
   ctaUrl: string;
 }>();
 </script>
 
 <template>
   <section class="text-block">
-    <h2 class="heading-accent">{{ title }}</h2>
+    <h2 class="heading-accent">
+      <MDCSlot name="title" :use="$slots.title" unwrap="p" />
+    </h2>
     <slot />
-    <NuxtLink :to="ctaUrl" class="inline-link">{{ ctaLabel }}</NuxtLink>
+    <NuxtLink :to="ctaUrl" class="inline-link">
+      <MDCSlot name="cta" :use="$slots.cta" unwrap="p" />
+    </NuxtLink>
   </section>
 </template>
 
@@ -28,22 +31,13 @@ defineProps<{
   display: inline-block;
   margin-top: 0.5rem;
   font-weight: 600;
-  color: var(--indi-blue-1);
-  filter: brightness(0.72);
+  color: var(--inline-link-color);
   text-underline-offset: 2px;
   text-decoration: none;
 
   &:hover {
     text-decoration: underline;
-    filter: brightness(0.58);
+    color: var(--inline-link-hover);
   }
-}
-
-html[data-theme='dark'] .inline-link {
-  filter: brightness(1.15);
-}
-
-html[data-theme='dark'] .inline-link:hover {
-  filter: brightness(1.3);
 }
 </style>
