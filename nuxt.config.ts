@@ -188,12 +188,16 @@ export default defineNuxtConfig({
         // insertable components. They're redundant with Studio's native heading
         // commands, so exclude them from the editor's component list.
         exclude: ['Prose*'],
-        // Group the homepage MDC components under a single labelled group in the
-        // editor's component list.
+        // Group the content MDC components into labelled groups in the editor's
+        // component list: homepage sections, and reusable page sections.
         groups: [
           {
             label: 'Home',
             include: ['HeroSection', 'HeroButton', 'Home*', 'ActivityCalendar', 'SocialSidebar'],
+          },
+          {
+            label: 'Sections',
+            include: ['CarouselSection', 'TextSection', 'StatList'],
           },
         ],
         ungrouped: 'omit',
@@ -226,9 +230,10 @@ export default defineNuxtConfig({
     '/boards/**': { redirect: '/besturen' },
   },
 
-  // Globally register the homepage MDC components so Nuxt Studio lists them in
-  // the visual editor's component picker (the '/' slash command). MDC block
-  // components are resolved by name, so only global components are insertable.
+  // Globally register the MDC section components used in content/** so Nuxt
+  // Studio lists them in the visual editor's component picker (the '/' slash
+  // command). MDC block components are resolved by name, so only global
+  // components are insertable.
   hooks: {
     'components:extend': (components) => {
       const mdcContentComponents: Record<string, true> = {
@@ -242,6 +247,9 @@ export default defineNuxtConfig({
         HomePartners: true,
         ActivityCalendar: true,
         SocialSidebar: true,
+        CarouselSection: true,
+        TextSection: true,
+        StatList: true,
       };
 
       components
