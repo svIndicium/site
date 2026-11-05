@@ -13,8 +13,10 @@ const { data: jobOffers } = await useAsyncData(`partner-jobs-${slug}`, () =>
 );
 
 useSeoMeta({
-  title: partner.value?.title || 'Partner',
-  description: partner.value?.description || `Informatie over ${partner.value?.title || 'deze partner'}`,
+  title: partner.value?.title,
+  // Description is kept plain for simple SEO. ogDescription is for link previews, and can be longer. Should not be longer than about 200 characters.
+  description: `Informatie over ${partner.value?.title || 'deze partner'}`,
+  ogDescription: partner.value?.description || `Informatie over ${partner.value?.title || 'deze partner'}`
 });
 </script>
 

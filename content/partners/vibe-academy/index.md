@@ -1,9 +1,8 @@
 ---
 title: Vibe Academy
 description: |-
-  Vibe Academy organiseert complexe en exclusieve traineeships voor hoogopgeleide en talentvolle starters binnen IT &
-  Engineering. Vibe Academy maakt deel uit van Vibe Group, een toonaangevende internationale Tech Staffing & Consulting
-  partner. Vibe Group heeft al meer dan 10.000 engineers verbonden aan 3.000 bedrijven.
+  Vibe Academy organiseert exclusieve IT-traineeships voor hoogopgeleide starters. Via Vibe Group doen meer dan 10.000
+  engineers ervaring op bij 3.000 bedrijven in software, data & AI en security.
 featured: false
 imgUrl: vibe-academy-light.png
 imgUrlDark: vibe-academy-dark.png
