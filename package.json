@@ -21,33 +21,33 @@
     "@nuxt/icon": "2.5.1",
     "@nuxtjs/color-mode": "3.5.2",
     "@vueuse/nuxt": "13.9.0",
-    "add-to-calendar-button": "^2.15.0",
+    "add-to-calendar-button": "^3.5.1",
     "better-sqlite3": "^12.11.1",
     "canvas-confetti": "^1.9.4",
     "embla-carousel-vue": "^8.6.0",
-    "nuxt": "^4.6.0",
-    "nuxt-studio": "https://pkg.pr.new/nuxt-studio@6a91693",
+    "nuxt": "^4.6.4",
+    "nuxt-studio": "1.8.0",
     "nuxt-svgo": "^4.2.6",
     "ua-parser-js": "^2.0.10",
-    "vue": "^3.5.43"
+    "vue": "^3.5.44"
   },
   "devDependencies": {
-    "@nuxt/test-utils": "^4.3.3",
+    "@nuxt/test-utils": "^4.3.4",
     "@types/canvas-confetti": "^1.9.0",
-    "@types/node": "^26.6.4",
+    "@types/node": "^26.6.6",
     "@types/ua-parser-js": "^0.7.39",
     "@vue/eslint-config-prettier": "^10.2.0",
     "@vue/test-utils": "^2.5.1",
-    "eslint": "^10.12.0",
+    "eslint": "^10.13.0",
     "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-vue": "^10.11.1",
-    "happy-dom": "^20.14.5",
-    "prettier": "^3.9.9",
+    "eslint-plugin-vue": "^10.12.0",
+    "happy-dom": "^21.0.4",
+    "prettier": "^3.9.10",
     "taze": "^21.3.0",
     "typescript": "~7.0.2",
-    "vitest": "^4.1.11",
-    "wrangler": "^4.147.0",
-    "zod": "^4.6.5"
+    "vitest": "^5.0.5",
+    "wrangler": "^4.155.0",
+    "zod": "^4.6.7"
   },
-  "packageManager": "pnpm@12.10.0"
+  "packageManager": "pnpm@12.16.1"
 }
