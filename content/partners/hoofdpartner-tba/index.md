@@ -1,6 +1,8 @@
 ---
 title: Gezocht!
-description: Wij zijn momenteel op zoek naar een hoofdpartner!
+description: |-
+  Indicium zoekt een hoofdpartner! Wil jouw bedrijf de studievereniging van HBO-ICT-studenten in Utrecht ondersteunen?
+  Neem contact op via secretaris@indicium.hu.
 featured: false
 imgUrl: placeholder_indicium_logo.png
 imgUrlDark: placeholder_indicium_logo.png

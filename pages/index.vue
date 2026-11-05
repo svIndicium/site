@@ -1,4 +1,8 @@
 <script setup lang="ts">
+useSeoMeta({
+  title: 'Studievereniging HBO-ICT',
+});
+
 const { data: home } = await useAsyncData('home', () => queryCollection('home').first());
 
 // The homepage content renders ::home-partners (MDC), which cannot await Nuxt

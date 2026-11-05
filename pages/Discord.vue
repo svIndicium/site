@@ -2,6 +2,10 @@
 <script setup lang="ts">
 definePageMeta({ layout: 'minimal' });
 
+useSeoMeta({
+  title: 'Discord',
+});
+
 onMounted(() => {
   const ref = new URLSearchParams(globalThis.location.search).get('ref');
   globalThis.location.href = 'https://discord.gg/zYEEEpJhkr' + (ref ? '?ref=' + ref : '');

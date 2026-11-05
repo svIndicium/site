@@ -2,6 +2,10 @@
 import JobOffers from '@/components/JobOffers.vue';
 import PartnerLogo from '@/components/PartnerLogo.vue';
 
+useSeoMeta({
+  title: 'Partners',
+});
+
 await prefetchPartners();
 const { mainPartner, premiumPartners, regularPartners } = usePartners();
 

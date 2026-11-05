@@ -1,6 +1,10 @@
 <script setup lang="ts">
 definePageMeta({ layout: 'minimal' });
 
+useSeoMeta({
+  title: 'Links',
+});
+
 import logo from '@/assets/logo/indicium-logo-icon.svg?component';
 import LinkCard from '@/components/LinkCard.vue';
 

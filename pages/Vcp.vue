@@ -1,4 +1,8 @@
 <script setup lang="ts">
+useSeoMeta({
+  title: 'Vertrouwenscontactpersonen',
+});
+
 const { data: vcpMembers } = await useAsyncData('vcp', () => queryCollection('vcp').order('order', 'ASC').all());
 
 // Content stores e.g. "VCP Extern"; the pill only needs "Extern"/"Intern".

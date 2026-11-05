@@ -6,6 +6,10 @@ const props = defineProps<{
 const code = props.error?.statusCode ?? 500;
 const message = props.error?.message || 'Er ging iets mis';
 
+useSeoMeta({
+  title: () => (code === 404 ? 'Pagina niet gevonden' : 'Er ging iets mis'),
+});
+
 const handleBack = () => clearError({ redirect: '/' });
 </script>
 
