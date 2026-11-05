@@ -1,4 +1,8 @@
 <script setup lang="ts">
+useSeoMeta({
+  title: 'Pagina niet gevonden',
+});
+
 const excuses = [
   'Sorry. Het was dit of een tentamen en het is het allebei niet geworden',
   'Zit de wifi-kabel er goed in?',

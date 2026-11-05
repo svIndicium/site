@@ -1,4 +1,8 @@
 <script setup lang="ts">
+useSeoMeta({
+  title: 'Disputen',
+});
+
 const { data: disputen } = await useAsyncData('dispuut', () => queryCollection('dispuut').all());
 </script>
 

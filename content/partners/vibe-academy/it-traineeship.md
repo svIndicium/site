@@ -1,9 +1,5 @@
 ---
 title: IT Traineeship
-description: |-
-  Het traineeship start met een bootcamp van een maand, waarin je wordt uitgedaagd om je technische en professionele
-  vaardigheden te verbeteren. De bootcamp is ontworpen om al je theoretische kennis om te zetten in praktische
-  vaardigheden. Je behaalt waardevolle certificaten en neemt deel aan expertworkshops binnen jouw specifieke expertise.
 featured: true
 partnerSlug: vibe-academy
 url: https://vibeacademy.nl/

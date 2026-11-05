@@ -1,8 +1,5 @@
 ---
 title: HBO-ICT
-description: |-
-  HBO-ICT aan de Hogeschool Utrecht leidt je op tot een brede ICT-professional. In vier jaar leer je alles wat je nodig
-  hebt om aan de slag te gaan als software developer, system engineer, IT-consultant of een andere ICT-rol.
 featured: true
 partnerSlug: hogeschool-utrecht
 url: https://www.hu.nl/voltijd-opleidingen/hbo-ict
