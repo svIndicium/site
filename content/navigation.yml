@@ -17,8 +17,6 @@ items:
     children:
       - title: 'ChipSoft'
         url: '/partners/chipsoft'
-      - title: 'Vibe Academy'
-        url: '/partners/vibe-academy'
       - title: 'Axians'
         url: '/partners/axians'
       - title: 'Hogeschool Utrecht'
