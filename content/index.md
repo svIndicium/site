@@ -71,21 +71,17 @@ Wij zijn dé **studie**vereniging voor HBO-ICT van Hogeschool Utrecht
     ---
     links:
       - label: Discord
-        sub: Praat mee
         href: /discord
         icon: discord
       - label: Instagram
-        sub: '@svindicium'
         href: https://www.instagram.com/svindicium/
         icon: instagram
         external: true
       - label: GitHub
-        sub: Code van de website
         href: https://github.com/svIndicium/site
         icon: github
         external: true
       - label: Contact
-        sub: Voor vragen en meer
         href: /contact
         icon: contact
     ---

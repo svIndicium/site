@@ -4,8 +4,6 @@ type SocialIcon = 'discord' | 'instagram' | 'github' | 'contact';
 interface SocialLinkItem {
   /** Visible label, e.g. "Discord". */
   label: string;
-  /** Small line under the label, e.g. "Praat mee". */
-  sub?: string;
   /** Internal route (`/contact`) or full `https://` URL. */
   href: string;
   /** Built-in icon shown above the label. */
@@ -57,7 +55,6 @@ const ICON_CLASSES: Record<SocialIcon, string> = {
         </svg>
       </span>
       <div class="social-link__label">{{ link.label }}</div>
-      <div v-if="link.sub" class="social-link__sub">{{ link.sub }}</div>
     </NuxtLink>
   </div>
 </template>
@@ -76,7 +73,7 @@ const ICON_CLASSES: Record<SocialIcon, string> = {
   align-items: center;
   justify-content: center;
   gap: 6px;
-  padding: 14px 10px;
+  padding: 18px 12px;
   border-radius: 10px;
   background: var(--secondary-background-color);
   border: 1px solid color-mix(in srgb, var(--indi-blue-1) 18%, transparent);
@@ -121,12 +118,6 @@ const ICON_CLASSES: Record<SocialIcon, string> = {
 .social-link__label {
   font-size: 0.85rem;
   font-weight: 600;
-  line-height: 1;
-}
-
-.social-link__sub {
-  font-size: 0.72rem;
-  opacity: 0.55;
   line-height: 1;
 }
 </style>
