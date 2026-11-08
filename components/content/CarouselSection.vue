@@ -17,9 +17,10 @@ const props = withDefaults(
       :alt="props.alt"
       :slides-per-view="1.5"
       align="center"
-      height="32em"
-      max-height="32em"
+      height="100%"
+      max-height="100%"
       fit="cover"
+      card-effect
     />
   </div>
 </template>
@@ -29,27 +30,23 @@ const props = withDefaults(
   margin: 1.5rem auto 0;
   width: 100%;
   max-width: 1080px;
-  height: 30em;
-  max-height: 30em;
+  /* 1.5 slides per view: each slide is 2/3 of the width, so a 9/4 container
+     makes every slide exactly 3:2 — the photos' native ratio. */
+  aspect-ratio: 9 / 4;
   border-radius: 10px;
   overflow: hidden;
-  background: var(--secondary-background-color);
-  border: 1px solid color-mix(in srgb, var(--indi-blue-1) 30%, transparent);
-}
-
-@media (max-width: 944px) {
-  .carousel-section {
-    height: 26em;
-    max-height: 26em;
-  }
 }
 
 @media (max-width: 768px) {
   .carousel-section {
     margin-top: 1rem;
-    height: 22em;
-    max-height: 22em;
+    /* No room for side images on phones: one full-width 3:2 slide. */
+    aspect-ratio: 3 / 2;
     border-radius: 8px;
+  }
+
+  .carousel-section :deep(.image-carousel) {
+    --slides-per-view: 1 !important;
   }
 }
 </style>
