@@ -108,6 +108,14 @@ function getLinkClass(url: string) {
   position-try-fallbacks: flip-inline, flip-block;
 }
 
+/* Nuxt Studio shifts every position:fixed element by writing an inline `left`
+   when its sidebar is expanded. That overrides the anchor-computed inline
+   position and pins all dropdowns to the sidebar edge, so let position-area
+   own the horizontal axis again while Studio is open. */
+body[data-studio-active][data-expand-sidebar] .dropdown {
+  left: auto !important;
+}
+
 /* No anchor positioning (older browsers): today's static placement. */
 @supports not (position-area: block-end) {
   .dropdown {
