@@ -70,12 +70,12 @@ function changeTheme(theme: 'system' | 'light' | 'dark') {
       </div>
       <div class="column">
         <h2>Options</h2>
-        <!-- Radios are plain form controls: they work without JS (CSS :has()
-             in variables.css applies the theme) and with JS (@change drives
-             Nuxt Color Mode's data-theme). -->
+        <!-- Radios are plain form controls: with JS they drive Color Mode's
+             .dark/.light class; without JS the :has() state still flips
+             color-scheme in variables.css. -->
         <fieldset class="footer-menu options">
           <legend>Thema</legend>
-          <div class="toggle dark-mode">
+          <div class="toggle">
             <div class="toggle-row">
               <input
                 id="auto-mode"

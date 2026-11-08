@@ -15,7 +15,7 @@ Review: 7 read-only partition scans (components, content-components+CSS, pages+l
 | TD-016 | Contact/socials data in 3 places, URLs already drifted | MED | S-M | M | content | `content/contact.yml`, `content/footer.yml`, `content/links.yml`, `content/index.md`, `components/SocialSidebar.vue` |
 | TD-017 | Boards/commissies frontmatter redundancy + dead fields + title drift | MED | M | S-M | content | `content/boards/*.md`, `content/commissies/*.md`, `content.config.ts` |
 | TD-018 | Partner `description` duplicated verbatim as body lead (8 files) | MED | M | S | content | `content/partners/**/*.md` |
-| TD-019 | Dark palette copy-pasted twice in variables.css, already drifted | MED | M | M | css | `assets/css/variables.css` |
+| TD-019 | Dark palette copy-pasted twice in variables.css, already drifted - DONE 2026-11-08 (single `light-dark()` palette) | MED | M | M | css | `assets/css/variables.css` |
 | TD-020 | Partner marquee implemented twice (dead PartnerCarousel + HomePartners inline) — DONE 2026-09-13 (PartnerCarousel deleted) but **REOPENED**: HomePartners reinstated 2026-09-13 (commit `7eeb800`), so the inline marquee is live again | MED | M | S | components | `components/PartnerCarousel.vue` (deleted), `components/content/HomePartners.vue` |
 | TD-021 | Carousel SSR-fallback wrapper duplicated (HomeImageCarousel vs over-indicium) — DONE 2026-09-13 (one SSR carousel, no fallback swap) | MED | M | S | components/pages | `components/content/HomeImageCarousel.vue`, `pages/over-indicium.vue` |
 | TD-024 | PDF-redirect middleware duplicates page paths, serves stale legal docs on iOS | MED | M | S | logic/pages | `middleware/pdf-redirect.global.ts`, `pages/Statuten.vue`, `pages/HR.vue` |
@@ -35,7 +35,7 @@ Review: 7 read-only partition scans (components, content-components+CSS, pages+l
 | TD-041 | Desktop submenus hover-only, keyboard/AT-unreachable — PARTIAL 2026-09-13 (keyboard OK; expanded state not announced; mobile labels lost in the revert) | MED | M | S-M | components | `components/MenuItem.vue` |
 | TD-042 | No page reads useAsyncData error/pending; silent blank pages — PARTIAL 2026-09-13 (data awaited for SSR; errors unread) | MED | M | S-M | pages | `pages/*.vue` (15 collection pages) |
 | TD-043 | Conscribo vendor patches silent on drift, untestable monolith | MED | M | S-M | logic | `utils/conscriboForm.ts`, `components/ConscriboForm.client.vue` |
-| TD-044 | Component dark tweaks ignore no-JS radio path (wrong logo variant) — PARTIAL 2026-09-21 (HomeTextBlock + SocialSidebar tokenized; PartnerLogo/Bestuur open) | MED | M | S | components/css | `components/PartnerLogo.vue`, `components/content/HomeTextBlock.vue`, `assets/css/variables.css` |
+| TD-044 | Component dark tweaks ignore no-JS radio path (wrong logo variant) - DONE 2026-11-08 (class-based signal; PartnerLogo + Bestuur fixed) | MED | M | S | components/css | `components/PartnerLogo.vue`, `components/content/HomeTextBlock.vue`, `assets/css/variables.css` |
 | TD-045 | CI never runs tests or lint (no lint script at all) | MED | M | S | ci/test | `.github/workflows/*.yml`, `package.json`, `eslint.config.mjs`, `test/` |
 | TD-046 | CI overrides pnpm pin, floating action tags, no cache | MED | M | S | ci | `.github/workflows/*.yml`, `taze.config.js` |
 | TD-050 | Commissies/Dispuut identical card-list skeletons | LOW | S | S | pages | `pages/Commissies.vue`, `pages/Dispuut.vue` |
@@ -54,7 +54,7 @@ Review: 7 read-only partition scans (components, content-components+CSS, pages+l
 |---|------|---------|
 | 1 | **TD-042 + TD-016** — error/pending states on the 15 collection pages; one contact/socials source | Content is the product now (Studio forms, hero slots, icon fields): a bad edit currently renders a blank page with no message, and socials/contact already disagree between `contact.yml`, `footer.yml`, `links.yml` and hardcoded copies |
 | 2 | **TD-045 + TD-046** — quality gates | CI runs neither lint nor tests, and both workflows override the pinned pnpm with `pnpm@latest`. Note the dependency: eslint cannot run at all until the TS 7 parser crash is resolved (see `06-nits.md`), so land tests + pin first, lint second |
-| 3 | **TD-019 + TD-044** — dark palette single source, and fix the JS-only dark paths | ~45 duplicated lines have already drifted, component tweaks miss the no-JS radio path (wrong logo variant), and the new `--icon-*` tokens added a third copy of the same pattern |
+| 3 | **TD-019 + TD-044** — DONE 2026-11-08: single `light-dark()` palette, class-based theme signal | OS media query, `.dark`/`.light`, and the no-JS radio all toggle `color-scheme`; component dark paths use the same class. No duplicated palette or `data-theme`. |
 | 4 | **TD-041 (remaining)** — announce expanded state (`aria-expanded`/`aria-haspopup`) and restore mobile control labels | Re-opened: the E3 rewrite only delivered keyboard reachability, and the mobile rollback lost the labels. Small, contained, and it is the primary navigation |
 | 5 | **TD-057 / TD-058** — leave the unreleased Studio pin behind; audit unreferenced `public/` images | The pin is unmaintained-by-upstream; the images need an owner check first because `public/` paths are hotlinked from mailchimp emails |
 

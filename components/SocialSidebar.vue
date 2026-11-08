@@ -79,14 +79,14 @@ const ICON_CLASSES: Record<SocialIcon, string> = {
   padding: 14px 10px;
   border-radius: 10px;
   background: var(--secondary-background-color);
-  border: 1px solid rgba(var(--indi-blue-1-raw), 0.18);
+  border: 1px solid color-mix(in srgb, var(--indi-blue-1) 18%, transparent);
   text-decoration: none;
   color: inherit;
   text-align: center;
   transition: border-color 0.15s ease;
 
   &:hover {
-    border-color: rgba(var(--indi-blue-1-raw), 0.45);
+    border-color: color-mix(in srgb, var(--indi-blue-1) 45%, transparent);
   }
 }
 

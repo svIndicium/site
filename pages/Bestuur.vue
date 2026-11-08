@@ -70,7 +70,7 @@ h1 {
 .member {
   display: flex;
   flex-direction: column;
-  background: rgba(var(--secondary-background-color-raw), 0.4);
+  background: color-mix(in srgb, var(--secondary-background-color) 40%, transparent);
   border-radius: 12px;
   overflow: hidden;
   box-sizing: border-box;
@@ -97,8 +97,7 @@ h1 {
     margin: 0 0 0.4rem;
     font-size: 1.05rem;
     font-weight: 600;
-    color: var(--indi-blue-1);
-    filter: brightness(0.72);
+    color: var(--inline-link-color);
   }
 
   /* email is secondary — keep it quiet, not a loud link */
@@ -111,7 +110,7 @@ h1 {
       color: var(--text-color);
       opacity: 0.6;
       text-decoration: underline;
-      text-decoration-color: rgba(var(--text-color-raw), 0.35);
+      text-decoration-color: color-mix(in srgb, var(--text-color) 35%, transparent);
       text-underline-offset: 2px;
       transition: opacity 0.2s;
 
@@ -132,10 +131,6 @@ h1 {
     font-size: 0.95em;
     line-height: 1.5;
   }
-}
-
-html[data-theme='dark'] .member-info h4 {
-  filter: brightness(1.15);
 }
 
 /* Container query (top-level — nested @container is dropped in Vue dev): on

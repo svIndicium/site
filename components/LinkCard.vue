@@ -62,12 +62,12 @@ const iconStyle = computed(() => {
 
   padding: 1rem 1.5rem;
   border-radius: 8px;
-  background-color: rgba(var(--secondary-background-color-raw), 0.5);
+  background-color: color-mix(in srgb, var(--secondary-background-color) 50%, transparent);
   backdrop-filter: blur(8px) saturate(200%) brightness(96%);
 
   &:active,
   &:hover {
-    background-color: rgba(var(--secondary-background-color-raw), 0.75);
+    background-color: color-mix(in srgb, var(--secondary-background-color) 75%, transparent);
   }
 
   & > :is(img, .emoji, .icon) {

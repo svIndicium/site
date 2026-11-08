@@ -34,7 +34,7 @@ const props = withDefaults(
   border-radius: 10px;
   overflow: hidden;
   background: var(--secondary-background-color);
-  border: 1px solid rgba(var(--indi-blue-1-raw), 0.3);
+  border: 1px solid color-mix(in srgb, var(--indi-blue-1) 30%, transparent);
 }
 
 @media (max-width: 944px) {

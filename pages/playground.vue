@@ -235,7 +235,7 @@ function startResize(event: PointerEvent) {
 .controls textarea {
   width: 100%;
   box-sizing: border-box;
-  border: 1px solid rgba(var(--text-color-raw), 0.25);
+  border: 1px solid color-mix(in srgb, var(--text-color) 25%, transparent);
   border-radius: 6px;
   padding: 6px 8px;
   font: inherit;
@@ -260,9 +260,9 @@ function startResize(event: PointerEvent) {
   /* The stage is itself a CSS container, so nested container queries react to its width. */
   container-type: inline-size;
   min-height: 320px;
-  border: 1px dashed rgba(var(--text-color-raw), 0.35);
+  border: 1px dashed color-mix(in srgb, var(--text-color) 35%, transparent);
   border-radius: 10px;
-  background: rgba(var(--secondary-background-color-raw), 0.35);
+  background: color-mix(in srgb, var(--secondary-background-color) 35%, transparent);
   overflow: hidden;
   transition: width 0.05s linear;
 }
@@ -281,7 +281,7 @@ function startResize(event: PointerEvent) {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgba(var(--text-color-raw), 0.5);
+  color: color-mix(in srgb, var(--text-color) 50%, transparent);
   user-select: none;
   touch-action: none;
 }
@@ -299,7 +299,7 @@ function startResize(event: PointerEvent) {
   min-width: 70px;
 }
 .stage-info button {
-  border: 1px solid rgba(var(--text-color-raw), 0.3);
+  border: 1px solid color-mix(in srgb, var(--text-color) 30%, transparent);
   background: var(--root-background-color);
   color: var(--text-color);
   border-radius: 6px;

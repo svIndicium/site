@@ -65,8 +65,8 @@ const hasAnyPartners = computed(() => totalPartnersCount.value > 0);
 .partners-section {
   /* Single source for the row/carousel gap; the loop keyframe offsets by half. */
   --partners-gap: 16px;
-  border-top: 1px solid rgba(var(--indi-blue-1-raw), 0.1);
-  background: rgba(var(--indi-blue-1-raw), 0.06);
+  border-top: 1px solid color-mix(in srgb, var(--indi-blue-1) 10%, transparent);
+  background: color-mix(in srgb, var(--indi-blue-1) 6%, transparent);
   padding: 32px 0;
   margin-bottom: 32px;
 }
@@ -104,8 +104,8 @@ const hasAnyPartners = computed(() => totalPartnersCount.value > 0);
   height: 96px;
   padding: 16px 20px;
   border-radius: 10px;
-  border: 1px solid rgba(var(--indi-blue-1-raw), 0.2);
-  background: rgba(var(--indi-blue-1-raw), 0.06);
+  border: 1px solid color-mix(in srgb, var(--indi-blue-1) 20%, transparent);
+  background: color-mix(in srgb, var(--indi-blue-1) 6%, transparent);
   display: flex;
   align-items: center;
   justify-content: center;

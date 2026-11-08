@@ -149,13 +149,15 @@ export default defineNuxtConfig({
     },
   },
 
-  // Color mode configuration
+  // Color mode configuration. The .dark/.light class on <html> is the single
+  // theme signal: nuxt-studio hardcodes `classList.contains('dark')`, and the
+  // CSS palette resolves alongside it via light-dark(). Do not set a custom
+  // classSuffix or dataValue.
   colorMode: {
-    preference: 'system', // default value of $colorMode.preference
-    fallback: 'light', // fallback value if not system preference found
+    preference: 'system',
+    fallback: 'light',
     classSuffix: '',
-    dataValue: 'theme', // adds data-theme="dark" or "light" to <html>
-    storageKey: 'nuxt-color-mode', // localStorage key
+    storageKey: 'nuxt-color-mode',
   },
 
   // SVGO configuration for SVG optimization

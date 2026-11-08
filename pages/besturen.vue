@@ -92,7 +92,7 @@ const currentBoardNumber = computed(() =>
       width: 20px;
       height: 20px;
       background: var(--indi-blue-1);
-      box-shadow: 0 0 0 4px rgba(var(--indi-blue-1-raw), 0.3);
+      box-shadow: 0 0 0 4px color-mix(in srgb, var(--indi-blue-1) 30%, transparent);
     }
   }
 

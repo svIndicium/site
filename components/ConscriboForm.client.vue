@@ -50,7 +50,7 @@ onMounted(async () => {
     & td {
       padding: 12px 15px;
       text-align: left;
-      border-bottom: 1px solid rgba(var(--text-color-raw), 0.2);
+      border-bottom: 1px solid color-mix(in srgb, var(--text-color) 20%, transparent);
     }
 
     & td {

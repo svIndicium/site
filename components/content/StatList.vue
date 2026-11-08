@@ -36,7 +36,7 @@ const props = withDefaults(
   border-radius: 10px;
   padding: 1rem 0.75rem;
   background: var(--secondary-background-color);
-  border: 1px solid rgba(var(--indi-blue-1-raw), 0.25);
+  border: 1px solid color-mix(in srgb, var(--indi-blue-1) 25%, transparent);
 }
 
 .stat-card__number {
@@ -48,7 +48,7 @@ const props = withDefaults(
 
 .stat-card__label {
   font-size: 0.95rem;
-  color: rgba(var(--text-color-raw), 0.82);
+  color: color-mix(in srgb, var(--text-color) 82%, transparent);
 }
 
 @media (max-width: 944px) {

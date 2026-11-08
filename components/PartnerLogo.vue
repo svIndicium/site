@@ -23,13 +23,29 @@ const hasDarkVariant = !!props.partner.imgUrlDark;
 </template>
 
 <style>
-/* Theme-aware logo visibility - must be unscoped to work with parent styles */
-html:not([data-theme='dark']) .dark-only {
+/* Theme-aware logo visibility - must be unscoped to work with parent styles.
+   Light is the default; the dark variant wins for an explicit dark choice or an
+   OS dark preference (the latter also covers the no-JS path). */
+.dark-only {
   display: none !important;
 }
 
-html[data-theme='dark'] .light-only {
+html:where(.dark, :has(#dark-mode:checked)) .light-only {
   display: none !important;
+}
+
+html:where(.dark, :has(#dark-mode:checked)) .dark-only {
+  display: inline !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  html:where(:not(.light):not(:has(#light-mode:checked))) .light-only {
+    display: none !important;
+  }
+
+  html:where(:not(.light):not(:has(#light-mode:checked))) .dark-only {
+    display: inline !important;
+  }
 }
 </style>
 
