@@ -111,10 +111,17 @@ export default defineNuxtConfig({
   compatibilityDate: '2026-05-08',
 
   // Nitro configuration for Cloudflare Workers (Workers Builds runs
-  // `pnpm run build` then `wrangler deploy`; wrangler.jsonc provides main +
-  // assets, Nitro preset must emit .output/server/index.mjs, not static).
+  // `pnpm run build` then `wrangler deploy`). `deployConfig` lets Nitro write
+  // the Worker entry + ASSETS binding into .output/server/wrangler.json and
+  // redirect wrangler there via .wrangler/deploy/config.json, so wrangler.jsonc
+  // must not declare `main`/`assets` itself. Declaring them manually also makes
+  // dev emulate an ASSETS binding backed by .output/public, which breaks
+  // @nuxt/content's sql_dump route (empty Studio editor).
   nitro: {
     preset: 'cloudflare_module',
+    cloudflare: {
+      deployConfig: true,
+    },
     prerender: {
       autoSubfolderIndex: false,
       crawlLinks: true,
@@ -125,7 +132,7 @@ export default defineNuxtConfig({
   // Vite configuration
   vite: {
     optimizeDeps: {
-      include: ['ua-parser-js', 'add-to-calendar-button', 'embla-carousel-vue'],
+      include: ['ua-parser-js', 'add-to-calendar-button', 'embla-carousel-vue', 'canvas-confetti'],
     },
   },
 
