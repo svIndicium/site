@@ -153,7 +153,7 @@ export default defineNuxtConfig({
   colorMode: {
     preference: 'system', // default value of $colorMode.preference
     fallback: 'light', // fallback value if not system preference found
-    classSuffix: '-mode', // adds class like .dark-mode, .light-mode to <html>
+    classSuffix: '',
     dataValue: 'theme', // adds data-theme="dark" or "light" to <html>
     storageKey: 'nuxt-color-mode', // localStorage key
   },
