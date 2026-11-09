@@ -1,6 +1,8 @@
 ---
 title: Indicium
 description: Dé studievereniging voor HBO-ICT van Hogeschool Utrecht
+seo:
+  ogDescription: Wij zijn dé studievereniging voor HBO-ICT van Hogeschool Utrecht. Ontdek onze activiteiten, commissies, partners en hoe je lid wordt.
 ---
 
 ::hero-section

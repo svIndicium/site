@@ -1,10 +1,13 @@
 <script setup lang="ts">
+const contactQuery = useAsyncData('contact', () => queryCollection('contact').first());
+
 useSeoMeta({
   title: 'Contact',
-  description: 'Contactgegevens van Studievereniging Indicium',
+  description: () => contactQuery.data.value?.description,
+  ogDescription: () => contactQuery.data.value?.seo?.ogDescription || contactQuery.data.value?.description,
 });
 
-const { data: contactData } = await useAsyncData('contact', () => queryCollection('contact').first());
+const { data: contactData } = await contactQuery;
 
 const contact = computed(() => contactData.value || {});
 </script>

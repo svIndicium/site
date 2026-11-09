@@ -4,6 +4,7 @@ definePageMeta({ layout: 'minimal' });
 
 useSeoMeta({
   title: 'Discord',
+  ogDescription: 'Link naar onze Discord.'
 });
 
 onMounted(() => {

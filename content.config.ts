@@ -1,6 +1,15 @@
 import { defineContentConfig, defineCollection, property } from '@nuxt/content';
 import { z } from 'zod';
 
+// We override Nuxt Content's default SEO config with our own. It is mostly meant for OpenGraph configurations. The true SEO is done with the page description field.
+const seo = z.object({
+  ogDescription: property(z.string().max(200)).editor({
+    input: 'textarea',
+    label: 'OpenGraph description',
+    description: 'Longer description for social sharing (og:description). Max 200 characters.',
+  }),
+});
+
 // Collection schemas validate frontmatter, type query results, and drive Nuxt Studio's Form Editor.
 //
 // Two collection kinds:
@@ -38,6 +47,7 @@ export default defineContentConfig({
           label: 'Description',
           description: 'Shown in search results and social shares',
         }),
+        seo,
       }),
     }),
 
@@ -52,6 +62,7 @@ export default defineContentConfig({
           label: 'Description',
           description: 'Shown in search results and social shares',
         }),
+        seo,
       }),
     }),
 
@@ -60,10 +71,31 @@ export default defineContentConfig({
       source: 'contact.yml',
       type: 'data',
       schema: z.object({
+        description: property(z.string()).editor({
+          input: 'textarea',
+          label: 'Description',
+          description: 'Shown in search results',
+        }),
+        seo,
         address: z.string(), // full address
         mapsUrl: z.string(), // Google Maps link to the address
         room: z.string(), // room number, e.g. 'HL15-4.092'
         kvk: z.string(), // Chamber of Commerce (KvK) number
+      }),
+    }),
+
+    // Partners page metadata (`/partners`) details (pages/partners/index.vue).
+    partnersMeta: defineCollection({
+      source: 'partners/index.yml',
+      type: 'data',
+      schema: z.object({
+        title: z.string(),
+        description: property(z.string()).editor({
+          input: 'textarea',
+          label: 'Description',
+          description: 'Shown in search results',
+        }),
+        seo,
       }),
     }),
 
@@ -94,6 +126,12 @@ export default defineContentConfig({
       source: 'links.yml',
       type: 'data',
       schema: z.object({
+        description: property(z.string()).editor({
+          input: 'textarea',
+          label: 'Description',
+          description: 'Shown in search results',
+        }),
+        seo,
         links: property(
           z.array(
             property(
@@ -158,6 +196,7 @@ export default defineContentConfig({
       schema: z.object({
         slug: z.string().optional(), // partner page slug (index files only)
         title: z.string(),
+        seo: seo.optional(), // partner pages only; job offers have no SEO metadata
         tier: z.enum(['main', 'premium', 'regular']).optional(), // partner tier
         partnerSlug: z.string().optional(), // job offer: links the offer to its partner slug
         imgUrl: z.string().optional(), // partner logo (light theme)

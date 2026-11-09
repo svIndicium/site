@@ -1,8 +1,10 @@
 ---
 title: Axians
-description: |-
-  Axians is het ICT-merk van VINCI Energies en staat voor innovatie, samenwerking en digitale transformatie. Kleine
-  teams combineren vrijheid met de kracht van een groot netwerk en menselijke aandacht.
+description: Axians is het ICT-merk van VINCI Energies en biedt innovatieve oplossingen met menselijke aandacht.
+seo:
+  ogDescription: >-
+    Axians is het ICT-merk van VINCI Energies en staat voor innovatie, samenwerking en digitale transformatie. Kleine
+    teams combineren vrijheid met de kracht van een groot netwerk en menselijke aandacht.
 featured: false
 imgUrl: axians.png
 imgUrlDark: axians-white.png

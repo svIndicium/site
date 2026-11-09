@@ -1,10 +1,6 @@
 <script setup lang="ts">
 definePageMeta({ layout: 'minimal' });
 
-useSeoMeta({
-  title: 'Links',
-});
-
 import logo from '@/assets/logo/indicium-logo-icon.svg?component';
 import LinkCard from '@/components/LinkCard.vue';
 
@@ -12,8 +8,16 @@ import { useRouter } from 'vue-router';
 
 const router = useRouter();
 
+const linksQuery = useAsyncData('links', () => queryCollection('links').first());
+
+useSeoMeta({
+  title: 'Links',
+  description: () => linksQuery.data.value?.description,
+  ogDescription: () => linksQuery.data.value?.seo?.ogDescription || linksQuery.data.value?.description,
+});
+
 // Query links collection
-const { data: linksData } = await useAsyncData('links', () => queryCollection('links').first());
+const { data: linksData } = await linksQuery;
 const content = linksData.value?.links || [];
 
 // Nuxt Studio resolves the document to edit from a `[data-content-id]` marker in the

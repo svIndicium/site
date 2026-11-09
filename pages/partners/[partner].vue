@@ -4,20 +4,27 @@ import PartnerLogo from '@/components/PartnerLogo.vue';
 const route = useRoute();
 const slug = route.params.partner as string;
 
-const { data: partner } = await useAsyncData(`partner-${slug}`, () =>
+const partnerData = useAsyncData(`partner-${slug}`, () =>
   queryCollection('partners').where('slug', '=', slug).where('tier', 'IS NOT NULL').first(),
 );
 
-const { data: jobOffers } = await useAsyncData(`partner-jobs-${slug}`, () =>
+const jobOffersData = useAsyncData(`partner-jobs-${slug}`, () =>
   queryCollection('partners').where('partnerSlug', '=', slug).all(),
 );
 
 useSeoMeta({
-  title: partner.value?.title,
-  // Description is kept plain for simple SEO. ogDescription is for link previews, and can be longer. Should not be longer than about 200 characters.
-  description: `Informatie over ${partner.value?.title || 'deze partner'}`,
-  ogDescription: partner.value?.description || `Informatie over ${partner.value?.title || 'deze partner'}`
+  title: () => partnerData.data.value?.title,
+  // Short description for search results; the longer OpenGraph description is used for social previews.
+  description: () =>
+    partnerData.data.value?.description || `Informatie over ${partnerData.data.value?.title || 'deze partner'}`,
+  ogDescription: () =>
+    partnerData.data.value?.seo?.ogDescription ||
+    partnerData.data.value?.description ||
+    `Informatie over ${partnerData.data.value?.title || 'deze partner'}`,
 });
+
+const { data: partner } = await partnerData;
+const { data: jobOffers } = await jobOffersData;
 </script>
 
 <template>

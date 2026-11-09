@@ -1,8 +1,10 @@
 ---
 title: Hogeschool Utrecht
-description: |-
-  Hogeschool Utrecht is dè hogeschool van Utrecht en de thuisbasis van Indicium. Het
-  Institute for ICT leidt studenten op in software engineering, AI, cyber security, data, cloud en meer.
+description: Hogeschool Utrecht is de thuisbasis van Indicium en leidt studenten op in HBO-ICT en Open-ICT.
+seo:
+  ogDescription: >-
+    Hogeschool Utrecht is dè hogeschool van Utrecht en de thuisbasis van Indicium. Het Institute for ICT leidt
+    studenten op in software engineering, AI, cyber security, data, cloud en meer.
 featured: false
 imgUrl: hu-light.svg
 imgUrlDark: hu-dark.svg
