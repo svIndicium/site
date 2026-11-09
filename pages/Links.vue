@@ -10,10 +10,9 @@ const router = useRouter();
 
 const linksQuery = useAsyncData('links', () => queryCollection('links').first());
 
-useSeoMeta({
-  title: 'Links',
+usePageSeo('Links', {
   description: () => linksQuery.data.value?.description,
-  ogDescription: () => linksQuery.data.value?.seo?.ogDescription || linksQuery.data.value?.description,
+  ogDescription: () => linksQuery.data.value?.seo?.ogDescription,
 });
 
 // Query links collection

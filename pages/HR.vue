@@ -1,7 +1,5 @@
 <script setup lang="ts">
-useSeoMeta({
-  title: 'Huishoudelijk Reglement',
-});
+usePageSeo('Huishoudelijk Reglement');
 </script>
 
 <template>

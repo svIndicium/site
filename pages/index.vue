@@ -1,10 +1,9 @@
 <script setup lang="ts">
 const homeData = useAsyncData('home', () => queryCollection('home').first());
 
-useSeoMeta({
-  title: 'Studievereniging HBO-ICT',
+usePageSeo('Studievereniging HBO-ICT', {
   description: () => homeData.data.value?.description,
-  ogDescription: () => homeData.data.value?.seo?.ogDescription || homeData.data.value?.description,
+  ogDescription: () => homeData.data.value?.seo?.ogDescription,
 });
 
 const { data: home } = await homeData;

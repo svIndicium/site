@@ -1,10 +1,9 @@
 <script setup lang="ts">
 const aboutData = useAsyncData('about', () => queryCollection('about').first());
 
-useSeoMeta({
-  title: () => aboutData.data.value?.title,
+usePageSeo(() => aboutData.data.value?.title, {
   description: () => aboutData.data.value?.description,
-  ogDescription: () => aboutData.data.value?.seo?.ogDescription || aboutData.data.value?.description,
+  ogDescription: () => aboutData.data.value?.seo?.ogDescription,
 });
 
 const { data: page } = await aboutData;

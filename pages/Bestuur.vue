@@ -1,7 +1,5 @@
 <script setup lang="ts">
-useSeoMeta({
-  title: 'Bestuur',
-});
+usePageSeo('Bestuur');
 
 // The current board is derived: the newest one (highest boardNumber), so
 // editors never maintain an isCurrent flag.

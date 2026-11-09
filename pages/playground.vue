@@ -1,9 +1,7 @@
 <script setup lang="ts">
 import { computed, reactive, ref } from 'vue';
 
-useSeoMeta({
-  title: 'Playground',
-});
+usePageSeo('Playground');
 import ContentCard from '~/components/ContentCard.vue';
 import LinkCard from '~/components/LinkCard.vue';
 import JobOffers from '~/components/JobOffers.vue';

@@ -1,7 +1,5 @@
 <script setup lang="ts">
-useSeoMeta({
-  title: 'Statuten',
-});
+usePageSeo('Statuten');
 </script>
 
 <template>

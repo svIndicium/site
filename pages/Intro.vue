@@ -1,9 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
 
-useSeoMeta({
-  title: 'Introductiekamp',
-});
+usePageSeo('Introductiekamp');
 
 const imageUrl = ref('/assets/images/intro2023lowres.webp');
 

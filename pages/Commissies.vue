@@ -1,7 +1,5 @@
 <script setup lang="ts">
-useSeoMeta({
-  title: 'Commissies',
-});
+usePageSeo('Commissies');
 
 const { data: commissies } = await useAsyncData('commissies', () =>
   queryCollection('commissies').order('order', 'ASC').all(),

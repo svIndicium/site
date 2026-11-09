@@ -1,7 +1,5 @@
 <script setup lang="ts">
-useSeoMeta({
-  title: 'Privacyreglement',
-});
+usePageSeo('Privacyreglement');
 </script>
 
 <template>

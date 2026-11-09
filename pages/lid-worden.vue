@@ -2,9 +2,7 @@
 import { onMounted } from 'vue';
 import confetti from 'canvas-confetti';
 
-useSeoMeta({
-  title: 'Lid worden',
-});
+usePageSeo('Lid worden');
 
 // takes a position and calculates the angle needed to point to the middle of the screen
 function calculateAngleToCenter(x: number, y: number): number {

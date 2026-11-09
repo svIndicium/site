@@ -12,15 +12,11 @@ const jobOffersData = useAsyncData(`partner-jobs-${slug}`, () =>
   queryCollection('partners').where('partnerSlug', '=', slug).all(),
 );
 
-useSeoMeta({
-  title: () => partnerData.data.value?.title,
-  // Short description for search results; the longer OpenGraph description is used for social previews.
+// Short description for search results; the longer OpenGraph description is used for social previews.
+usePageSeo(() => partnerData.data.value?.title, {
   description: () =>
     partnerData.data.value?.description || `Informatie over ${partnerData.data.value?.title || 'deze partner'}`,
-  ogDescription: () =>
-    partnerData.data.value?.seo?.ogDescription ||
-    partnerData.data.value?.description ||
-    `Informatie over ${partnerData.data.value?.title || 'deze partner'}`,
+  ogDescription: () => partnerData.data.value?.seo?.ogDescription,
 });
 
 const { data: partner } = await partnerData;

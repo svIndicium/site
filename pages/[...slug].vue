@@ -1,7 +1,5 @@
 <script setup lang="ts">
-useSeoMeta({
-  title: 'Pagina niet gevonden',
-});
+usePageSeo('Pagina niet gevonden');
 
 const excuses = [
   'Sorry. Het was dit of een tentamen en het is het allebei niet geworden',

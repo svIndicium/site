@@ -1,10 +1,9 @@
 <script setup lang="ts">
 const contactQuery = useAsyncData('contact', () => queryCollection('contact').first());
 
-useSeoMeta({
-  title: 'Contact',
+usePageSeo('Contact', {
   description: () => contactQuery.data.value?.description,
-  ogDescription: () => contactQuery.data.value?.seo?.ogDescription || contactQuery.data.value?.description,
+  ogDescription: () => contactQuery.data.value?.seo?.ogDescription,
 });
 
 const { data: contactData } = await contactQuery;

@@ -2,10 +2,7 @@
 <script setup lang="ts">
 definePageMeta({ layout: 'minimal' });
 
-useSeoMeta({
-  title: 'Discord',
-  ogDescription: 'Link naar onze Discord.'
-});
+usePageSeo('Discord', { ogDescription: 'Link naar onze Discord.' });
 
 onMounted(() => {
   const ref = new URLSearchParams(globalThis.location.search).get('ref');
