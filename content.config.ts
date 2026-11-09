@@ -165,6 +165,7 @@ export default defineContentConfig({
         url: z.string().optional(), // external partner site / vacancy URL
         order: z.number().optional(), // sort order
         featured: z.boolean().optional(),
+        hideOnHomepage: z.boolean().optional(), // omit from the homepage partner carousel (e.g. TBA placeholder)
       }),
     }),
 
