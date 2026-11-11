@@ -219,7 +219,7 @@ export default defineNuxtConfig({
       provider: 'github',
       owner: 'svIndicium',
       repo: 'site',
-      branch: 'main',
+      branch: 'develop',
     },
   },
 
