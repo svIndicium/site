@@ -223,14 +223,14 @@ export default defineNuxtConfig({
     },
   },
 
-  // Studio is only needed in dev/editing; keep it out of the static prod
-  // build (also silences the "setup authentication" warning on generate).
-  // Vitest runs with NODE_ENV=test where $production doesn't apply, so
-  // silence the same warning there too. Unrelated to agenda work.
+  // Studio stays enabled in production: the Cloudflare Worker (SSR, see the
+  // nitro config above) serves the OAuth routes, and the GitHub credentials
+  // arrive at runtime as Worker secrets:
+  //   NUXT_STUDIO_AUTH_GITHUB_CLIENT_ID / NUXT_STUDIO_AUTH_GITHUB_CLIENT_SECRET
+  //   NUXT_STUDIO_AUTH_SESSION_SECRET (any long random string; signs the session cookie)
+  // Vitest runs with NODE_ENV=test, where the auth routes are never exercised,
+  // so keep Studio out of test builds to avoid the missing-credentials warning.
   $test: {
-    studio: false,
-  },
-  $production: {
     studio: false,
   },
 

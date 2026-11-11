@@ -104,8 +104,23 @@ curl localhost:3000/__nuxt_studio/meta
 ```
 `components.list` should list the components registered in `nuxt.config.ts`. The raw JSON also contains framework globals such as `Icon` from `@nuxt/icon`; `ungrouped: 'omit'` keeps those out of the editor UI.
 
-## Production auth / login gate (roadmap)
-In production builds Studio requires authentication. Current plan: a **Cloudflare Worker** acting as the Studio login gate (SSO/OAuth) so Studio edits are restricted to authorized staff. Not yet implemented — see `architecture.md`. Until then, production Studio auth must be configured via `studio.auth` / env (`STUDIO_GITHUB_TOKEN` etc.).
+## Production auth (GitHub OAuth)
+Studio is enabled in production (there is no `$production: { studio: false }`); only `$test` disables it. The site runs on **Cloudflare Workers with SSR** (`nitro.preset: 'cloudflare_module'`), which is required because Studio's OAuth callback is a server route.
+
+Auth uses the module's built-in GitHub OAuth provider. The **client ID is public** and lives in `wrangler.jsonc` under `vars` (Nitro merges that file into the generated Worker config at build time). The secrets are set on the Worker at runtime:
+
+| Setting | Where | Purpose |
+|---|---|---|
+| `NUXT_STUDIO_AUTH_GITHUB_CLIENT_ID` | `wrangler.jsonc` → `vars` | GitHub OAuth app client ID |
+| `NUXT_STUDIO_AUTH_GITHUB_CLIENT_SECRET` | Worker **secret** | GitHub OAuth app client secret |
+| `NUXT_STUDIO_AUTH_SESSION_SECRET` | Worker **secret** | Long random string; signs/encrypts the `studio-session` cookie (empty means an unsealed session) |
+| `NUXT_STUDIO_AUTH_GITHUB_MODERATORS` | optional var (`wrangler.jsonc`) | Comma-separated email allowlist; empty allows any GitHub user with repo write access |
+
+The env name includes `GITHUB`: `NUXT_STUDIO_AUTH_CLIENT_ID` is **not** read by the module.
+
+GitHub OAuth app settings: homepage `https://svindicium.nl`, callback `https://svindicium.nl/__nuxt_studio/auth/github` (Studio derives this from the request URL, so no `redirectUrl` config is needed). Client ID only lives in `wrangler.jsonc`; set the client secret and session secret in the Cloudflare dashboard under the Worker's Settings → Variables and Secrets (or with `wrangler secret put`).
+
+The OAuth token is reused for Git writes, so no `NUXT_STUDIO_GIT_GITHUB_TOKEN` PAT is needed with GitHub OAuth. Unset/incorrect credentials surface as a 500 on `/_studio` login ("Missing GitHub client ID or secret").
 
 ## Studio upgrade checklist (the pin is unreleased — see TD-057)
 `package.json` pins Studio to a `main`-branch preview build, so a bump is not a normal dependency update. After any `nuxt-studio` / `@nuxt/content` change, re-verify:

@@ -11,7 +11,7 @@
 
 ## Target architecture (roadmap)
 1. **Hosting → Cloudflare Pages** (static), replacing Firebase Hosting. `nuxt generate` output deploys to Pages; keep the existing GitHub Actions build or move to Pages' build integration.
-2. **Studio login gate → Cloudflare Worker.** A Worker in front of the Studio route handles auth/SSO so only authorized staff can open the Studio editor in production. (Nuxt Studio currently requires production auth config — see `nuxt-studio.md`.)
+2. **Studio production auth → built-in GitHub OAuth** (was: Cloudflare Worker login gate). Done: `studio.repository` pins `svIndicium/site`, Studio stays enabled in production, and the GitHub OAuth credentials live as Cloudflare Worker secrets (`NUXT_STUDIO_AUTH_GITHUB_*`, `NUXT_STUDIO_AUTH_SESSION_SECRET`). See `nuxt-studio.md`.
 3. **Binary content & images → R2 + Cloudflare Images.** Move images/PDFs out of `public/` into R2 (storage) and Cloudflare Images (resize/optimize/CDN), referenced by URL. Migrate existing `/assets/images/*` references.
 4. **Consistent styling & maintainability refactor (ongoing, incremental):**
    - Reduce per-page scoped CSS overrides. When a page needs a style, first try a **generic reusable component** or a **shared utility class** used across the app.
@@ -32,7 +32,7 @@
 
 ## Open work & known issues (priority order)
 1. **Migrate hosting → Cloudflare Pages** (replace Firebase). Keep `nuxt generate` output; wire CI (GitHub Actions or Pages build); retire `firebase.json`.
-2. **Cloudflare Worker as the Studio login gate** — secure the production Studio editor behind SSO/OAuth for authorized staff (not yet implemented).
+2. **Verify Studio production login on Cloudflare** — GitHub OAuth secrets are set on the Worker; confirm `/_studio` login → publish round-trip works on the deployed site. (See `nuxt-studio.md`.)
 3. **Move binaries/images → R2 + Cloudflare Images** — migrate `public/assets/images/*`, logos, PDFs out of the repo; update `/assets/...` references (carousel images, board photos, partner logos, docx).
 4. **Some pages are still hardcoded, not content** — convert them via the `make-content-editable` skill (slot-based MDC components + a `page` collection, page becomes a shim) when they next change. The current list is discoverable by scanning `pages/` for components that don't query a collection.
 5. **Styling refactor (incremental)** — reduce per-page scoped CSS; extract generic components / shared utility classes; use design tokens in `assets/css/variables.css`; keep specificity flat.

@@ -4,5 +4,12 @@
   "compatibility_date": "2026-09-15",
   "observability": {
     "enabled": true
+  },
+  // Public value (OAuth client IDs are not secret). Nitro merges this file
+  // into the generated `.output/server/wrangler.json` at build time, so this
+  // is what the deployed Worker receives. Secrets (client secret, session
+  // secret) belong in the Cloudflare dashboard, never here.
+  "vars": {
+    "NUXT_STUDIO_AUTH_GITHUB_CLIENT_ID": "Ov23liMmgBaTcvPjriuT"
   }
 }
