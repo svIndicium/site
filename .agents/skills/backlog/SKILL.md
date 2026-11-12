@@ -25,14 +25,15 @@ assign, or change the issue to `Ready`.
 
 ## Discussions
 
-GitHub Discussions is the team's lightweight Confluence. Before creating an
-issue, search Discussions for related plans and decisions. If the item is
-exploratory, cross-repo knowledge, a guide/runbook or an evaluation, it belongs
-in a discussion first; create an issue once the outcome is actionable. Link the
-discussion from the issue `Context` and the issue back from the discussion. See
-[`references/discussions.md`](references/discussions.md) for the category model
-and rules. Never post credentials, member data or PII. Agents create or update a
-discussion only when asked.
+GitHub Discussions is the parking lot for long-horizon ideas that are not ready
+for project 7. WhatsApp is quick chat; issues are ready work; `ai-docs/` or the
+wiki holds durable knowledge. Before creating an issue, search Discussions for
+related ideas. If the item is exploratory, cross-repo or still months away,
+propose an **Ideas** discussion instead of creating an issue. Link the discussion
+from the issue `Context` and the issue back from the discussion. Never post
+credentials, member data or PII. See
+[`references/discussions.md`](references/discussions.md) for the rules. Agents
+create or update a discussion only when asked.
 
 ## Input
 

@@ -1,56 +1,48 @@
-# Team discussions
+# Ideas parking lot
 
-GitHub Discussions is the team's lightweight Confluence: a living place for
-plans, proposals, guides, research and cross-repo knowledge. Issues are for work
-that will be implemented; pull requests are for code.
+Discussions is where we keep ideas that are **not ready for project 7 yet**.
+WhatsApp is for quick chat; issues are for work we are ready to pick up. This is
+the durable place for “what if” ideas so they do not disappear in chat.
 
-## Category model
+## What belongs here
 
-| Category          | Use it for                                                          |
-| ----------------- | ------------------------------------------------------------------- |
-| Announcements     | Maintainer updates and news                                         |
-| General           | Team-wide conversation that does not fit another category           |
-| Ideas & proposals | Pre-issue ideas, RFCs and design proposals                          |
-| Guides & how-tos  | Living guides, onboarding notes, runbooks and how-tos               |
-| Q&A               | Questions with a best answer                                        |
-| Decisions         | Settled decisions, linked to the durable `ai-docs/` or issue record |
-| Research          | Spikes, vendor comparisons, experiments and findings                |
-| Show and tell     | Demos, experiments and things worth sharing                         |
-| Polls             | Time-boxed team votes; record the outcome in Decisions              |
+- Product and process ideas that are still months away
+- Experiments and research questions
+- Backfill and automation opportunities
+- “Wouldn’t it be cool if…” proposals with enough context to revisit later
 
-If a category is missing, post in General and ask a maintainer to add it.
+Example: using OCR on ALV documents to extract a discussion summary, the
+vote/decision, and attendees; link attendees to events and the smoelenboek; and
+backfill old ALVs.
 
-## Issue vs discussion
+## What does not belong here
 
-Choose a discussion when the item is:
+- Ready work — create an issue on project 7
+- Code under review — use the pull request
+- Quick team chat — use WhatsApp
+- Durable guides, decisions and documentation — use `ai-docs/` or the wiki
+- Raw ALV documents, member data, credentials or other personal data — never post
+  them here. Use redacted examples and link to a secure location.
 
-- exploratory, uncertain or needs opinions before it becomes work
-- cross-repo or organisational knowledge
-- a guide, runbook, onboarding note or evaluation
-- a decision record that is not yet durable enough for `ai-docs/`
+## How to use it
 
-Choose an issue when the item has a clear outcome, acceptance criteria,
-out-of-scope and verification, and someone will implement it on project 7.
-
-It is fine to start with a discussion and create an issue later. Link the
-discussion from the issue's `Context`; link the issue back from the discussion.
-
-## Rules
-
-- Search before creating. Add to an existing discussion instead of duplicating.
-- One topic per discussion; use a statement or question as the title.
-- Treat the first post as the living page. Edit it to keep the current answer,
-  decisions and links at the top. Comments are for alternatives and evidence.
-- Link issues (`#123`), pull requests, commits, docs and external sources.
-- When the topic settles, record the outcome in the first post and move durable
-  content to `ai-docs/` or the issue. Discussions is the working surface, not the
-  system of record.
-- Never post credentials, tokens, member data or other personal data.
-- Agents may read discussions. Create or update one only when the user asks.
-- Contribution status is never stored, displayed or gated on.
+- Post in the **Ideas** category; **Announcements** is for maintainer news.
+- Make the title a concrete idea, not a vague topic.
+- In the first post, cover the problem, desired outcome, rough constraints, open
+  questions, and related data/systems.
+- Use comments for alternatives, evidence and questions.
+- When the idea becomes ready, create an issue, link it here, and update the
+  first post with the outcome.
+- When an idea is rejected, record why. Keep it for history.
+- Search first; add to an existing idea instead of duplicating it.
+- Never post secrets, member data or PII.
 
 ## Agents
 
-Before creating an issue, search Discussions for related plans and decisions.
-When an issue comes from a discussion, include the discussion link in `Context`.
-Do not post to Discussions during review, finish or PR creation.
+- Check Discussions (especially Ideas) before creating a duplicate issue.
+- If the user is brainstorming or the work is not ready, suggest an Ideas
+  discussion instead of creating an issue.
+- Agents may read discussions. Create or update one only when asked.
+- When an idea becomes an issue, link both ways: discussion in the issue
+  `Context`, issue in the discussion.
+- Do not post to Discussions during review, finish or PR creation.

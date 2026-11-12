@@ -1,4 +1,4 @@
 {
-  "source": "svIndicium/agent-marketplace#v0.2.3",
+  "source": "svIndicium/agent-marketplace#v0.2.4",
   "enabled": ["internal/workflow"]
 }

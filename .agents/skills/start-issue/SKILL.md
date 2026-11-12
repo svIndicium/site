@@ -37,9 +37,9 @@ Accept exactly one issue number or URL, for example `42` or
 ## Discussion context
 
 If the issue links a discussion, read it before changing scope or starting.
-Search Discussions for related plans and decisions. Discussions is the team's
-lightweight Confluence; it is context, not the system of record. Do not post to
-Discussions during this workflow unless the user asks. See
+Discussions are the parking lot for ideas that were not ready for the board; they
+are context, not the system of record. Do not post to Discussions during this
+workflow unless the user asks. See
 [`../backlog/references/discussions.md`](../backlog/references/discussions.md).
 
 ## Preflight
