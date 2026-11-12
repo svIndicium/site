@@ -5,22 +5,23 @@
       "id": "internal",
       "repository": "svIndicium/agent-marketplace",
       "ref": "main",
-      "commit": "acbeead0b8b93b8471f111d5c0c81c06d32eb54c"
+      "commit": "f655d2790dcfa283bb888699f330ecdeedea65ba"
     }
   ],
   "packages": [
     {
       "marketplace": "internal",
       "name": "workflow",
-      "version": "0.1.2",
-      "commit": "acbeead0b8b93b8471f111d5c0c81c06d32eb54c",
+      "version": "0.1.3",
+      "commit": "f655d2790dcfa283bb888699f330ecdeedea65ba",
       "components": [
         {
           "type": "skill",
           "name": "backlog",
           "path": "packages/workflow/skills/backlog",
           "files": {
-            "SKILL.md": "16c1069f09532658fca838e20d95da4f1590fb17e1d1709af134d34e315f15ae"
+            "SKILL.md": "3648ec9ded08cb10c2b0aad21314fd009d32954b67808edf42fa713ccf541d8a",
+            "references/discussions.md": "a704e5b06b898db23f84c68e02e19e3b8b10803b508ad8e269ce53422263fcda"
           }
         },
         {
@@ -42,7 +43,7 @@
           "name": "start-issue",
           "path": "packages/workflow/skills/start-issue",
           "files": {
-            "SKILL.md": "f48b665dfee7e678a6a1f33632c27a369ae43a79866af2f920befca09c900567",
+            "SKILL.md": "8cce3f4fe0db9d526a6408f4499f2377fbbb9099abe00edb75bd02284cbdbf72",
             "references/board-start.md": "1a15b779856116e6f8b750125907aadbe08cd28c9e1fb96e166d5337818b4863",
             "references/branch-and-slug.md": "18a3e2998ae4a707462b6771ebb0bc5076708b2107bcb19eef8cd6763b74f661",
             "references/scratch-templates.md": "0e75f31502ad31607ec3692b57c48815943dfda72cad00606480c85d4491d0f7"
@@ -155,7 +156,7 @@
         }
       ],
       "plugins": [],
-      "contentHash": "05408e2d814b15a0f30e67ca916fbda75405e5cf6286eface7721f1671962dfd"
+      "contentHash": "d4acebab26539429e81d80e52404991e28ead99b24ed1b5e5c9fe1488894883b"
     }
   ]
 }

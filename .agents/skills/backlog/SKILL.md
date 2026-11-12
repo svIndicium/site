@@ -23,6 +23,17 @@ from `review.humanReviewPaths`.
 Capture work now; refine and start it later. Do not create a branch, estimate,
 assign, or change the issue to `Ready`.
 
+## Discussions
+
+GitHub Discussions is the team's lightweight Confluence. Before creating an
+issue, search Discussions for related plans and decisions. If the item is
+exploratory, cross-repo knowledge, a guide/runbook or an evaluation, it belongs
+in a discussion first; create an issue once the outcome is actionable. Link the
+discussion from the issue `Context` and the issue back from the discussion. See
+[`references/discussions.md`](references/discussions.md) for the category model
+and rules. Never post credentials, member data or PII. Agents create or update a
+discussion only when asked.
+
 ## Input
 
 Accept a title, a bullet list, or a free-form brain dump. The user does not need
