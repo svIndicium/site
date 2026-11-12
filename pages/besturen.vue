@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import DataNotFound from '@/assets/icons/data-not-found.svg?component';
 
+usePageSeo('Besturen');
+
 // Query all boards newest-first (boardNumber is the chronological order).
 // The current board is derived — the highest boardNumber — so editors never
 // maintain an isCurrent flag.

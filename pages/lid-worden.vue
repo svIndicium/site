@@ -2,6 +2,8 @@
 import { onMounted } from 'vue';
 import confetti from 'canvas-confetti';
 
+usePageSeo('Lid worden');
+
 // takes a position and calculates the angle needed to point to the middle of the screen
 function calculateAngleToCenter(x: number, y: number): number {
   const deltaX = window.innerWidth / 2 - x * window.innerWidth;

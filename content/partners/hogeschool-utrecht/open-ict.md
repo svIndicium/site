@@ -1,8 +1,5 @@
 ---
 title: Open-ICT
-description: |-
-  Open-ICT is de flexibele ICT-opleiding van Hogeschool Utrecht waarbij jij zelf jouw leerpad samenstelt. Je kiest je
-  eigen vakken, projecten en specialisaties — gericht op wat jij wilt worden in de ICT-wereld.
 featured: true
 partnerSlug: hogeschool-utrecht
 url: https://www.hu.nl/voltijd-opleidingen/open-ict

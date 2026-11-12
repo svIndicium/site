@@ -4,18 +4,23 @@ import PartnerLogo from '@/components/PartnerLogo.vue';
 const route = useRoute();
 const slug = route.params.partner as string;
 
-const { data: partner } = await useAsyncData(`partner-${slug}`, () =>
+const partnerData = useAsyncData(`partner-${slug}`, () =>
   queryCollection('partners').where('slug', '=', slug).where('tier', 'IS NOT NULL').first(),
 );
 
-const { data: jobOffers } = await useAsyncData(`partner-jobs-${slug}`, () =>
+const jobOffersData = useAsyncData(`partner-jobs-${slug}`, () =>
   queryCollection('partners').where('partnerSlug', '=', slug).all(),
 );
 
-useSeoMeta({
-  title: partner.value?.title || 'Partner',
-  description: partner.value?.description || `Informatie over ${partner.value?.title || 'deze partner'}`,
+// Short description for search results; the longer OpenGraph description is used for social previews.
+usePageSeo(() => partnerData.data.value?.title, {
+  description: () =>
+    partnerData.data.value?.description || `Informatie over ${partnerData.data.value?.title || 'deze partner'}`,
+  ogDescription: () => partnerData.data.value?.seo?.ogDescription,
 });
+
+const { data: partner } = await partnerData;
+const { data: jobOffers } = await jobOffersData;
 </script>
 
 <template>

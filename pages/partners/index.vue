@@ -2,6 +2,13 @@
 import JobOffers from '@/components/JobOffers.vue';
 import PartnerLogo from '@/components/PartnerLogo.vue';
 
+const partnersMetaQuery = useAsyncData('partnersMeta', () => queryCollection('partnersMeta').first());
+
+usePageSeo(() => partnersMetaQuery.data.value?.title, {
+  description: () => partnersMetaQuery.data.value?.description,
+  ogDescription: () => partnersMetaQuery.data.value?.seo?.ogDescription,
+});
+
 await prefetchPartners();
 const { mainPartner, premiumPartners, regularPartners } = usePartners();
 

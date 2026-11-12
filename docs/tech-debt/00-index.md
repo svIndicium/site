@@ -31,7 +31,7 @@ Review: 7 read-only partition scans (components, content-components+CSS, pages+l
 | TD-037 | HomePartners: zero consumers, tier rendering triplicated — PARTIAL 2026-09-13 (was deleted; **reinstated** on the homepage by commit `7eeb800`, registration re-added) and tier render collapsed to one `allPartners` v-for on 2026-09-21 | LOW | S | S | components | `components/content/HomePartners.vue`, `nuxt.config.ts` |
 | TD-038 | pnpm-10 `onlyBuiltDependencies` dead under pinned pnpm 11 — DONE 2026-09-06 (deleted) | LOW | S | S | config | `pnpm-workspace.yaml` |
 | TD-039 | Stray `# test` heading live on chipsoft partner page — DONE 2026-09-06 (deleted) | LOW | S | S | content | `content/partners/chipsoft/index.md` |
-| TD-040 | router.client title hack races useSeoMeta | MED | M | S-M | plugins | `plugins/router.client.ts`, `nuxt.config.ts` |
+| TD-040 | router.client title hack races useSeoMeta — DONE 2026-11-05 (plugin deleted, per-page titles + global template) | MED | M | S-M | plugins | `plugins/router.client.ts` (deleted), `nuxt.config.ts`, `pages/*.vue` |
 | TD-041 | Desktop submenus hover-only, keyboard/AT-unreachable — PARTIAL 2026-09-13 (keyboard OK; expanded state not announced; mobile labels lost in the revert) | MED | M | S-M | components | `components/MenuItem.vue` |
 | TD-042 | No page reads useAsyncData error/pending; silent blank pages — PARTIAL 2026-09-13 (data awaited for SSR; errors unread) | MED | M | S-M | pages | `pages/*.vue` (15 collection pages) |
 | TD-043 | Conscribo vendor patches silent on drift, untestable monolith | MED | M | S-M | logic | `utils/conscriboForm.ts`, `components/ConscriboForm.client.vue` |
@@ -58,7 +58,7 @@ Review: 7 read-only partition scans (components, content-components+CSS, pages+l
 | 4 | **TD-041 (remaining)** — announce expanded state (`aria-expanded`/`aria-haspopup`) and restore mobile control labels | Re-opened: the E3 rewrite only delivered keyboard reachability, and the mobile rollback lost the labels. Small, contained, and it is the primary navigation |
 | 5 | **TD-057 / TD-058** — leave the unreleased Studio pin behind; audit unreferenced `public/` images | The pin is unmaintained-by-upstream; the images need an owner check first because `public/` paths are hotlinked from mailchimp emails |
 
-Deferred deliberately: TD-040 (SEO titles), TD-024 (iOS PDF staleness), TD-043 (Conscribo drift), TD-053 (seasonal Intro page), TD-056 (blocked upstream), TD-052 (content freshness, not code).
+Deferred deliberately: TD-024 (iOS PDF staleness), TD-043 (Conscribo drift), TD-053 (seasonal Intro page), TD-056 (blocked upstream), TD-052 (content freshness, not code).
 
 ## What explicitly NOT to fix
 
