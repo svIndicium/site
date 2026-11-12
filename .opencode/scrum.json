@@ -1,0 +1,15 @@
+{
+  "owner": "svIndicium",
+  "project": 7,
+  "baseBranch": "develop",
+  "branchPattern": "^(feat|fix|chore|docs|refactor|test|perf|ci|build)/[1-9][0-9]*-[a-z0-9]+(?:-[a-z0-9]+)*$",
+  "checks": [
+    { "name": "lint", "command": "pnpm exec eslint .", "when": "always" },
+    { "name": "test", "command": "pnpm test", "when": "always" }
+  ],
+  "review": {
+    "schema": "indicium/review/v2",
+    "validator": ".agents/skills/review-branch/scripts/validate-review.mjs",
+    "humanReviewPaths": ["server", "middleware", "auth", "secrets"]
+  }
+}

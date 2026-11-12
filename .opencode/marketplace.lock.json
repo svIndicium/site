@@ -1,0 +1,161 @@
+{
+  "version": 3,
+  "marketplaces": [
+    {
+      "id": "internal",
+      "repository": "svIndicium/agent-marketplace",
+      "ref": "main",
+      "commit": "fb18b2d1b7a9203f5b45dda79ecc475a8856fcc4"
+    }
+  ],
+  "packages": [
+    {
+      "marketplace": "internal",
+      "name": "workflow",
+      "version": "0.1.0",
+      "commit": "fb18b2d1b7a9203f5b45dda79ecc475a8856fcc4",
+      "components": [
+        {
+          "type": "skill",
+          "name": "backlog",
+          "path": "packages/workflow/skills/backlog",
+          "files": {
+            "SKILL.md": "043fc6d31d4cba73a56d40b63fde48b82f332f9fe21dde197adf0695e01baa7b"
+          }
+        },
+        {
+          "type": "skill",
+          "name": "scrum-estimation",
+          "path": "packages/workflow/skills/scrum-estimation",
+          "files": {
+            "SKILL.md": "d6634e6c9e3b8ff983a82551f84b0954270008849fef4731c1ce8e87fee686fc",
+            "references/board.md": "17a7026c2da1638855a84522fa72496e04cb068ace46b64abb97687efa9bc8df",
+            "references/dor-dod.md": "c4b8ae7172b9384619d85f3230589d6f5d5f7bb453507bb1bc6b364f731f365c",
+            "references/drafting-issues.md": "ced2cb3bbffa19fa83e0cfa7281b43ba924db979597018c63bbd5d3a1ca4c5b1",
+            "references/priority-rubric.md": "9bcfcff84f55d7a61c9b4c8b306d4d6b50dbd7fce3e9d02bdb97450c26df46fc",
+            "references/rubric.md": "be2d1ebd5c73acb7066b19d6ce567b353994ac065b33598fdc04e0ad591c13ef",
+            "references/scope-and-effort.md": "dc47e2f6a6e84e7084dbab03dac9ccb4bcb79561774e7375155f0456a9d89aa9"
+          }
+        },
+        {
+          "type": "skill",
+          "name": "start-issue",
+          "path": "packages/workflow/skills/start-issue",
+          "files": {
+            "SKILL.md": "98c382ca72770df05171d298a0d8f5535ec75c8148a6bdc993e442860faae314",
+            "references/board-start.md": "1a15b779856116e6f8b750125907aadbe08cd28c9e1fb96e166d5337818b4863",
+            "references/branch-and-slug.md": "4cce3ca605fae93fb31f4f9d85c07e515f88c9fd8da7bb9184a5c591033f0e16",
+            "references/scratch-templates.md": "0e75f31502ad31607ec3692b57c48815943dfda72cad00606480c85d4491d0f7"
+          }
+        },
+        {
+          "type": "skill",
+          "name": "review-branch",
+          "path": "packages/workflow/skills/review-branch",
+          "files": {
+            "SKILL.md": "7d612b3dee8e09f9ea0e84bb4d858a31cc06fc64090e7a0dacb21177b9b54db3",
+            "references/gates.md": "a59a46eac0e64ef37f789bd2ada4a141f61ae83301e5823835399698afb961fd",
+            "references/review-schema.md": "094400c3f9656a6b66fff72f1827a6709442509e17b07ca079f874f7f05c3354",
+            "references/review.schema.json": "2618aae0fdcbbaf2e59606c80ffd3e5d3cfd1f77765ed88712cdea8ec2ea620a",
+            "scripts/lib/predicates.mjs": "71390f7caff2c9c1da7bcc8f6e5760178e463329b7a01b7826986b93047e7e0f",
+            "scripts/lib/review-entities.mjs": "acfbb6bd80fde42d814f89cd48547229ce8e07251e324dce1abe4b51bca6ca9c",
+            "scripts/lib/review-report.mjs": "894245f37817af07657bae589c0e0d1f90785c306257847a80ee28dd7c6b9aac",
+            "scripts/lib/review-schema.mjs": "6d2b0cb7167eab4161fa9a745744574456ae844bd15b9bb90db50bd4b3ecc220",
+            "scripts/validate-review.mjs": "61c86f20440b605978c6defeb57ece03df804460f113472f5ef4f7635ab5d93d"
+          }
+        },
+        {
+          "type": "skill",
+          "name": "handle-review",
+          "path": "packages/workflow/skills/handle-review",
+          "files": {
+            "SKILL.md": "6f4f80f3be9acabca5b1580a82c91ec1dc5474ce9e5038c2618ddb5dc236438c"
+          }
+        },
+        {
+          "type": "skill",
+          "name": "finish-issue",
+          "path": "packages/workflow/skills/finish-issue",
+          "files": {
+            "SKILL.md": "3562a9cc712d8523bb27acc095b2c309afbddbafb52ff1a48f58f05f40ecbc4f",
+            "references/handoff.md": "9abeea36392e16a3bf766ddcf6ab9ed7449fd3fcfb07f9d6f912bc165fa59ff2"
+          }
+        },
+        {
+          "type": "skill",
+          "name": "create-pr",
+          "path": "packages/workflow/skills/create-pr",
+          "files": {
+            "SKILL.md": "00452efe0fd092c1f057816e562449c2ac7b7c70129686f4cffbcfa9acfa3cfa"
+          }
+        },
+        {
+          "type": "command",
+          "name": "backlog",
+          "path": "packages/workflow/commands/backlog.md",
+          "files": {
+            "": "7492984178982877896f2787733a4cba399d96beec13443ef1a7e48a24e4d41f"
+          }
+        },
+        {
+          "type": "command",
+          "name": "estimate",
+          "path": "packages/workflow/commands/estimate.md",
+          "files": {
+            "": "1d477cbd098b8e0b610af21f5ab14a193d596856be720db513f93b42082d943a"
+          }
+        },
+        {
+          "type": "command",
+          "name": "start-issue",
+          "path": "packages/workflow/commands/start-issue.md",
+          "files": {
+            "": "951386ef3000bd524ead623e73c30c0ff7653ade161f1333ea387a5e4b681f7a"
+          }
+        },
+        {
+          "type": "command",
+          "name": "review-branch",
+          "path": "packages/workflow/commands/review-branch.md",
+          "files": {
+            "": "d1480a44cfe8042509ded18c0643a32a8eb7063d9d1ebd643f3f47a3c100cafa"
+          }
+        },
+        {
+          "type": "command",
+          "name": "handle-review",
+          "path": "packages/workflow/commands/handle-review.md",
+          "files": {
+            "": "dccb4a6994f0fdd67814b62ccd2fbe01d8d0b9e83b0f0150906b17f4dc697a57"
+          }
+        },
+        {
+          "type": "command",
+          "name": "finish-issue",
+          "path": "packages/workflow/commands/finish-issue.md",
+          "files": {
+            "": "4fd452ac078a7a4d19642962bf6f3fad39b38c9d1d04013626373e9c8a3b51e7"
+          }
+        },
+        {
+          "type": "command",
+          "name": "create-pr",
+          "path": "packages/workflow/commands/create-pr.md",
+          "files": {
+            "": "3f3d56f702dbb1749d1d7ebf10adce4343a9f4d2cb394bc9fc5de7173f24ed02"
+          }
+        },
+        {
+          "type": "agent",
+          "name": "reviewer",
+          "path": "packages/workflow/agents/reviewer.md",
+          "files": {
+            "": "9f9e9d534769da440fbe20f64b0599e85800e4d0b8bc8d4675483d726313d3d6"
+          }
+        }
+      ],
+      "plugins": [],
+      "contentHash": "dde11229b370039b191be8cc23615231983553469763fb64d39f7f63cf9a81d3"
+    }
+  ]
+}
