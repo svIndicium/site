@@ -20,8 +20,6 @@ Review defaults: schema `indicium/review/v2`, validator
 `.agents/skills/review-branch/scripts/validate-review.mjs`, human-review paths
 from `review.humanReviewPaths`.
 
-
-
 Turn one GitHub issue into a linked branch, scratch notes, and an `In progress`
 board item. No sprint ceremony, no mandatory estimation.
 
@@ -41,7 +39,7 @@ Accept exactly one issue number or URL, for example `42` or
 ```bash
 gh auth status
 git status --porcelain
-git fetch origin main
+git fetch origin <baseBranch>
 ```
 
 - `gh` must be installed. If not, stop and point to <https://cli.github.com/>.
@@ -49,7 +47,8 @@ git fetch origin main
   to run `gh auth refresh -s project,read:project`.
 - `git status --porcelain` must be empty. If not, stop and list the paths. Do not
   stash, clean, or commit the user's work.
-- `git fetch origin main` keeps the new branch based on current `main`.
+- `git fetch origin <baseBranch>` keeps the new branch based on the current
+  base branch (`main` by default).
 
 ## Load the issue
 

@@ -20,8 +20,6 @@ Review defaults: schema `indicium/review/v2`, validator
 `.agents/skills/review-branch/scripts/validate-review.mjs`, human-review paths
 from `review.humanReviewPaths`.
 
-
-
 Post-push handoff. This is the only skill allowed to run `gh pr create`,
 `gh pr edit`, and `gh pr ready`. It never commits, pushes, merges, closes,
 approves, or requests changes.
@@ -36,16 +34,16 @@ approves, or requests changes.
 
 Run every gate; if one fails, stop and report it. Do not improvise.
 
-| Gate        | Requirement                                                                                                              |
-| ----------- | ------------------------------------------------------------------------------------------------------------------------ |
-| Branch      | matches the configured `branchPattern`; never `main`                                                                      |
-| Review run  | both review files exist; `review.branch` is the current branch                                                           |
-| Review      | passes `.agents/skills/review-branch/scripts/validate-review.mjs`; `schema` is `indicium/review/v2`                                            |
-| Mode        | `review.mode` is `staged` or `committed`                                                                                 |
-| Tree        | `review.reviewed_tree == git rev-parse HEAD^{tree}` (exact, full SHA)                                                    |
-| Worktree    | clean index and worktree; no untracked or unmerged paths                                                                 |
-| Pushed      | `git ls-remote --heads origin <branch>` SHA equals `git rev-parse HEAD`                                                  |
-| Existing PR | checked with `gh pr list --head <branch> --state open`                                                                   |
+| Gate        | Requirement                                                                                         |
+| ----------- | --------------------------------------------------------------------------------------------------- |
+| Branch      | matches the configured `branchPattern`; never `main`                                                |
+| Review run  | both review files exist; `review.branch` is the current branch                                      |
+| Review      | passes `.agents/skills/review-branch/scripts/validate-review.mjs`; `schema` is `indicium/review/v2` |
+| Mode        | `review.mode` is `staged` or `committed`                                                            |
+| Tree        | `review.reviewed_tree == git rev-parse HEAD^{tree}` (exact, full SHA)                               |
+| Worktree    | clean index and worktree; no untracked or unmerged paths                                            |
+| Pushed      | `git ls-remote --heads origin <branch>` SHA equals `git rev-parse HEAD`                             |
+| Existing PR | checked with `gh pr list --head <branch> --state open`                                              |
 
 ```bash
 git branch --show-current

@@ -42,7 +42,7 @@ or commit the work. A report without a valid mode is invalid.
 
 | Field                   | Meaning                                                              |
 | ----------------------- | -------------------------------------------------------------------- |
-| `schema`                | Always `indicium/review/v2`.                                     |
+| `schema`                | Always `indicium/review/v2`.                                         |
 | `issue`                 | GitHub issue number, integer >= 1.                                   |
 | `branch`                | `<type>/<issue>-<slug>`, e.g. `feat/42-passkey-login`.               |
 | `base`                  | Base ref compared against, normally `origin/main`.                   |
@@ -109,7 +109,7 @@ Required fields:
 | `pre_existing`          | True only when the diff shows the issue predates the change.                          |
 | `status`                | `open`, `fixed`, `accepted`, `false_positive`.                                        |
 | `verification`          | Command or check a human can run.                                                     |
-| `human_review_required` | Sensitive area or human judgement needed.                                   |
+| `human_review_required` | Sensitive area or human judgement needed.                                             |
 
 Optional triage fields:
 

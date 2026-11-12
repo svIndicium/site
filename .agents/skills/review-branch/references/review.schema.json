@@ -247,7 +247,13 @@
           "type": "boolean"
         },
         "decision": {
-          "enum": ["pending", "fix_now", "accept", "false_positive", "follow_up"],
+          "enum": [
+            "pending",
+            "fix_now",
+            "accept",
+            "false_positive",
+            "follow_up"
+          ],
           "default": "pending",
           "description": "Triage decision. pending is the default. The validator enforces decision/status consistency."
         },

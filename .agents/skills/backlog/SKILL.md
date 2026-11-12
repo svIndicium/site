@@ -20,8 +20,6 @@ Review defaults: schema `indicium/review/v2`, validator
 `.agents/skills/review-branch/scripts/validate-review.mjs`, human-review paths
 from `review.humanReviewPaths`.
 
-
-
 Capture work now; refine and start it later. Do not create a branch, estimate,
 assign, or change the issue to `Ready`.
 

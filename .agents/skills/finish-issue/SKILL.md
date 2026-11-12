@@ -20,8 +20,6 @@ Review defaults: schema `indicium/review/v2`, validator
 `.agents/skills/review-branch/scripts/validate-review.mjs`, human-review paths
 from `review.humanReviewPaths`.
 
-
-
 Prepare the handoff without changing the repository. This skill never commits,
 pushes, merges, tags, or opens a pull request, and never changes the index. A
 human runs the final commands.
@@ -36,17 +34,17 @@ human runs the final commands.
 
 Run every gate; if one fails, stop and report it. Do not work around it.
 
-| Gate            | Requirement                                                                                                |
-| --------------- | ---------------------------------------------------------------------------------------------------------- |
-| Branch          | matches the configured `branchPattern`                                                                     |
-| Review run      | `review.json` and `review.md` exist; `review.branch` is the current branch                                 |
-| Review artifact | passes `.agents/skills/review-branch/scripts/validate-review.mjs`                                                                    |
-| Schema          | `schema` is `indicium/review/v2`; `mode` is `staged` or `committed`                                    |
-| Verdict         | `pass` or `pass_with_findings`                                                                             |
-| Findings        | no `blocker` or `major` finding with status `open`                                                         |
-| Acceptance      | every criterion is `met` or `waived`                                                                       |
-| Checks          | non-empty; no `fail`; every skip has a `reason`; every `always` check passed                               |
-| Worktree        | no untracked or unmerged paths; mode-specific gates below also hold                                        |
+| Gate            | Requirement                                                                  |
+| --------------- | ---------------------------------------------------------------------------- |
+| Branch          | matches the configured `branchPattern`                                       |
+| Review run      | `review.json` and `review.md` exist; `review.branch` is the current branch   |
+| Review artifact | passes `.agents/skills/review-branch/scripts/validate-review.mjs`            |
+| Schema          | `schema` is `indicium/review/v2`; `mode` is `staged` or `committed`          |
+| Verdict         | `pass` or `pass_with_findings`                                               |
+| Findings        | no `blocker` or `major` finding with status `open`                           |
+| Acceptance      | every criterion is `met` or `waived`                                         |
+| Checks          | non-empty; no `fail`; every skip has a `reason`; every `always` check passed |
+| Worktree        | no untracked or unmerged paths; mode-specific gates below also hold          |
 
 ```bash
 git branch --show-current

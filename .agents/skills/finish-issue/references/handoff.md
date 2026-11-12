@@ -43,10 +43,10 @@ One short paragraph. Write it on one line; GitHub wraps it. Do not hard-wrap at
 
 ## Verification
 
-| Check   | Command                           | Status |
-| ------- | --------------------------------- | ------ |
-| Lint    | `<configured check>`              | pass   |
-| Test    | `<configured check>`              | pass   |
+| Check | Command              | Status |
+| ----- | -------------------- | ------ |
+| Lint  | `<configured check>` | pass   |
+| Test  | `<configured check>` | pass   |
 
 Skipped: path-specific checks (not applicable). Use one line, not an empty table row
 for every skipped gate.

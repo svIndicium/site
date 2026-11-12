@@ -20,8 +20,6 @@ Review defaults: schema `indicium/review/v2`, validator
 `.agents/skills/review-branch/scripts/validate-review.mjs`, human-review paths
 from `review.humanReviewPaths`.
 
-
-
 A lightweight refinement aid, **not a mandatory ceremony**. The board has five
 Status values: `Backlog`, `Ready`, `In progress`, `In review`, `Done`.
 Refinement is the `needs-refinement` label, not a column.

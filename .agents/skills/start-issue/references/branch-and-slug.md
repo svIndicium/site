@@ -44,7 +44,7 @@ or abandon it. Never delete or force-update a branch.
 ## Create it
 
 ```bash
-git switch --no-track -c "<branch>" origin/main
+git switch --no-track -c "<branch>" "origin/<baseBranch>"
 ```
 
 - Do **not** use `gh issue develop`: it publishes the branch to `origin`, and

@@ -20,8 +20,6 @@ Review defaults: schema `indicium/review/v2`, validator
 `.agents/skills/review-branch/scripts/validate-review.mjs`, human-review paths
 from `review.humanReviewPaths`.
 
-
-
 Resolve each finding's `decision` in `tmp/<branch>/review.json`, update
 `review.md`, and never change product code, the index, or a PR.
 

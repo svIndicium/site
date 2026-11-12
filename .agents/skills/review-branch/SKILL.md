@@ -20,8 +20,6 @@ Review defaults: schema `indicium/review/v2`, validator
 `.agents/skills/review-branch/scripts/validate-review.mjs`, human-review paths
 from `review.humanReviewPaths`.
 
-
-
 Review the current branch for issue `<n>` without changing product code. The
 output is evidence, not a merge: `tmp/<branch>/review.json` and `review.md`. A
 human reviews and merges. Read
