@@ -1,0 +1,286 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://svindicium.nl/schemas/review-v2.json",
+  "title": "Indicium branch review",
+  "description": "Machine-readable result of the /review-branch workflow. The JSON Schema is the wire contract; .agents/skills/review-branch/scripts/validate-review.mjs adds cross-field checks such as unique finding IDs, check reasons, finding decisions, and verdict consistency.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "issue",
+    "branch",
+    "base",
+    "mode",
+    "reviewed_head",
+    "reviewed_tree",
+    "generated_at",
+    "agent",
+    "verdict",
+    "checks",
+    "acceptance_criteria",
+    "findings",
+    "summary",
+    "human_review_required"
+  ],
+  "properties": {
+    "schema": {
+      "const": "indicium/review/v2"
+    },
+    "issue": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "branch": {
+      "type": "string",
+      "pattern": "^(feat|fix|chore|docs|refactor|test|perf|ci|build)/[1-9][0-9]*-[a-z0-9]+(?:-[a-z0-9]+)*$",
+      "description": "<type>/<issue>-<slug>, for example feat/42-passkey-login."
+    },
+    "base": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Base ref the review compared against, normally origin/main."
+    },
+    "mode": {
+      "enum": ["staged", "committed"],
+      "description": "staged reviews the index; committed reviews HEAD against the merge base."
+    },
+    "reviewed_head": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{40}$",
+      "description": "HEAD commit at review time (git rev-parse HEAD)."
+    },
+    "reviewed_tree": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{40}$",
+      "description": "Reviewed tree: git write-tree in staged mode, git rev-parse HEAD^{tree} in committed mode."
+    },
+    "generated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "agent": {
+      "type": "string",
+      "minLength": 1
+    },
+    "verdict": {
+      "enum": ["pass", "pass_with_findings", "changes_requested", "blocked"]
+    },
+    "checks": {
+      "type": "array",
+      "description": "Execution log for the reviewed tree, including skipped gates and their reasons.",
+      "items": {
+        "$ref": "#/$defs/check"
+      }
+    },
+    "acceptance_criteria": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/acceptanceCriterion"
+      }
+    },
+    "findings": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/finding"
+      }
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 1
+    },
+    "human_review_required": {
+      "type": "boolean"
+    },
+    "triage": {
+      "$ref": "#/$defs/triage"
+    }
+  },
+  "$defs": {
+    "check": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "command",
+        "status",
+        "reason",
+        "exit_code",
+        "duration_seconds",
+        "output_path"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "command": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "enum": ["pass", "fail", "skipped"]
+        },
+        "reason": {
+          "type": ["string", "null"],
+          "description": "Why the gate was skipped; required and non-empty when status is skipped, otherwise null."
+        },
+        "exit_code": {
+          "type": ["integer", "null"]
+        },
+        "duration_seconds": {
+          "type": "number",
+          "minimum": 0
+        },
+        "output_path": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "acceptanceCriterion": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["criterion", "status", "evidence"],
+      "properties": {
+        "criterion": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "enum": ["met", "unmet", "unverified", "waived"]
+        },
+        "evidence": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "finding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "severity",
+        "category",
+        "file",
+        "line",
+        "end_line",
+        "symbol",
+        "title",
+        "evidence",
+        "why_it_matters",
+        "recommendation",
+        "confidence",
+        "pre_existing",
+        "status",
+        "verification",
+        "human_review_required"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "severity": {
+          "enum": ["blocker", "major", "minor", "nit"]
+        },
+        "category": {
+          "enum": [
+            "correctness",
+            "security",
+            "performance",
+            "tests",
+            "docs",
+            "style",
+            "scope",
+            "other"
+          ]
+        },
+        "file": {
+          "type": "string",
+          "minLength": 1
+        },
+        "line": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "end_line": {
+          "type": ["integer", "null"],
+          "minimum": 1,
+          "description": "Last line; when not null, the validator requires it to be >= line."
+        },
+        "symbol": {
+          "type": ["string", "null"]
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "evidence": {
+          "type": "string",
+          "minLength": 1
+        },
+        "why_it_matters": {
+          "type": "string",
+          "minLength": 1
+        },
+        "recommendation": {
+          "type": "string",
+          "minLength": 1
+        },
+        "confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "pre_existing": {
+          "type": "boolean"
+        },
+        "status": {
+          "enum": ["open", "fixed", "accepted", "false_positive"]
+        },
+        "verification": {
+          "type": "string",
+          "minLength": 1
+        },
+        "human_review_required": {
+          "type": "boolean"
+        },
+        "decision": {
+          "enum": [
+            "pending",
+            "fix_now",
+            "accept",
+            "false_positive",
+            "follow_up"
+          ],
+          "default": "pending",
+          "description": "Triage decision. pending is the default. The validator enforces decision/status consistency."
+        },
+        "follow_up_issue": {
+          "type": ["integer", "null"],
+          "minimum": 1,
+          "description": "Required when decision is follow_up; must be null otherwise."
+        },
+        "decision_note": {
+          "type": ["string", "null"],
+          "description": "Short rationale for the decision, or null."
+        }
+      }
+    },
+    "triage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["decided_at", "verdict_before"],
+      "properties": {
+        "decided_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "verdict_before": {
+          "enum": ["pass", "pass_with_findings", "changes_requested", "blocked"]
+        }
+      }
+    }
+  }
+}
