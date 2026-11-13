@@ -1,9 +1,15 @@
 <script setup lang="ts">
 const { mainPartner, premiumPartners, regularPartners } = usePartners();
 
-const mainPartners = computed(() => (mainPartner.value ? [mainPartner.value] : []));
-const premiumPartnerList = computed(() => premiumPartners.value ?? []);
-const regularPartnerList = computed(() => regularPartners.value ?? []);
+// Partners flagged `hideOnHomepage` (e.g. the TBA placeholder) stay on /partners
+// but are left out of the homepage carousel and its partner count.
+const isHomepagePartner = (partner: { hideOnHomepage?: boolean }) => !partner.hideOnHomepage;
+
+const mainPartners = computed(() =>
+  mainPartner.value && isHomepagePartner(mainPartner.value) ? [mainPartner.value] : [],
+);
+const premiumPartnerList = computed(() => (premiumPartners.value ?? []).filter(isHomepagePartner));
+const regularPartnerList = computed(() => (regularPartners.value ?? []).filter(isHomepagePartner));
 
 const totalPartnersCount = computed(
   () => mainPartners.value.length + premiumPartnerList.value.length + regularPartnerList.value.length,

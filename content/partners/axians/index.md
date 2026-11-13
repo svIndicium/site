@@ -2,6 +2,7 @@
 title: Axians
 description: The best of ICT with a human touch
 featured: false
+hideOnHomepage: false
 imgUrl: axians.png
 imgUrlDark: axians-white.png
 order: 2
