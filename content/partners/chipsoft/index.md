@@ -4,6 +4,7 @@ description: |-
   Wil jij meehelpen de zorg te verbeteren, maar zie jij jezelf niet direct aan het bed van een patiënt staan? Neem dan
   eens een kijkje bij ChipSoft.
 featured: false
+hideOnHomepage: false
 imgUrl: ChipSoft-light.svg
 imgUrlDark: ChipSoft-white.svg
 order: 1
@@ -21,10 +22,9 @@ Met gepassioneerde developers en consultants, die stuk voor stuk hart hebben voo
 
 Met HiX als totaaloplossing voor de zorg zijn zorginstellingen van allerlei omvang altijd klaar voor nu én voor de toekomst. Daarin spelen digitale samenwerking en gegevensuitwisseling tussen alle partijen rondom de patiënt een steeds grotere rol.
 
-Help jij graag mee de zorg verbeteren met slimme ICT? Stuur dan een mail naar <recruitment@chipsoft.com>.
+Help jij graag mee de zorg verbeteren met slimme ICT? Stuur dan een mail naar [recruitment@chipsoft.com](mailto:recruitment@chipsoft.com).
 
 - **Facebook**: <https://www.facebook.com/chipsoftbv/>
 - **LinkedIn**: <https://www.linkedin.com/company/chipsoft/>
 - **Instagram**: <https://www.instagram.com/chipsoftnederland/>
 - **Website**: [Werken bij ChipSoft](https://www.chipsoft.com/nl-NL/werken-bij)
-

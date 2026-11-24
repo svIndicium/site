@@ -2,6 +2,7 @@
 slug: 'hogeschool-utrecht'
 title: 'Hogeschool Utrecht'
 tier: 'regular'
+hideOnHomepage: false
 imgUrl: 'hu-light.svg'
 imgUrlDark: 'hu-dark.svg'
 url: 'https://hu.nl/'

@@ -2,6 +2,7 @@
 title: Gezocht!
 description: Wij zijn momenteel op zoek naar een hoofdpartner!
 featured: false
+hideOnHomepage: true
 imgUrl: placeholder_indicium_logo.png
 imgUrlDark: placeholder_indicium_logo.png
 order: 0
