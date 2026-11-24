@@ -23,6 +23,18 @@ from `review.humanReviewPaths`.
 Capture work now; refine and start it later. Do not create a branch, estimate,
 assign, or change the issue to `Ready`.
 
+## Discussions
+
+GitHub Discussions is the parking lot for long-horizon ideas that are not ready
+for project 7. WhatsApp is quick chat; issues are ready work; `ai-docs/` or the
+wiki holds durable knowledge. Before creating an issue, search Discussions for
+related ideas. If the item is exploratory, cross-repo or still months away,
+propose an **Ideas** discussion instead of creating an issue. Link the discussion
+from the issue `Context` and the issue back from the discussion. Never post
+credentials, member data or PII. See
+[`references/discussions.md`](references/discussions.md) for the rules. Agents
+create or update a discussion only when asked.
+
 ## Input
 
 Accept a title, a bullet list, or a free-form brain dump. The user does not need

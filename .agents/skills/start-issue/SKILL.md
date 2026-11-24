@@ -34,6 +34,14 @@ Accept exactly one issue number or URL, for example `42` or
 - Closed or missing issue: stop.
 - More than one issue: stop and ask which one.
 
+## Discussion context
+
+If the issue links a discussion, read it before changing scope or starting.
+Discussions are the parking lot for ideas that were not ready for the board; they
+are context, not the system of record. Do not post to Discussions during this
+workflow unless the user asks. See
+[`../backlog/references/discussions.md`](../backlog/references/discussions.md).
+
 ## Preflight
 
 ```bash
