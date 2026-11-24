@@ -1,4 +1,6 @@
 <script setup lang="ts">
+usePageSeo('Dispuut');
+
 const { data: disputen } = await useAsyncData('dispuut', () => queryCollection('dispuut').all());
 </script>
 

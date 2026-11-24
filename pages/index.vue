@@ -1,5 +1,12 @@
 <script setup lang="ts">
-const { data: home } = await useAsyncData('home', () => queryCollection('home').first());
+const homeData = useAsyncData('home', () => queryCollection('home').first());
+
+usePageSeo('Studievereniging HBO-ICT', {
+  description: () => homeData.data.value?.description,
+  ogDescription: () => homeData.data.value?.seo?.ogDescription,
+});
+
+const { data: home } = await homeData;
 
 // The homepage content renders ::home-partners (MDC), which cannot await Nuxt
 // composables itself — pre-resolve the same keys here so the marquee is in the

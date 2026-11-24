@@ -45,7 +45,13 @@ export default defineNuxtConfig({
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
       htmlAttrs: { lang: 'nl' },
-      title: 'Indicium',
+      // Every page sets its own title through useSeoMeta. The template lives
+      // here (instead of stamping document.title from a router hook) so the
+      // title is already correct in the prerendered HTML and stays correct on
+      // client-side navigation. `title` is the fallback for the SPA 200/404
+      // shells, which have no page-level title.
+      title: 'Studievereniging',
+      titleTemplate: 'Indicium - %s',
       meta: [
         { name: 'description', content: 'Wij zijn dé studievereniging voor HBO-ICT van Hogeschool Utrecht' },
         // Open Graph

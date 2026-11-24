@@ -7,6 +7,9 @@
 ## Schema fields
 Authoritative schema lives in `content.config.ts`. Page collections get native `title`/`description`; custom frontmatter is schema-defined (`description` uses `property().editor({ input: 'textarea' })` for the Studio textarea).
 
+- `description` — concise summary, used for `<meta name="description">`.
+- `seo.ogDescription` — longer social-sharing text (max 200 characters), used for `og:description`.
+
 ## Body (MDC structure)
 The homepage body is a composition of globally-registered MDC components (hero, layout grid, carousel, text blocks, agenda, socials, partners, …). **Read `content/index.md` for the current structure** — don't rely on a fixed outline, because it's editable in Studio. Syntax rules: `references/mdc-syntax.md`.
 

@@ -9,6 +9,7 @@
 |---|---|---|
 | `slug` | string, optional | partner page slug (partner `index.md` only) |
 | `title` | string | name |
+| `seo` | object, optional | partner pages only: `{ ogDescription }`; `seo.ogDescription` (max 200) fills `og:description` |
 | `tier` | enum, optional | `main` / `premium` / `regular` |
 | `partnerSlug` | string, optional | job offers: links offer to its partner slug |
 | `imgUrl` / `imgUrlDark` | string, optional | partner logo, light / dark theme |
@@ -19,4 +20,5 @@
 ## Notes
 - Partner `index.md` files carry `slug` + `tier` + logos; job-offer files carry `partnerSlug` + `url` (+ `featured`).
 - `description` is a native page field (not in schema).
+- `seo` is optional because job-offer files share this collection; only partner `index.md` files carry it.
 - `[partner].vue` requires `tier IS NOT NULL` to treat a file as a partner page (excludes job offers).

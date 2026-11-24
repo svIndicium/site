@@ -1,8 +1,10 @@
 ---
 title: ChipSoft
-description: |-
-  Wil jij meehelpen de zorg te verbeteren, maar zie jij jezelf niet direct aan het bed van een patiënt staan? Neem dan
-  eens een kijkje bij ChipSoft.
+description: ChipSoft is toonaangevend in zorg-ICT en helpt zorginstellingen met het HiX-systeem.
+seo:
+  ogDescription: >-
+    ChipSoft is toonaangevend in zorg-ICT en helpt zorginstellingen met het geïntegreerde HiX-systeem om efficiënter te
+    werken, gegevens beter te delen en de patiënt meer regie te geven.
 featured: false
 imgUrl: ChipSoft-light.svg
 imgUrlDark: ChipSoft-white.svg

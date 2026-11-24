@@ -1,4 +1,6 @@
 <script setup lang="ts">
+usePageSeo('Commissies');
+
 const { data: commissies } = await useAsyncData('commissies', () =>
   queryCollection('commissies').order('order', 'ASC').all(),
 );

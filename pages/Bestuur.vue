@@ -1,4 +1,6 @@
 <script setup lang="ts">
+usePageSeo('Bestuur');
+
 // The current board is derived: the newest one (highest boardNumber), so
 // editors never maintain an isCurrent flag.
 const { data: currentBoard } = await useAsyncData('currentBoard', () =>

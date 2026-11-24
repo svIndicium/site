@@ -5,7 +5,10 @@
 - **Query:** `queryCollection('about').first()`.
 
 ## Schema fields
-Authoritative schema lives in `content.config.ts`. Page collections get native `title`/`description`; the SEO `description` uses `property().editor({ input: 'textarea' })`.
+Authoritative schema lives in `content.config.ts`. Page collections get native `title`/`description`; custom frontmatter is schema-defined.
+
+- `description` — concise summary, used for `<meta name="description">`.
+- `seo.ogDescription` — longer social-sharing text (max 200 characters), used for `og:description`.
 
 ## Body (MDC structure)
 The body composes globally-registered section components: a carousel, text sections, and a stats list. **Read `content/over-indicium.md` for the current structure** (it's editable in Studio) and `references/mdc-syntax.md` for syntax.
