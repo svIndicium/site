@@ -1,0 +1,4 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "plugins": ["github:svIndicium/opencode-marketplace#main"],
+}
