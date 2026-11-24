@@ -27,7 +27,6 @@ onMounted(async () => {
 </template>
 
 <style>
-
 .cwfForm {
   background: var(--root-background-color);
   color: var(--text-color);
@@ -187,6 +186,15 @@ onMounted(async () => {
       color: var(--text-color);
       text-align: center;
       font-weight: bold;
+    }
+  }
+
+  /* Conscribo's picker cannot fit a phone screen without falling off-screen or
+     squashing the day cells. Geboortedatum is editable text, so hide the picker
+     on mobile and let people type the date instead. */
+  @media screen and (max-width: 768px) {
+    & .date-input-container {
+      display: none;
     }
   }
 
